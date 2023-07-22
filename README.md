@@ -73,7 +73,7 @@ bin/dev
 
 ## License
 
-このgemは、[MITライセンス](https://opensource.org/licenses/MIT)の条件の下でオープンソースとして利用可能です。
+このアプリは、[MITライセンス](https://opensource.org/licenses/MIT)の条件の下でオープンソースとして利用可能です。
 
 ## Code of Conduct
 
