@@ -24,3 +24,7 @@ body {
   list-style: decimal;
   padding-left: 2rem;
 }
+
+.EasyMDEContainer .CodeMirror {
+  border: none !important;
+}
