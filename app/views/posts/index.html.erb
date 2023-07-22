@@ -37,7 +37,6 @@
       <% end %>
     </div>
     <% end %>
-    <%= link_to "Reload", "/", data: { turbo_method: :get, turbo_frame: "posts" }, class: "w-full h-full block p-5 bg-white text-center text-sky-500 border-b hover:bg-gray-50" %>
     <% if @posts.empty? %>
       <p class="w-full text-center py-16 font-bold"><%= I18n.t("posts.not_found") %></p>
     <% end %>
