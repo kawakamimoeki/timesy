@@ -6,7 +6,7 @@ export default class extends Controller {
   emoji(event) {
     event.preventDefault()
     const emoji = event.target.innerText
-    const value = window.easyMDE.value()
-    window.easyMDE.value(value + emoji) 
+    const value = this.element.easyMDE.value()
+    this.element.easyMDE.value(value + emoji) 
   }
 }
