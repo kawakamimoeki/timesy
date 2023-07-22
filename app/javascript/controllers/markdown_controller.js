@@ -44,4 +44,9 @@ export default class extends Controller {
     this.editorContainerTarget.classList.remove("hidden");
     this.editorButtonTarget.classList.add("hidden");
   }
+
+  clear() {
+    this.element.easyMDE.value('');
+    this.previewTarget.innerHTML = '';
+  }
 }

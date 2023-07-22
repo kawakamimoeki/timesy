@@ -8,7 +8,7 @@
           <%= image_tag current_user.avatar_icon, width: "50px", height: "50px", class: "w-10 h-10 object-cover rounded-full" %>
         <% end %>
       </div>
-      <%= form_with model: @post, url: create_post_path, data: { action: "turbo:submit-end->turbo-form#clear", turbo_frame: :posts, controller: "turbo-form markdown", post_editor_confirm_message: I18n.t("page.confirm_leave"),  markdown_min_height_value: "100px", markdown_placeholder_value: I18n.t("posts.placeholder") }, class: "grow transition-all" do |f| %>
+      <%= form_with model: @post, url: create_post_path, data: { action: "turbo:submit-end->turbo-form#clear turbo:submit-end->markdown#clear", turbo_frame: :posts, controller: "turbo-form markdown", post_editor_confirm_message: I18n.t("page.confirm_leave"),  markdown_min_height_value: "100px", markdown_placeholder_value: I18n.t("posts.placeholder") }, class: "grow transition-all" do |f| %>
         <div>
           <%= flash[:error] %>
           <div class="max-w-3xl mx-auto">
