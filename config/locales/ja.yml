@@ -1,7 +1,6 @@
 ja:
   site:
-    description: 「できた！」の瞬間を共有できるエンジニアのためのマイクロブログサービス
-  copyright: Communify は、ナレッジ共有サイトを構築するためのオープンソースソフトウェアです。
+    description: エンジニアのためのマイクロブログサービス
   activerecord:
     attributes:
       user:

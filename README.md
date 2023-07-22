@@ -1,6 +1,6 @@
 ![Timesy](./docs/main.png)
 
-**Timesy**は「できた！」の瞬間を共有できるマイクロブログサービスです。
+**Timesy**はエンジニアのためのマイクロブログサービスです。
 
 ## Development
 
