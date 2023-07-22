@@ -5,6 +5,7 @@ import remarkParse from 'remark-parse';
 import remarkRehype from 'remark-rehype';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeStringify from 'rehype-stringify';
+import EmojiConvertor from 'emoji-js';
 
 export default class extends Controller {
   static values = { minHeight: String, placeholder: String }
@@ -33,7 +34,8 @@ export default class extends Controller {
       .use(rehypeHighlight)
       .use(rehypeStringify)
       .process(this.element.easyMDE.value());
-    this.previewTarget.innerHTML = result.toString();
+    const emoji = new EmojiConvertor();
+    this.previewTarget.innerHTML = emoji.replace_colons(result.toString());
   }
 
   edit() {
