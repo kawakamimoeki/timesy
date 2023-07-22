@@ -9,7 +9,16 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(username: params[:username])
-    @posts = @user.posts.latest
+
+    page_limit = 20
+    @current_page = params[:page].to_i
+
+    @posts = Post.offset(page_limit*@current_page)
+      .includes(:user)
+      .where(user_id: @user.id)
+      .latest
+      .limit(page_limit)
+    @next_page = @current_page + 1 if Post.all.count > page_limit*@current_page + page_limit
   end
 
   def confirm
