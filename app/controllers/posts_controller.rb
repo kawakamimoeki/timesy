@@ -9,8 +9,12 @@ class PostsController < ApplicationController
   end
 
   def index
-    @posts = Post.includes(:user).latest
+    page_limit = 20
     @post = Post.new
+    @current_page = params[:page].to_i
+
+    @posts = Post.offset(page_limit*@current_page).includes(:user).latest.limit(page_limit)
+    @next_page = @current_page + 1 if Post.all.count > page_limit*@current_page + page_limit
   end
 
   def show
