@@ -1,0 +1,19 @@
+<header class="w-full px-5 bg-white shadow-sm">
+  <div class="flex items-center py-3 text-sm max-w-3xl mx-auto">
+    <%= link_to "/", class: "block mr-3" do %>
+      <img src="<%= "/logo.png" %>" alt="logo" width="100px" height="30px" />
+    <% end %>
+    <div class="grow"></div>
+    <% if current_user %>
+      <%= link_to search_path, class: "mr-3 rounded-full p-relative p-2 hover:bg-gray-50 transition-all" do %>
+        <%= image_tag 'icons/search.svg', width: '24px', height: '24px' %>
+      <% end %>
+      <%= link_to user_path(username: current_user.username) do %>
+        <%= image_tag current_user.avatar_icon, width: "30px", height: "30px", class: "rounded-full" %>
+      <% end %>
+    <% else %>
+      <%= link_to I18n.t("users.sign_in"), "/users/sign_in", class: "mr-5 font-bold" %>
+      <%= link_to I18n.t("users.sign_up"), "/users/sign_up", class: primary_button_class %>
+    <% end %>
+  <div>
+</header>

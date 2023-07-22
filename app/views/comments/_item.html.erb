@@ -1,0 +1,22 @@
+<div class="border-b p-5 text-sm group">
+  <div class="flex space-x-1 items-center mb-2">
+    <%= render partial: 'shared/avatar', locals: { user: item.user } %>
+    <time class="text-gray-400"><%= time_ago_in_words(item.created_at) %></time>
+    <div class="grow"></div>
+    <% if item.user == current_user %>
+      <%= button_to(
+        I18n.t("comments.delete"),
+        delete_comment_url(post_id: item.post.id, id: item.id),
+        method: :delete,
+        class: "hidden group-hover:flex text-xs text-gray-400 hover:text-red-600 items-center",
+        data: {
+          turbo_frame: "comments",
+          turbo_confirm: I18n.t("comments.confirm_delete")
+        }
+      ) %>
+    <% end %>
+  </div>
+  <div class="markdown-body" style="<%= item.emoji_only? ? "font-size: 32px;" : "" %>">
+    <%= item.html.html_safe %>
+  </div>
+</div>

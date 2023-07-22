@@ -1,0 +1,9 @@
+<% if errors.present? && errors.is_a?(Array) %>
+  <div class="mb-5">
+    <ul class="bg-red-100 text-xs list-disc border border-red-600 rounded py-2 px-6">
+    <% errors.each do |error| %>
+      <li class="text-red-600"><%= error %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>

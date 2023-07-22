@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+  <%= render partial: "shared/head" %>
+
+  <body style="background-color: rgb(246, 248, 250);">
+    <%= render partial: "shared/header" %>
+    <main class="p-5">
+      <%= yield %>
+    </main>
+    <%= render partial: "shared/footer" %>
+  </body>
+</html>

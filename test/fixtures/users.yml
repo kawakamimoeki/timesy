@@ -1,0 +1,8 @@
+general:
+  email: test@example.com
+  username: test
+  name: Taro Test
+  bio: test
+  github: test
+  twitter: test
+  website: https://example.com

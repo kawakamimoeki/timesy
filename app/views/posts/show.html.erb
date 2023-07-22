@@ -1,0 +1,65 @@
+<div class=" max-w-3xl mx-auto">
+  <div class="py-5 bg-white p-5 border-b" data-controller="post-show">
+    <div class="flex mb-3 items-center">
+      <%= render partial: "shared/avatar", locals: { user: @post.user } %>
+      <div class="grow"></div>
+      <% if current_user == @post.user %>
+      <button class="text-gray-600 hover:underline text-xs mr-2" data-action="post-show#edit" data-post-show-target="editButton">
+        <%= I18n.t("posts.edit") %>
+      </button>
+      <button class="hidden text-gray-600 hover:underline text-xs mr-2" data-action="post-show#close" data-post-show-target="closeButton">
+        Close
+      </button>
+      <div class="-mt-[3px]">
+        <%= button_to(
+          I18n.t("posts.delete"),
+          delete_post_path(@post),
+          method: :delete,
+          class: "text-gray-600 hover:underline hover:text-red-600 text-xs",
+          data: { turbo_confirm: I18n.t("posts.confirm_delete") }
+        ) %>
+      </div>
+      <% end %>
+    </div>
+    <%= turbo_frame_tag :post, data: { post_show_target: "show" }, class: "markdown-body" do %>
+      <%= @post.html.html_safe %>
+    <% end %>
+    <div class="hidden" data-post-show-target="editor">
+      <%= form_with model: @post, url: update_post_path(id: @post.id), data: { action: "turbo:submit-end->post-show#close turbo:submit-end->turbo-form#clear", turbo_frame: :post, controller: "turbo-form markdown", post_editor_confirm_message: I18n.t("page.confirm_leave"),  markdown_min_height_value: "100px", markdown_placeholder_value: I18n.t("posts.placeholder") }, class: "grow transition-all" do |f| %>
+        <div>
+          <%= flash[:error] %>
+          <div class="max-w-3xl mx-auto">
+            <div class="bg-white">
+              <div data-markdown-target="editorContainer">
+                <%= f.text_area :body, data: { markdown_target: "editor", post_editor_target: "body" }, class: "prose" %>
+              </div>
+              <div class="markdown-body hidden px-5 min-h-[100px]" data-markdown-target="preview"></div>
+            </div>
+          </div>
+        </div>
+        <div class="flex pt-3 w-full items-center bg-white">
+          <div class="grow"></div>
+          <div class="px-1">
+            <button type="button" class="rounded-full p-relative p-2 hover:bg-gray-50 transition-all" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton">
+              <%= image_tag "icons/preview.svg", class: "w-6 h-6" %>
+            </button>
+            <button type="button" class="rounded-full p-relative p-2 hover:bg-gray-50 transition-all hidden" title="<%=  I18n.t('posts.edit') %>" data-action="markdown#edit" data-markdown-target="editorButton">
+              <%= image_tag "icons/edit.svg", class: "w-6 h-6" %>
+            </button>
+          </div>
+          <div class="px-1">
+            <%= f.submit I18n.t('posts.publish'), class: primary_button_class, data: { post_editor_target: "publish" } %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+  <div class="border-b p-5 bg-white">
+    <%= render partial: "comments/form", locals: { comment: @comment, post: @post } %>
+  </div>
+  <div class="bg-white">
+    <%= turbo_frame_tag "comments" do %>
+      <%= render partial: 'comments/item', collection: @post.comments.order(created_at: :desc) %>
+    <% end %>
+  </div>
+</div>

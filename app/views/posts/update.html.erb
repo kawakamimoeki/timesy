@@ -1,0 +1,3 @@
+<%= turbo_frame_tag :post, data: { post_show_target: "show", class: "markdown-body" } do %>
+  <%= @post.html.html_safe %>
+<% end %>

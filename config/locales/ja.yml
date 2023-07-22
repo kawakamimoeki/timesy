@@ -1,0 +1,125 @@
+ja:
+  site:
+    description: 「できた！」の瞬間を共有できるエンジニアのためのマイクロブログサービス
+  copyright: Communify は、ナレッジ共有サイトを構築するためのオープンソースソフトウェアです。
+  activerecord:
+    attributes:
+      user:
+        username: ユーザーネーム
+        name: 表示名
+        bio: 自己紹介
+        github: GitHub
+        twitter: Twitter
+        website: ウェブサイト
+  errors:
+    messages:
+      blank: "を入力してください"
+      taken: "はすでに取得されています"
+    attributes:
+      username:
+        invalid: "は半角英数字とアンダースコア（_）のみ使用できます"
+  posts:
+    draft: 下書き
+    new: 記事を書く
+    publish: つぶやく
+    save_as_draft: 下書きに保存
+    preview: プレビュー
+    edit: 編集する
+    delete: 削除する
+    not_found: 投稿がありません
+    confirm_delete: 投稿を削除してもよろしいですか？この操作は元に戻せません。
+    placeholder: Write in Markdown
+  comments:
+    submit: コメントする
+    delete: 削除する
+    confirm_delete: コメントを削除してよろしいですか？
+    placeholder: コメントする（絵文字だけを打つと大きく表示されます！）
+  passwordless:
+    sign_in: ログイン
+    send: ログインリンクを送信
+    expired: このリンクは期限切れです。もう一度リンク送信を行ってください。
+    check_your_email: 確認メールを送信しました。メールに記載されたリンクをクリックしてください。
+    sessions:
+      create:
+        email_sent_if_record_found: ログインリンクを送信しました。メールに記載されたリンクをクリックしてください。
+        session_expired: 'セッションが期限切れです。再度ログインしてください。'
+        token_claimed: "このリンクは既に使用されています。リンクを再度要求してください。"
+      new:
+        submit: 'マジックリンクを送信する'
+      sign_out: サインアウトする
+    mailer:
+      subject: "ログインリンクを確認してください"
+      magic_link: "こちらがあなたのリンクです：%{link}"
+      register:
+        title: はじめまして！
+        submit: メールアドレスを認証する
+        desc: 誰かがあなたのアカウントに新しい場所からログインしようとしています。これがあなたの場合は、下のリンクをクリックして承認してください。これがあなたでない場合は、このメールを無視してください。
+      login:
+        title: お帰りなさい！
+        submit: ログインを承認する
+        desc: アカウントに新しい場所からログインしようとしています。これがあなたの場合は、下のリンクをクリックして承認してください。
+  users:
+    sign_in: ログイン
+    sign_up: 新規登録
+    sign_out: ログアウト
+    delete: アカウントを削除する
+    username_format: 半角英数字とアンダースコア（_）を使用できます
+    already_registered: このメールアドレスはすでに登録されています
+    welcome: "%{site_title}へようこそ！"
+    not_signed_in: ログインしてください
+    setting: アカウント設定
+    confirm_delete: 削除されるとアカウントは復旧できません。よろしいですか？
+  settings:
+    updated: アップデートしました
+  search:
+    placeholder: キーワードを入力
+  form:
+    changeable: いつでも変更できます
+    unchangeable: 後から変更できません
+    placeholder:
+      normal: "%{field}を入力"
+      github: アカウント名のみ入力
+      twitter: "@なしで入力"
+    submit:
+      start: はじめる
+      update: 更新する
+    button:
+      change_file: 変更する
+  page:
+    confirm_leave: ページを離れてもよろしいですか？
+  datetime:
+    distance_in_words:
+      half_a_minute: "30秒前後"
+      less_than_x_seconds:
+        one:   "1秒前"
+        other: "%{count}秒前"
+      x_seconds:
+        one:   "1秒前"
+        other: "%{count}秒前"
+      less_than_x_minutes:
+        one:   "1分前"
+        other: "%{count}分前"
+      x_minutes:
+        one:   "1分前"
+        other: "%{count}分前"
+      about_x_hours:
+        one:   "1時間前"
+        other: "%{count}時間前"
+      x_days:
+        one:   "1日前"
+        other: "%{count}日前"
+      about_x_months:
+        one:   "1ヶ月前"
+        other: "%{count}ヶ月前"
+      x_months:
+        one:   "1ヶ月前"
+        other: "%{count}ヶ月前"
+      almost_x_years:
+        one:   "１年弱前"
+        other: "%{count}年弱前"
+      about_x_years:
+        one:   "1年前"
+        other: "%{count}年前"
+      over_x_years:
+        one:   "1年以上前"
+        other: "%{count}年以上前"

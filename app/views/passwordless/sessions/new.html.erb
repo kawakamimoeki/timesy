@@ -1,0 +1,29 @@
+<div>
+  <div class="mx-auto max-w-sm w-full">
+    <div class="mb-5 flex">
+      <div class="grow"></div>
+      <%= render partial: "shared/logo" %>
+      <div class="grow"></div>
+    </div>
+    <%= form_with model: @session, url: users.sign_in_path, data: { turbo: 'false' } do |f| %>
+      <div class="mb-2">
+        <h2 class="w-full text-center block font-bold"><%= I18n.t("passwordless.sign_in") %></h2>
+      </div>
+      <div class="mb-5">
+        <%= render partial: "shared/error_messages", locals: { errors: flash[:errors] } %>
+        <%= render partial: "shared/notice_messages", locals: { notice: notice } %>
+      </div>
+      <div class="mb-5 flex">
+        <div class="grow"></div>
+        <% email_field_name = :"passwordless[#{@email_field}]" %>
+        <%= text_field_tag email_field_name, params.fetch(email_field_name, nil), required: true, placeholder: "you@example.com", class: text_field_class %>
+        <div class="grow"></div>
+      </div>
+      <div class="flex">
+        <div class="grow"></div>
+        <%= f.submit I18n.t("passwordless.send"), class: primary_button_class %>
+        <div class="grow"></div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="max-w-3xl mx-auto pt-10">
+  <div class="flex mb-5">
+    <div class="px-5">
+      <%= image_tag @user.avatar_icon, width: "100px", height: "100px", class: "rounded-full" %>
+    </div>
+    <div class="grow">
+      <div class="flex items-center">
+        <h1 class="font-bold text-3xl"><%= title @user.name %></h1>
+        <div class="grow"></div>
+        <% if @user == current_user %>
+          <div class="flex items-center text-sm hover:bg-gray-100 rounded py-1 px-2">
+            <%= image_tag "icons/settings.svg", width: "20px", height: "20px", class: "mr-1" %>
+            <%= link_to I18n.t("users.setting"), settings_path %>
+          </div>
+        <% end %>
+      </div>
+      <div>
+        <div class="flex items-center">
+          <p class="text-gray-500">@<%= @user.username %></p>
+          <% if @user.github.present? %>
+            <%= link_to "https://github.com/#{@user.github}", target: "_blank" do %>
+              <%= image_tag "icons/github.svg", width: "20px", height: "20px", class: "ml-2" %>
+            <% end %>
+          <% end %>
+          <% if @user.twitter.present? %>
+            <%= link_to "https://twitter.com/#{@user.twitter}", target: "_blank", class: "block", style: "margin-top: 2px;" do %>
+              <%= image_tag "icons/twitter.png", width: "20px", height: "20px", class: "ml-2" %>
+            <% end %>
+          <% end %>
+        </div>
+        <p class="py-5 text-sm"><%= @user.bio %></p>
+      </div>
+    </div>
+  </div>
+  <% if @posts.empty? %>
+    <p class="w-full text-center py-20 font-bold"><%= I18n.t("posts.not_found") %></p>
+  <% end %>
+  <%= render partial: 'posts/item', collection: @posts %>
+</div>

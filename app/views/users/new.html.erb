@@ -1,0 +1,33 @@
+<div class="relative">
+  <div class="w-full max-w-sm mx-auto">
+    <div class="mb-5 flex">
+      <div class="grow"></div>
+      <%= render partial: "shared/logo" %>
+      <div class="grow"></div>
+    </div>
+    <%= form_with model: @user, url: confirm_path do |f| %>
+      <div class="mb-2">
+        <h2 class="w-full text-center block font-bold"><%= I18n.t("users.sign_up") %></h2>
+      </div>
+      <div class="mb-5">
+        <%= render partial: "shared/error_messages", locals: { errors: flash[:errors] } %>
+        <%= render partial: "shared/notice_messages", locals: { notice: notice } %>
+      </div>
+      <div class="mb-5 text-center">
+        <a href="/terms" class="underline" target="_blank">利用規約</a>、<a href="/privacy" class="underline" target="_blank">プライバシーポリシー</a>に同意したうえで登録してください。
+      </div>
+      <div class="flex items-center mb-2">
+        <label for="email" class="font-bold">メールアドレス</label>
+        <span class="ml-2 text-xs text-gray-500"><%= I18n.t("form.unchangeable") %></span>
+      </div>
+      <div class="mb-8 flex">
+        <%= f.email_field :email, class: text_field_class, placeholder: "you@example.com" %>
+      </div>
+      <div class="flex">
+        <div class="grow"></div>
+        <%= f.submit "確認メールを送信する", class: primary_button_class %>
+        <div class="grow"></div>
+      </div>
+    <% end %>
+  </div>
+</div>

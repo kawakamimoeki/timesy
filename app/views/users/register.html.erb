@@ -1,0 +1,45 @@
+<div class="max-w-lg mx-auto">
+  <div class="mb-10 flex">
+    <div class="grow"></div>
+    <%= render partial: "shared/logo" %>
+    <div class="grow"></div>
+  </div>
+  <%= form_with model: @user, url: create_user_path, data: { turbo: 'false' } do |f| %>
+    <div class="mb-2">
+      <h2 class="w-full text-center block font-bold">
+        <%= I18n.t("users.welcome", site_title: Site.title) %>
+      </h2>
+    </div>
+    <div class="mb-5">
+      <%= render partial: "shared/error_messages", locals: { errors: @user.errors.full_messages } %>
+      <%= render partial: "shared/notice_messages", locals: { notice: notice } %>
+    </div>
+    <%= f.hidden_field :email, value: @user.email %>
+    <div class="flex items-center mb-2">
+      <label for="username" class="font-bold"><%= User.human_attribute_name(:username) %></label>
+      <span class="ml-2 text-xs text-gray-500"><%= I18n.t("form.changeable") %></span>
+    </div>
+    <div class="mb-2 flex items-center">
+      <div><%= Site.origin %></div>
+      <div>/</div>
+      <%= f.text_field :username, class: text_field_class + " ml-1", placeholder: "you" %>
+    </div>
+    <div class="mb-8 text-xs"><%= I18n.t("users.username_format") %></div>
+    <div class="flex items-center mb-2">
+      <label for="name" class="font-bold"><%= User.human_attribute_name(:name) %></label>
+      <span class="ml-2 text-xs text-gray-500"><%= I18n.t("form.changeable") %></span>
+    </div>
+    <div class="mb-8 flex">
+      <%= f.text_field(
+        :name,
+        class: text_field_class,
+        placeholder: I18n.t("form.placeholder.normal", field: User.human_attribute_name(:name))
+      ) %>
+    </div>
+    <div class="flex">
+      <div class="grow"></div>
+      <%= f.submit I18n.t("form.submit.start"), class: primary_button_class %>
+      <div class="grow"></div>
+    </div>
+  <% end %>
+</div>

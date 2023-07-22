@@ -1,0 +1,44 @@
+<div class="max-w-xl mx-auto py-10 px-5">
+  <%= form_with model: @user, multipart: true, url: update_settings_path, method: :patch, data: { turbo: false } do |f| %>
+    <%= render partial: "shared/error_messages", locals: { errors: @user.errors.full_messages } %>
+    <%= render partial: "shared/notice_messages", locals: { notice: notice } %>
+    <div class="mb-5 flex">
+      <div class="grow"></div>
+      <div data-controller="file-field">
+        <%= image_tag @user.avatar_icon, width: "100px", height: "100px", class: "rounded-full preview" %>
+        <button type="button" class="text-gray-600 text-center w-full mt-3" data-action="file-field#click" ><%= I18n.t("form.button.change_file") %></button>
+        <%= f.file_field :avatar, data: { file_field_target: "field" }, accept: "image/png, image/jpeg", class: "hidden" %>
+      </div>
+      <div class="grow"></div>
+    </div>
+    <%= f.label :username, class: label_class %>
+    <%= f.text_field :username, class: text_field_class + " mb-5" %>
+    <%= f.label :name, class: label_class %>
+    <%= f.text_field :name, class: text_field_class + " mb-5" %>
+    <%= f.label :bio, class: label_class %>
+    <%= f.text_area :bio, class: text_field_class + " mb-5", placeholder: I18n.t("form.placeholder.normal", field: User.human_attribute_name(:bio)) %>
+    <%= f.label :github, class: label_class %>
+    <%= f.text_field :github, class: text_field_class + " mb-5", placeholder: I18n.t("form.placeholder.github") %>
+    <%= f.label :twitter, class: label_class %>
+    <%= f.text_field :twitter, class: text_field_class + " mb-5", placeholder: I18n.t("form.placeholder.twitter") %>
+    <%= f.label :website, class: label_class %>
+    <%= f.text_field :website, class: text_field_class + " mb-5", placeholder: "https://" %>
+    <div class="flex">
+      <div class="grow"></div>
+      <%= f.submit I18n.t("form.submit.update"), class: primary_button_class %>
+      <div class="grow"></div>
+    </div>
+  <% end %>
+  <div class="mt-10 text-center">
+    <%= link_to I18n.t("passwordless.sessions.sign_out"), "/users/sign_out", data: { turbo_method: :delete }, method: :delete %>
+  </div>
+  <div class="mt-10 text-center">
+    <%= link_to(
+      I18n.t("users.delete"),
+      "/users/#{current_user.id}",
+      data: { turbo_method: :delete, turbo_confirm: I18n.t("users.confirm_delete") },
+      method: :delete,
+      class: "text-red-500"
+    ) %>
+  </div>
+</div>

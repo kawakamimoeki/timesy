@@ -1,0 +1,47 @@
+name: 🚧 CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    services:
+      db:
+        image: postgres:15
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+          POSTGRES_DB: test_db
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
+    steps:
+    - name: ⬇️ Checkout repo
+      uses: actions/checkout@v3
+
+    - name: ⎔ Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.2.2
+        bundler-cache: true
+      
+    - name: 🪄 Compile assets
+      run: bin/rails assets:precompile
+
+    - name: 🛠 Setup Database
+      env:
+        RAILS_ENV: test
+        DATABASE_URL: postgres://postgres:postgres@localhost:5432/test_db
+      run: |
+        bin/rails db:create
+        bin/rails db:schema:load
+
+    - name: 🔦 Run Test
+      env:
+        DATABASE_URL: postgres://postgres:postgres@localhost:5432/test_db
+      run: bundle exec rake
