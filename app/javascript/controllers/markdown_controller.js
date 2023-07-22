@@ -21,6 +21,10 @@ export default class extends Controller {
       minHeight: this.minHeightValue,
       spellChecker: false,
     });
+    this.element.addEventListener("edit", () => {
+      this.element.easyMDE.codemirror.refresh();
+      this.element.easyMDE.codemirror.focus();
+    });
   }
 
   async preview() {
@@ -38,7 +42,7 @@ export default class extends Controller {
     this.previewTarget.innerHTML = emoji.replace_colons(result.toString());
   }
 
-  edit() {
+  async edit() {
     this.previewTarget.classList.add("hidden");
     this.previewButtonTarget.classList.remove("hidden");
     this.editorContainerTarget.classList.remove("hidden");

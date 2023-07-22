@@ -9,6 +9,8 @@ export default class extends Controller {
     this.editorTarget.focus();
     this.editButtonTarget.classList.add("hidden");
     this.closeButtonTarget.classList.remove("hidden");
+    console.log(this.element.querySelector("#post-form"))
+    this.element.querySelector("#post-form").dispatchEvent(new Event("edit"));
   }
 
   close() {
