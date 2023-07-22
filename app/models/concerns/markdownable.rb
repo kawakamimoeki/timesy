@@ -3,9 +3,14 @@ require "coderay"
 module Markdownable
   extend ActiveSupport::Concern
 
-  def html
+  def html(truncate = false)
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true, fenced_code_blocks: true)
-    doc = Nokogiri::HTML::DocumentFragment.parse(markdown.render(emojified_body))
+    if truncate === false
+      body = emojified_body
+    else
+      body = emojified_body.truncate(truncate)
+    end
+    doc = Nokogiri::HTML::DocumentFragment.parse(markdown.render(body))
     doc.css('code[@class]').each do |code|
       code[:class] = "language-" + code[:class]
     end

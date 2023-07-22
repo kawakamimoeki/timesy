@@ -6,7 +6,7 @@
     <time class="text-gray-400 text-sm"><%= time_ago_in_words(item.created_at) %></time>
   </div>
   <div class="markdown-body group-hover:bg-gray-50" style="<%= item.emoji_only? ? "font-size: 32px;" : "" %>">
-    <%= item.html.html_safe %>
+    <%= item.html(400).html_safe %>
   </div>
   <% if item.comments.present? %>
   <div class="flex mt-5 items-center w-full overflow-hidden">
