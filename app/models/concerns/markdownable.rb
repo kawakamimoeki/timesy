@@ -7,9 +7,7 @@ module Markdownable
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML, autolink: true, tables: true, fenced_code_blocks: true)
     doc = Nokogiri::HTML::DocumentFragment.parse(markdown.render(emojified_body))
     doc.css('code[@class]').each do |code|
-      div = ::CodeRay.scan(code.text.rstrip, code[:class].to_sym).div
-      code = code.replace(div)
-      code.first.parent.swap(code.first)
+      code[:class] = "language-" + code[:class]
     end
     doc.to_s
   end

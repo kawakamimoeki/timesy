@@ -1,13 +1,17 @@
 import { Controller } from "@hotwired/stimulus"
 import EasyMDE from "easymde"
-import * as marked from "marked"
+import { unified } from 'unified';
+import remarkParse from 'remark-parse';
+import remarkRehype from 'remark-rehype';
+import rehypeHighlight from 'rehype-highlight';
+import rehypeStringify from 'rehype-stringify';
 
 export default class extends Controller {
   static values = { minHeight: String, placeholder: String }
   static targets = ["editor", "preview", "editorContainer", "editorButton", "previewButton"]
  
   connect() {
-   window.easyMDE = new EasyMDE({
+   this.element.easyMDE = new EasyMDE({
       element: this.editorTarget,
       placeholder: this.placeholderValue,
       toolbar: false,
@@ -18,12 +22,18 @@ export default class extends Controller {
     });
   }
 
-  preview() {
+  async preview() {
     this.previewTarget.classList.remove("hidden");
     this.previewButtonTarget.classList.add("hidden");
     this.editorContainerTarget.classList.add("hidden");
     this.editorButtonTarget.classList.remove("hidden");
-    this.previewTarget.innerHTML = marked.parse(window.easyMDE.value());
+    const result = await unified()
+      .use(remarkParse)
+      .use(remarkRehype)
+      .use(rehypeHighlight)
+      .use(rehypeStringify)
+      .process(this.element.easyMDE.value());
+    this.previewTarget.innerHTML = result.toString();
   }
 
   edit() {

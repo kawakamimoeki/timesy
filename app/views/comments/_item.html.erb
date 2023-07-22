@@ -16,7 +16,7 @@
       ) %>
     <% end %>
   </div>
-  <div class="markdown-body" style="<%= item.emoji_only? ? "font-size: 32px;" : "" %>">
+  <div class="markdown-body" style="<%= item.emoji_only? ? "font-size: 32px;" : "" %>" data-controller="markdown-preview">
     <%= item.html.html_safe %>
   </div>
 </div>
