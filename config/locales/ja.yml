@@ -28,7 +28,7 @@ ja:
     delete: 削除する
     not_found: 投稿がありません
     confirm_delete: 投稿を削除してもよろしいですか？この操作は元に戻せません。
-    placeholder: Write in Markdown
+    placeholder: Markdownで書く
   comments:
     submit: コメントする
     delete: 削除する
