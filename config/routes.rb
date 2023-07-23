@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   root 'posts#index'
   get "posts/:id", to: "posts#show", as: :post
   post "new-post", to: "posts#create", as: :create_post
-  get "posts/:id/edit", to: "posts#edit", as: :edit_post
   patch "posts/:id", to: "posts#update", as: :update_post
   delete "posts/:id", to: "posts#destroy", as: :delete_post
 

@@ -7,14 +7,6 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get edit" do
-    ApplicationController.stub_any_instance :current_user, users(:general) do
-      post = posts(:general)
-      get "/posts/#{post.id}/edit"
-      assert_response :success
-    end
-  end
-
   test "should get search" do
     get "/search?q=foo"
     assert_response :success

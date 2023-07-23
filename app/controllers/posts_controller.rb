@@ -32,11 +32,6 @@ class PostsController < ApplicationController
     @posts = Post.includes(:user).latest
   end
 
-  def edit
-    @post = Post.find(params[:id])
-    render :edit, layout: 'editor'
-  end
-
   def update
     @post = Post.find(params[:id])
     @post.update(post_params)

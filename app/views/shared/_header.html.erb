@@ -6,7 +6,7 @@
     <div class="grow"></div>
     <% if current_user %>
       <%= link_to user_path(username: current_user.username) do %>
-        <%= image_tag current_user.avatar_icon, width: "30px", height: "30px", class: "w-10 h-10 object-cover rounded-full" %>
+        <%= image_tag current_user.avatar_icon, alt: current_user.username, width: "30px", height: "30px", class: "w-10 h-10 object-cover rounded-full" %>
       <% end %>
     <% else %>
       <%= link_to I18n.t("users.sign_in"), "/users/sign_in", class: "mr-5 font-bold" %>

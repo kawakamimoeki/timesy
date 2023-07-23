@@ -2,7 +2,7 @@
 <div class="flex w-full bg-white text-gray-700 text-sm">
   <div class="transition-all">
     <%= link_to user_path(username: current_user.username), class: "flex items-center space-x-1 hover:underline" do %>
-      <%= image_tag current_user.avatar_icon, width: "50px", height: "50px", class: "w-10 h-10 object-cover rounded-full" %>
+      <%= image_tag current_user.avatar_icon, alt: current_user.username, width: "50px", height: "50px", class: "w-10 h-10 object-cover rounded-full" %>
     <% end %>
   </div>
   <%= form_with(
@@ -46,10 +46,10 @@
       <div class="grow"></div>
       <div class="px-1">
         <button type="button" class="rounded-full p-relative p-2 hover:bg-gray-50 transition-all" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton">
-          <%= image_tag "icons/preview.svg", class: "w-6 h-6" %>
+          <%= image_tag "icons/preview.svg", alt: "preview", class: "w-6 h-6" %>
         </button>
         <button type="button" class="rounded-full p-relative p-2 hover:bg-gray-50 transition-all hidden" title="<%=  I18n.t('posts.edit') %>" data-action="markdown#edit" data-markdown-target="editorButton">
-          <%= image_tag "icons/edit.svg", class: "w-6 h-6" %>
+          <%= image_tag "icons/edit.svg", alt: "edit", class: "w-6 h-6" %>
         </button>
       </div>
       <div class="px-1">
