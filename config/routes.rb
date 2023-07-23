@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
   post '/posts/:post_id/comments', to: 'comments#create', as: :comments
   delete '/posts/:post_id/comments/:id', to: 'comments#destroy', as: :delete_comment
+  patch '/posts/:post_id/comments/:id', to: 'comments#update', as: :update_comment
   
   get 'users/:username', to: 'users#show', as: :user
   
