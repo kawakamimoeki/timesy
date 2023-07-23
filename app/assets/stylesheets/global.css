@@ -7,6 +7,11 @@ body {
   background-color: hsla(0,0%,0%,0) !important
 }
 
+.markdown-body {
+  background: none !important;
+  color: #333 !important;
+}
+
 .markdown-body p {
   line-height: 2;
 }
