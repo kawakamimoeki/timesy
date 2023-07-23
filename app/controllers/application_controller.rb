@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   include Passwordless::ControllerHelpers
 
+  protect_from_forgery prepend: true
+
   helper_method :current_user
 
   private def current_user
