@@ -13,9 +13,8 @@ class UsersController < ApplicationController
     page_limit = 20
     @current_page = params[:page].to_i
 
-    @posts = Post.offset(page_limit*@current_page)
+    @posts = @user.posts.offset(page_limit*@current_page)
       .includes(:user)
-      .where(user_id: @user.id)
       .latest
       .limit(page_limit)
     @next_page = @current_page + 1 if Post.all.count > page_limit*@current_page + page_limit

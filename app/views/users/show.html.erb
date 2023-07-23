@@ -38,5 +38,5 @@
   <%= turbo_frame_tag :posts do %>
   <% end %>
 
-  <%= turbo_frame_tag "load_more", src: user_path(format: :turbo_stream), loading: :lazy %>
+  <%= turbo_frame_tag "load_more", src: user_path(username: @user.username, format: :turbo_stream), loading: :lazy %>
 </div>
