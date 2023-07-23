@@ -12,10 +12,10 @@
   <div class="flex mt-5 items-center w-full overflow-hidden">
     <%= image_tag "icons/comment.svg", alt: "comment", width:"16px", height: "16px", class: "mr-1" %>
     <p class="text-gray-600 text-sm mr-3"><%= item.comments.count %>件のコメント</p>
-    <div class="hidden  sm:flex">
+    <div class="hidden  sm:flex items-center">
     <% item.comments.order(created_at: :desc).limit(2).each do |comment| %>
       <%= image_tag comment.user.avatar_icon, alt: comment.user.username,width:"20px", height: "20px", class: "w-5 h-5 rounded-full block" %>
-      <div class="rounded border px-2 mx-2 text-sm">
+      <div class="rounded-full border px-2 py-1 mx-2 text-sm">
         <%= strip_tags(comment.html).truncate(20) %>
       </div>
     <% end %>
