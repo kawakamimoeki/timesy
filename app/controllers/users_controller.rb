@@ -63,6 +63,12 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find_by(id: params[:id])
+
+    if @user != current_user
+      render json: { error: "You are not authorized to delete this user." }, status: :unauthorized
+      return
+    end
+
     @user.destroy
     redirect_to "/"
   end

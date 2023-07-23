@@ -34,11 +34,23 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+
+    if @post.user != current_user
+      render json: { error: 'You are not authorized to edit this post.' }, status: :unauthorized
+      return
+    end
+
     @post.update(post_params)
   end
 
   def destroy
     @post = Post.find(params[:id])
+
+    if @post.user != current_user
+      render json: { error: 'You are not authorized to delete this post.' }, status: :unauthorized
+      return
+    end
+
     @post.destroy!
     redirect_to root_path
   end

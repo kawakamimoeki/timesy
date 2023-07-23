@@ -27,12 +27,30 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "should not update post if not authorized" do
+    ApplicationController.stub_any_instance :current_user, User.create(email: "current@example.com", username: "current", name: "Current") do
+      post = posts(:general)
+      patch "/posts/#{post.id}", params: { post: { title: "foo", body: "bar", general: true } }
+      assert_response :unauthorized
+    end
+  end
+
   test "should destroy post" do
     ApplicationController.stub_any_instance :current_user, users(:general) do
       post = posts(:general)
       assert_difference('Post.count', -1) do
         delete "/posts/#{post.id}"
       end
+    end
+  end
+
+  test "should not destroy post if not authorized" do
+    ApplicationController.stub_any_instance :current_user, User.create(email: "current@example.com", username: "current", name: "Current") do
+      post = posts(:general)
+      assert_difference('Post.count', 0) do
+        delete "/posts/#{post.id}"
+      end
+      assert_response :unauthorized
     end
   end
 end
