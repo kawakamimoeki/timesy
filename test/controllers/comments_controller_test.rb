@@ -16,10 +16,31 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "should update" do
+    ApplicationController.stub_any_instance :current_user, users(:general) do
+      patch "/posts/#{posts(:general).id}/comments/#{comments(:general).id}", params: { comment: { body: "Hello" } }
+      assert_response :success
+    end
+  end
+
+  test "should not update if not authorized" do
+    ApplicationController.stub_any_instance :current_user, User.create(email: "current@example.com", username: "current", name: "Current") do
+      patch "/posts/#{posts(:general).id}/comments/#{comments(:general).id}", params: { comment: { body: "Hello" } }
+      assert_response :unauthorized
+    end
+  end
+
   test "should destroy" do
     ApplicationController.stub_any_instance :current_user, users(:general) do
       delete "/posts/#{posts(:general).id}/comments/#{comments(:general).id}"
       assert_response :success
+    end
+  end
+
+  test "should not destroy if not authorized" do
+    ApplicationController.stub_any_instance :current_user, User.create(email: "current@example.com", username: "current", name: "Current") do
+      delete "/posts/#{posts(:general).id}/comments/#{comments(:general).id}"
+      assert_response :unauthorized
     end
   end
 end

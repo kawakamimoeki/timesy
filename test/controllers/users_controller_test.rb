@@ -36,7 +36,17 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test "should delete destroy" do
     user = users(:general)
-    delete "/users/#{user.id}"
-    assert_response :redirect
+    ApplicationController.stub_any_instance :current_user, user do
+      delete "/users/#{user.id}"
+      assert_response :redirect
+    end
+  end
+
+  test "should not delete destroy if not authorized" do
+    user = users(:general)
+    ApplicationController.stub_any_instance :current_user, User.create(email: "current@example.com", username: "current", name: "Current") do
+      delete "/users/#{user.id}"
+      assert_response :unauthorized
+    end
   end
 end
