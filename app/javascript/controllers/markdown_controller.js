@@ -12,7 +12,10 @@ export default class extends Controller {
   static targets = ["editor", "preview", "editorContainer", "editorButton", "previewButton"]
  
   connect() {
-   this.element.easyMDE = new EasyMDE({
+    if (this.element.easyMDE) {
+      return
+    }
+    this.element.easyMDE = new EasyMDE({
       element: this.editorTarget,
       placeholder: this.placeholderValue,
       toolbar: false,
