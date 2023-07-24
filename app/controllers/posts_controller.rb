@@ -18,7 +18,11 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.includes(comments: :user).find(params[:id])
+    @post = Post.includes(comments: :user).find_by(id: params[:id])
+    if @post.nil?
+      render file: "#{Rails.root}/public/404.html", status: :not_found
+      return
+    end
     @comment = Comment.new
   end
 

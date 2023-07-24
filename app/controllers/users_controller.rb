@@ -10,6 +10,11 @@ class UsersController < ApplicationController
   def show
     @user = User.find_by(username: params[:username])
 
+    if @user.nil?
+      render file: "#{Rails.root}/public/404.html", status: :not_found
+      return
+    end
+
     page_limit = 20
     @current_page = params[:page].to_i
 
