@@ -40,6 +40,12 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get actor" do
+    user = users(:general)
+    get "/#{user.username}", headers: { "Accept" => "application/activity+json" }
+    assert_response :success
+  end
+
   test "should delete destroy" do
     user = users(:general)
     ApplicationController.stub_any_instance :current_user, user do

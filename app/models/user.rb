@@ -24,4 +24,30 @@ class User < ApplicationRecord
       "https://api.dicebear.com/6.x/thumbs/svg?seed=#{username}"
     end
   end
+
+  def actor_json
+    {
+      "@context": "https://www.w3.org/ns/activitystreams",
+      type: "Person",
+      id: Site.origin + "/#{username}",
+      name: username,
+      inbox: Site.origin + "/#{username}/inbox",
+      outbox: Site.origin + "/#{username}/outbox",
+      publicKey: {
+        "id": "#{Site.origin}/#{username}#main-key",
+        "owner": "#{Site.origin}/#{username}",
+        "publicKeyPem": ENV['ACTIVITY_PUB_PUBLIC_KEY']
+      },
+      icon: {
+        type: 'Image',
+        mediaType: 'image/png',
+        url: avatar_icon
+      },
+      image: {
+        type: 'Image',
+        mediaType: 'image/png',
+        url: avatar_icon
+      }
+    }.to_json
+  end
 end
