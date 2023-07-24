@@ -4,7 +4,7 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   validates :name, presence: true
-  validates :name, exclusion: { in: %w(posts users sign_up confirm register settings comments about privacy terms new-user) }
+  validates :name, exclusion: { in: %w(posts users sign_up confirm register settings comments about privacy terms new-user notifications t) }
   validates :username, presence: true, uniqueness: true, format: { with: /\A[a-z0-9_]*\z/ }
   validates :email,
             presence: true,
