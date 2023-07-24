@@ -25,10 +25,19 @@ export default class extends Controller {
       this.element.easyMDE.codemirror.refresh();
       this.element.easyMDE.codemirror.focus();
     });
+    this.submit = this.element.querySelector("input[type='submit']")
     this.element.addEventListener("keydown", (event) => {
       if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) {
         event.preventDefault();
-        this.element.querySelector("input[type='submit']").click();
+        this.submit.click();
+      }
+    })
+    this.submit.disabled = true;
+    this.element.easyMDE.codemirror.on("change", () => {
+      if (this.element.easyMDE.value() === "") {
+        this.submit.disabled = true;
+      } else {
+        this.submit.disabled = false;
       }
     })
   }
