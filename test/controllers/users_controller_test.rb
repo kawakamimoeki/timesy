@@ -28,9 +28,15 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get show" do
+  test "should redirect to short path" do
     user = users(:general)
     get "/users/#{user.username}"
+    assert_redirected_to "/#{user.username}"
+  end
+
+  test "should get show" do
+    user = users(:general)
+    get "/#{user.username}"
     assert_response :success
   end
 

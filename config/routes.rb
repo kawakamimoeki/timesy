@@ -17,8 +17,6 @@ Rails.application.routes.draw do
   delete '/posts/:post_id/comments/:id', to: 'comments#destroy', as: :delete_comment
   patch '/posts/:post_id/comments/:id', to: 'comments#update', as: :update_comment
   
-  get 'users/:username', to: 'users#show', as: :user
-  
   get 'settings', to: 'settings#edit', as: :settings
   patch 'settings', to: 'settings#update', as: :update_settings
   
@@ -27,4 +25,7 @@ Rails.application.routes.draw do
   get 'privacy', to: 'pages#privacy', as: :privacy
   get 'terms', to: 'pages#terms', as: :terms
   get 'about', to: 'pages#about', as: :about
+
+  get '/:username', to: 'users#show', as: :user
+  get 'users/:username' => redirect('/%{username}')
 end
