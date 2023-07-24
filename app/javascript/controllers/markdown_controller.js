@@ -25,12 +25,6 @@ export default class extends Controller {
       this.element.easyMDE.codemirror.refresh();
       this.element.easyMDE.codemirror.focus();
     });
-    this.element.addEventListener("keydown", (event) => {
-      if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) {
-        event.preventDefault();
-        this.element.querySelector("input[type='submit']").click();
-      }
-    })
   }
 
   async preview() {
