@@ -73,6 +73,12 @@ class UsersController < ApplicationController
     redirect_to "/"
   end
 
+  def actor
+    @user = User.find_by(username: params[:username])
+    @actor = @user.actor_json
+    render json: @actor, content_type: "application/activity+json"
+  end
+
   private def user_params
     params.require(:user).permit(:email, :username, :name)
   end

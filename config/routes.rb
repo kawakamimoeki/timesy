@@ -26,6 +26,9 @@ Rails.application.routes.draw do
   get 'terms', to: 'pages#terms', as: :terms
   get 'about', to: 'pages#about', as: :about
 
-  get '/:username', to: 'users#show', as: :user
+  get '/.well-known/webfinger', to: 'webfinger#index', as: :webfinger
+
+  get '/:username', to: 'users#actor', as: :actor, constraints: lambda { |request| request.format == :json }
+  get '/:username', to: 'users#show', as: :user, constraints: lambda { |request| request.format != :json }
   get 'users/:username' => redirect('/%{username}')
 end
