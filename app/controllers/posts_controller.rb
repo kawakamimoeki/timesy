@@ -9,12 +9,17 @@ class PostsController < ApplicationController
   end
 
   def index
-    page_limit = 20
     @post = Post.new
     @current_page = params[:page].to_i
+    @dev = ActiveRecord::Type::Boolean.new.cast(params[:dev])
 
-    @posts = Post.offset(page_limit*@current_page).includes(:user, comments: :user).latest.limit(page_limit)
-    @next_page = @current_page + 1 if Post.all.count > page_limit*@current_page + page_limit
+    unless @dev
+      @posts = Post.offset(page_limit*@current_page).includes(:user, comments: :user).latest.limit(page_limit)
+      @next_page = @current_page + 1 if Post.all.count > page_limit*@current_page + page_limit
+    else
+      @posts = Post.offset(page_limit*@current_page).includes(:user, comments: :user).latest.where(dev: true).limit(page_limit)
+      @next_page = @current_page + 1 if Post.where(dev: true).count > page_limit*@current_page + page_limit
+    end
   end
 
   def show
@@ -33,7 +38,16 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params.merge(user: current_user))
-    @posts = Post.includes(:user).latest
+    @dev = ActiveRecord::Type::Boolean.new.cast(post_params[:dev])
+    @current_page = params[:page].to_i
+
+    unless @dev
+      @posts = Post.offset(page_limit*@current_page).includes(:user, comments: :user).latest.limit(page_limit)
+      @next_page = @current_page + 1 if Post.all.count > page_limit*@current_page + page_limit
+    else
+      @posts = Post.offset(page_limit*@current_page).includes(:user, comments: :user).latest.where(dev: true).limit(page_limit)
+      @next_page = @current_page + 1 if Post.where(dev: true).count > page_limit*@current_page + page_limit
+    end
   end
 
   def update
@@ -60,6 +74,10 @@ class PostsController < ApplicationController
   end
 
   private def post_params
-    params.require(:post).permit(:body)
+    params.require(:post).permit(:body, :dev)
+  end
+
+  private def page_limit
+    20
   end
 end
