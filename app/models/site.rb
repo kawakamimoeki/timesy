@@ -20,6 +20,6 @@ class Site
   end
 
   def self.sender_email
-    "noreply@timesy.dev"
+    ENV["SITE_SENDER_EMAIL"]
   end
 end
