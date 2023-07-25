@@ -9,7 +9,7 @@ module ApplicationHelper
       canonical: request.original_url,
       separator: '｜',
       icon: [
-        { href: "/favicon.ico" },
+        { href: "#{Site.origin}/favicon.ico" },
       ],
       og: {
         site_name: :site,
