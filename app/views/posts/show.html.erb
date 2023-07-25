@@ -40,7 +40,7 @@
         <div class="flex pt-3 w-full items-center bg-white">
           <div class="grow"></div>
           <%= f.label :dev, class: "text-sm cursor-pointer flex items-center" do %>
-            <%= f.check_box :dev, checked: @dev, class: "mr-2" %>
+            <%= f.check_box :dev, checked: @post.dev, class: "mr-2" %>
             <%= I18n.t("posts.to_dev") %>
           <% end %>
           <div class="px-1">
