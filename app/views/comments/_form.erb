@@ -12,7 +12,8 @@
       turbo_frame: "comments",
       controller: "turbo-form comment-form markdown",
       action: "turbo:submit-end->turbo-form#clear",
-      markdown_min_height_value: "100px",
+      markdown_min_height_value: "150px",
+      markdown_placeholder_value: I18n.t("comments.placeholder"),
     },
     class: "grow"
   ) do |f| %>
@@ -22,14 +23,12 @@
           :body,
           data: {
             markdown_target: "editor",
-            markdown_editor_min_height_value: "100px",
-            comment_form_target: "body"
+            comment_form_target: "body",
           },
-          placeholder: I18n.t("comments.placeholder"),
-          class: "w-full mb-5 resize-none"
+          class: "w-full resize-none min-h-[165px]"
         ) %>
       </div>
-      <div class="markdown-body hidden px-5 min-h-[100px]" data-markdown-target="preview"></div>
+      <div class="markdown-body hidden px-5 min-h-[170px]" data-markdown-target="preview"></div>
     </div>
     <div class="flex items-center">
       <div class="flex">
