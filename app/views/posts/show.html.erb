@@ -4,20 +4,21 @@
       <%= render partial: "shared/avatar", locals: { user: @post.user } %>
       <div class="grow"></div>
       <% if current_user == @post.user %>
-      <button class="text-gray-600 hover:underline text-xs mr-2" data-action="post-show#edit" data-post-show-target="editButton">
-        <%= I18n.t("posts.edit") %>
+      <button class="hover:bg-gray-100 rounded-full p-2" data-action="post-show#edit" data-post-show-target="editButton">
+        <%= image_tag "icons/edit.svg", alt: "edit", class: "w-6 h-6" %>
       </button>
-      <button class="hidden text-gray-600 hover:underline text-xs mr-2" data-action="post-show#close" data-post-show-target="closeButton">
-        Close
+      <button class="hidden hover:bg-gray-100 rounded-full p-2" data-action="post-show#close" data-post-show-target="closeButton">
+        <%= image_tag "icons/cancel.svg", alt: "edit", class: "w-6 h-6" %>
       </button>
-      <div class="-mt-[3px]">
+      <div class="mt-[1px]">
         <%= button_to(
-          I18n.t("posts.delete"),
-          delete_post_path(@post),
+          delete_post_url(id: @post.id),
           method: :delete,
-          class: "text-gray-600 hover:underline hover:text-red-600 text-xs",
-          data: { turbo_confirm: I18n.t("posts.confirm_delete") }
-        ) %>
+          class: "hover:bg-gray-100 rounded-full p-2",
+          data: { turbo_confirm: I18n.t("posts.confirm_delete"), turbo: false }
+        ) do %>
+          <%= image_tag "icons/delete.svg", alt: "edit", class: "w-6 h-6" %>
+        <% end %>
       </div>
       <% end %>
     </div>

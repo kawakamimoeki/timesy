@@ -4,23 +4,24 @@
     <time class="text-gray-400"><%= time_ago_in_words(item.created_at) %></time>
     <div class="grow"></div>
     <% if item.user == current_user %>
-      <button class="text-gray-600 hover:underline text-xs mr-2" data-action="post-show#edit" data-post-show-target="editButton">
-        <%= I18n.t("posts.edit") %>
+      <button class="hover:bg-gray-100 rounded-full p-2" data-action="post-show#edit" data-post-show-target="editButton">
+        <%= image_tag "icons/edit.svg", alt: "edit", class: "w-6 h-6" %>
       </button>
-      <button class="hidden text-gray-600 hover:underline text-xs mr-2" data-action="post-show#close" data-post-show-target="closeButton">
-        Close
+      <button class="hidden hover:bg-gray-100 rounded-full p-2" data-action="post-show#close" data-post-show-target="closeButton">
+        <%= image_tag "icons/cancel.svg", alt: "edit", class: "w-6 h-6" %>
       </button>
-      <div class="-mt-[1px]">
+      <div class="mt-[1px]">
         <%= button_to(
-          I18n.t("comments.delete"),
           delete_comment_url(post_id: item.post.id, id: item.id),
           method: :delete,
-          class: "text-xs text-gray-600 hover:text-red-600 items-center",
+          class: "hover:bg-gray-100 rounded-full p-2",
           data: {
             turbo_frame: "comments",
             turbo_confirm: I18n.t("comments.confirm_delete")
           }
-        ) %>
+        ) do %>
+          <%= image_tag "icons/delete.svg", alt: "edit", class: "w-6 h-6" %>
+        <% end %>
       </div>
     <% end %>
   </div>
