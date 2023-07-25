@@ -35,14 +35,18 @@ export default class extends Controller {
         this.submit.click();
       }
     })
-    this.submit.disabled = true;
+    this.updateSubmitState();
     this.element.easyMDE.codemirror.on("change", () => {
-      if (this.element.easyMDE.value() === "") {
-        this.submit.disabled = true;
-      } else {
-        this.submit.disabled = false;
-      }
-    })
+      this.updateSubmitState();
+    });
+  }
+
+  updateSubmitState() {
+    if (this.element.easyMDE.value() === "") {
+      this.submit.disabled = true;
+    } else {
+      this.submit.disabled = false;
+    }
   }
 
   async preview() {
