@@ -39,6 +39,10 @@
         </div>
         <div class="flex pt-3 w-full items-center bg-white">
           <div class="grow"></div>
+          <%= f.label :dev, class: "text-sm cursor-pointer flex items-center" do %>
+            <%= f.check_box :dev, checked: @dev, class: "mr-2" %>
+            <%= I18n.t("posts.to_dev") %>
+          <% end %>
           <div class="px-1">
             <button type="button" class="rounded-full p-relative p-2 hover:bg-gray-50 transition-all" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton">
               <%= image_tag "icons/preview.svg", alt: "preview", class: "w-6 h-6" %>
