@@ -33,3 +33,7 @@ body {
 .EasyMDEContainer .CodeMirror {
   border: none !important;
 }
+
+.markdown-body pre {
+  background-color: #f6f8fa !important;
+}
