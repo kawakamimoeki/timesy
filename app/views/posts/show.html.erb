@@ -15,7 +15,8 @@
           delete_post_url(id: @post.id),
           method: :delete,
           class: "hover:bg-gray-100 rounded-full p-2",
-          data: { turbo_confirm: I18n.t("posts.confirm_delete"), turbo: false }
+          onClick: "return confirm('#{I18n.t('posts.confirm_delete')}')",
+          data: { turbo: false, post_show_target: "deleteButton" }
         ) do %>
           <%= image_tag "icons/delete.svg", alt: "edit", class: "w-6 h-6" %>
         <% end %>
