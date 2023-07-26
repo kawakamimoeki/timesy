@@ -1,6 +1,6 @@
 ja:
   site:
-    description: エンジニアのためのマイクロブログサービス
+    description: 開発者のためのマイクロブログサービス
   activerecord:
     attributes:
       user:

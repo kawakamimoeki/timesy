@@ -1,6 +1,6 @@
 ![Timesy](./docs/main.png)
 
-**Timesy**はエンジニアのためのマイクロブログサービスです。
+**Timesy**は開発者のためのマイクロブログサービスです。
 
 ## Development
 
