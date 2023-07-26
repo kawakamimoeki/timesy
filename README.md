@@ -39,7 +39,7 @@ docker compose run web bin/setup
 ```
 
 ```
-docker compose run web
+docker compose up
 ```
 
 
