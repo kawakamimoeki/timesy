@@ -21,6 +21,7 @@ export default class extends Controller {
       toolbar: false,
       status: false,
       tabSize: 2,
+      indentWithTabs: false,
       minHeight: this.minHeightValue,
       spellChecker: false,
     });
