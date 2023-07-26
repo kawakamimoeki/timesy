@@ -7,11 +7,6 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get index with dev" do
-    get "/?dev=true"
-    assert_response :success
-  end
-
   test "should get search" do
     get "/search?q=foo"
     assert_response :success

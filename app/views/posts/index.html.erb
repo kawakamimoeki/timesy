@@ -1,11 +1,6 @@
 <div class="max-w-3xl mx-auto">
   <div class="flex items-center px-5">
     <h1 class="font-bold text-3xl">Latest</h1>
-    <div class="grow"></div>
-    <div class="flex items-center shadow rounded">
-      <%= link_to I18n.t("posts.all"), root_path, class: "#{@dev ? "bg-white border-white" : "border-sky-500 bg-sky-500 text-white"} text-sm py-1 px-3 border m-0 rounded-s w-[60px] block text-center" %>
-      <%= link_to I18n.t("posts.dev"), root_path(dev: true), class: "#{!@dev ? "bg-white border-white" : "bg-sky-500 text-white border-sky-500"} text-sm py-1 px-3 border w-[60px] text-center m-0 rounded-e block" %>
-    </div>
   </div>
   <div class="py-5">
     <% if current_user %>
@@ -30,10 +25,6 @@
         </div>
         <div class="flex pt-3 w-full items-center bg-white px-5">
           <div class="grow"></div>
-          <%= f.label :dev, class: "text-sm cursor-pointer flex items-center" do %>
-            <%= f.check_box :dev, checked: @dev, class: "mr-2" %>
-            <%= I18n.t("posts.to_dev") %>
-          <% end %>
           <div class="px-1">
             <button type="button" class="rounded-full p-relative p-2 hover:bg-gray-50 transition-all" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton">
               <%= image_tag "icons/preview.svg", alt: "preview", class: "w-6 h-6" %>
