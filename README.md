@@ -2,21 +2,48 @@
 
 **Timesy**は開発者のためのマイクロブログサービスです。
 
-## Development
-
-### Requirement
+## Requirement
 
 - Ruby 3.2.2
 - Bundler 2.4.7
 
-### Third party tools
+or 
 
-以下のサービスのAPIにアクセスできる状態にしておいてください。ローカル環境でもこれらのツールを利用しています。
+- Docker
+- Docker Compose
 
-- [Sendgrid](https://sendgrid.kke.co.jp/)
-- [Cloudinary](https://cloudinary.com/)
+### Email
 
-### Setup
+[Sendgrid](https://sendgrid.kke.co.jp/) or [MailCatcher](https://mailcatcher.me/)
+
+`SENDGRID_API_KEY` という環境変数が設定されていれば、Sendgridを利用します。
+
+### Storage
+
+[Cloudinary](https://cloudinary.com/) or local
+
+`CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET` がセットされている場、Cloudinrayを利用します。
+
+## Setup(Docker ver.)
+
+```
+gh repo clone moekidev/timesy
+```
+
+```
+cd timesy
+```
+
+```
+docker compose run web bin/setup
+```
+
+```
+docker compose run web
+```
+
+
+### Setup(Host ver.)
 
 ```
 gh repo clone moekidev/timesy
