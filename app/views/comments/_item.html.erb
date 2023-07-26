@@ -5,10 +5,10 @@
     <div class="grow"></div>
     <% if item.user == current_user %>
       <button class="hover:bg-gray-100 rounded-full p-2" data-action="post-show#edit" data-post-show-target="editButton">
-        <%= image_tag "icons/edit.svg", alt: "edit", class: "w-6 h-6" %>
+        <%= image_tag "icons/edit.svg", alt: "edit", class: "w-5 h-5" %>
       </button>
       <button class="hidden hover:bg-gray-100 rounded-full p-2" data-action="post-show#close" data-post-show-target="closeButton">
-        <%= image_tag "icons/cancel.svg", alt: "edit", class: "w-6 h-6" %>
+        <%= image_tag "icons/cancel.svg", alt: "edit", class: "w-5 h-5" %>
       </button>
       <div class="mt-[1px]">
         <%= button_to(
@@ -20,7 +20,7 @@
             turbo_confirm: I18n.t("comments.confirm_delete")
           }
         ) do %>
-          <%= image_tag "icons/delete.svg", alt: "edit", class: "w-6 h-6" %>
+          <%= image_tag "icons/delete.svg", alt: "edit", class: "w-5 h-5" %>
         <% end %>
       </div>
     <% end %>
@@ -45,10 +45,10 @@
         <div class="grow"></div>
         <div class="px-1">
           <button type="button" class="rounded-full p-relative p-2 hover:bg-gray-50 transition-all" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton">
-            <%= image_tag "icons/preview.svg", alt: "preview", class: "w-6 h-6" %>
+            <%= image_tag "icons/preview.svg", alt: "preview", class: "w-5 h-5" %>
           </button>
           <button type="button" class="rounded-full p-relative p-2 hover:bg-gray-50 transition-all hidden" title="<%=  I18n.t('posts.edit') %>" data-action="markdown#edit" data-markdown-target="editorButton">
-            <%= image_tag "icons/edit.svg", alt: "edit", class: "w-6 h-6" %>
+            <%= image_tag "icons/edit.svg", alt: "edit", class: "w-5 h-5" %>
           </button>
         </div>
         <div class="px-1">
