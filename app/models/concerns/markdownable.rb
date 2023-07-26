@@ -11,7 +11,10 @@ module Markdownable
       ),
       autolink: true,
       tables: true,
-      fenced_code_blocks: true
+      fenced_code_blocks: true,
+      strikethrough: true,
+      no_intra_emphasis: true,
+      space_after_headers: true,
     )
     if truncate === false
       body = emojified_body
