@@ -1,18 +1,24 @@
-<div id="<%= item.id %>" class="border-b relative bg-white p-5 hover:bg-gray-50 group cursor-pointer" onclick="location.href='<%= post_path(item) %>'">
+<div id="<%= item.id %>" class="border-b relative bg-white p-5">
   <div class="mb-3 flex items-center space-x-1">
     <div class="flex hover:underline items-center space-x-1 relative">
       <%= render partial: 'shared/avatar', locals: { user: item.user } %>
     </div>
     <time class="text-gray-400 text-sm"><%= time_ago_in_words(item.created_at) %></time>
+    <div class="grow"></div>
   </div>
-  <div class="markdown-body group-hover:bg-gray-50" style="<%= item.emoji_only? ? "font-size: 32px;" : "" %>">
+  <div class="markdown-body" style="<%= item.emoji_only? ? "font-size: 32px;" : "" %>">
     <%= item.html(400).html_safe %>
   </div>
-  <% if item.comments.present? %>
   <div class="flex mt-5 items-center w-full overflow-hidden">
-    <%= image_tag "icons/comment.svg", alt: "comment", width:"16px", height: "16px", class: "mr-1" %>
-    <p class="text-gray-600 text-sm mr-3"><%= item.comments.count %>件のコメント</p>
-    <div class="hidden  sm:flex items-center">
+    <%= link_to post_path(id: item.id), class: "cursor-pointer items-center flex rounded-full p-relative p-2 hover:bg-gray-50 transition-all mr-3", data: { turbo: false } do %>
+      <%= image_tag "icons/comment.svg", alt: "comment", width:"16px", height: "16px", class: "" %>
+      <% if item.comments.count > 0 %>
+        <p class="text-gray-600 text-sm ml-2">
+          <%= item.comments.count %>
+        </p>
+      <% end %>
+    <% end %>
+    <div class="hidden sm:flex items-center">
     <% item.comments.order(created_at: :desc).limit(2).each do |comment| %>
       <%= image_tag comment.user.avatar_icon, alt: comment.user.username,width:"20px", height: "20px", class: "w-5 h-5 rounded-full block" %>
       <div class="rounded-full border px-2 py-1 mx-2 text-sm">
@@ -20,6 +26,9 @@
       </div>
     <% end %>
     </div>
+    <div class="grow"></div>
+    <%= link_to post_path(id: item.id), class: "block rounded-full cursor-pointer p-relative p-2 hover:bg-gray-50 transition-all", data: { turbo: false } do %>
+      <%= image_tag "icons/forward.svg", alt: "forward", class: "w-6 h-6" %>
+    <% end %>
   </div>
-  <% end %>
 </div>
