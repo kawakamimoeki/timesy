@@ -17,7 +17,8 @@
           class: "hover:bg-gray-100 rounded-full p-2",
           data: {
             turbo_frame: "comments",
-            turbo_confirm: I18n.t("comments.confirm_delete")
+            turbo_confirm: I18n.t("comments.confirm_delete"),
+            post_show_target: "deleteButton"
           }
         ) do %>
           <%= image_tag "icons/delete.svg", alt: "edit", class: "w-5 h-5" %>
