@@ -34,17 +34,25 @@ Rails.application.configure do
   end
 
   # Store uploaded files on the local file system (see config/storage.yml for options).
-  config.active_storage.service = :cloudinary
+  if ENV["CLOUDINARY_CLOUD_NAME"].present? && ENV["CLOUDINARY_API_KEY"].present? && ENV["CLOUDINARY_API_SECRET"].present?
+    config.active_storage.service = :cloudinary
+  else
+    config.active_storage.service = :local
+  end
 
-  ActionMailer::Base.smtp_settings = {
-    :user_name => 'apikey',
-    :password => ENV["SENDGRID_API_KEY"],
-    :domain => ENV["SITE_ORIGIN"]&.split("//")&[1],
-    :address => 'smtp.sendgrid.net',
-    :port => 587,
-    :authentication => :plain,
-    :enable_starttls_auto => true
-  }
+  if ENV["SENDGRID_API_KEY"].present?
+    ActionMailer::Base.smtp_settings = {
+      :user_name => 'apikey',
+      :password => ENV["SENDGRID_API_KEY"],
+      :domain => ENV["SITE_ORIGIN"]&.split("//")&[1],
+      :address => 'smtp.sendgrid.net',
+      :port => 587,
+      :authentication => :plain,
+      :enable_starttls_auto => true
+    }
+  else
+    ActionMailer::Base.smtp_settings = { address: 'mailcatcher', port: 1025 }
+  end
 
   config.action_mailer.perform_deliveries = true
 

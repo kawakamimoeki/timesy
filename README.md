@@ -2,21 +2,19 @@
 
 **Timesy**は開発者のためのマイクロブログサービスです。
 
-## Development
-
-### Requirement
+## Requirement
 
 - Ruby 3.2.2
 - Bundler 2.4.7
 
-### Third party tools
+## Third party tools
 
-以下のサービスのAPIにアクセスできる状態にしておいてください。ローカル環境でもこれらのツールを利用しています。
+（**任意**）以下のサービスのAPIにアクセスできる状態にしておいてください。ローカル環境でもこれらのツールを利用しています。
 
 - [Sendgrid](https://sendgrid.kke.co.jp/)
 - [Cloudinary](https://cloudinary.com/)
 
-### Setup
+## Setup(Host)
 
 ```
 gh repo clone moekidev/timesy
@@ -36,16 +34,16 @@ cp .env.example .env
 
 ```
 # Site configuration
-SITE_SENDER_EMAIL="noreply@example.com"
+SITE_SENDER_EMAIL="noreply@example.com" # optional
 
 # Database configuration
-DATABASE_URL="postgresql://postgres:postgres@localhost:5432/postgres"
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/postgres" # example
 
 # Third party API keys
-SENDGRID_API_KEY=""
-CLOUDINARY_CLOUD_NAME=""
-CLOUDINARY_API_KEY=""
-CLOUDINARY_API_SECRET=""
+SENDGRID_API_KEY="" # optional
+CLOUDINARY_CLOUD_NAME="" # optional
+CLOUDINARY_API_KEY="" # optional
+CLOUDINARY_API_SECRET="" # optional
 ```
 
 Postgres 15のサーバーを立ち上げてください。
@@ -68,6 +66,24 @@ bin/setup
 
 ```
 bin/dev
+```
+
+## Setup(Docker)
+
+```
+gh repo clone moekidev/timesy
+```
+
+```
+cd timesy
+```
+
+```
+docker compose run web bin/setup
+```
+
+```
+docker compose up
 ```
 
 ## Contribution
