@@ -92,37 +92,37 @@ ja:
     confirm_leave: ページを離れてもよろしいですか？
   datetime:
     distance_in_words:
-      half_a_minute: "30秒前後"
+      half_a_minute: "30秒"
       less_than_x_seconds:
-        one:   "1秒前"
-        other: "%{count}秒前"
+        one:   "1秒"
+        other: "%{count}秒"
       x_seconds:
-        one:   "1秒前"
-        other: "%{count}秒前"
+        one:   "1秒"
+        other: "%{count}秒"
       less_than_x_minutes:
-        one:   "1分前"
-        other: "%{count}分前"
+        one:   "1分"
+        other: "%{count}分"
       x_minutes:
-        one:   "1分前"
-        other: "%{count}分前"
+        one:   "1分"
+        other: "%{count}分"
       about_x_hours:
-        one:   "1時間前"
-        other: "%{count}時間前"
+        one:   "1時間"
+        other: "%{count}時間"
       x_days:
-        one:   "1日前"
-        other: "%{count}日前"
+        one:   "1日"
+        other: "%{count}日"
       about_x_months:
-        one:   "1ヶ月前"
-        other: "%{count}ヶ月前"
+        one:   "1ヶ月"
+        other: "%{count}ヶ月"
       x_months:
-        one:   "1ヶ月前"
-        other: "%{count}ヶ月前"
+        one:   "1ヶ月"
+        other: "%{count}ヶ月"
       almost_x_years:
-        one:   "１年弱前"
-        other: "%{count}年弱前"
+        one:   "１年弱"
+        other: "%{count}年弱"
       about_x_years:
-        one:   "1年前"
-        other: "%{count}年前"
+        one:   "1年"
+        other: "%{count}年"
       over_x_years:
-        one:   "1年以上前"
-        other: "%{count}年以上前"
+        one:   "1年以上"
+        other: "%{count}年以上"
