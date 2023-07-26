@@ -35,6 +35,9 @@ cp .env.example .env
 以下の環境変数が必要なので適宜設定してください。
 
 ```
+# Site configuration
+SITE_SENDER_EMAIL="noreply@example.com"
+
 # Database configuration
 DATABASE_URL="postgresql://postgres:postgres@localhost:5432/postgres"
 
