@@ -4,7 +4,15 @@ module Markdownable
   extend ActiveSupport::Concern
 
   def html(truncate = false)
-    markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new(filter_html: true), autolink: true, tables: true, fenced_code_blocks: true)
+    markdown = Redcarpet::Markdown.new(
+      Redcarpet::Render::HTML.new(
+        filter_html: true,
+        hard_wrap: true,
+      ),
+      autolink: true,
+      tables: true,
+      fenced_code_blocks: true
+    )
     if truncate === false
       body = emojified_body
     else
