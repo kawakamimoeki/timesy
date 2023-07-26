@@ -1,5 +1,5 @@
-<div class="border-b p-5 text-sm group" data-controller="post-show">
-  <div class="flex space-x-1 items-center mb-2">
+<div class="border-b p-5 group" data-controller="post-show">
+  <div class="flex space-x-1 text-sm items-center mb-2">
     <%= render partial: 'shared/avatar', locals: { user: item.user } %>
     <time class="text-gray-400"><%= time_ago_in_words(item.created_at) %></time>
     <div class="grow"></div>
