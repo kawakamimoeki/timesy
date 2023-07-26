@@ -63,16 +63,16 @@ cp .env.example .env
 
 ```
 # Site configuration
-SITE_SENDER_EMAIL="noreply@example.com"
+SITE_SENDER_EMAIL="noreply@example.com" # optional
 
 # Database configuration
-DATABASE_URL="postgresql://postgres:postgres@localhost:5432/postgres"
+DATABASE_URL="postgresql://postgres:postgres@localhost:5432/postgres" # example
 
 # Third party API keys
-SENDGRID_API_KEY=""
-CLOUDINARY_CLOUD_NAME=""
-CLOUDINARY_API_KEY=""
-CLOUDINARY_API_SECRET=""
+SENDGRID_API_KEY="" # optional
+CLOUDINARY_CLOUD_NAME="" # optional
+CLOUDINARY_API_KEY="" # optional
+CLOUDINARY_API_SECRET="" # optional
 ```
 
 Postgres 15のサーバーを立ち上げてください。
