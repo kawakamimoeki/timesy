@@ -7,10 +7,6 @@ class PagesController < ApplicationController
     set_content("terms")
   end
 
-  def about
-    set_content("about")
-  end
-
   private def set_content(type)
     file = File.read(Rails.root.join("app", "assets", type, I18n.locale.to_s + ".md.erb"))
     erb = ERB.new(file).result(binding)
