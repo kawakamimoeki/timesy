@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   root 'posts#index'
   get "posts/:id", to: "posts#show", as: :post
-  post "new-post", to: "posts#create", as: :create_post
+  post "posts", to: "posts#create", as: :create_post
   patch "posts/:id", to: "posts#update", as: :update_post
   delete "posts/:id", to: "posts#destroy", as: :delete_post
 
@@ -31,4 +31,10 @@ Rails.application.routes.draw do
   get '/:username', to: 'users#actor', as: :actor, constraints: lambda { |request| request.format == :json }
   get '/:username', to: 'users#show', as: :user, constraints: lambda { |request| request.format != :json }
   get 'users/:username' => redirect('/%{username}')
+
+  namespace :api do
+    namespace :v1 do
+      post 'posts/preview', to: 'posts#preview', as: :preview_post
+    end
+  end
 end

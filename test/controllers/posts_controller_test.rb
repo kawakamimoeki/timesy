@@ -15,7 +15,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   test "should create post" do
     ApplicationController.stub_any_instance :current_user, users(:general) do
       assert_difference('Post.count') do
-        post "/new-post", params: { post: { title: "foo", body: "bar", general: true } }
+        post "/posts", params: { post: { title: "foo", body: "bar", general: true } }
       end
     end
   end
