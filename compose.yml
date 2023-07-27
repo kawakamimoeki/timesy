@@ -2,6 +2,8 @@ version: '3.9'
 services:
   db:
     image: postgres
+    volumes:
+      - db-data:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: password
   mailcatcher:
@@ -22,3 +24,5 @@ services:
       - mailcatcher
     environment:
       DATABASE_URL: postgres://postgres:password@db:5432
+volumes:
+  db-data:
