@@ -37,3 +37,7 @@ body {
 .markdown-body pre {
   background-color: #f6f8fa !important;
 }
+
+.hljs {
+  padding: 0 !important;
+}
