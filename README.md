@@ -7,7 +7,7 @@
 - Ruby 3.2.2
 - Bundler 2.4.7
 
-or 
+or
 
 - Docker
 - Docker Compose
@@ -22,7 +22,7 @@ or
 
 [Cloudinary](https://cloudinary.com/) or local
 
-`CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET` がセットされている場、Cloudinrayを利用します。
+`CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET` がセットされている場、Cloudinaryを利用します。
 
 ## Development (Docker ver.)
 
@@ -109,5 +109,4 @@ bin/dev
 
 ## Code of Conduct
 
-Timesy プロジェクトのコードベース、問題追跡システム、チャットルーム、メーリングリストで交流する全ての人々は、[行動規範]
-(https://github.com/moekidev/timesy/blob/main/CODE_OF_CONDUCT.md)に従うことが期待されています。
+Timesy プロジェクトのコードベース、問題追跡システム、チャットルーム、メーリングリストで交流する全ての人々は、[行動規範](https://github.com/moekidev/timesy/blob/main/CODE_OF_CONDUCT.md)に従うことが期待されています。
