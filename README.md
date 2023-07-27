@@ -1,4 +1,4 @@
-![Timesy](./docs/main.png)
+![Timesy](./public/ogp.jpg)
 
 **Timesy**は開発者のためのマイクロブログサービスです。
 
@@ -24,7 +24,7 @@ or
 
 `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET` がセットされている場、Cloudinrayを利用します。
 
-## Setup(Docker ver.)
+## Development (Docker ver.)
 
 ```
 gh repo clone moekidev/timesy
@@ -43,7 +43,7 @@ docker compose up
 ```
 
 
-### Setup(Host ver.)
+## Development (Host ver.)
 
 ```
 gh repo clone moekidev/timesy
@@ -88,8 +88,6 @@ Railsなどのセットアップを行います。
 ```
 bin/setup
 ```
-
-### Server
 
 ここまで来たら、サーバーを立ち上げることができます。
 
