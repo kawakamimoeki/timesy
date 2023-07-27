@@ -38,9 +38,13 @@ export default class extends Controller {
 
   updateSubmitState() {
     if (this.element.easyMDE.value() === "") {
+      this.previewButtonTarget.disabled = true;
+      this.previewButtonTarget.classList.add("opacity-30");
       this.submit.disabled = true;
     } else {
+      this.previewButtonTarget.disabled = false;
       this.submit.disabled = false;
+      this.previewButtonTarget.classList.remove("opacity-30");
     }
   }
 
