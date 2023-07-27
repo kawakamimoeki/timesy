@@ -7,7 +7,7 @@
 - Ruby 3.2.2
 - Bundler 2.4.7
 
-or 
+or
 
 - Docker
 - Docker Compose
@@ -22,46 +22,45 @@ or
 
 [Cloudinary](https://cloudinary.com/) or local
 
-`CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET` がセットされている場、Cloudinrayを利用します。
+`CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET` がセットされている場、Cloudinaryを利用します。
 
 ## Development (Docker ver.)
 
-```
+```sh
 gh repo clone moekidev/timesy
 ```
 
-```
+```sh
 cd timesy
 ```
 
-```
+```sh
 docker compose run web bin/setup
 ```
 
-```
+```sh
 docker compose up
 ```
 
-
 ## Development (Host ver.)
 
-```
+```sh
 gh repo clone moekidev/timesy
 ```
 
-```
+```sh
 cd timesy
 ```
 
 `.env`ファイルを用意します。
 
-```
+```sh
 cp .env.example .env
 ```
 
 以下の環境変数が必要なので適宜設定してください。
 
-```
+```sh
 # Site configuration
 SITE_SENDER_EMAIL="noreply@example.com" # optional
 
@@ -79,19 +78,19 @@ Postgres 15のサーバーを立ち上げてください。
 
 以下はHomebrewを使った場合です。
 
-```
+```sh
 brew services start postgresql@15
 ```
 
 Railsなどのセットアップを行います。
 
-```
+```sh
 bin/setup
 ```
 
 ここまで来たら、サーバーを立ち上げることができます。
 
-```
+```sh
 bin/dev
 ```
 
@@ -101,7 +100,7 @@ bin/dev
 
 ## Contribution
 
-バグ報告やプルリクエストは、GitHubのhttps://github.com/moekidev/timesy にお願いします。このプロジェクトは、コラボレーションのための安全で歓迎的な空間を目指しており、貢献者は[行動規範](https://github.com/moekidev/timesy/blob/main/CODE_OF_CONDUCT.md)を守ることが期待されています。
+バグ報告やプルリクエストは、GitHubの https://github.com/moekidev/timesy にお願いします。このプロジェクトは、コラボレーションのための安全で歓迎的な空間を目指しており、貢献者は[行動規範](https://github.com/moekidev/timesy/blob/main/CODE_OF_CONDUCT.md)を守ることが期待されています。
 
 ## License
 
@@ -109,5 +108,4 @@ bin/dev
 
 ## Code of Conduct
 
-Timesy プロジェクトのコードベース、問題追跡システム、チャットルーム、メーリングリストで交流する全ての人々は、[行動規範]
-(https://github.com/moekidev/timesy/blob/main/CODE_OF_CONDUCT.md)に従うことが期待されています。
+Timesy プロジェクトのコードベース、問題追跡システム、チャットルーム、メーリングリストで交流する全ての人々は、[行動規範](https://github.com/moekidev/timesy/blob/main/CODE_OF_CONDUCT.md)に従うことが期待されています。
