@@ -1,4 +1,4 @@
-![Timesy](./public/ogp.png)
+![Timesy](./public/ogp.jpg)
 
 **Timesy**は開発者のためのマイクロブログサービスです。
 
