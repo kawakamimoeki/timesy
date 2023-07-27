@@ -1,11 +1,5 @@
 import { Controller } from "@hotwired/stimulus"
 import EasyMDE from "easymde"
-import { unified } from 'unified';
-import remarkParse from 'remark-parse';
-import remarkRehype from 'remark-rehype';
-import rehypeHighlight from 'rehype-highlight';
-import rehypeStringify from 'rehype-stringify';
-import EmojiConvertor from 'emoji-js';
 
 export default class extends Controller {
   static values = { minHeight: String, placeholder: String }
@@ -55,14 +49,20 @@ export default class extends Controller {
     this.previewButtonTarget.classList.add("hidden");
     this.editorContainerTarget.classList.add("hidden");
     this.editorButtonTarget.classList.remove("hidden");
-    const result = await unified()
-      .use(remarkParse)
-      .use(remarkRehype)
-      .use(rehypeHighlight)
-      .use(rehypeStringify)
-      .process(this.element.easyMDE.value());
-    const emoji = new EmojiConvertor();
-    this.previewTarget.innerHTML = emoji.replace_colons(result.toString());
+    const res = await fetch("/api/v1/posts/preview", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRF-Token": document.querySelector("meta[name='csrf-token']").getAttribute("content"),
+      },
+      body: JSON.stringify({
+        post: {
+          body: this.element.easyMDE.value()
+        }
+      }),
+    });
+    const data = await res.json();
+    this.previewTarget.innerHTML = data.body;
   }
 
   async edit() {

@@ -32,6 +32,7 @@ module Markdownable
   end
 
   def emojified_body
+    return "" if body.nil?
     body.gsub(/:(.*):/) do
       ::Emoji.find_by_alias($1) ? ::Emoji.find_by_alias($1).raw : $&
     end

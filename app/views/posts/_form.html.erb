@@ -1,0 +1,58 @@
+<%= form_with(
+  model: post,
+  url: create_post_path,
+  data: {
+    action: "turbo:submit-end->turbo-form#clear turbo:submit-end->markdown#clear",
+    turbo_frame: :posts,
+    controller: "turbo-form markdown",
+    post_editor_confirm_message: I18n.t("page.confirm_leave"),
+    markdown_min_height_value: "100px",
+    markdown_placeholder_value: I18n.t("posts.placeholder") },
+    class: "grow transition-all"
+) do |f| %>
+  <div>
+    <%= flash[:error] %>
+    <%= f.hidden_field :page, value: page %>
+    <div class="max-w-3xl mx-auto">
+      <div class="bg-white">
+        <div data-markdown-target="editorContainer">
+          <%= f.text_area(
+            :body,
+            data: { markdown_target: "editor" },
+            class: "prose min-h-[114px] resize-none"
+          ) %>
+        </div>
+        <div
+          class="markdown-body hidden px-5 min-h-[120px]"
+          data-markdown-target="preview"
+        ></div>
+      </div>
+    </div>
+  </div>
+  <div class="flex pt-3 w-full items-center bg-white px-5">
+    <div class="grow"></div>
+    <div class="px-1">
+      <button
+        type="button"
+        class="rounded-full p-relative p-2 hover:bg-gray-50 transition-all"
+        title="<%=  I18n.t('posts.preview') %>"
+        data-action="markdown#preview"
+        data-markdown-target="previewButton"
+      >
+        <%= image_tag "icons/preview.svg", alt: "preview", class: "w-5 h-5" %>
+      </button>
+      <button
+        type="button"
+        class="rounded-full p-relative p-2 hover:bg-gray-50 transition-all hidden"
+        title="<%=  I18n.t('posts.edit') %>"
+        data-action="markdown#edit"
+        data-markdown-target="editorButton"
+      >
+        <%= image_tag "icons/edit.svg", alt: "edit", class: "w-5 h-5" %>
+      </button>
+    </div>
+    <div class="px-1">
+      <%= f.submit I18n.t('posts.publish'), disabled: true, class: primary_button_class, data: { post_editor_target: "publish" } %>
+    </div>
+  </div>
+<% end %>
