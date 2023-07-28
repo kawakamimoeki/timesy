@@ -18,7 +18,7 @@ class MarkdownableTest < ActiveSupport::TestCase
 
   test "#html returns html with emoji" do
     post = TestPost.new(body: "# Hello :smile:")
-    assert_equal "<h1>Hello 😄</h1>\n", post.html
+    assert_equal "<h1>Hello <span class=\"emoji\" title=\"smile\">😄</span></h1>\n", post.html
   end
 
   test "#emojified_body replace emoji when match" do
@@ -39,5 +39,10 @@ class MarkdownableTest < ActiveSupport::TestCase
   test "#emoji_only? returns false when body is not emoji only" do
     post = TestPost.new(body: ":+1: Hello")
     assert_equal post.emoji_only?, false
+  end
+
+  test "#wrap_emoji returns html with emoji" do
+    post = TestPost.new(body: "👍")
+    assert_equal %(<span class="emoji" title="+1">👍</span>), post.wrap_emoji(post.body)
   end
 end
