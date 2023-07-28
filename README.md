@@ -4,11 +4,6 @@
 
 ## Requirement
 
-- Ruby 3.2.2
-- Bundler 2.4.7
-
-or
-
 - Docker
 - Docker Compose
 
@@ -24,7 +19,7 @@ or
 
 `CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET` がセットされている場、Cloudinaryを利用します。
 
-## Development (Docker ver.)
+## Development
 
 ```sh
 gh repo clone moekidev/timesy
@@ -42,56 +37,17 @@ docker compose run --rm web bin/setup
 docker compose up
 ```
 
-## Development (Host ver.)
-
-```sh
-gh repo clone moekidev/timesy
-```
-
-```sh
-cd timesy
-```
-
-`.env`ファイルを用意します。
-
-```sh
-cp .env.example .env
-```
-
-以下の環境変数が必要なので適宜設定してください。
+以下の環境変数を適宜設定してください。
 
 ```sh
 # Site configuration
 SITE_SENDER_EMAIL="noreply@example.com" # optional
-
-# Database configuration
-DATABASE_URL="postgresql://postgres:postgres@localhost:5432/postgres" # example
 
 # Third party API keys
 SENDGRID_API_KEY="" # optional
 CLOUDINARY_CLOUD_NAME="" # optional
 CLOUDINARY_API_KEY="" # optional
 CLOUDINARY_API_SECRET="" # optional
-```
-
-Postgres 15のサーバーを立ち上げてください。
-
-以下はHomebrewを使った場合です。
-
-```sh
-brew services start postgresql@15
-```
-
-Railsなどのセットアップを行います。
-
-```sh
-bin/setup
-```
-
-ここまで来たら、サーバーを立ち上げることができます。
-
-```sh
-bin/dev
 ```
 
 ## Star History
