@@ -13,7 +13,7 @@ module ApplicationHelper
       ],
       og: {
         site_name: :site,
-        title: :site,
+        title: :title,
         description: :description,
         type: 'website',
         url: request.original_url,
