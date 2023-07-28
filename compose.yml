@@ -22,7 +22,13 @@ services:
     depends_on:
       - db
       - mailcatcher
+      - redis
     environment:
       DATABASE_URL: postgres://postgres:password@db:5432
+  redis:
+    image: redis:7.0
+    command: redis-server --appendonly yes
+    ports:
+      - "6379:6379"
 volumes:
   db-data:
