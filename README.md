@@ -35,7 +35,7 @@ cd timesy
 ```
 
 ```sh
-docker compose run web bin/setup
+docker compose run --rm web bin/setup
 ```
 
 ```sh
