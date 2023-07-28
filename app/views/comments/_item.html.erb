@@ -30,7 +30,7 @@
     <%= item.html.html_safe %>
   <% end %>
   <div class="hidden" data-post-show-target="editor">
-    <%= form_with model: item, url: update_comment_path(post_id: item.post.id, id: item.id), id: "post-form", data: { action: "turbo:submit-end->post-show#close",turbo_frame: "comment-#{item.id}", controller: "turbo-form markdown", post_editor_confirm_message: I18n.t("page.confirm_leave"),  markdown_min_height_value: "100px", markdown_placeholder_value: I18n.t("comments.placeholder") }, class: "grow transition-all" do |f| %>
+    <%= form_with model: item, url: update_comment_path(post_id: item.post.id, id: item.id), id: "post-form", data: { action: "turbo:submit-end->post-show#close turbo:submit-end->turbo-form#clear",turbo_frame: "comment-#{item.id}", controller: "turbo-form markdown", post_editor_confirm_message: I18n.t("page.confirm_leave"),  markdown_min_height_value: "100px", markdown_placeholder_value: I18n.t("comments.placeholder") }, class: "grow transition-all" do |f| %>
       <div>
         <%= flash[:error] %>
         <div class="max-w-3xl mx-auto">
