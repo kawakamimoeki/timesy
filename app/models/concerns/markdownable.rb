@@ -28,7 +28,14 @@ module Markdownable
     doc.css('a').each do |link|
       link["data-turbo"] = false
     end
-    doc.to_s
+    string = doc.to_s
+    string = string.gsub(Unicode::Emoji::REGEX) do |match|
+      if emoji = Emoji.find_by_unicode(match)
+        %(<span class="emoji" title="#{emoji.name}">#{match}</span>)
+      else
+        match
+      end
+    end
   end
 
   def emojified_body

@@ -12,6 +12,10 @@ body {
   color: #333 !important;
 }
 
+.emoji {
+  font-family: 'Noto Color Emoji' !important;
+}
+
 .cm-formatting-header, .cm-header {
   font-size: 1rem !important;
 }
