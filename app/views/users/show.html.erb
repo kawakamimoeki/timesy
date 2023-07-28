@@ -8,18 +8,18 @@
       </div>
     <% end %>
   </div>
-  <div class="flex mb-5">
-    <div class="px-5">
+  <div class="flex mb-5 px-5 space-x-3">
+    <div>
       <%= image_tag @user.avatar_icon, alt: @user.username, width: "100px", height: "100px", class: "w-10 h-10 object-cover rounded-full" %>
     </div>
     <div class="grow">
       <div class="flex items-center">
-        <h1 class="font-bold text-3xl"><%= title @user.name %></h1>
+        <h1 class="font-bold text-xl"><%= title @user.name %></h1>
         <div class="grow"></div>
       </div>
       <div>
         <div class="flex items-center">
-          <p class="text-gray-500">@<%= @user.username %></p>
+          <p class="text-gray-500 text-sm">@<%= @user.username %></p>
           <% if @user.github.present? %>
             <%= link_to "https://github.com/#{@user.github}", target: "_blank" do %>
               <%= image_tag "icons/github.svg", alt: "github", width: "20px", height: "20px", class: "ml-2" %>
@@ -28,6 +28,11 @@
           <% if @user.twitter.present? %>
             <%= link_to "https://twitter.com/#{@user.twitter}", target: "_blank", class: "block", style: "margin-top: 2px;" do %>
               <%= image_tag "icons/x.png", alt: "X", width: "20px", height: "20px", class: "ml-2" %>
+            <% end %>
+          <% end %>
+          <% if @user.website.present? %>
+            <%= link_to @user.website, target: "_blank" do %>
+              <%= image_tag "icons/link.svg", alt: "website", width: "20px", height: "20px", class: "ml-2" %>
             <% end %>
           <% end %>
         </div>
