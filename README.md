@@ -17,7 +17,7 @@
 
 [Cloudinary](https://cloudinary.com/) or local
 
-`CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET` がセットされている場、Cloudinaryを利用します。
+`CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET` がセットされている場合、Cloudinaryを利用します。
 
 ## Development
 
