@@ -12,10 +12,6 @@ body {
   color: #333 !important;
 }
 
-.markdown-body p {
-  line-height: 2;
-}
-
 .cm-formatting-header, .cm-header {
   font-size: 1rem !important;
 }
