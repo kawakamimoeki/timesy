@@ -8,7 +8,7 @@ ja:
         name: 表示名
         bio: 自己紹介
         github: GitHub
-        twitter: Twitter
+        twitter: X
         website: ウェブサイト
   errors:
     messages:
