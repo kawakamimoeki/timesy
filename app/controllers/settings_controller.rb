@@ -16,6 +16,13 @@ class SettingsController < ApplicationController
     render :edit
   end
 
+  def export
+    @user = current_user
+    ExportJob.perform_later(user_id: @user.id)
+    flash[:notice] = I18n.t('settings.exporting')
+    redirect_to settings_path
+  end
+
   private def setting_params
     params.require(:user).permit(
       :email,
