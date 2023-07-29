@@ -16,12 +16,6 @@ class Post < ApplicationRecord
       ---
 
       #{body}
-
-      ---
-
-      #{comments.order(created_at: :asc).map { |c| c.body }.join("\n\n---\n\n")}
-
-      --- 
     MARKDOWN
   end
 end
