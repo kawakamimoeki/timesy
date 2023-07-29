@@ -1,0 +1,45 @@
+<%= turbo_frame_tag :reactions, class: "flex items-center flex-wrap" do %>
+  <% comment.comment_reactions.pluck(:body).uniq.each do |body| %>
+    <% reactions = comment.comment_reactions.where(body: body) %>
+    <% if current_user %>
+      <% reacted = comment.comment_reactions.exists?(user_id: current_user.id, body: body) %>
+      <%= form_with(
+        model: reaction,
+        url: reacted ? delete_comment_reaction_path(post_id: comment.post.id, comment_id: comment.id, id: comment.comment_reactions.find_by(user_id: current_user.id, body: body).id) : create_comment_reaction_path(post_id: comment.post.id, comment_id: comment.id),
+        method: reacted ? :delete : :comment,
+        class: "flex items-center"
+      ) do |f| %>
+        <%= f.hidden_field :body, value: body %>
+        <button
+          data-controller="tooltip"
+          data-tooltip-text-value="<%= reactions.map { |r| "@#{r.user.username}" }.uniq.join(",") %>"
+          class="rounded-full <%= reacted ? "bg-sky-50 hover:bg-sky-100 border border-sky-600" : "hover:bg-gray-100 bg-gray-50 border-gray-50 hover:border-gray-100" %> py-[2px] px-1 mx-1 text-sm emoji my-1 flex items-center space-x-1 border"
+        >
+          <span><%= body %></span>
+          <span class="text-gray-400 text-xs"><%= reactions.count %></span>
+        </button>
+      <% end %>
+    <% else %>
+      <div class="rounded-ful py-[2px] px-1 mx-1 text-sm emoji my-1 flex items-center space-x-1 border bg-gray-50 border-gray-50">
+        <span><%= body %></span>
+        <span class="text-gray-400 text-xs"><%= reactions.count %></span>
+      </div>
+    <% end %>
+  <% end %>
+  <%= form_with(
+    model: reaction,
+    url: create_comment_reaction_path(post_id: comment.post.id, comment_id: comment.id),
+    class: "flex my-1 items-center",
+    data: { controller: "emoji-picker" }
+  ) do |f| %>
+    <%= f.hidden_field :body, data: { emoji_picker_target: "input" } %>
+    <button
+      type="button"
+      data-emoji-picker-target="button"
+      data-action="click->emoji-picker#open"
+      class="flex items-center rounded-full p-[6px] hover:bg-gray-100 bg-gray-50 transition-all mr-3"
+    >
+      <%= image_tag "icons/add-reaction.svg", alt: "add-reaction", width:"16px", height: "16px", class: "" %>
+    </button>
+  <% end %>
+<% end %>

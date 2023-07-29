@@ -58,4 +58,7 @@
       </div>
     <% end %>
   </div>
+  <div class="mt-2">
+    <%= render partial: 'shared/comment_reactions', locals: { comment: item, reaction: @comment_reaction } %>
+  </div>
 </div>

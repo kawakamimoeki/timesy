@@ -4,6 +4,7 @@ class Post < ApplicationRecord
   belongs_to :user
   belongs_to :category, optional: true
   has_many :comments, dependent: :destroy
+  has_many :post_reactions, dependent: :destroy
 
   scope :search, -> (q) { where("textsearchable_index_col @@ to_tsquery(?)", q) }
   scope :latest, -> { order(updated_at: :desc).limit(200) }
