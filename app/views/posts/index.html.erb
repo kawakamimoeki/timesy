@@ -17,9 +17,8 @@
       <p class="w-full text-center py-16 font-bold"><%= I18n.t("posts.not_found") %></p>
     <% end %>
     <%= turbo_frame_tag :posts do %>
-      <%= render partial: 'posts/item', collection: @posts %>
     <% end %>
 
-    <%= turbo_frame_tag "load_more", src: root_path(dev: params[:dev], format: :turbo_stream, page: 1), loading: :lazy  %>
+    <%= turbo_frame_tag "load_more", src: root_path(dev: params[:dev], format: :turbo_stream), loading: :lazy  %>
   </div>
 </div>
