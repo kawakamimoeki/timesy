@@ -41,3 +41,8 @@ body {
 .hljs {
   padding: 0 !important;
 }
+
+.markdown-body img {
+  border-radius: 10px;
+  margin: 0 auto;
+}
