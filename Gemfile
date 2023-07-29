@@ -59,7 +59,6 @@ gem 'activestorage-cloudinary-service'
 gem "meta-tags"
 gem 'coderay'
 gem 'emd'
-gem 'rubyzip'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
