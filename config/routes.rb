@@ -18,6 +18,8 @@ Rails.application.routes.draw do
   patch '/posts/:post_id/comments/:id', to: 'comments#update', as: :update_comment
   
   get 'settings', to: 'settings#edit', as: :settings
+  get 'settings/export', to: 'settings#export', as: :export_settings
+  get 'settings/exports/:id/download', to: 'settings#download_export', as: :download_export
   patch 'settings', to: 'settings#update', as: :update_settings
   
   get 'search', to: 'posts#search', as: :search
