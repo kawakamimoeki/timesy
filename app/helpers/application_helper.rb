@@ -2,7 +2,7 @@ module ApplicationHelper
   def default_meta_tags
     {
       site: Site.title,
-      title: Site.title,
+      title: Site.description,
       reverse: false,
       charset: 'utf-8',
       description: Site.description,
@@ -13,7 +13,7 @@ module ApplicationHelper
       ],
       og: {
         site_name: :site,
-        title: :title,
+        title: :site,
         description: :description,
         type: 'website',
         url: request.original_url,
