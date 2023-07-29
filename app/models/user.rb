@@ -2,7 +2,6 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :exports, dependent: :destroy
 
   validates :name, presence: true
   validates :name, exclusion: { in: %w(posts users sign_up confirm register settings comments about privacy terms new-user notifications t api) }

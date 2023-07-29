@@ -76,20 +76,6 @@ ja:
     confirm_delete: 削除されるとアカウントは復旧できません。よろしいですか？
   settings:
     updated: アップデートしました
-    start_export: エクスポート
-    export_started: エクスポートを開始しました。完了した際にダウンロードリンクを掲載したメールをお送りいたしますのでしばらくお待ち下さい。
-    exporting: エクスポートを実行中です。完了した際にダウンロードリンクを掲載したメールをお送りいたしますのでしばらくお待ち下さい。
-  exports:
-    started:
-      title: エクスポートを開始しました
-      description: Timesyのデータのエクスポートを開始しました。完了した際にダウンロードリンクを掲載したメールをお送りいたしますのでしばらくお待ち下さい。
-    failed:
-      title: エクスポートに失敗しました
-      description: Timesyのデータのエクスポートに失敗しました。もう一度やり直してください。何回も失敗する場合には hello@timesy.dev までご連絡区獺祭。
-    completed:
-      title: エクスポートが完了しました
-      description: Timesyのデータのエクスポートが完了しました。以下のボタンからZipファイルをダウンロードしてください。
-    download: ダウンロードする
   search:
     placeholder: キーワードを入力
   form:
