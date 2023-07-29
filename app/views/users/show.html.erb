@@ -45,6 +45,12 @@
   <% if @posts.empty? %>
     <p class="w-full text-center py-20 font-bold"><%= I18n.t("posts.not_found") %></p>
   <% end %>
+
+  <%= turbo_frame_tag "loading" do %>
+    <%= render partial: "posts/loading" %>
+    <%= render partial: "posts/loading" %>
+  <% end %>
+
   <%= turbo_frame_tag :posts do %>
   <% end %>
 
