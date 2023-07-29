@@ -28,7 +28,7 @@ module ApplicationHelper
   end
 
   def primary_button_class
-    "rounded-sm px-2 py-1 shadow text-white bg-sky-500 font-bold hover:bg-sky-600 transition-all disabled:opacity-30 cursor-pointer text-sm"
+    "rounded-sm px-2 py-1 shadow-sm text-white bg-sky-500 font-bold hover:bg-sky-600 transition-all disabled:opacity-30 cursor-pointer text-sm"
   end
 
   def label_class
@@ -40,6 +40,6 @@ module ApplicationHelper
   end
 
   def loading_box_class
-    "h-48 shadow w-full bg-gray-100 duration-75 border-b animate-pulse transition"
+    "h-48 shadow-sm w-full bg-gray-100 duration-75 border-b animate-pulse transition"
   end
 end
