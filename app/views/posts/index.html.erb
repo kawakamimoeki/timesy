@@ -18,7 +18,9 @@
     <% end %>
     <%= turbo_frame_tag "loading" do %>
       <%= render partial: "posts/loading" %>
+      <div class="hidden sm:block">
       <%= render partial: "posts/loading" %>
+    </div>
     <% end %>
 
     <%= turbo_frame_tag :posts do %>
