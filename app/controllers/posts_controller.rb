@@ -10,14 +10,17 @@ class PostsController < ApplicationController
 
   def index
     @post = Post.new
+    @post_reaction = PostReaction.new
     @current_page = params[:page].to_i
 
-    @posts = Post.offset(page_limit*@current_page).includes(:user, comments: :user).latest.limit(page_limit)
+    @posts = Post.offset(page_limit*@current_page).includes(:user, comments: :user, post_reactions: :user).latest.limit(page_limit)
     @next_page = @current_page + 1 if Post.all.count > page_limit*@current_page + page_limit
   end
 
   def show
     @post = Post.includes(comments: :user).find_by(id: params[:id])
+    @post_reaction = PostReaction.new
+    @comment_reaction = CommentReaction.new
     if @post.nil?
       render file: "#{Rails.root}/public/404.html", status: :not_found
       return

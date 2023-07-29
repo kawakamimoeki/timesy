@@ -10,7 +10,7 @@
     url: "/posts/#{post.id}/comments",
     data: {
       turbo_frame: "comments",
-      controller: "turbo-form comment-form markdown",
+      controller: "turbo-form markdown",
       action: "turbo:submit-end->turbo-form#clear",
       markdown_min_height_value: "150px",
       markdown_placeholder_value: I18n.t("comments.placeholder"),
@@ -21,30 +21,13 @@
       <div data-markdown-target="editorContainer">
         <%= f.text_area(
           :body,
-          data: {
-            markdown_target: "editor",
-            comment_form_target: "body",
-          },
+          data: { markdown_target: "editor" },
           class: "w-full resize-none min-h-[165px]"
         ) %>
       </div>
       <div class="markdown-body hidden px-5 min-h-[170px]" data-markdown-target="preview"></div>
     </div>
     <div class="flex items-center">
-      <div class="hidden sm:flex">
-        <div class="mr-3">
-          <button class="bg-slate-50 border hover:bg-gray-50 block py-1 px-5 rounded-full emoji" data-action="comment-form#emoji">👍</button>
-        </div>
-        <div class="mr-3">
-          <button class="bg-slate-50 border hover:bg-gray-50 block py-1 px-5 rounded-full emoji" data-action="comment-form#emoji">👏</button>
-        </div>
-        <div class="mr-3">
-          <button class="bg-slate-50 border hover:bg-gray-50 block py-1 px-5 rounded-full emoji" data-action="comment-form#emoji">🤣</button>
-        </div>
-        <div class="mr-3">
-          <button class="bg-slate-50 border hover:bg-gray-50 block py-1 px-5 rounded-full emoji" data-action="comment-form#emoji">👋</button>
-        </div>
-      </div>
       <div class="grow"></div>
       <div class="px-1">
         <button type="button" class="rounded-full p-relative p-2 hover:bg-gray-50 transition-all" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton">

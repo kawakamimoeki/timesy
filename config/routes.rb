@@ -13,9 +13,15 @@ Rails.application.routes.draw do
   patch "posts/:id", to: "posts#update", as: :update_post
   delete "posts/:id", to: "posts#destroy", as: :delete_post
 
+  post '/posts/:post_id/reactions', to: 'post_reactions#create', as: :create_post_reaction
+  delete '/posts/:post_id/reactions/:id', to: 'post_reactions#destroy', as: :delete_post_reaction
+
   post '/posts/:post_id/comments', to: 'comments#create', as: :comments
   delete '/posts/:post_id/comments/:id', to: 'comments#destroy', as: :delete_comment
   patch '/posts/:post_id/comments/:id', to: 'comments#update', as: :update_comment
+
+  post '/posts/:post_id/comments/:comment_id/reactions', to: 'comment_reactions#create', as: :create_comment_reaction
+  delete '/posts/:post_id/comments/:comment_id/reactions/:id', to: 'comment_reactions#destroy', as: :delete_comment_reaction
   
   get 'settings', to: 'settings#edit', as: :settings
   get 'settings/export', to: 'settings#export', as: :export_settings
