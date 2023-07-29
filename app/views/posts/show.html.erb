@@ -9,8 +9,8 @@
   }
 ) %>
 
-<div class=" max-w-3xl mx-auto">
-  <div class="py-5 bg-white p-5 border-b" data-controller="post-show">
+<div class=" max-w-3xl mx-auto px-5">
+  <div class="py-5 bg-white p-5 rounded-lg mb-5 shadow" data-controller="post-show">
     <div class="flex mb-3 items-center">
       <%= render partial: "shared/avatar", locals: { user: @post.user } %>
       <div class="grow"></div>
@@ -71,11 +71,11 @@
     </div>
   </div>
   <% if current_user %>
-  <div class="border-b p-5 bg-white">
+  <div class="p-5 bg-white shadow my-5 rounded-lg">
     <%= render partial: "comments/form", locals: { comment: @comment, post: @post } %>
   </div>
   <% end %>
-  <div class="bg-white">
+  <div>
     <%= turbo_frame_tag "comments" do %>
       <%= render partial: 'comments/item', collection: @post.comments.order(created_at: :desc) %>
     <% end %>

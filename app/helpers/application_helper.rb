@@ -38,4 +38,8 @@ module ApplicationHelper
   def text_field_class
     "block rounded w-full px-3 py-2 border text-gray-700 bg-white hover:bg-gray-100 transition-all"
   end
+
+  def loading_box_class
+    "h-48 shadow w-full bg-gray-100 duration-75 border-b animate-pulse transition"
+  end
 end
