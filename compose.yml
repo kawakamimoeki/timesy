@@ -19,6 +19,7 @@ services:
     tty: true
     volumes:
       - .:/app
+      - bundle:/usr/local/bundle
     ports:
       - "3000:3000"
     depends_on:
@@ -34,3 +35,4 @@ services:
       - "6379:6379"
 volumes:
   db-data:
+  bundle:
