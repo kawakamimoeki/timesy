@@ -40,7 +40,7 @@ class Export < ApplicationRecord
     end
   end
 
-  private def filename
+  def filename
     "timesy-export-#{id}.zip"
   end
 end
