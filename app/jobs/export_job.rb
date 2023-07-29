@@ -14,10 +14,6 @@ class ExportJob < ApplicationJob
           zip.put_next_entry("post-#{post.id}.md")
           zip.write(post.to_markdown)
         end
-        user.comments.find_each do |comment|
-          zip.put_next_entry("comment-#{comment.id}.md")
-          zip.write(comment.to_markdown)
-        end
       end
       export.update!(state: "completed")
       export.file.attach(io: File.open(file.path), filename: "timesy-export-#{user.id}.zip")
