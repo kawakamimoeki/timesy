@@ -1,0 +1,39 @@
+<div class="relative hidden md:<%= should_render_sidebar? ? "block" : "hidden" %>">
+  <div class="h-[54px]">
+  </div>
+  <div class="sticky font-bold text-sm h-[300px] top-3 bg-white shadow-sm rounded-lg w-64">
+    <ul class="p-5 flex flex-col space-y-2">
+      <% if current_user %>
+      <li>
+        <%= link_to "Setting", settings_path, class: " hover:underline" %>
+      </li>
+      <% end %>
+      <li>
+        <%= link_to "Documentation", docs_path, class: " hover:underline" %>
+      </li>
+      <li>
+        <%= link_to "About", about_path, class: " hover:underline" %>
+      </li>
+      <li>
+        <%= link_to "GitHub", "https://github.com/moekidev/timesy", class: " hover:underline", target: "_blank" %>
+      </li>
+      <li>
+        <%= link_to "Terms", terms_path, class: " hover:underline" %>
+      </li>
+      <li>
+        <%= link_to "Privacy", privacy_path, class: " hover:underline" %>
+      </li>
+      <li>
+        <%= link_to "Status", "https://status.timesy.dev/", class: " hover:underline", target: "_blank" %>
+      </li>
+      <li>
+        <%= link_to "Buy Me a Coffee", "https://www.buymeacoffee.com/moekidev", class: " hover:underline", target: "_blank" %>
+      </li>
+    </ul>
+    <div>
+      <p class="text-right px-5 text-gray-500 font-normal text-xs">
+        &copy; 2023 Timesy
+      </p>
+    </div>
+  </div>
+</div>

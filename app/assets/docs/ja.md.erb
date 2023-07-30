@@ -1,0 +1,183 @@
+Timesyのドキュメントへようこそ。ここでは、Markdownエディターの使い方やガイドラインなどについて紹介しています。Timesyを使ってみて分からないところがあったら、ぜひご一読ください。また、修正箇所を見つけたら、[GitHub](https://github.co/moekidev/timesy)のIssueやPRを送っていただけると嬉しいです。
+
+## Markdownエディターの使い方
+
+### Markdown記法
+Timesyは[Github Flavor Markdown](https://guides.github.com/features/mastering-markdown/)をベースに実装されていますがいくつかの点で異なります。
+
+#### 見出し
+Timesyでは、見出しのレベルはh1からh6までの6段階になっています。見出しのレベルは、見出しの行の先頭に`#`を記述することで指定できます。`#`の数が多いほどレベルが低くなります。
+
+```markdown
+# h1
+## h2
+### h3
+#### h4
+##### h5
+###### h6
+```
+
+# h1
+## h2
+### h3
+#### h4
+##### h5
+###### h6
+
+#### テキストのスタイル
+
+太字、斜体、取り消し線を指定することができます。
+
+| スタイル | 記法 |  例 | 出力 |
+| --- | --- | --- | --- |
+| 太字 | `** **`  | `**太字**` | **太字** |
+| 斜体 | `* *`  | `*斜体*` | *斜体* |
+| 取り消し線 | `~~ ~~` |  `~~取り消し線~~` | ~~取り消し線~~ |
+
+#### テキストの引用
+`>`を利用してテキストを引用することができます。
+
+```markdown
+以下のように記述します。
+> 引用
+```
+
+以下のように記述します。
+> 引用
+
+
+### コードテキスト
+Timesyでは、コードテキストを記述することができます。コードテキストは、バッククオートで囲むことで記述できます。
+
+
+```markdown
+`コードテキスト`
+```
+
+`コードテキスト`
+
+### コードブロック
+Timesyでは、コードブロックを記述することができます。コードブロックは、バッククオート3つで囲むことで記述できます。また、コードブロックの前に言語を指定することで、シンタックスハイライトを行うことができます。
+
+### リンク
+インラインリンクを記述することができます。リンクのテキストとURLを`[]()`で囲むことで記述できます。
+
+```markdown
+[Timesy](https://www.timesy.dev)
+```
+
+[Timesy](https://www.timesy.dev)
+
+### 画像
+
+Timesyでは、画像を記述することができます。画像のテキストとURLを`![]()`で囲むことで記述できます。
+
+```markdown
+![Timesy](https://www.timesy.dev/ogp.jpg)
+```
+
+![Timesy](https://www.timesy.dev/ogp.jpg)
+
+また、Markdownエディターへファイルをドラッグ&ドロップすることで画像を挿入することができます。
+
+### リスト
+1つ以上の行をインデントすることで、リストを記述することができます。また、リストの項目は、`*`、`+`、`-`のいずれかで記述することができます。
+
+```markdown
+- リスト1
+- リスト2
+- リスト3
+```
+
+- リスト1
+- リスト2
+- リスト3
+
+また、数字を利用して、順序付きリストを記述することができます。
+
+```markdown
+1. リスト1
+2. リスト2
+3. リスト3
+```
+
+1. リスト1
+2. リスト2
+3. リスト3
+
+さらに、入れ子にすることもできます。
+
+```markdown
+1. リスト1
+    1. リスト1-1
+    2. リスト1-2
+2. リスト2
+    1. リスト2-1
+    2. リスト2-2
+```
+
+### タブ
+Timesyではタブを2つのスペースとして扱われます。Tabキーを押すと、2つのスペースが挿入されます。
+
+### コードブロックで対応している言語
+Timesyでは、コードブロックで以下の言語に対応しています。
+
+- Bash
+- C
+- C#
+- C++
+- CSS
+- Diff
+- Go
+- GraphQL
+- HTML
+- XML
+- JSON
+- Java
+- JavaScript
+- Kotlin
+- Less
+- Lua
+- Makefile
+- Markdown
+- Objective-C
+- PHP
+- PHP Template
+- Perl
+- Plain text
+- Python
+- Python REPL
+- R
+- Ruby
+- Rust
+- SCSS
+- SQL
+- Shell
+- Session
+- Swift
+- TOML
+- TypeScript
+- Visual Basic
+- .NET
+- WebAssembly
+- YAML
+
+### キーボードショートカット
+| Windows | Mac | 記述 |
+:--- | :--- | :---
+Ctrl - Shift - P | Cmd - Shift - P | プレビュー
+Ctrl - B | Cmd - B | 太字
+Ctrl - H | Cmd - H | 見出しを小さくする
+Ctrl - I | Cmd - I | イタリック
+Ctrl - K | Cmd - K | リンク
+Ctrl - L | Cmd - L | リスト
+Ctrl - Alt - C | Cmd - Alt - C | コードブロック
+Ctrl - Alt - I | Cmd - Alt - I | 画像
+Ctrl - Alt - L | Cmd - Alt - L | 順序付きリスト
+Shift - Ctrl - H | Shift - Cmd - H | 見出しを大きくする
+Ctrl - Alt - 1 | Cmd - Alt - 1 | 見出し1
+Ctrl - Alt - 2 | Cmd - Alt - 2 | 見出し2
+Ctrl - Alt - 3 | Cmd - Alt - 3 | 見出し3
+Ctrl - Alt - 4 | Cmd - Alt - 4 | 見出し4
+Ctrl - Alt - 5 | Cmd - Alt - 5 | 見出し5
+Ctrl - Alt - 6 | Cmd - Alt - 6 | 見出し6

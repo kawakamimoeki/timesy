@@ -4,8 +4,9 @@
 
   <body style="background-color: rgb(246, 248, 250);">
     <%= render partial: "shared/header" %>
-    <main class="py-5 min-h-screen">
+    <main class="p-5 min-h-screen flex max-w-5xl mx-auto items-stretch space-x-5">
       <%= yield %>
+      <%= render partial: "shared/sidebar" %>
     </main>
     <%= render partial: "shared/footer" %>
   </body>

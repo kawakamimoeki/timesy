@@ -42,4 +42,8 @@ module ApplicationHelper
   def loading_box_class
     "h-48 shadow-sm w-full bg-gray-100 duration-75 border-b animate-pulse transition"
   end
+
+  def should_render_sidebar?
+    current_user && ["users/sign_in", "users/sign_up", ].exclude?(request.path)
+  end
 end
