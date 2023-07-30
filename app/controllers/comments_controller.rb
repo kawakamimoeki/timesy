@@ -1,7 +1,8 @@
 class CommentsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
-    Comment.create!(comment_params.merge(user: current_user, post: @post))
+    @comment = Comment.create!(comment_params.merge(user: current_user, post: @post))
+    @comment.images.attach(comment_params[:images]) if comment_params[:images].present?
   end
 
   def destroy
@@ -26,9 +27,10 @@ class CommentsController < ApplicationController
     end
 
     @comment.update!(comment_params)
+    @comment.images.attach(comment_params[:images]) if comment_params[:images].present?
   end
 
   private def comment_params
-    params.require(:comment).permit(:body)
+    params.require(:comment).permit(:body, images: [])
   end
 end
