@@ -35,7 +35,7 @@ ja:
     all: All
     dev: Dev
   comments:
-    submit: コメントする
+    submit: Comment
     delete: 削除する
     confirm_delete: コメントを削除してよろしいですか？
     placeholder: コメントする（絵文字だけを打つと大きく表示されます！）
