@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   get 'privacy', to: 'pages#privacy', as: :privacy
   get 'terms', to: 'pages#terms', as: :terms
   get 'about', to: 'pages#about', as: :about
+  get 'docs', to: 'pages#docs', as: :docs
 
   get '/.well-known/webfinger', to: 'webfinger#index', as: :webfinger
 

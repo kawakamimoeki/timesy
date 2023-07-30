@@ -1,4 +1,6 @@
-<div class="max-w-xl mx-auto py-10 px-5">
+<div class="grow">
+<h1 class="font-bold text-3xl mb-5">Setting</h1>
+<div class="max-w-lg mx-auto">
   <%= form_with model: @user, multipart: true, url: update_settings_path, method: :patch, data: { turbo: false } do |f| %>
     <%= render partial: "shared/error_messages", locals: { errors: @user.errors.full_messages } %>
     <%= render partial: "shared/notice_messages", locals: { notice: notice } %>
@@ -55,4 +57,5 @@
       class: "text-red-500"
     ) %>
   </div>
+</div>
 </div>
