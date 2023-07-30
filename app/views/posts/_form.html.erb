@@ -37,7 +37,9 @@
       <button
         type="button"
         class="rounded-full p-relative p-2 hover:bg-gray-50 opacity-30 transition-all"
-        title="<%=  I18n.t('posts.preview') %>"
+        title="<%=  I18n.t('posts.preview') %>(⌘+Shift+P)"
+        data-controller="tooltip"
+        data-tooltip-text-value="<%=  I18n.t('posts.preview') %>(⌘+Shift+P)"
         data-action="markdown#preview"
         data-markdown-target="previewButton"
       >
