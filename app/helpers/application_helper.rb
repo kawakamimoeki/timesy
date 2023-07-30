@@ -44,6 +44,6 @@ module ApplicationHelper
   end
 
   def should_render_sidebar?
-    current_user && ["users/sign_in", "users/sign_up", ].exclude?(request.path)
+    !request.path.match?(/\/users\/\w+/)
   end
 end

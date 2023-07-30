@@ -44,6 +44,7 @@ ja:
     send: ログインリンクを送信
     expired: このリンクは期限切れです。もう一度リンク送信を行ってください。
     check_your_email: 確認メールを送信しました。メールに記載されたリンクをクリックしてください。
+    welcome_back: おかえりなさい！
     sessions:
       create:
         email_sent_if_record_found: ログインリンクを送信しました。メールに記載されたリンクをクリックしてください。
