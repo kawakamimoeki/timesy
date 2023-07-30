@@ -87,6 +87,7 @@ export default class extends Controller {
     });
     const data = await res.json();
     this.previewTarget.innerHTML = data.body;
+    window.hljs.highlightAll();
   }
 
   async edit() {

@@ -27,6 +27,9 @@
     const mo = new MutationObserver(() => {
       hljs.highlightAll();
     })
-    mo.observe(document.documentElement, { childList: true});
+    mo.observe(document.documentElement, { childList: true });
+    document.documentElement.addEventListener('turbo:frame-render', () => {
+      hljs.highlightAll();
+    })
   </script>
 </head>
