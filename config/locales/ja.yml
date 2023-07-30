@@ -30,7 +30,7 @@ ja:
     delete: 削除する
     not_found: 投稿がありません
     confirm_delete: 投稿を削除してもよろしいですか？この操作は元に戻せません。
-    placeholder: Markdownで書く
+    placeholder: Markdownで書く（⌘ + Shift + P / Ctrl + Shift + P でプレビュー）
     to_dev: Devに投稿
     all: All
     dev: Dev
