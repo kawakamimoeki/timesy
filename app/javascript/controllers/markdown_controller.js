@@ -22,8 +22,22 @@ export default class extends Controller {
       spellChecker: false,
       imagePathAbsolute: true,
       uploadImage: true,
+      shortcuts: {
+        togglePreview: null,
+      },
       imageAccept: ["image/jpeg", "image/png", "image/gif", "image/svg+xml", "image/x-icon", "image/vnd.microsoft.icon", "image/vnd.wap.wbmp", "image/webp"],
       imageUploadFunction: this.uploadFile,
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "p" && (event.ctrlKey || event.metaKey) && event.shiftKey) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (this.previewTarget.classList.contains("hidden")) {
+          this.preview();
+        } else {
+          this.edit();
+        }
+      }
     });
     this.element.addEventListener("edit", () => {
       this.element.easyMDE.codemirror.refresh();
@@ -80,6 +94,7 @@ export default class extends Controller {
     this.previewButtonTarget.classList.remove("hidden");
     this.editorContainerTarget.classList.remove("hidden");
     this.editorButtonTarget.classList.add("hidden");
+    this.element.easyMDE.codemirror.focus();
   }
 
   clear() {
