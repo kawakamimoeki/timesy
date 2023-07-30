@@ -43,6 +43,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       post 'posts/preview', to: 'posts#preview', as: :preview_post
+      get 'blobs/:id/url', to: 'blobs#url', as: :blob_url
     end
   end
 end

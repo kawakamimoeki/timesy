@@ -7,12 +7,14 @@
     controller: "turbo-form markdown",
     post_editor_confirm_message: I18n.t("page.confirm_leave"),
     markdown_min_height_value: "100px",
-    markdown_placeholder_value: I18n.t("posts.placeholder") },
-    class: "grow transition-all"
+    markdown_placeholder_value: I18n.t("posts.placeholder"),
+  },
+  class: "grow transition-all"
 ) do |f| %>
   <div>
     <%= flash[:error] %>
     <%= f.hidden_field :page, value: page %>
+    <%= f.file_field :images, multiple: true, direct_upload: true, class: "hidden" %>
     <div class="max-w-3xl mx-auto">
       <div class="bg-white">
         <div data-markdown-target="editorContainer">

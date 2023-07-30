@@ -38,7 +38,6 @@ jobs:
         RAILS_ENV: test
         DATABASE_URL: postgres://postgres:postgres@localhost:5432/test_db
       run: |
-        bin/rails db:create
         bin/rails db:schema:load
 
     - name: 🔦 Run Test
