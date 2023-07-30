@@ -57,3 +57,7 @@ body {
 .markdown-body * {
   word-break: break-all !important;
 }
+
+.CodeMirror {
+  padding: 0 !important;
+}
