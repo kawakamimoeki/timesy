@@ -1,10 +1,7 @@
 <header class="w-full bg-white rounded-t-lg">
   <div class="flex px-5 items-center py-3 text-sm max-w-5xl mx-auto">
     <%= link_to "/", class: "block mr-3" do %>
-      <img src="<%= "/icon.png" %>" alt="logo" width="30px" height="30px" />
-    <% end %>
-    <% if !current_user %>
-      <%= link_to I18n.t("header.about"), "/about", class: "" %>
+      <img src="<%= "/logo.png" %>" alt="logo" width="70px" height="20px" />
     <% end %>
     <div class="grow"></div>
     <% if current_user %>

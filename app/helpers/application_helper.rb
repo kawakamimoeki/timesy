@@ -17,12 +17,12 @@ module ApplicationHelper
         description: :description,
         type: 'website',
         url: request.original_url,
-        image: "#{Site.origin}/ogp.jpg",
+        image: "#{Site.origin}/ogp.png",
         local: 'ja-JP',
       },
       twitter: {
         card: 'summary_large_image',
-        image: "#{Site.origin}/ogp.jpg",
+        image: "#{Site.origin}/ogp.png",
       }
     }
   end
