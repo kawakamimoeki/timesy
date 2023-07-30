@@ -1,8 +1,11 @@
 <div class="relative hidden <%= should_render_sidebar? ? "md:block" : "md:hidden" %>">
   <div class="h-[54px]">
   </div>
-  <div class="sticky text-sm <%= current_user ? "h-[290px]" : "h-[254px]" %> top-3 bg-white shadow-sm rounded-lg w-64">
+  <div class="sticky text-sm <%= current_user ? "h-[316px]" : "h-[290px]" %> top-3 bg-white shadow-sm rounded-lg w-64">
     <ul class="p-5 flex flex-col space-y-2">
+      <li>
+        <%= link_to "Latest", root_path, class: " hover:underline" %>
+      </li>
       <% if current_user %>
       <li>
         <%= link_to "Setting", settings_path, class: " hover:underline" %>
