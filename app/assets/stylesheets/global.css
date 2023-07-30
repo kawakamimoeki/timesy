@@ -48,6 +48,10 @@ body {
   border: 1px solid #e1e4e8 !important;
 }
 
-.CodeMirror span {
+.CodeMirror * {
+  word-break: break-all !important;
+}
+
+.markdown-body * {
   word-break: break-all !important;
 }
