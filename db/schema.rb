@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_29_075015) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_31_103633) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -123,6 +123,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_29_075015) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "projects", force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description"
+    t.string "codename", null: false
+    t.uuid "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id", "codename"], name: "index_projects_on_user_id_and_codename", unique: true
+  end
+
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email"
     t.string "username"
@@ -147,4 +157,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_29_075015) do
   add_foreign_key "post_reactions", "posts"
   add_foreign_key "post_reactions", "users"
   add_foreign_key "posts", "users"
+  add_foreign_key "projects", "users"
 end
