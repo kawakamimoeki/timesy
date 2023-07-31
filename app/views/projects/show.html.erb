@@ -8,7 +8,7 @@
       <%= image_tag @project.icon_url, class: "w-20 h-20 rounded" %>
       <div class="grow">
         <div class="flex w-full items-start">
-          <h1 class="grow font-bold text-2xl"><%= @project.title %></h1>
+          <h1 class="grow font-bold text-xl"><%= @project.title %></h1>
           <% if @project.user == current_user %>
             <%= link_to edit_project_path(current_user.username, @project.codename), class: "ml-2 hover:bg-gray-100 rounded-full p-2 text-sm inline-flex items-center w-28" do %>
               <%= image_tag "icons/edit.svg", class: "w-4 h-4 mr-1" %>
