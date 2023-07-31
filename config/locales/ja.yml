@@ -111,6 +111,7 @@ ja:
     submit:
       start: はじめる
       create: 作成する
+      edit: 編集する
       update: 更新する
       delete: 削除する
     button:
