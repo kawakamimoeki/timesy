@@ -7,18 +7,6 @@
 - Docker
 - Docker Compose
 
-### Email
-
-[Sendgrid](https://sendgrid.kke.co.jp/) or [MailCatcher](https://mailcatcher.me/)
-
-`SENDGRID_API_KEY` という環境変数が設定されていれば、Sendgridを利用します。
-
-### Storage
-
-[Cloudinary](https://cloudinary.com/) or local
-
-`CLOUDINARY_CLOUD_NAME`, `CLOUDINARY_API_KEY`, `CLOUDINARY_API_SECRET` がセットされている場合、Cloudinaryを利用します。
-
 ## Development
 
 ```sh
@@ -35,19 +23,6 @@ docker compose run --rm web bin/setup
 
 ```sh
 docker compose up
-```
-
-以下の環境変数を適宜設定してください。
-
-```sh
-# Site configuration
-SITE_SENDER_EMAIL="noreply@example.com" # optional
-
-# Third party API keys
-SENDGRID_API_KEY="" # optional
-CLOUDINARY_CLOUD_NAME="" # optional
-CLOUDINARY_API_KEY="" # optional
-CLOUDINARY_API_SECRET="" # optional
 ```
 
 ## Star History

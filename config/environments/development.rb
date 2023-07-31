@@ -40,16 +40,8 @@ Rails.application.configure do
     config.active_storage.service = :local
   end
 
-  if ENV["SENDGRID_API_KEY"].present?
-    ActionMailer::Base.smtp_settings = {
-      :user_name => 'apikey',
-      :password => ENV["SENDGRID_API_KEY"],
-      :domain => ENV["SITE_ORIGIN"]&.split("//")&[1],
-      :address => 'smtp.sendgrid.net',
-      :port => 587,
-      :authentication => :plain,
-      :enable_starttls_auto => true
-    }
+  if ENV["RESEND_API_KEY"].present?
+    config.action_mailer.delivery_method = :resend
   else
     ActionMailer::Base.smtp_settings = { address: 'mailcatcher', port: 1025 }
   end

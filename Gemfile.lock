@@ -152,6 +152,9 @@ GEM
     http-accept (1.7.0)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
+    httparty (0.19.1)
+      mime-types (~> 3.0)
+      multi_xml (>= 0.5.2)
     httpclient (2.8.3)
     i18n (1.14.1)
       concurrent-ruby (~> 1.0)
@@ -191,6 +194,7 @@ GEM
     minitest-stub_any_instance (1.0.3)
     msgpack (1.7.1)
     multi_json (1.15.0)
+    multi_xml (0.6.0)
     net-imap (0.3.6)
       date
       net-protocol
@@ -257,6 +261,8 @@ GEM
       declarative (< 0.1.0)
       trailblazer-option (>= 0.1.1, < 0.2.0)
       uber (< 0.2.0)
+    resend (0.7.1)
+      httparty (~> 0.19.1)
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
       http-cookie (>= 1.0.2, < 2.0)
@@ -353,6 +359,7 @@ DEPENDENCIES
   puma (~> 6.3)
   rails (~> 7.0.6)
   redcarpet
+  resend
   rubyzip
   selenium-webdriver
   sprockets-rails
