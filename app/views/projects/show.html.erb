@@ -21,7 +21,7 @@
         </a>
         <%= link_to @project.link, class: "hover:bg-gray-100 items-center rounded-lg py-[2px] px-2 text-sm inline-flex", target: "_blank" do %>
           <%= image_tag "icons/link.svg", class: "w-4 h-4 mr-1 -rotate-45" %>
-          <%= @project.link.sub("https://", "").sub("http://", "") %>
+          <%= @project.link.sub("https://", "").sub("http://", "").truncate(32) %>
         <% end %>
       </div>
     </div>
