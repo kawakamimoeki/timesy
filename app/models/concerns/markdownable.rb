@@ -28,7 +28,9 @@ module Markdownable
     doc.css('a').each do |link|
       link["data-turbo"] = false
     end
-    wrap_emoji(doc.to_s)
+    doc = wrap_emoji(doc.to_s)
+    doc = wrap_project_tag(doc)
+    doc
   end
 
   def emojified_body
@@ -47,6 +49,16 @@ module Markdownable
     string.gsub(Unicode::Emoji::REGEX) do |match|
       if emoji = Emoji.find_by_unicode(match)
         %(<span class="emoji" title="#{emoji.name}">#{match}</span>)
+      else
+        match
+      end
+    end
+  end
+
+  def wrap_project_tag(string)
+    string.gsub(/#(\w+)/) do |match|
+      if project = Project.find_by(codename: $1)
+        %(<a href="/#{project.user.username}/projects/#{project.codename}" data-controller="tooltip" data-tooltip-text-value="#{project.title} @#{project.user.username}" data-turbo="false" class="project-tag">#{$&}</a>)
       else
         match
       end

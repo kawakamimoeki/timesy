@@ -1,0 +1,38 @@
+<div class="flex mb-3 space-x-3">
+  <div>
+    <%= image_tag user.avatar_icon, alt: user.username, width: "100px", height: "100px", class: "w-10 h-10 object-cover rounded-full" %>
+  </div>
+  <div class="grow">
+    <div class="flex items-center">
+      <h1 class="font-bold text-xl"><%= title user.name %></h1>
+      <div class="grow"></div>
+    </div>
+    <div>
+      <div class="flex items-center mb-2">
+        <p class="text-gray-500 text-sm">@<%= user.username %></p>
+        <% if user.github.present? %>
+          <%= link_to "https://github.com/#{user.github}", target: "_blank" do %>
+            <%= image_tag "icons/github.svg", alt: "github", width: "20px", height: "20px", class: "ml-2" %>
+          <% end %>
+        <% end %>
+        <% if user.twitter.present? %>
+          <%= link_to "https://twitter.com/#{user.twitter}", target: "_blank", class: "block", style: "margin-top: 2px;" do %>
+            <%= image_tag "icons/x.png", alt: "X", width: "20px", height: "20px", class: "ml-2" %>
+          <% end %>
+        <% end %>
+        <% if user.website.present? %>
+          <%= link_to user.website, target: "_blank" do %>
+            <%= image_tag "icons/link.svg", alt: "website", width: "24px", height: "24px", class: "ml-1 -rotate-45 -mb-[2px]" %>
+          <% end %>
+        <% end %>
+      </div>
+      <% if user.bio.present? %>
+        <p class="text-sm"><%= user.bio %></p>
+      <% end %>
+    </div>
+  </div>
+</div>
+<nav class="w-full mb-4 flex items-center border-b">
+  <a href="<%= user_path(user.username) %>" class="hover:bg-gray-100 py-2 w-1/2 text-center <%= request.path == user_path(user.username) ? "border-b-2 border-sky-500" : "" %>">Posts</a>
+  <a href="<%= projects_path(user.username) %>"  class="py-2 hover:bg-gray-100 w-1/2 text-center <%= request.path == projects_path(user.username) ? "border-b-2 border-sky-500" : "" %>">Projects</a>
+</nav>

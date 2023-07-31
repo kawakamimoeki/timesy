@@ -5,7 +5,9 @@ export default class extends Controller {
 
   connect() {
     tippy(this.element, {
-      content: this.textValue
+      content: this.textValue,
+      theme: 'light',
+      animateFill: true,
     });
   }
 }

@@ -45,4 +45,10 @@ class MarkdownableTest < ActiveSupport::TestCase
     post = TestPost.new(body: "👍")
     assert_equal %(<span class="emoji" title="+1">👍</span>), post.wrap_emoji(post.body)
   end
+
+  test "#wrap_project_tag returns html with project tag" do
+    project = Project.create(codename: "test")
+    post = TestPost.new(body: "#test")
+    assert_equal %(<a href=\"/test/projects/test\" data-controller=\"tooltip\" data-tooltip-text-value=\"test @test\" data-turbo=\"false\" class=\"project-tag\">#test</a>), post.wrap_project_tag(post.body)
+  end
 end

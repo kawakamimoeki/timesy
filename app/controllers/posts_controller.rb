@@ -35,9 +35,9 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.create(post_params.merge(user: current_user))
-    @post.images.attach(post_params[:images]) if post_params[:images].present?
-    @current_page = params[:page].to_i
+    @post.attach_projects!
 
+    @current_page = params[:page].to_i
     @posts = Post.offset(page_limit*@current_page).includes(:user, comments: :user).latest.limit(page_limit)
     @next_page = @current_page + 1 if Post.all.count > page_limit*@current_page + page_limit
   end
@@ -51,7 +51,6 @@ class PostsController < ApplicationController
     end
 
     @post.update(post_params)
-    @post.images.attach(post_params[:images]) if post_params[:images].present?
   end
 
   def destroy

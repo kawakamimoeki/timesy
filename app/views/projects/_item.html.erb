@@ -1,0 +1,7 @@
+<a class="flex space-x-4 hover:shadow rounded-lg bg-white shadow-sm p-4" href="<%= project_path(project.user.username, project.codename) %>">
+  <%= image_tag project.icon_url, class: "w-12 h-12 rounded" %>
+  <div>
+    <h4 class="text-2xl font-bold"><%= project.title %></h4>
+    <p class="text-sm"><%= project.posts.count > 0 ? "#{project.posts.count} Posts" : "No Post" %></p>
+  </div>
+</a>
