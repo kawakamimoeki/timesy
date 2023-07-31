@@ -84,7 +84,7 @@ ja:
     start: New Project
     placeholder:
       title: プロジェクト名を入力
-      codename: プロジェクトのコードネーム
+      codename: URLと投稿からの参照 "#codename"に使われます
     notice:
       codename: 半角英数字とアンダースコア（_）を使用できます
   exports:
