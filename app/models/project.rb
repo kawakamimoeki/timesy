@@ -7,7 +7,7 @@ class Project < ApplicationRecord
   has_many_attached :images
 
   validates :title, presence: true
-  validates :codename, presence: true, uniqueness: { scope: :user_id }
+  validates :codename, presence: true, uniqueness: true, format: { with: /\A[a-z0-9_]*\z/ }
   validates :link, url: { allow_blank: true }
 
   def icon_url

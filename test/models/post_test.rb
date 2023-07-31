@@ -15,4 +15,13 @@ class PostTest < ActiveSupport::TestCase
     post.attach_projects!
     assert_equal 1, post.projects.count
   end
+
+  test "should attach multiple projects" do
+    user = users(:general)
+    project1 = projects(:general)
+    project2 = projects(:general2)
+    post = Post.create(body: "#test #test2", user: user, projects: [project1])
+    post.attach_projects!
+    assert_equal 2, post.projects.count
+  end
 end
