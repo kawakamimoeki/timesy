@@ -11,6 +11,7 @@ body {
 .markdown-body {
   background: none !important;
   color: #333 !important;
+  font-size: 15px !important;
 }
 
 .emoji {
