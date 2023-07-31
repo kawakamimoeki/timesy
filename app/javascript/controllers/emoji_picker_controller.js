@@ -49,6 +49,13 @@ export default class extends Controller {
           tags: [],
           data: { custom: true }
         },
+        {
+          emoji: 'sasuga',
+          label: 'さすが',
+          url: "https://res.cloudinary.com/dw1xpb7if/image/upload/v1690763099/odehmqcyunhmg2xze9my.png",
+          tags: [],
+          data: { custom: true }
+        },
       ]
     }, {
       triggerElement: this.buttonTarget,
