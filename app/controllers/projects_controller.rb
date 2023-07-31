@@ -62,7 +62,7 @@ class ProjectsController < ApplicationController
     end
 
     @user = User.find_by(username: params[:username])
-    @project = Project.find_by(user_id: @user.idgit, codename: params[:codename])
+    @project = Project.find_by(user_id: @user.id, codename: params[:codename])
     @project.destroy
     redirect_to projects_path
   end
