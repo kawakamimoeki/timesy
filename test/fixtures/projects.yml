@@ -6,3 +6,10 @@ general:
   codename: test
   link: https://example.com
   user: general
+
+general2:
+  title: test2
+  body: test2
+  codename: test2
+  link: https://example.com
+  user: general
