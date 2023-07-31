@@ -62,3 +62,8 @@ body {
 .CodeMirror {
   padding: 0 !important;
 }
+
+.emoji img {
+  width: 14px !important;
+  height: 14px !important;
+}
