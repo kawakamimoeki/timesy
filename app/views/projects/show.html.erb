@@ -4,7 +4,7 @@
 
 <div class="grow max-w-[calc(100vw-2rem)] md:max-w-[calc(100%-256px-1rem)]">
   <div class="mb-4 w-full">
-    <div class="flex space-x-4 w-full">
+    <div class="flex space-x-4 w-full mb-4">
       <%= image_tag @project.icon_url, class: "w-20 h-20 rounded mb-4" %>
       <div class="grow">
         <div class="flex w-full items-start">
@@ -16,12 +16,12 @@
             <% end %>
           <% end %>
         </div>
-        <a href="<%= user_path(@project.user.username) %>" class="items-center text-sm mb-2 flex space-x-2 hover:underline">
+        <a href="<%= user_path(@project.user.username) %>" class="items-center text-sm flex space-x-2 hover:underline">
           <p><%= @project.user.name %></p>
           <p class="text-gray-500">@<%= @project.user.username %></p>
         </a>
-        <%= link_to @project.link, class: "hover:bg-gray-100 items-center rounded-lg py-[2px] px-2 text-sm inline-flex", target: "_blank" do %>
-          <%= image_tag "icons/link.svg", class: "w-4 h-4 mr-1 -rotate-45" %>
+        <%= link_to @project.link, class: "items-center text-sm inline-flex hover:underline", target: "_blank" do %>
+          <%= image_tag "icons/link.svg", class: "w-4 h-4 mr-1 -mb-[2px] -rotate-45" %>
           <%= @project.link.sub("https://", "").sub("http://", "").truncate(32) %>
         <% end %>
       </div>
