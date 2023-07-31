@@ -56,12 +56,13 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    if params[:username] != current_user.id.to_s
+    if params[:username] != current_user.username
       redirect_to project_path(params[:username], params[:codename])
       return
     end
 
-    @project = Project.find_by(user_id: params[:username], codename: params[:codename])
+    @user = User.find_by(username: params[:username])
+    @project = Project.find_by(user_id: @user.idgit, codename: params[:codename])
     @project.destroy
     redirect_to projects_path
   end

@@ -81,6 +81,7 @@ ja:
     export_started: エクスポートを開始しました。完了した際にダウンロードリンクを掲載したメールをお送りいたしますのでしばらくお待ち下さい。
     exporting: エクスポートを実行中です。完了した際にダウンロードリンクを掲載したメールをお送りいたしますのでしばらくお待ち下さい。
   projects:
+    confirm_delete: 削除されるとプロジェクトは復元できません。よろしいですか？
     start: New Project
     placeholder:
       title: プロジェクト名を入力
@@ -111,6 +112,7 @@ ja:
       start: はじめる
       create: 作成する
       update: 更新する
+      delete: 削除する
     button:
       change_file: 変更する
   page:
