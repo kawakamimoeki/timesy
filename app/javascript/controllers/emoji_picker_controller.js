@@ -56,6 +56,34 @@ export default class extends Controller {
           tags: [],
           data: { custom: true }
         },
+        {
+          emoji: 'kami',
+          label: '神',
+          url: "https://res.cloudinary.com/dw1xpb7if/image/upload/v1690764533/faec5fxpwsjjbfqptkwq.png",
+          tags: [],
+          data: { custom: true }
+        },
+        {
+          emoji: 'yosasou',
+          label: '良さそう',
+          url: "https://res.cloudinary.com/dw1xpb7if/image/upload/v1690764533/lh0o22z5a2h1u0ey7jch.png",
+          tags: [],
+          data: { custom: true }
+        },
+        {
+          emoji: 'kininaru',
+          label: '気になる',
+          url: "https://res.cloudinary.com/dw1xpb7if/image/upload/v1690764533/emyjnaugrubsqe6370tn.png",
+          tags: [],
+          data: { custom: true }
+        },
+        {
+          emoji: 'arigatougozaimasu',
+          label: 'ありがとうございます',
+          url: "https://res.cloudinary.com/dw1xpb7if/image/upload/v1690764533/lws6zcz0aquacrusgaa5.png",
+          tags: [],
+          data: { custom: true }
+        },
       ]
     }, {
       triggerElement: this.buttonTarget,
