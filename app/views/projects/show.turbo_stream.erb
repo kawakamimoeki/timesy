@@ -7,6 +7,6 @@
 
 <% if @next_page.present? %>
   <%= turbo_stream.replace "load_more" do %>
-    <%= turbo_frame_tag "load_more", src: user_path(username: @user.username, page: @next_page, format: :turbo_stream), loading: :lazy %>
+    <%= turbo_frame_tag "load_more", src: project_path(@user.username, @project.codename, page: @next_page, format: :turbo_stream), loading: :lazy %>
   <% end %>
 <% end %>
