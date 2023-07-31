@@ -20,6 +20,6 @@ class Site
   end
 
   def self.sender_email
-    ENV.fetch("SITE_SENDER_EMAIL", "noreply@timesy.dev")
+    ENV.fetch("SITE_SENDER_EMAIL", "Timesy <noreply@timesy.dev>")
   end
 end

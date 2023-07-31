@@ -62,6 +62,7 @@ gem 'emd'
 gem 'rubyzip'
 gem 'blueprinter'
 gem 'google-cloud-storage'
+gem 'resend'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
