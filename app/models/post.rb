@@ -13,7 +13,9 @@ class Post < ApplicationRecord
   def attach_projects!
     body.scan(/#(\w+)/).flatten.each do |codename|
       project = user.projects.find_by(codename: codename)
-      projects << project if project.present?
+      if project.present? && !projects.include?(project)
+        projects << project
+      end
     end
 
     save
