@@ -80,6 +80,13 @@ ja:
     start_export: エクスポート
     export_started: エクスポートを開始しました。完了した際にダウンロードリンクを掲載したメールをお送りいたしますのでしばらくお待ち下さい。
     exporting: エクスポートを実行中です。完了した際にダウンロードリンクを掲載したメールをお送りいたしますのでしばらくお待ち下さい。
+  projects:
+    start: New Project
+    placeholder:
+      title: プロジェクト名を入力
+      codename: プロジェクトのコードネーム
+    notice:
+      codename: 半角英数字とアンダースコア（_）を使用できます
   exports:
     started:
       title: エクスポートを開始しました
@@ -102,6 +109,7 @@ ja:
       twitter: "@なしで入力"
     submit:
       start: はじめる
+      create: 作成する
       update: 更新する
     button:
       change_file: 変更する

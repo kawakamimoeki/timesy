@@ -314,6 +314,9 @@ GEM
     unicode-emoji (3.3.2)
       unicode-version (~> 1.0)
     unicode-version (1.3.0)
+    validate_url (1.0.15)
+      activemodel (>= 3.0.0)
+      public_suffix
     web-console (4.2.0)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
@@ -368,6 +371,7 @@ DEPENDENCIES
   turbo-rails
   tzinfo-data
   unicode-emoji
+  validate_url
   web-console
   webdrivers
 

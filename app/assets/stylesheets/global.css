@@ -68,3 +68,7 @@ body {
   width: 20px !important;
   height: 20px !important;
 }
+
+.markdown-body .project-tag {
+  color: #0366d6 !important;
+}

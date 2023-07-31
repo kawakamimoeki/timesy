@@ -40,6 +40,13 @@ Rails.application.routes.draw do
   get '/:username', to: 'users#actor', as: :actor, constraints: lambda { |request| request.format == :json }
   get '/:username', to: 'users#show', as: :user, constraints: lambda { |request| request.format != :json }
   get 'users/:username' => redirect('/%{username}')
+  get '/:username/projects', to: 'projects#index', as: :projects
+  get '/:username/projects/:codename', to: 'projects#show', as: :project
+  get 'projects/new', to: 'projects#new', as: :new_project
+  post 'projects', to: 'projects#create', as: :create_project
+  get '/:username/projects/:codename/edit', to: 'projects#edit', as: :edit_project
+  patch '/:username/projects/:codename', to: 'projects#update', as: :update_project
+  delete '/:username/projects/:codename', to: 'projects#destroy', as: :delete_project
 
   namespace :api do
     namespace :v1 do

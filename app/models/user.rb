@@ -3,6 +3,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :exports, dependent: :destroy
+  has_many :projects, dependent: :destroy
 
   validates :name, presence: true
   validates :name, exclusion: {

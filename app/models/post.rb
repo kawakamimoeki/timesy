@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   include Markdownable
 
   belongs_to :user
-  belongs_to :category, optional: true
+  has_and_belongs_to_many :projects
   has_many :comments, dependent: :destroy
   has_many :post_reactions, dependent: :destroy
   has_many_attached :images
@@ -10,20 +10,12 @@ class Post < ApplicationRecord
   scope :search, -> (q) { where("textsearchable_index_col @@ to_tsquery(?)", q) }
   scope :latest, -> { order(updated_at: :desc).limit(200) }
 
-  def to_markdown
-    <<~MARKDOWN
-      ---
-      created_at: #{created_at}
-      updated_at: #{updated_at}
-      ---
+  def attach_projects!
+    body.scan(/#(\w+)/).flatten.each do |codename|
+      project = user.projects.find_by(codename: codename)
+      projects << project if project.present?
+    end
 
-      #{body}
-
-      ---
-
-      #{comments.order(created_at: :asc).map { |c| c.body }.join("\n\n---\n\n")}
-
-      --- 
-    MARKDOWN
+    save
   end
 end
