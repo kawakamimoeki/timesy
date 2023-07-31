@@ -118,7 +118,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_31_114735) do
     t.datetime "updated_at", null: false
     t.integer "category_id"
     t.boolean "dev", default: false
-    t.uuid "project_id", null: false
+    t.uuid "project_id"
     t.index "to_tsvector('english'::regconfig, body)", name: "posts_idx", using: :gin
     t.index ["category_id"], name: "index_posts_on_category_id"
     t.index ["project_id"], name: "index_posts_on_project_id"
