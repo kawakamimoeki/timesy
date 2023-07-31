@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_31_114735) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_31_135324) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -118,21 +118,29 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_31_114735) do
     t.datetime "updated_at", null: false
     t.integer "category_id"
     t.boolean "dev", default: false
-    t.uuid "project_id"
     t.index "to_tsvector('english'::regconfig, body)", name: "posts_idx", using: :gin
     t.index ["category_id"], name: "index_posts_on_category_id"
-    t.index ["project_id"], name: "index_posts_on_project_id"
     t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
+  create_table "posts_projects", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "post_id", null: false
+    t.uuid "project_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_posts_projects_on_post_id"
+    t.index ["project_id"], name: "index_posts_projects_on_project_id"
   end
 
   create_table "projects", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "title", null: false
-    t.text "description"
+    t.text "body"
     t.string "codename", null: false
+    t.string "link"
     t.uuid "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id", "codename"], name: "index_projects_on_user_id_and_codename", unique: true
+    t.index ["codename"], name: "index_projects_on_codename", unique: true
   end
 
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -158,7 +166,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_31_114735) do
   add_foreign_key "exports", "users"
   add_foreign_key "post_reactions", "posts"
   add_foreign_key "post_reactions", "users"
-  add_foreign_key "posts", "projects"
   add_foreign_key "posts", "users"
+  add_foreign_key "posts_projects", "posts"
+  add_foreign_key "posts_projects", "projects"
   add_foreign_key "projects", "users"
 end
