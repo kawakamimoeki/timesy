@@ -33,6 +33,6 @@
   </div>
 </div>
 <nav class="w-full mb-4 flex items-center border-b">
-  <a href="<%= user_path(user.username) %>" class="hover:bg-gray-100 py-2 w-1/2 text-center <%= request.path == user_path(user.username) ? "border-b-2 border-sky-500" : "" %>">Posts</a>
-  <a href="<%= projects_path(user.username) %>"  class="py-2 hover:bg-gray-100 w-1/2 text-center <%= request.path == projects_path(user.username) ? "border-b-2 border-sky-500" : "" %>">Projects</a>
+  <a href="<%= user_path(user.username) %>" class="hover:bg-gray-100 py-2 w-1/2 text-center <%= request.path == user_path(user.username) ? "font-bold border-b-2 border-sky-500" : "" %>"><%= I18n.t("pages.posts") %></a>
+  <a href="<%= projects_path(user.username) %>"  class="py-2 hover:bg-gray-100 w-1/2 text-center <%= request.path == projects_path(user.username) ? "font-bold border-b-2 border-sky-500" : "" %>"><%= I18n.t("pages.projects") %></a>
 </nav>

@@ -1,52 +1,55 @@
-<div class="relative hidden <%= should_render_sidebar? ? "md:block" : "md:hidden" %>">
-  <div class="h-[54px]">
-  </div>
-  <div class="sticky text-sm top-3 bg-white shadow-sm rounded-lg w-64 p-5">
-    <ul class="mb-5 flex flex-col space-y-2">
+<div class="relative  hidden <%= should_render_sidebar? ? "md:block" : "md:hidden" %>">
+  <div class="sticky text-sm top-4 bg-white shadow-sm rounded-lg w-64 py-4 px-2">
+    <ul class="mb-4 flex flex-col">
       <li>
-        <%= link_to "Latest", root_path, class: " hover:underline" %>
+        <%= link_to I18n.t("pages.latest"), root_path, class: "#{request.path === root_path ? "font-bold" : ""} py-1 px-2 block hover:bg-gray-50 rounded" %>
       </li>
       <% if current_user %>
       <li>
-        <%= link_to "Projects", projects_path(current_user.username), class: " hover:underline" %>
+        <%= link_to I18n.t("pages.your_posts"), user_path(current_user.username), class: "#{request.path === user_path(current_user.username) ? "font-bold" : ""} py-1 px-2 block hover:bg-gray-50 rounded" %>
       </li>
       <li>
-        <%= link_to "Setting", settings_path, class: " hover:underline" %>
+        <%= link_to I18n.t("pages.your_projects"), projects_path(current_user.username), class: "#{request.path === projects_path(current_user.username) ? "font-bold" : ""} py-1 px-2 block hover:bg-gray-50 rounded" %>
+      </li>
+      <li>
+        <%= link_to I18n.t("pages.settings"), settings_path, class: "#{request.path === settings_path ? "font-bold" : ""} py-1 px-2 block hover:bg-gray-50 rounded" %>
       </li>
       <% end %>
+      <li class="w-full border-b pb-2"></li>
+      <li class="w-full pb-2"></li>
       <li>
-        <%= link_to "Documentation", docs_path, class: " hover:underline" %>
+        <%= link_to I18n.t("pages.docs"), docs_path, class: "#{request.path === docs_path ? "font-bold" : ""} py-1 px-2 block hover:bg-gray-50 rounded" %>
       </li>
       <li>
-        <%= link_to "About", about_path, class: " hover:underline" %>
+        <%= link_to I18n.t("pages.about"), about_path, class: "#{request.path === about_path ? "font-bold" : ""} py-1 px-2 block hover:bg-gray-50 rounded" %>
       </li>
       <li>
-        <%= link_to "Terms", terms_path, class: " hover:underline" %>
+        <%= link_to I18n.t("pages.terms"), terms_path, class: "#{request.path === terms_path ? "font-bold" : ""} py-1 px-2 block hover:bg-gray-50 rounded" %>
       </li>
       <li>
-        <%= link_to "Privacy", privacy_path, class: " hover:underline" %>
+        <%= link_to I18n.t("pages.privacy"), privacy_path, class: "#{request.path === privacy_path ? "font-bold" : ""} py-1 px-2 block hover:bg-gray-50 rounded" %>
       </li>
       <li>
-        <%= link_to "https://forms.gle/7FZz2iHzYLQYiom7A", class: " hover:underline", target: "_blank" do %>
-          <span>Emoji Request</span>
+        <%= link_to "https://forms.gle/7FZz2iHzYLQYiom7A", class: " py-1 px-2 block hover:bg-gray-50 rounded", target: "_blank" do %>
+          <span><%= I18n.t("pages.emoji_request") %></span>
           <%= image_tag "icons/newtab.svg", class: "inline-block h-3 w-3 pb-[1px] ml-[1px]" %>
         <% end %>
       </li>
       <li>
-        <%= link_to "https://github.com/moekidev/timesy", class: " hover:underline", target: "_blank" do %>
-          <span>GitHub</span>
+        <%= link_to "https://github.com/moekidev/timesy", class: " py-1 px-2 block hover:bg-gray-50 rounded", target: "_blank" do %>
+          <span><%= I18n.t("pages.github") %></span>
           <%= image_tag "icons/newtab.svg", class: "inline-block h-3 w-3 pb-[1px] ml-[1px]" %>
         <% end %>
       </li>
       <li>
-        <%= link_to "https://status.timesy.dev/", class: " hover:underline", target: "_blank" do %>
-          <span>Status</span>
+        <%= link_to "https://status.timesy.dev/", class: " py-1 px-2 block hover:bg-gray-50 rounded", target: "_blank" do %>
+          <span><%= I18n.t("pages.status") %></span>
           <%= image_tag "icons/newtab.svg", class: "inline-block h-3 w-3 pb-[1px] ml-[1px]" %>
         <% end %>
       </li>
       <li>
-        <%= link_to "https://www.buymeacoffee.com/moekidev", class: " hover:underline", target: "_blank" do %>
-          <span>Buy me a coffee</span>
+        <%= link_to "https://www.buymeacoffee.com/moekidev", class: " py-1 px-2 block hover:bg-gray-50 rounded", target: "_blank" do %>
+          <span><%= I18n.t("pages.tip") %></span>
           <%= image_tag "icons/newtab.svg", class: "inline-block h-3 w-3 pb-[1px] ml-[1px]" %>
         <% end %>
       </li>
