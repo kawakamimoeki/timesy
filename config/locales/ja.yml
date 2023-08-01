@@ -87,7 +87,7 @@ ja:
       title: プロジェクト名を入力
       codename: URLと投稿からの参照 "#codename"に使われます
     notice:
-      codename: 半角英数字とアンダースコア（_）を使用できます
+      codename: 半角英数字とアンダースコア（_）を使用できます。グローバルにユニークである必要があります。
   exports:
     started:
       title: エクスポートを開始しました
