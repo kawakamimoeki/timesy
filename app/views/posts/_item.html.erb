@@ -10,7 +10,7 @@
     <%= item.html(400).html_safe %>
   </div>
   <div class="flex items-end">
-    <div class="flex mt-5 items-center w-full flex-wrap overflow-hidden">
+    <div class="flex mt-3 items-center w-full flex-wrap overflow-hidden">
       <%= render partial: 'shared/post_reactions', locals: { current_user: current_user, post: item, reaction: @post_reaction } %>
       <div class="flex items-center flex-wrap">
       <% item.comments.order(created_at: :desc).limit(2).each do |comment| %>
