@@ -19,6 +19,7 @@ class UsersController < ApplicationController
     @current_page = params[:page].to_i
 
     @posts = Post.offset(page_limit*@current_page)
+      .where(user_id: @user.id)
       .includes(:user)
       .latest
       .limit(page_limit)
