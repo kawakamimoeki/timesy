@@ -44,7 +44,6 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.attach_projects!
 
     if @post.user != current_user
       render json: { error: 'You are not authorized to edit this post.' }, status: :unauthorized
@@ -52,6 +51,7 @@ class PostsController < ApplicationController
     end
 
     @post.update(post_params)
+    @post.attach_projects!
   end
 
   def destroy
