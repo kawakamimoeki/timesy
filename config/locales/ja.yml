@@ -1,6 +1,21 @@
 ja:
   site:
     description: 開発者のためのマイクロブログサービス
+  pages:
+    posts: 投稿
+    projects: プロジェクト
+    latest: 最近の投稿
+    your_posts: あなたの投稿
+    your_projects: あなたのプロジェクト
+    settings: 設定
+    docs: ドキュメント
+    about: Timesyについて
+    terms: 利用規約
+    privacy: プライバシーポリシー
+    emoji_request: 絵文字リクエスト
+    github: GitHub
+    status: ステータスページ
+    tip: チップを送る
   activerecord:
     attributes:
       user:
