@@ -18,7 +18,27 @@ class UsersController < ApplicationController
     page_limit = 20
     @current_page = params[:page].to_i
 
-    @posts = @user.posts.offset(page_limit*@current_page)
+    @posts = Post.offset(page_limit*@current_page)
+      .includes(:user)
+      .latest
+      .limit(page_limit)
+    @next_page = @current_page + 1 if Post.all.count > page_limit*@current_page + page_limit
+  end
+
+  def comments
+    @user = User.find_by(username: params[:username])
+
+    if @user.nil?
+      render file: "#{Rails.root}/public/404.html", status: :not_found
+      return
+    end
+
+    page_limit = 20
+    @current_page = params[:page].to_i
+
+    comments = Comment.where(user_id: @user.id)
+    @posts = Post.where(id: comments.map(&:post_id))
+      .offset(page_limit*@current_page)
       .includes(:user)
       .latest
       .limit(page_limit)
