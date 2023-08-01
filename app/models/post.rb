@@ -11,6 +11,8 @@ class Post < ApplicationRecord
   scope :latest, -> { order(updated_at: :desc).limit(200) }
 
   def attach_projects!
+    projects.clear
+
     body.scan(/#(\w+)/).flatten.each do |codename|
       project = user.projects.find_by(codename: codename)
       if project.present? && !projects.include?(project)
