@@ -1,4 +1,4 @@
-<div id="<%= item.id %>" class="shadow-sm mb-4 rounded-lg relative bg-white p-4 transition-opacity animate-fade-in <%= item.html.length < 64 && !item.html.include?("<img") && !item.comments.present? ? "max-w-sm mx-auto" : "" %>">
+<div id="<%= item.id %>" class="shadow-sm mb-4 rounded-lg relative bg-white p-4 transition-opacity animate-fade-in <%= strip_tags(item.html).length < 64 && !item.html.include?("<img") && !item.comments.present? ? "max-w-sm mx-auto" : "" %>">
   <div class="mb-3 flex items-center space-x-1">
     <div class="flex hover:underline items-center space-x-1 relative">
       <%= render partial: 'shared/avatar', locals: { user: item.user } %>
