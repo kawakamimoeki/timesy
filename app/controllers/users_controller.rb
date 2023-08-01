@@ -38,6 +38,7 @@ class UsersController < ApplicationController
 
     comments = Comment.where(user_id: @user.id)
     @posts = Post.where(id: comments.map(&:post_id))
+      .where.not(user_id: @user.id)
       .offset(page_limit*@current_page)
       .includes(:user)
       .latest
