@@ -9,6 +9,9 @@
         <%= link_to I18n.t("pages.your_posts"), user_path(current_user.username), class: "#{request.path === user_path(current_user.username) ? "font-bold" : ""} py-1 px-2 block hover:bg-gray-50 rounded" %>
       </li>
       <li>
+        <%= link_to I18n.t("pages.your_comments"), user_comments_path(current_user.username), class: "#{request.path === user_comments_path(current_user.username) ? "font-bold" : ""} py-1 px-2 block hover:bg-gray-50 rounded" %>
+      </li>
+      <li>
         <%= link_to I18n.t("pages.your_projects"), projects_path(current_user.username), class: "#{request.path === projects_path(current_user.username) ? "font-bold" : ""} py-1 px-2 block hover:bg-gray-50 rounded" %>
       </li>
       <li>

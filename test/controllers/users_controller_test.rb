@@ -40,6 +40,12 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get comments" do
+    user = users(:general)
+    get "/#{user.username}/comments"
+    assert_response :success
+  end
+
   test "should get actor" do
     user = users(:general)
     get "/#{user.username}", headers: { "Accept" => "application/activity+json" }

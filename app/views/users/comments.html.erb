@@ -1,0 +1,26 @@
+<% set_meta_tags(
+  title: @user.name,
+  og: {
+    title: @user.name,
+  }
+) %>
+
+
+<div class="grow max-w-[calc(100vw-2rem)] md:max-w-[calc(100%-256px-1rem)]">
+  <%= render partial: "shared/profile", locals: { user: @user } %>
+  <% if @posts.empty? %>
+    <p class="w-full text-center py-20 font-bold"><%= I18n.t("posts.not_found") %></p>
+  <% else %>
+    <%= turbo_frame_tag "loading" do %>
+      <%= render partial: "posts/loading" %>
+      <div class="hidden sm:block">
+        <%= render partial: "posts/loading" %>
+      </div>
+    <% end %>
+
+    <%= turbo_frame_tag :posts do %>
+    <% end %>
+
+    <%= turbo_frame_tag "load_more", src: user_comments_path(username: @user.username, format: :turbo_stream), loading: :lazy %>
+  <% end %>
+</div>

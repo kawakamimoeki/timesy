@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   get 'users/:username' => redirect('/%{username}')
   get '/:username/projects', to: 'projects#index', as: :projects
   get '/:username/projects/:codename', to: 'projects#show', as: :project
+  get '/:username/comments', to: 'users#comments', as: :user_comments
   get 'projects/new', to: 'projects#new', as: :new_project
   post 'projects', to: 'projects#create', as: :create_project
   get '/:username/projects/:codename/edit', to: 'projects#edit', as: :edit_project
