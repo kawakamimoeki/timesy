@@ -25,7 +25,7 @@ export default class extends Controller {
       shortcuts: {
         togglePreview: null,
       },
-      imageAccept: ["image/jpeg", "image/png", "image/gif", "image/svg+xml", "image/x-icon", "image/vnd.microsoft.icon", "image/vnd.wap.wbmp", "image/webp"],
+      imageAccept: ["image/jpeg", "image/png", "image/gif", "image/webp"],
       imageUploadFunction: this.uploadFile,
     });
     document.addEventListener("keydown", (event) => {
