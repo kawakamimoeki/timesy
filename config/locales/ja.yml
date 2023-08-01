@@ -3,6 +3,7 @@ ja:
     description: 開発者のためのマイクロブログサービス
   pages:
     posts: 投稿
+    comments: コメント
     projects: プロジェクト
     latest: 最近の投稿
     your_posts: あなたの投稿
