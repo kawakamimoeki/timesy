@@ -20,9 +20,11 @@
           <p><%= @project.user.name %></p>
           <p class="text-gray-500">@<%= @project.user.username %></p>
         </a>
-        <%= link_to @project.link, class: "items-center text-sm inline-flex hover:underline", target: "_blank" do %>
-          <%= image_tag "icons/link.svg", class: "w-4 h-4 mr-1 -mb-[2px] -rotate-45" %>
-          <%= @project.link.sub("https://", "").sub("http://", "").truncate(32) %>
+        <% if @project.link.present? %>
+          <%= link_to @project.link, class: "items-center text-sm inline-flex hover:underline", target: "_blank" do %>
+            <%= image_tag "icons/link.svg", class: "w-4 h-4 mr-1 -mb-[2px] -rotate-45" %>
+            <%= @project.link.sub("https://", "").sub("http://", "").truncate(32) %>
+          <% end %>
         <% end %>
       </div>
     </div>
