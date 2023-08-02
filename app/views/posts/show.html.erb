@@ -78,7 +78,7 @@
   <% end %>
   <div>
     <%= turbo_frame_tag "comments" do %>
-      <%= render partial: 'comments/item', collection: @post.comments.order(created_at: :desc) %>
+      <%= render partial: 'comments/item', collection: @post.comments.order(created_at: :desc), cached: true %>
     <% end %>
   </div>
 </div>
