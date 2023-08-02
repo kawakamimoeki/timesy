@@ -15,6 +15,6 @@
         <div class="font-bold"><%= I18n.t("projects.start") %></div>
       </a>
     <% end %>
-    <%= render partial: 'projects/item', collection: @projects, as: :project %>
+    <%= render partial: 'projects/item', collection: @projects, as: :project, cached: true %>
   </div>
 </div>

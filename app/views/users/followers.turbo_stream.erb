@@ -2,7 +2,7 @@
 <% end %>
 
 <%= turbo_stream.append "users" do %>
-  <%= render partial: 'users/item', collection: @followers %>
+  <%= render partial: 'users/item', collection: @followers, cached: true %>
 <% end %>
 
 <% if @next_page.present? %>

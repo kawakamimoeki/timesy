@@ -11,16 +11,10 @@
   <% if @followers.empty? %>
     <p class="w-full text-center py-20 font-bold"><%= I18n.t("followers.not_found") %></p>
   <% else %>
-    <%= turbo_frame_tag "loading" do %>
-      <%= render partial: "posts/loading" %>
-      <div class="hidden sm:block">
-        <%= render partial: "posts/loading" %>
-      </div>
-    <% end %>
-
     <%= turbo_frame_tag :users do %>
+      <%= render partial: 'users/item', collection: @followers, cached: true %>
     <% end %>
 
-    <%= turbo_frame_tag "load_more", src: followers_path(username: @user.username, format: :turbo_stream), loading: :lazy %>
+    <%= turbo_frame_tag "load_more", src: followers_path(username: @user.username, format: :turbo_stream, page: 1), loading: :lazy %>
   <% end %>
 </div>
