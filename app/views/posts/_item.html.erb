@@ -22,8 +22,9 @@
       </div>
       <%= link_to post_path(id: item.id), class: "cursor-pointer items-center flex rounded-full p-relative px-2 py-[4px] my-1 hover:bg-gray-100 bg-gray-50 transition-all", data: { turbo: false } do %>
         <% if item.comments.count > 0 %>
-          <p class="text-gray-600 text-sm">
-            <%= item.comments.count %> comments
+          <p class="text-gray-600 text-sm flex items-center space-x-1">
+            <%= image_tag "icons/comment.svg", alt: "comment", width:"14px", height: "14px" %>
+            <span><%= item.comments.count %></span>
           </p>
         <% end %>
       <% end %>
