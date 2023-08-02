@@ -9,7 +9,7 @@ module Markdownable
     else
       body = emojified_body.truncate(truncate)
     end
-    html = Kramdown::Document.new(body, input: 'GFM').to_html
+    html = Rinku.auto_link(Kramdown::Document.new(body, input: 'GFM').to_html)
     doc = Nokogiri::HTML::DocumentFragment.parse(html)
     doc.css('code[@class]').each do |code|
       Pygments.highlight(code.text, lexer: code[:class].match(/language-(\w+)/)[1], options: { encoding: 'utf-8' })

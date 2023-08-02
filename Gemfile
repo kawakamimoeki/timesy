@@ -64,6 +64,7 @@ gem 'validate_url'
 gem 'kramdown'
 gem 'kramdown-parser-gfm'
 gem 'pygments.rb'
+gem 'rinku'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
