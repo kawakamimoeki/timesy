@@ -4,24 +4,13 @@ module Markdownable
   extend ActiveSupport::Concern
 
   def html(truncate = false)
-    markdown = Redcarpet::Markdown.new(
-      Redcarpet::Render::HTML.new(
-        filter_html: true,
-        hard_wrap: true,
-      ),
-      autolink: true,
-      tables: true,
-      fenced_code_blocks: true,
-      strikethrough: true,
-      no_intra_emphasis: true,
-      space_after_headers: true,
-    )
     if truncate === false
       body = emojified_body
     else
       body = emojified_body.truncate(truncate)
     end
-    doc = Nokogiri::HTML::DocumentFragment.parse(markdown.render(body))
+    html = Kramdown::Document.new(body, input: 'GFM').to_html
+    doc = Nokogiri::HTML::DocumentFragment.parse(html)
     doc.css('code[@class]').each do |code|
       code[:class] = "language-" + code[:class]
     end

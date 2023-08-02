@@ -171,6 +171,10 @@ GEM
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
     jwt (2.7.1)
+    kramdown (2.4.0)
+      rexml
+    kramdown-parser-gfm (1.1.0)
+      kramdown (~> 2.0)
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -355,13 +359,14 @@ DEPENDENCIES
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
+  kramdown
+  kramdown-parser-gfm
   meta-tags
   minitest-stub_any_instance
   passwordless
   pg (~> 1.1)
   puma (~> 6.3)
   rails (~> 7.0.6)
-  redcarpet
   resend
   rubyzip
   selenium-webdriver
