@@ -9,6 +9,18 @@
       </div>
       <%= render partial: "posts/form", locals: { post: @post, page: @page } %>
     </div>
+    <% else %>
+    <div class="text-center max-w-sm mx-auto w-full bg-white space-x-3 p-4 text-gray-700 shadow-sm rounded-lg mb-4">
+      <h2 class="font-bold mb-2 text-lg">あなたもTimesyはじめてみませんか？</h2>
+      <ul class="mb-4 text-xs flex space-y-2 flex-col">
+        <li>timesとして</li>
+        <li>見つけた記事のスクラップ</li>
+        <li>ブログ記事などの感想をまとめる</li>
+        <li>Podcastを聞きながらメモを取る</li>
+        <li>他愛もないつぶやき</li>
+      </ul>
+      <%= link_to I18n.t("users.sign_up"), "/users/sign_up", class: primary_button_class %>
+    </div>
     <% end %>
     <% if @posts.empty? %>
       <p class="w-full text-center py-16 font-bold"><%= I18n.t("posts.not_found") %></p>
