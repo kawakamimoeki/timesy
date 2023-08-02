@@ -15,7 +15,7 @@
 
 
     <%= turbo_frame_tag :posts do %>
-      <%= render partial: 'posts/item', collection: @posts, cached: true %>
+      <%= render partial: 'posts/item', collection: @posts %>
     <% end %>
 
     <%= turbo_frame_tag "load_more", src: user_comments_path(username: @user.username, format: :turbo_stream, page: 1), loading: :lazy %>

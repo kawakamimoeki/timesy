@@ -26,7 +26,7 @@
       <p class="w-full text-center py-16 font-bold"><%= I18n.t("posts.not_found") %></p>
     <% else %>
       <%= turbo_frame_tag :posts do %>
-        <%= render partial: 'posts/item', collection: @posts, cached: true %>
+        <%= render partial: 'posts/item', collection: @posts %>
       <% end %>
 
       <%= turbo_frame_tag "load_more", src: request.path.include?("latest") ? latest_path(format: :turbo_stream, page: 1) : root_path(format: :turbo_stream), loading: :lazy  %>

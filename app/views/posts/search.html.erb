@@ -3,5 +3,5 @@
     <%= image_tag 'icons/search.svg', alt: "search", width: '20px', height: '20px' %>
     <%= form.text_field :q, class: 'ml-2 w-full border-none focus:ring-0 outline-none', placeholder: I18n.t("search.placeholder"), value: @q %>
   <% end %>
-  <%= render partial: 'posts/item', collection: @posts, cached: true %>
+  <%= render partial: 'posts/item', collection: @posts %>
 </div>

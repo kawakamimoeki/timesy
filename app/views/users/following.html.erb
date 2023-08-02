@@ -12,7 +12,7 @@
     <p class="w-full text-center py-20 font-bold"><%= I18n.t("following.not_found") %></p>
   <% else %>
     <%= turbo_frame_tag :users do %>
-      <%= render partial: 'users/item', collection: @followees, cached: true %>
+      <%= render partial: 'users/item', collection: @followees %>
     <% end %>
 
     <%= turbo_frame_tag "load_more", src: following_path(username: @user.username, format: :turbo_stream, page: 1), loading: :lazy %>

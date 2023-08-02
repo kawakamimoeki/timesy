@@ -45,7 +45,7 @@
     <% else %>
 
     <%= turbo_frame_tag :posts do %>
-      <%= render partial: 'posts/item', collection: @posts, cached: true %>
+      <%= render partial: 'posts/item', collection: @posts %>
     <% end %>
 
     <%= turbo_frame_tag "load_more", src: project_path(@user.username, @project.codename, format: :turbo_stream, page: 1), loading: :lazy %>
