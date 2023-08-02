@@ -21,7 +21,7 @@
       <% end %>
     <% else %>
       <div class="rounded-ful py-[2px] px-1 mx-1 text-sm emoji my-1 flex items-center space-x-1 border bg-gray-50 border-gray-50">
-        <span><%= body %></span>
+        <span><%= body.html_safe %></span>
         <span class="text-gray-400 text-xs"><%= reactions.count %></span>
       </div>
     <% end %>
