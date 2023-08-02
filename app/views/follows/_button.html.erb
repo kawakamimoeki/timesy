@@ -1,0 +1,11 @@
+<% if current_user %>
+<% if current_user != user %>
+  <%= turbo_frame_tag :follow_button do %>
+    <% if current_user.follow?(user) %>
+      <%= button_to I18n.t("users.following"), unfollow_user_path(user.username), method: :delete, class: "bg-white text-gray-800 border shadow-sm px-3 py-1 rounded-full text-sm font-bold" %>
+    <% else %>
+      <%= button_to I18n.t("users.follow"), follow_user_path(user.username), method: :post, class: "bg-sky-500 text-white px-3 py-1 rounded-full text-sm shadow-sm font-bold hover:bg-sky-600 border border-sky-500 hover:border-sky-600" %>
+    <% end %>
+  <% end %>
+<% end %>
+<% end %>

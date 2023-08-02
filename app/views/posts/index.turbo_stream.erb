@@ -7,6 +7,6 @@
 
 <% if @next_page.present? %>
   <%= turbo_stream.replace "load_more" do %>
-    <%= turbo_frame_tag "load_more", src: root_path(page: @next_page, format: :turbo_stream), loading: :lazy %>
+    <%= turbo_frame_tag "load_more", src: request.path.include?("latest") ? latest_path(page: @next_page, format: :turbo_stream) : root_path(page: @next_page, format: :turbo_stream), loading: :lazy %>
   <% end %>
 <% end %>

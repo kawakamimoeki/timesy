@@ -67,4 +67,16 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
       assert_response :unauthorized
     end
   end
+
+  test "should get followers" do
+    user = users(:general)
+    get "/#{user.username}/followers"
+    assert_response :success
+  end
+
+  test "should get following" do
+    user = users(:general)
+    get "/#{user.username}/following"
+    assert_response :success
+  end
 end

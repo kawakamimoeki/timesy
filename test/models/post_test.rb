@@ -24,4 +24,18 @@ class PostTest < ActiveSupport::TestCase
     post.attach_projects!
     assert_equal 2, post.projects.count
   end
+
+  test "should get followings posts with followee and self and not other" do
+    user = users(:general)
+    followee = users(:general2)
+    user2 = users(:general3)
+
+    post = Post.create(body: "#test", user: followee)
+    post2 = Post.create(body: "#test", user: user)
+    post3 = Post.create(body: "#test", user: user2)
+
+    assert Post.following(user).include?(post)
+    assert Post.following(user).include?(post2)
+    assert Post.following(user).exclude?(post3)
+  end
 end

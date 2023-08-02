@@ -2,9 +2,12 @@ ja:
   site:
     description: 開発者のためのマイクロブログサービス
   pages:
+    following: "%{user}がフォローしている人"
+    followers: "%{user}のフォロワー"
     posts: 投稿
-    comments: コメント
-    projects: プロジェクト
+    follow: フォロー中
+    comments: "%{user}のコメント"
+    projects: "%{user}のプロジェクト"
     latest: 最近の投稿
     your_posts: あなたの投稿
     your_comments: コメントした投稿
@@ -81,7 +84,16 @@ ja:
         title: お帰りなさい！
         submit: ログインを承認する
         desc: アカウントに新しい場所からログインしようとしています。これがあなたの場合は、下のリンクをクリックして承認してください。
+  followers:
+    not_found: フォロワーがいません
+  followees:
+    not_found: フォローしている人がいません
   users:
+    follow: フォロー
+    following: フォロー中
+    followers: フォロワー
+    comments: コメント
+    projects: プロジェクト
     sign_in: ログイン
     sign_up: はじめる
     sign_out: ログアウト

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   delete 'users/:id', to: 'users#destroy', as: :delete_user
 
   root 'posts#index'
+  get "/latest", to: "posts#latest", as: :latest
   get "posts/:id", to: "posts#show", as: :post
   post "posts", to: "posts#create", as: :create_post
   patch "posts/:id", to: "posts#update", as: :update_post
@@ -48,6 +49,10 @@ Rails.application.routes.draw do
   get '/:username/projects/:codename/edit', to: 'projects#edit', as: :edit_project
   patch '/:username/projects/:codename', to: 'projects#update', as: :update_project
   delete '/:username/projects/:codename', to: 'projects#destroy', as: :delete_project
+  post '/:username/follows', to: 'follows#create', as: :follow_user
+  delete '/:username/follows', to: 'follows#destroy', as: :unfollow_user
+  get '/:username/followers', to: 'users#followers', as: :followers
+  get '/:username/following', to: 'users#following', as: :following
 
   namespace :api do
     namespace :v1 do

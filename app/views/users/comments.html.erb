@@ -1,13 +1,14 @@
 <% set_meta_tags(
-  title: @user.name,
+  title: I18n.t("pages.comments", user: @user.name),
   og: {
-    title: @user.name,
+    title: I18n.t("pages.comments", user: @user.name),
   }
 ) %>
 
 
 <div class="grow max-w-[calc(100vw-2rem)] md:max-w-[calc(100%-256px-1rem)]">
   <%= render partial: "shared/profile", locals: { user: @user } %>
+  <%= render partial: 'shared/user_nav', locals: { user: @user } %>
   <% if @posts.empty? %>
     <p class="w-full text-center py-20 font-bold"><%= I18n.t("posts.not_found") %></p>
   <% else %>

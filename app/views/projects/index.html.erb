@@ -1,12 +1,13 @@
 <% set_meta_tags(
-  title: "#{@user.name}'s Projects",
+  title: I18n.t("pages.projects", user: @user.name),
   og: {
-    title: "#{@user.name}'s Projects",
+    title: I18n.t("pages.projects", user: @user.name),
   }
 ) %>
 
 <div class="grow max-w-[calc(100vw-2rem)] md:max-w-[calc(100%-256px-1rem)]">
   <%= render partial: 'shared/profile', locals: { user: @user } %>
+  <%= render partial: 'shared/user_nav', locals: { user: @user } %>
   <div>
     <% if current_user == @user %>
       <a class="flex space-x-2 hover:shadow mb-4 rounded-lg bg-white shadow-sm p-4" href="<%= new_project_path %>">

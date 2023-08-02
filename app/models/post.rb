@@ -9,6 +9,7 @@ class Post < ApplicationRecord
 
   scope :search, -> (q) { where("textsearchable_index_col @@ to_tsquery(?)", q) }
   scope :latest, -> { order(updated_at: :desc).limit(200) }
+  scope :following, -> (user) {where(user: user.followee_users).or(where(user: user)) }
 
   def attach_projects!
     projects.clear

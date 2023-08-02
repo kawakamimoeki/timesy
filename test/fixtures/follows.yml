@@ -1,0 +1,6 @@
+one:
+  follower: general
+  followee: general2
+two:
+  follower: general2
+  followee: general
