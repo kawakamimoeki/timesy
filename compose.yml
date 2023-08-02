@@ -15,7 +15,7 @@ services:
       - '1080:1080'
   web:
     build: .
-    command: bash -c "rm -f tmp/pids/server.pid && bin/dev"
+    command: bin/dev
     tty: true
     volumes:
       - .:/app
