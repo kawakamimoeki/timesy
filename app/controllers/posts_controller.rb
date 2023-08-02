@@ -13,8 +13,28 @@ class PostsController < ApplicationController
     @post_reaction = PostReaction.new
     @current_page = params[:page].to_i
 
-    @posts = Post.offset(page_limit*@current_page).includes(:user, comments: :user, post_reactions: :user).latest.limit(page_limit)
+    all_posts = Post.offset(page_limit*@current_page)
+      .includes(:user, comments: :user, post_reactions: :user)
+      .latest
+    if current_user
+      all_posts = all_posts.following(current_user)
+    end
+    
+    @posts = all_posts.limit(page_limit)
+    @next_page = @current_page + 1 if all_posts.count > page_limit*@current_page + page_limit
+  end
+
+  def latest
+    @post = Post.new
+    @post_reaction = PostReaction.new
+    @current_page = params[:page].to_i
+
+    @posts = Post.offset(page_limit*@current_page)
+      .includes(:user, comments: :user, post_reactions: :user)
+      .latest
+      .limit(page_limit)
     @next_page = @current_page + 1 if Post.all.count > page_limit*@current_page + page_limit
+    render :index
   end
 
   def show

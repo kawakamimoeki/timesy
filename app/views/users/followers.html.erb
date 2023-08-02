@@ -1,0 +1,26 @@
+<% set_meta_tags(
+  title: I18n.t("pages.followers", user: @user.name),
+  og: {
+    title: I18n.t("pages.followers", user: @user.name),
+  }
+) %>
+
+<div class="grow max-w-[calc(100vw-2rem)] md:max-w-[calc(100%-256px-1rem)]">
+  <%= render partial: "shared/profile", locals: { user: @user } %>
+  <%= render partial: "shared/follow_nav", locals: { user: @user } %>
+  <% if @followers.empty? %>
+    <p class="w-full text-center py-20 font-bold"><%= I18n.t("followers.not_found") %></p>
+  <% else %>
+    <%= turbo_frame_tag "loading" do %>
+      <%= render partial: "posts/loading" %>
+      <div class="hidden sm:block">
+        <%= render partial: "posts/loading" %>
+      </div>
+    <% end %>
+
+    <%= turbo_frame_tag :users do %>
+    <% end %>
+
+    <%= turbo_frame_tag "load_more", src: followers_path(username: @user.username, format: :turbo_stream), loading: :lazy %>
+  <% end %>
+</div>

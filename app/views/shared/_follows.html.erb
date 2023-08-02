@@ -1,0 +1,14 @@
+<div class="flex items-center space-x-2">
+  <%= link_to following_path(user.username), class: "text-sm hover:underline" do %>
+    <span class="font-bold">
+      <%= user.followee_users.count %>
+    </span>
+    <%= I18n.t("users.following") %>
+  <% end %>
+  <%= link_to followers_path(user.username), class: "text-sm hover:underline" do %>
+    <span class="font-bold">
+      <%= user.follower_users.count %>
+    </span>
+    <%= I18n.t("users.followers") %>
+  <% end %>
+</div>

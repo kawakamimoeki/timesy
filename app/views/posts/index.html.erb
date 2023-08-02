@@ -24,17 +24,18 @@
     <% end %>
     <% if @posts.empty? %>
       <p class="w-full text-center py-16 font-bold"><%= I18n.t("posts.not_found") %></p>
-    <% end %>
-    <%= turbo_frame_tag "loading" do %>
-      <%= render partial: "posts/loading" %>
-      <div class="hidden sm:block">
-      <%= render partial: "posts/loading" %>
-    </div>
-    <% end %>
+    <% else %>
+      <%= turbo_frame_tag "loading" do %>
+        <%= render partial: "posts/loading" %>
+        <div class="hidden sm:block">
+          <%= render partial: "posts/loading" %>
+        </div>
+      <% end %>
 
-    <%= turbo_frame_tag :posts do %>
-    <% end %>
+      <%= turbo_frame_tag :posts do %>
+      <% end %>
 
-    <%= turbo_frame_tag "load_more", src: root_path(dev: params[:dev], format: :turbo_stream), loading: :lazy  %>
+      <%= turbo_frame_tag "load_more", src: request.path.include?("latest") ? latest_path(format: :turbo_stream) : root_path(format: :turbo_stream), loading: :lazy  %>
+    <% end %>
   </div>
 </div>

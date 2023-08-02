@@ -6,3 +6,19 @@ general:
   github: test
   twitter: test
   website: https://example.com
+general2:
+  email: test2@example.com
+  username: test2
+  name: Taro Test
+  bio: test
+  github: test
+  twitter: test
+  website: https://example.com
+general3:
+  email: test3@example.com
+  username: test3
+  name: Taro Test
+  bio: test
+  github: test
+  twitter: test
+  website: https://example.com

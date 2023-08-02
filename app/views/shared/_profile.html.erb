@@ -4,10 +4,15 @@
   </div>
   <div class="grow">
     <div class="flex items-center">
-      <h1 class="font-bold text-xl"><%= title user.name %></h1>
+      <h1 class="font-bold text-xl">
+        <%= link_to user_path(user.username), class: "hover:underline" do %>
+          <%= user.name %>
+        <% end %>
+      </h1>
       <div class="grow"></div>
+      <%= render partial: "follows/button", locals: { user: user } %>
     </div>
-    <div>
+    <div class="mb-2">
       <div class="flex items-center mb-2">
         <p class="text-gray-500 text-sm">@<%= user.username %></p>
         <% if user.github.present? %>
@@ -30,10 +35,8 @@
         <p class="text-sm"><%= user.bio %></p>
       <% end %>
     </div>
+    <div>
+      <%= render partial: "shared/follows", locals: { user: user } %>
+    </div>
   </div>
 </div>
-<nav class="w-full mb-4 flex text-sm items-center border-b">
-  <a href="<%= user_path(user.username) %>" class="hover:bg-gray-100 py-2 w-1/2 text-center <%= request.path == user_path(user.username) ? "font-bold border-b-2 border-sky-500" : "" %>"><%= I18n.t("pages.posts") %></a>
-  <a href="<%= user_comments_path(user.username) %>" class="hover:bg-gray-100 py-2 w-1/2 text-center <%= request.path == user_comments_path(user.username) ? "font-bold border-b-2 border-sky-500" : "" %>"><%= I18n.t("pages.comments") %></a>
-  <a href="<%= projects_path(user.username) %>"  class="py-2 hover:bg-gray-100 w-1/2 text-center <%= request.path == projects_path(user.username) ? "font-bold border-b-2 border-sky-500" : "" %>"><%= I18n.t("pages.projects") %></a>
-</nav>

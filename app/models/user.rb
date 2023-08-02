@@ -4,6 +4,10 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :exports, dependent: :destroy
   has_many :projects, dependent: :destroy
+  has_many :followees, class_name: 'Follow', foreign_key: 'follower_id', dependent: :destroy
+  has_many :followers, class_name: 'Follow', foreign_key: 'followee_id', dependent: :destroy
+  has_many :followee_users, through: :followees, source: :followee
+  has_many :follower_users, through: :followers, source: :follower
 
   validates :name, presence: true
   validates :name, exclusion: {
@@ -22,6 +26,10 @@ class User < ApplicationRecord
 
   def username_with_at
     "@#{username}"
+  end
+
+  def follow?(user)
+    Follow.exists?(follower: self, followee: user)
   end
 
   def avatar_icon

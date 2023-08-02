@@ -106,6 +106,22 @@ class UsersController < ApplicationController
     render json: @actor, content_type: "application/activity+json"
   end
 
+  def followers
+    @current_page = params[:page].to_i
+    @user = User.find_by(username: params[:username])
+    all = @user.follower_users
+    @followers = all.offset(20*@current_page).limit(20)
+    @next_page = @current_page + 1 if all.count > 20*@current_page + 20
+  end
+
+  def following
+    @current_page = params[:page].to_i
+    @user = User.find_by(username: params[:username])
+    all = @user.followee_users
+    @followees = all.offset(20*@current_page).limit(20)
+    @next_page = @current_page + 1 if all.count > 20*@current_page + 20
+  end
+
   private def user_params
     params.require(:user).permit(:email, :username, :name)
   end
