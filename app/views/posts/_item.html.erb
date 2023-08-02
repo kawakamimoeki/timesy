@@ -24,7 +24,7 @@
         <% if item.comments.count > 0 %>
           <p class="text-gray-600 text-sm flex items-center space-x-1">
             <%= image_tag "icons/comment.svg", alt: "comment", width:"14px", height: "14px" %>
-            <span><%= item.comments.count %></span>
+            <span class="text-xs"><%= item.comments.count %></span>
           </p>
         <% end %>
       <% end %>
