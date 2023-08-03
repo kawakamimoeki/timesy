@@ -1,0 +1,14 @@
+<nav class="<%= nav_class %>">
+  <a
+    href="<%= root_path %>"
+    class="<%= nav_item_class(root_path, "w-1/2") %>"
+  >
+    <%= I18n.t("pages.follow") %>
+  </a>
+  <a
+    href="<%= latest_path %>"
+    class="<%= nav_item_class(latest_path, "w-1/2") %>"
+  >
+      <%= I18n.t("pages.latest") %>
+  </a>
+</nav>

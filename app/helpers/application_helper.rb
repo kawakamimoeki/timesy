@@ -42,6 +42,14 @@ module ApplicationHelper
     "h-48 shadow-sm w-full bg-gray-100 duration-75 border-b animate-pulse transition"
   end
 
+  def nav_class
+    "w-full mb-4 flex text-sm items-center border-b"
+  end
+
+  def nav_item_class(path, width)
+    "hover:bg-gray-100 py-2 #{width} text-center #{request.path == path ? "font-bold border-b-2 border-sky-500" : ""}"
+  end
+
   def should_render_sidebar?
     !request.path.match?(/\/users\/\w+/)
   end

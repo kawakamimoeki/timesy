@@ -1,4 +1,7 @@
 <div class="grow max-w-[calc(100vw-2rem)] md:max-w-[calc(100%-256px-1rem)]">
+  <% if current_user %>
+    <%= render partial: "shared/timeline_nav" %>
+  <% end %>
   <div class="">
     <% if current_user %>
     <div class="flex w-full bg-white space-x-3 p-4 text-gray-700 shadow-sm rounded-lg mb-4">
