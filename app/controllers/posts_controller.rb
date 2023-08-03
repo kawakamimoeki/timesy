@@ -15,7 +15,6 @@ class PostsController < ApplicationController
 
     all_posts = Post.offset(page_limit*@current_page)
       .includes(:user, comments: :user, post_reactions: :user)
-      .order("comments.created_at DESC")
       .latest
     if current_user
       all_posts = all_posts.following(current_user)
@@ -94,6 +93,6 @@ class PostsController < ApplicationController
   end
 
   private def page_limit
-    10
+    20
   end
 end

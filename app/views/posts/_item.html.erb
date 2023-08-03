@@ -13,7 +13,7 @@
     <div class="flex mt-3 items-center w-full flex-wrap overflow-hidden">
       <%= render partial: 'shared/post_reactions', locals: { current_user: current_user, post: item, reaction: @post_reaction } %>
       <div class="flex items-center flex-wrap">
-      <% item.comments[0..1].each do |comment| %>
+      <% item.comments.order(created_at: :desc).limit(2).each do |comment| %>
         <div class="rounded-full bg-gray-50 flex items-center py-[4px] px-2 mr-1 text-sm my-1">
           <%= image_tag comment.user.avatar_icon, alt: comment.user.username,width:"20px", height: "20px", class: "mr-1 w-5 h-5 rounded-full block" %>
           <%= strip_tags(comment.html).truncate(20) %>
@@ -21,7 +21,7 @@
       <% end %>
       </div>
       <%= link_to post_path(id: item.id), class: "cursor-pointer items-center flex rounded-full p-relative px-2 py-[4px] my-1 hover:bg-gray-100 bg-gray-50 transition-all", data: { turbo: false } do %>
-        <% if item.comments.length > 0 %>
+        <% if item.comments.count > 0 %>
           <p class="text-gray-600 text-sm flex items-center space-x-1">
             <%= image_tag "icons/comment.svg", alt: "comment", width:"14px", height: "14px" %>
             <span class="text-xs"><%= item.comments.count %></span>
