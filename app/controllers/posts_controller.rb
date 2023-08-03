@@ -58,8 +58,10 @@ class PostsController < ApplicationController
     @post.attach_projects!
 
     @current_page = params[:page].to_i
-    @posts = Post.offset(page_limit*@current_page).includes(:user, comments: :user).latest.limit(page_limit)
-    @next_page = @current_page + 1 if Post.all.count > page_limit*@current_page + page_limit
+    all = Post.offset(page_limit*@current_page).includes(:user, comments: :user).latest
+    all = all.following(current_user) if params[:current_path]&.include?('following')
+    @posts = all.limit(page_limit)
+    @next_page = @current_page + 1 if all.count > page_limit*@current_page + page_limit
   end
 
   def update

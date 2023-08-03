@@ -13,7 +13,8 @@
 ) do |f| %>
   <div>
     <%= flash[:error] %>
-    <%= f.hidden_field :page, value: page %>
+    <input type="hidden" name="page" value="<%= page %>" />
+    <input type="hidden" name="current_path" value="<%= page %>" />
     <%= f.file_field :images, multiple: true, direct_upload: true, class: "hidden" %>
     <div class="max-w-3xl mx-auto">
       <div class="bg-white">
