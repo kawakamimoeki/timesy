@@ -1,3 +1,6 @@
+<%= turbo_stream.replace "loading" do %>
+<% end %>
+
 <%= turbo_stream.append "posts" do %>
   <%= render partial: 'posts/item', collection: @posts %>
 <% end %>

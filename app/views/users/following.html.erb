@@ -11,10 +11,15 @@
   <% if @followees.empty? %>
     <p class="w-full text-center py-20 font-bold"><%= I18n.t("following.not_found") %></p>
   <% else %>
+    <%= turbo_frame_tag "loading" do %>
+      <%= render partial: "posts/loading" %>
+      <div class="hidden sm:block">
+        <%= render partial: "posts/loading" %>
+      </div>
+    <% end %>
     <%= turbo_frame_tag :users do %>
-      <%= render partial: 'users/item', collection: @followees %>
     <% end %>
 
-    <%= turbo_frame_tag "load_more", src: following_path(username: @user.username, format: :turbo_stream, page: 1), loading: :lazy %>
+    <%= turbo_frame_tag "load_more", src: following_path(username: @user.username, format: :turbo_stream), loading: :lazy %>
   <% end %>
 </div>
