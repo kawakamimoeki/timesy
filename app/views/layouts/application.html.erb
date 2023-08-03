@@ -62,13 +62,8 @@
       <div class="relative  hidden <%= should_render_sidebar? ? "md:block" : "md:hidden" %>">
         <div class="sticky text-sm top-4 bg-white shadow-sm rounded-lg w-64 p-4">
           <ul class="mb-4 flex flex-col">
-            <li>
-              <%= link_to I18n.t("pages.latest"), latest_path, class: "#{request.path === latest_path ? "font-bold" : ""} py-1 px-2 block hover:bg-gray-50 rounded" %>
-            </li>
             <% if current_user %>
             <li>
-              <%= link_to I18n.t("pages.follow"), root_path, class: "#{request.path === root_path ? "font-bold" : ""} py-1 px-2 block hover:bg-gray-50 rounded" %>
-            </li>
             <li>
               <%= link_to I18n.t("pages.your_posts"), user_path(current_user.username), class: "#{request.path === user_path(current_user.username) ? "font-bold" : ""} py-1 px-2 block hover:bg-gray-50 rounded" %>
             </li>
@@ -81,9 +76,9 @@
             <li>
               <%= link_to I18n.t("pages.settings"), settings_path, class: "#{request.path === settings_path ? "font-bold" : ""} py-1 px-2 block hover:bg-gray-50 rounded" %>
             </li>
-            <% end %>
             <li class="w-full border-b pb-2"></li>
             <li class="w-full pb-2"></li>
+            <% end %>
             <li>
               <%= link_to I18n.t("pages.docs"), docs_path, class: "#{request.path === docs_path ? "font-bold" : ""} py-1 px-2 block hover:bg-gray-50 rounded" %>
             </li>

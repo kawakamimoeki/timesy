@@ -1,4 +1,14 @@
-<nav class="w-full mb-4 flex text-sm items-center border-b">
-  <a href="<%= following_path(user.username) %>" class="hover:bg-gray-100 py-2 w-1/2 text-center <%= request.path == following_path(user.username) ? "font-bold border-b-2 border-sky-500" : "" %>"><%= I18n.t("users.following") %></a>
-  <a href="<%= followers_path(user.username) %>"  class="py-2 hover:bg-gray-100 w-1/2 text-center <%= request.path == followers_path(user.username) ? "font-bold border-b-2 border-sky-500" : "" %>"><%= I18n.t("users.followers") %></a>
+<nav class="<%= nav_class %>">
+  <a
+    href="<%= following_path(user.username) %>"
+    class="<%= nav_item_class(following_path(user.username), "w-1/2") %>"
+  >
+    <%= I18n.t("users.following") %>
+  </a>
+  <a
+    href="<%= followers_path(user.username) %>"
+    class="<%= nav_item_class(followers_path(user.username), "w-1/2") %>"
+  >
+      <%= I18n.t("users.followers", user: user.name) %>
+  </a>
 </nav>
