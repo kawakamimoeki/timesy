@@ -1,11 +1,11 @@
 <%= turbo_frame_tag :reactions, class: "flex items-center flex-wrap" do %>
   <% post.post_reactions.pluck(:body).uniq.each do |body| %>
-    <% reactions = post.post_reactions.where(body: body) %>
+    <% reactions = post.post_reactions.filter { |r| r.body === body } %>
     <% if current_user %>
-      <% reacted = post.post_reactions.exists?(user_id: current_user.id, body: body) %>
+      <% reacted = reactions.find { |f| f.user_id === current_user.id } %>
       <%= form_with(
         model: reaction,
-        url: reacted ? delete_post_reaction_path(post_id: post.id, id: post.post_reactions.find_by(user_id: current_user.id, body: body).id) : create_post_reaction_path(post_id: post.id),
+        url: reacted ? delete_post_reaction_path(post_id: post.id, id: reacted.id) : create_post_reaction_path(post_id: post.id),
         method: reacted ? :delete : :post,
         class: "flex items-center"
       ) do |f| %>
@@ -16,13 +16,13 @@
           class="rounded-full <%= reacted ? "bg-sky-50 hover:bg-sky-100 border border-sky-600" : "hover:bg-gray-100 bg-gray-50 border-gray-50 hover:border-gray-100" %> py-[2px] px-[6px] mx-1 text-sm emoji my-1 flex items-center space-x-[2px] border"
         >
           <span><%= body.html_safe %></span>
-          <span class="text-gray-400 text-xs"><%= reactions.count %></span>
+          <span class="text-gray-400 text-xs"><%= reactions.length %></span>
         </button>
       <% end %>
     <% else %>
       <div class="rounded-ful py-[2px] px-1 mx-1 text-sm emoji my-1 flex items-center space-x-1 border bg-gray-50 border-gray-50">
         <span><%= body.html_safe %></span>
-        <span class="text-gray-400 text-xs"><%= reactions.count %></span>
+        <span class="text-gray-400 text-xs"><%= reactions.length %></span>
       </div>
     <% end %>
   <% end %>
