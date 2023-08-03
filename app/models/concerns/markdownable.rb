@@ -1,4 +1,4 @@
-require 'pygments'
+require "coderay"
 
 module Markdownable
   extend ActiveSupport::Concern
@@ -12,7 +12,7 @@ module Markdownable
     html = Rinku.auto_link(Kramdown::Document.new(body, input: 'GFM').to_html)
     doc = Nokogiri::HTML::DocumentFragment.parse(html)
     doc.css('code[@class]').each do |code|
-      Pygments.highlight(code.text, lexer: code[:class].match(/language-(\w+)/)[1], options: { encoding: 'utf-8' })
+      code[:class] = "language-" + code[:class]
     end
     doc.css('a').each do |link|
       link["data-turbo"] = false
