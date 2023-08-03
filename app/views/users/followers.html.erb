@@ -18,7 +18,6 @@
       </div>
     <% end %>
     <%= turbo_frame_tag :users do %>
-      <%= render partial: 'users/item', collection: @followers %>
     <% end %>
 
     <%= turbo_frame_tag "load_more", src: followers_path(username: @user.username, format: :turbo_stream), loading: :lazy %>
