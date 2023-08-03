@@ -13,7 +13,7 @@
   </a>
   <a
     href="<%= projects_path(user.username) %>"
-    class="<%= projects_path(user.username, "w-1/3") %>"
+    class="<%= nav_item_class(projects_path(user.username), "w-1/3") %>"
   >
     <%= I18n.t("users.projects", user: user.name) %>
   </a>
