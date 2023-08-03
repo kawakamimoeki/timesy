@@ -370,6 +370,7 @@ DEPENDENCIES
   puma (~> 6.3)
   pygments.rb
   rails (~> 7.0.6)
+  redcarpet
   resend
   rinku
   rubyzip
