@@ -2,15 +2,40 @@
 body {
   font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
   color: "#333";
+  background-color: rgb(246, 248, 250);
 } 
+
+body.dark .CodeMirror {
+  background-color: rgb(30, 39, 50) !important;
+  color: #eee !important;
+}
+
+body.dark .CodeMirror-cursor {
+  border-color:#fff !important;
+}
+
+body.dark {
+  background-color: rgb(21, 32, 43);
+  color: #ddd;
+}
+
+body.dark img.icon {
+  filter: invert(1);
+}
+
+body.dark .markdown-body {
+  background-color: rgb(30 39 50) !important;
+}
+
+.markdown-body {
+  color: #ddd !important;
+}
 
 .CodeRay span {
   background-color: hsla(0,0%,0%,0) !important
 }
 
 .markdown-body {
-  background: none !important;
-  color: #333 !important;
   font-size: 15px !important;
 }
 
@@ -34,10 +59,6 @@ body {
 
 .EasyMDEContainer .CodeMirror {
   border: none !important;
-}
-
-.markdown-body pre {
-  background-color: #f6f8fa !important;
 }
 
 .hljs {

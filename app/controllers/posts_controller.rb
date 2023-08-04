@@ -1,13 +1,4 @@
 class PostsController < ApplicationController
-  def search
-    @q = params[:q]
-    if @q.blank?
-      @posts = Post.latest
-      return
-    end
-    @posts = Post.search(params[:q]).latest
-  end
-
   def index
     @post = Post.new
     @post_reaction = PostReaction.new

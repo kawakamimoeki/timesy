@@ -28,8 +28,6 @@ Rails.application.routes.draw do
   get 'settings/export', to: 'settings#export', as: :export_settings
   get 'settings/exports/:id/download', to: 'settings#download_export', as: :download_export
   patch 'settings', to: 'settings#update', as: :update_settings
-  
-  get 'search', to: 'posts#search', as: :search
 
   get 'privacy', to: 'pages#privacy', as: :privacy
   get 'terms', to: 'pages#terms', as: :terms

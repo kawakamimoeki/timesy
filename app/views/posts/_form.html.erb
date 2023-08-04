@@ -17,7 +17,7 @@
     <input type="hidden" name="current_path" value="<%= page %>" />
     <%= f.file_field :images, multiple: true, direct_upload: true, class: "hidden" %>
     <div class="max-w-3xl mx-auto">
-      <div class="bg-white">
+      <div class="bg-white dark:bg-[rgb(30, 39, 50)]">
         <div data-markdown-target="editorContainer">
           <%= f.text_area(
             :body,
@@ -32,28 +32,28 @@
       </div>
     </div>
   </div>
-  <div class="flex pt-3 w-full items-center bg-white">
+  <div class="flex pt-3 w-full items-center bg-white dark:bg-[rgb(30,39,50)] text-gray-50">
     <div class="grow"></div>
     <div class="px-1">
       <button
         type="button"
-        class="rounded-full p-relative p-2 hover:bg-gray-50 opacity-30 transition-all"
+        class="<%= icon_button_class %> opacity-30 transition-all"
         title="<%=  I18n.t('posts.preview') %>(⌘+Shift+P)"
         data-controller="tooltip"
         data-tooltip-text-value="<%=  I18n.t('posts.preview') %>(⌘+Shift+P)"
         data-action="markdown#preview"
         data-markdown-target="previewButton"
       >
-        <%= image_tag "icons/preview.svg", alt: "preview", class: "w-5 h-5" %>
+        <%= image_tag "icons/preview.svg", alt: "preview", class: "icon w-5 h-5" %>
       </button>
       <button
         type="button"
-        class="rounded-full p-relative p-2 hover:bg-gray-50 transition-all hidden"
+        class="<%= icon_button_class %> transition-all hidden"
         title="<%=  I18n.t('posts.edit') %>"
         data-action="markdown#edit"
         data-markdown-target="editorButton"
       >
-        <%= image_tag "icons/edit.svg", alt: "edit", class: "w-5 h-5" %>
+        <%= image_tag "icons/edit.svg", alt: "edit", class: "icon w-5 h-5" %>
       </button>
     </div>
     <div class="px-1">

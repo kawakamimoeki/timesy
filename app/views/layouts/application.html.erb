@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hyrious/github-markdown-css@main/dist/light.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hyrious/github-markdown-css@main/dist/light-dark_dimmed.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet"
         href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
+    <link rel="stylesheet" type="text/css" href="/dracula.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     <script>
       hljs.highlightAll();
@@ -39,19 +40,32 @@
     </script>
   </head>
 
-  <body style="background-color: rgb(246, 248, 250);">
-    <header class="w-full bg-white shadow-sm rounded-t-lg">
+  <body>
+    <header class="w-full shadow-sm bg-white dark:bg-[rgb(30,39,50)] dark:text-[#eee] dark:border-b dark:border-[#30363d]">
       <div class="flex px-5 items-center py-3 text-sm max-w-5xl mx-auto">
         <%= link_to "/", class: "block mr-3" do %>
-          <img src="<%= "/logo.png" %>" alt="logo" width="70px" height="20px" />
+          <span class="dark:hidden">
+            <img src="<%= "/logo.png" %>" alt="logo" width="70px" height="20px" />
+          </span>
+          <span class="hidden dark:block">
+            <img src="<%= "/logo-dark.png" %>" alt="logo" width="70px" height="20px" />
+          </span>
         <% end %>
         <div class="grow"></div>
+        <div data-controller="theme" class="mr-3">
+          <button data-action="theme#toggle" data-theme-target="dark" class="hidden">
+            <%= image_tag "icons/light", width: "20px", height: "20px", class: "icon" %>
+          </button>
+          <button data-action="theme#toggle" data-theme-target="light" class="hidden">
+            <%= image_tag "icons/dark", width: "20px", height: "20px", class: "icon" %>
+          </button>
+        </div>
         <% if current_user %>
           <%= link_to user_path(username: current_user.username) do %>
             <%= image_tag current_user.avatar_icon, alt: current_user.username, class: "w-8 h-8 object-cover rounded-full" %>
           <% end %>
         <% else %>
-          <%= link_to I18n.t("users.sign_in"), "/users/sign_in", class: "mr-2 rounded hover:bg-gray-50 py-1 px-2" %>
+          <%= link_to I18n.t("users.sign_in"), "/users/sign_in", class: "mr-2 rounded hover:bg-gray-50 dark:hover:bg-gray-700 py-1 px-2" %>
           <%= link_to I18n.t("users.sign_up"), "/users/sign_up", class: primary_button_class %>
         <% end %>
       <div>
@@ -60,59 +74,59 @@
     <main class="p-4 min-h-[calc(100vh-55px-136px)] flex max-w-5xl mx-auto items-stretch space-x-4">
       <%= yield %>
       <div class="relative  hidden <%= should_render_sidebar? ? "md:block" : "md:hidden" %>">
-        <div class="sticky text-sm top-4 bg-white shadow-sm rounded-lg w-64 p-4">
+        <div class="sticky text-sm top-4 <%= card_class %> w-64 p-4">
           <ul class="mb-4 flex flex-col">
             <% if current_user %>
             <li>
             <li>
-              <%= link_to I18n.t("pages.your_posts"), user_path(current_user.username), class: "#{request.path === user_path(current_user.username) ? "font-bold" : ""} py-1 px-2 block hover:bg-gray-50 rounded" %>
+              <%= link_to I18n.t("pages.your_posts"), user_path(current_user.username), class: "#{request.path === user_path(current_user.username) ? "font-bold" : ""} #{block_link_class}" %>
             </li>
             <li>
-              <%= link_to I18n.t("pages.your_comments"), user_comments_path(current_user.username), class: "#{request.path === user_comments_path(current_user.username) ? "font-bold" : ""} py-1 px-2 block hover:bg-gray-50 rounded" %>
+              <%= link_to I18n.t("pages.your_comments"), user_comments_path(current_user.username), class: "#{request.path === user_comments_path(current_user.username) ? "font-bold" : ""} #{block_link_class}" %>
             </li>
             <li>
-              <%= link_to I18n.t("pages.your_projects"), projects_path(current_user.username), class: "#{request.path === projects_path(current_user.username) ? "font-bold" : ""} py-1 px-2 block hover:bg-gray-50 rounded" %>
+              <%= link_to I18n.t("pages.your_projects"), projects_path(current_user.username), class: "#{request.path === projects_path(current_user.username) ? "font-bold" : ""} #{block_link_class}" %>
             </li>
             <li>
-              <%= link_to I18n.t("pages.settings"), settings_path, class: "#{request.path === settings_path ? "font-bold" : ""} py-1 px-2 block hover:bg-gray-50 rounded" %>
+              <%= link_to I18n.t("pages.settings"), settings_path, class: "#{request.path === settings_path ? "font-bold" : ""} #{block_link_class}" %>
             </li>
-            <li class="w-full border-b pb-2"></li>
+            <li class="w-full dark:border-[#555] border-b pb-2"></li>
             <li class="w-full pb-2"></li>
             <% end %>
             <li>
-              <%= link_to I18n.t("pages.docs"), docs_path, class: "#{request.path === docs_path ? "font-bold" : ""} py-1 px-2 block hover:bg-gray-50 rounded" %>
+              <%= link_to I18n.t("pages.docs"), docs_path, class: "#{request.path === docs_path ? "font-bold" : ""} #{block_link_class}" %>
             </li>
             <li>
-              <%= link_to I18n.t("pages.about"), about_path, class: "#{request.path === about_path ? "font-bold" : ""} py-1 px-2 block hover:bg-gray-50 rounded" %>
+              <%= link_to I18n.t("pages.about"), about_path, class: "#{request.path === about_path ? "font-bold" : ""} #{block_link_class}" %>
             </li>
             <li>
-              <%= link_to I18n.t("pages.terms"), terms_path, class: "#{request.path === terms_path ? "font-bold" : ""} py-1 px-2 block hover:bg-gray-50 rounded" %>
+              <%= link_to I18n.t("pages.terms"), terms_path, class: "#{request.path === terms_path ? "font-bold" : ""} #{block_link_class}" %>
             </li>
             <li>
-              <%= link_to I18n.t("pages.privacy"), privacy_path, class: "#{request.path === privacy_path ? "font-bold" : ""} py-1 px-2 block hover:bg-gray-50 rounded" %>
+              <%= link_to I18n.t("pages.privacy"), privacy_path, class: "#{request.path === privacy_path ? "font-bold" : ""} #{block_link_class}" %>
             </li>
             <li>
-              <%= link_to "https://forms.gle/7FZz2iHzYLQYiom7A", class: " py-1 px-2 block hover:bg-gray-50 rounded", target: "_blank" do %>
+              <%= link_to "https://forms.gle/7FZz2iHzYLQYiom7A", class: " #{block_link_class}", target: "_blank" do %>
                 <span><%= I18n.t("pages.emoji_request") %></span>
-                <%= image_tag "icons/newtab.svg", class: "inline-block h-3 w-3 pb-[1px] ml-[1px]" %>
+                <%= image_tag "icons/newtab.svg", class: "icon inline-block h-3 w-3 pb-[1px] ml-[1px]" %>
               <% end %>
             </li>
             <li>
-              <%= link_to "https://github.com/moekidev/timesy", class: " py-1 px-2 block hover:bg-gray-50 rounded", target: "_blank" do %>
+              <%= link_to "https://github.com/moekidev/timesy", class: " #{block_link_class}", target: "_blank" do %>
                 <span><%= I18n.t("pages.github") %></span>
-                <%= image_tag "icons/newtab.svg", class: "inline-block h-3 w-3 pb-[1px] ml-[1px]" %>
+                <%= image_tag "icons/newtab.svg", class: "icon inline-block h-3 w-3 pb-[1px] ml-[1px]" %>
               <% end %>
             </li>
             <li>
-              <%= link_to "https://status.timesy.dev/", class: " py-1 px-2 block hover:bg-gray-50 rounded", target: "_blank" do %>
+              <%= link_to "https://status.timesy.dev/", class: " #{block_link_class}", target: "_blank" do %>
                 <span><%= I18n.t("pages.status") %></span>
-                <%= image_tag "icons/newtab.svg", class: "inline-block h-3 w-3 pb-[1px] ml-[1px]" %>
+                <%= image_tag "icons/newtab.svg", class: "icon inline-block h-3 w-3 pb-[1px] ml-[1px]" %>
               <% end %>
             </li>
             <li>
-              <%= link_to "https://www.buymeacoffee.com/moekidev", class: " py-1 px-2 block hover:bg-gray-50 rounded", target: "_blank" do %>
+              <%= link_to "https://www.buymeacoffee.com/moekidev", class: " #{block_link_class}", target: "_blank" do %>
                 <span><%= I18n.t("pages.tip") %></span>
-                <%= image_tag "icons/newtab.svg", class: "inline-block h-3 w-3 pb-[1px] ml-[1px]" %>
+                <%= image_tag "icons/newtab.svg", class: "icon inline-block h-3 w-3 pb-[1px] ml-[1px]" %>
               <% end %>
             </li>
           </ul>

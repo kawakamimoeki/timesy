@@ -15,7 +15,7 @@
           <% if @project.user == current_user %>
             <div class="ml-2 w-24">
               <%= link_to edit_project_path(current_user.username, @project.codename), class: "hover:bg-gray-100 rounded-full p-1 text-sm inline-flex items-center" do %>
-                <%= image_tag "icons/edit.svg", class: "w-4 h-4 mr-1" %>
+                <%= image_tag "icons/edit.svg", class: "icon w-4 h-4 mr-1" %>
                 <%= I18n.t("form.submit.edit") %>
               <% end %>
             </div>
@@ -27,7 +27,7 @@
         </a>
         <% if @project.link.present? %>
           <%= link_to @project.link, class: "text-blue-400 items-center text-sm inline-flex hover:underline", target: "_blank" do %>
-            <%= image_tag "icons/link.svg", class: "w-4 h-4 mr-1 -mb-[2px] -rotate-45" %>
+            <%= image_tag "icons/link.svg", class: "icon w-4 h-4 mr-1 -mb-[2px] -rotate-45" %>
             <%= @project.link.sub("https://", "").sub("http://", "").truncate(32) %>
           <% end %>
         <% end %>

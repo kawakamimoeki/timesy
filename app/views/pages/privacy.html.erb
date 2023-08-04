@@ -7,7 +7,7 @@
 
 <div class="grow max-w-[calc(100vw-2rem)] md:max-w-[calc(100%-256px-1rem)]">
   <h1 class="font-bold text-3xl mb-4"><%= I18n.t("pages.privacy") %></h1>
-  <div class="prose max-w-3xl mx-auto w-full px-5 bg-white py-10 rounded-lg shadow-sm">
+  <div class="markdown-body max-w-3xl mx-auto w-full py-10 <%= card_class %>">
     <%= @content %>
   </div>
 </div>

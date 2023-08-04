@@ -17,12 +17,12 @@
         <p class="text-gray-500 text-sm">@<%= user.username %></p>
         <% if user.github.present? %>
           <%= link_to "https://github.com/#{user.github}", target: "_blank" do %>
-            <%= image_tag "icons/github.svg", alt: "github", width: "20px", height: "20px", class: "ml-2" %>
+            <%= image_tag "icons/github.svg", alt: "github", width: "20px", height: "20px", class: "icon ml-2" %>
           <% end %>
         <% end %>
         <% if user.twitter.present? %>
           <%= link_to "https://twitter.com/#{user.twitter}", target: "_blank", class: "block", style: "margin-top: 2px;" do %>
-            <%= image_tag "icons/x.png", alt: "X", width: "20px", height: "20px", class: "ml-2" %>
+            <%= image_tag "icons/x.png", alt: "X", width: "20px", height: "20px", class: "icon itemml-2" %>
           <% end %>
         <% end %>
         <% if user.website.present? %>

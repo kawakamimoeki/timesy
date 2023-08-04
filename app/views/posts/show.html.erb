@@ -10,17 +10,17 @@
 ) %>
 
 <div class="grow max-w-[calc(100vw-2rem)] md:max-w-[calc(100%-256px-1rem)] mx-auto">
-  <div class=" bg-white p-4 rounded-lg mb-4 shadow-sm" data-controller="post-show">
+  <div class=" <%= card_class %> mb-4" data-controller="post-show">
     <div class="flex mb-3 items-center space-x-1">
       <%= render partial: "shared/avatar", locals: { user: @post.user } %>
       <time class="text-gray-400 text-sm"><%= time_ago_in_words(@post.created_at) %></time>
       <div class="grow"></div>
       <% if current_user == @post.user %>
       <button class="hover:bg-gray-100 rounded-full p-2" data-action="post-show#edit" data-post-show-target="editButton">
-        <%= image_tag "icons/edit.svg", alt: "edit", class: "w-5 h-5" %>
+        <%= image_tag "icons/edit.svg", alt: "edit", class: "icon w-5 h-5" %>
       </button>
       <button class="hidden hover:bg-gray-100 rounded-full p-2" data-action="post-show#close" data-post-show-target="closeButton">
-        <%= image_tag "icons/cancel.svg", alt: "edit", class: "w-5 h-5" %>
+        <%= image_tag "icons/cancel.svg", alt: "edit", class: "icon w-5 h-5" %>
       </button>
       <div class="mt-[1px]">
         <%= button_to(
@@ -30,7 +30,7 @@
           onClick: "return confirm('#{I18n.t('posts.confirm_delete')}')",
           data: { turbo: false, post_show_target: "deleteButton" }
         ) do %>
-          <%= image_tag "icons/delete.svg", alt: "edit", class: "w-5 h-5" %>
+          <%= image_tag "icons/delete.svg", alt: "edit", class: "icon w-5 h-5" %>
         <% end %>
       </div>
       <% end %>
@@ -43,7 +43,7 @@
         <div>
           <%= flash[:error] %>
           <div class="max-w-3xl mx-auto">
-            <div class="bg-white">
+            <div class="">
               <div data-markdown-target="editorContainer">
                 <%= f.text_area :body, data: { markdown_target: "editor", post_editor_target: "body" }, class: "prose resize-none min-h-[114px]" %>
               </div>
@@ -51,14 +51,14 @@
             </div>
           </div>
         </div>
-        <div class="flex pt-3 w-full items-center bg-white">
+        <div class="flex pt-3 w-full items-center bg-none">
           <div class="grow"></div>
           <div class="px-1">
-            <button type="button" class="rounded-full p-relative p-2 hover:bg-gray-50 transition-all" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton">
-              <%= image_tag "icons/preview.svg", alt: "preview", class: "w-5 h-5" %>
+            <button type="button" class="<%= icon_button_class %>" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton">
+              <%= image_tag "icons/preview.svg", alt: "preview", class: "icon w-5 h-5" %>
             </button>
-            <button type="button" class="rounded-full p-relative p-2 hover:bg-gray-50 transition-all hidden" title="<%=  I18n.t('posts.edit') %>" data-action="markdown#edit" data-markdown-target="editorButton">
-              <%= image_tag "icons/edit.svg", alt: "edit", class: "w-5 h-5" %>
+            <button type="button" class="<%= icon_button_class %> hidden" title="<%=  I18n.t('posts.edit') %>" data-action="markdown#edit" data-markdown-target="editorButton">
+              <%= image_tag "icons/edit.svg", alt: "edit", class: "icon w-5 h-5" %>
             </button>
           </div>
           <div class="px-1">
@@ -72,7 +72,7 @@
     </div>
   </div>
   <% if current_user %>
-  <div class="p-5 bg-white shadow-sm mb-4 rounded-lg">
+  <div class="<%= card_class %> mb-4">
     <%= render partial: "comments/form", locals: { comment: @comment, post: @post } %>
   </div>
   <% end %>

@@ -35,7 +35,7 @@ module ApplicationHelper
   end
 
   def text_field_class
-    "block rounded w-full px-3 py-2 border text-gray-700 bg-white hover:bg-gray-100 transition-all"
+    "block rounded w-full px-3 py-2 border text-gray-700 hover:bg-gray-100 transition-all dark:bg-[rgb(30,39,50)] dark:border dark:border-[#30363d] dark:text-[#eee] dark:hover:bg-[rgb(30,39,50)] dark:hover:border-[#30363d]"
   end
 
   def loading_box_class
@@ -43,14 +43,26 @@ module ApplicationHelper
   end
 
   def nav_class
-    "w-full mb-4 flex text-sm items-center border-b"
+    "w-full mb-4 flex text-sm items-center border-b dark:border-slate-600"
   end
 
   def nav_item_class(path, width)
-    "hover:bg-gray-100 py-2 #{width} text-center #{request.path == path ? "font-bold border-b-2 border-sky-500" : ""}"
+    "hover:bg-gray-100 dark:hover:bg-[rgb(30,39,50)] py-2 #{width} text-center #{request.path == path ? "font-bold border-b-2 border-sky-500" : ""}"
+  end
+
+  def card_class
+    "shadow-sm mb-4 rounded-lg relative bg-white dark p-4 dark:text-[#ddd] dark:bg-[rgb(30,39,50)] dark:border dark:border-[#30363d] dark:text-[#eee]"
+  end
+
+  def block_link_class
+    "py-1 px-2 block hover:bg-gray-50 rounded dark:hover:bg-gray-700 transition-all"
+  end
+
+  def icon_button_class
+    "block rounded-full cursor-pointer p-relative p-2 hover:bg-gray-50 transition-all dark:hover:bg-gray-700"
   end
 
   def should_render_sidebar?
-    !request.path.match?(/\/users\/\w+/)
+    !request.path.match?(/users/)
   end
 end

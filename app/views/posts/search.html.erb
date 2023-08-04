@@ -1,7 +1,0 @@
-<div class="max-w-3xl mx-auto pt-10">
-  <%= form_with url: search_path, method: :get, local: true, class: "px-6 py-3 flex text-lg mx-auto items-center border rounded-full bg-white mb-10" do |form| %>
-    <%= image_tag 'icons/search.svg', alt: "search", width: '20px', height: '20px' %>
-    <%= form.text_field :q, class: 'ml-2 w-full border-none focus:ring-0 outline-none', placeholder: I18n.t("search.placeholder"), value: @q %>
-  <% end %>
-  <%= render partial: 'posts/item', collection: @posts %>
-</div>

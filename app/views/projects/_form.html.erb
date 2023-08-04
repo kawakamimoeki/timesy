@@ -48,11 +48,11 @@
     <div class="flex items-center">
       <div class="grow"></div>
       <div class="px-1">
-        <button type="button" class="rounded-full p-relative p-2 hover:bg-gray-50 transition-all" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton">
-          <%= image_tag "icons/preview.svg", alt: "preview", class: "w-5 h-5" %>
+        <button type="button" class="<%= icon_button_class %> transition-all" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton">
+          <%= image_tag "icons/preview.svg", alt: "preview", class: "icon w-5 h-5" %>
         </button>
-        <button type="button" class="rounded-full p-relative p-2 hover:bg-gray-50 transition-all hidden" title="<%=  I18n.t('posts.edit') %>" data-action="markdown#edit" data-markdown-target="editorButton">
-          <%= image_tag "icons/edit.svg", alt: "edit", class: "w-5 h-5" %>
+        <button type="button" class="<%= icon_button_class %> transition-all hidden" title="<%=  I18n.t('posts.edit') %>" data-action="markdown#edit" data-markdown-target="editorButton">
+          <%= image_tag "icons/edit.svg", alt: "edit", class: "icon w-5 h-5" %>
         </button>
       </div>
     </div>

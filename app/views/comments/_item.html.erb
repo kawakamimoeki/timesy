@@ -1,14 +1,14 @@
-<div class="shadow-sm p-4 group my-4 rounded-lg bg-white" data-controller="post-show">
+<div class="<%= card_class %> group my-4" data-controller="post-show">
   <div class="flex space-x-1 text-sm items-center mb-2">
     <%= render partial: 'shared/avatar', locals: { user: item.user } %>
     <time class="text-gray-400"><%= time_ago_in_words(item.created_at) %></time>
     <div class="grow"></div>
     <% if item.user == current_user %>
       <button class="hover:bg-gray-100 rounded-full p-2" data-action="post-show#edit" data-post-show-target="editButton">
-        <%= image_tag "icons/edit.svg", alt: "edit", class: "w-5 h-5" %>
+        <%= image_tag "icons/edit.svg", alt: "edit", class: "icon w-5 h-5" %>
       </button>
       <button class="hidden hover:bg-gray-100 rounded-full p-2" data-action="post-show#close" data-post-show-target="closeButton">
-        <%= image_tag "icons/cancel.svg", alt: "edit", class: "w-5 h-5" %>
+        <%= image_tag "icons/cancel.svg", alt: "edit", class: "icon w-5 h-5" %>
       </button>
       <div class="mt-[1px]">
         <%= button_to(
@@ -21,7 +21,7 @@
             post_show_target: "deleteButton"
           }
         ) do %>
-          <%= image_tag "icons/delete.svg", alt: "edit", class: "w-5 h-5" %>
+          <%= image_tag "icons/delete.svg", alt: "edit", class: "icon w-5 h-5" %>
         <% end %>
       </div>
     <% end %>
@@ -45,11 +45,11 @@
       <div class="flex pt-3 w-full items-center bg-white">
         <div class="grow"></div>
         <div class="px-1">
-          <button type="button" class="rounded-full p-relative p-2 hover:bg-gray-50 transition-all" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton">
-            <%= image_tag "icons/preview.svg", alt: "preview", class: "w-5 h-5" %>
+          <button type="button" class="<%= icon_button_class %>" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton">
+            <%= image_tag "icons/preview.svg", alt: "preview", class: "icon w-5 h-5" %>
           </button>
-          <button type="button" class="rounded-full p-relative p-2 hover:bg-gray-50 transition-all hidden" title="<%=  I18n.t('posts.edit') %>" data-action="markdown#edit" data-markdown-target="editorButton">
-            <%= image_tag "icons/edit.svg", alt: "edit", class: "w-5 h-5" %>
+          <button type="button" class="<%= icon_button_class %> hidden" title="<%=  I18n.t('posts.edit') %>" data-action="markdown#edit" data-markdown-target="editorButton">
+            <%= image_tag "icons/edit.svg", alt: "edit", class: "icon w-5 h-5" %>
           </button>
         </div>
         <div class="px-1">
