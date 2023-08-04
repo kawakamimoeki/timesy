@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_04_113347) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_04_220906) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -96,6 +96,17 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_04_113347) do
     t.index ["follower_id"], name: "index_follows_on_follower_id"
   end
 
+  create_table "notifications", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "subjectable_type", null: false
+    t.uuid "subjectable_id", null: false
+    t.uuid "user_id", null: false
+    t.datetime "read_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["subjectable_type", "subjectable_id"], name: "index_notifications_on_subjectable"
+    t.index ["user_id"], name: "index_notifications_on_user_id"
+  end
+
   create_table "passwordless_sessions", force: :cascade do |t|
     t.string "authenticatable_type"
     t.datetime "timeout_at", precision: nil, null: false
@@ -177,6 +188,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_04_113347) do
   add_foreign_key "exports", "users"
   add_foreign_key "follows", "users", column: "followee_id"
   add_foreign_key "follows", "users", column: "follower_id"
+  add_foreign_key "notifications", "users"
   add_foreign_key "post_reactions", "posts"
   add_foreign_key "post_reactions", "users"
   add_foreign_key "posts", "users"
