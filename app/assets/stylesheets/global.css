@@ -61,6 +61,10 @@ body.dark .markdown-body {
   border: none !important;
 }
 
+.dark textarea {
+  background: none;
+}
+
 .EasyMDEContainer .CodeMirror {
   border: none !important;
   border-bottom-left-radius: 0 !important;
