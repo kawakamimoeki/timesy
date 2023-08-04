@@ -29,6 +29,13 @@ class PagesController < ApplicationController
       no_intra_emphasis: true,
       space_after_headers: true,
     )
-    @content = markdown.render(erb).html_safe
+    doc = Nokogiri::HTML::DocumentFragment.parse(markdown.render(erb))
+    doc.css('code[@class]').each do |code|
+      code[:class] = "language-" + code[:class]
+    end
+    doc.css('a').each do |link|
+      link["data-turbo"] = false
+    end
+    @content = doc.to_s.html_safe
   end
 end
