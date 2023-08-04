@@ -4,6 +4,7 @@ class CommentsController < ApplicationController
     @comment = Comment.create!(comment_params.merge(user: current_user, post: @post))
     @comment.images.attach(comment_params[:images]) if comment_params[:images].present?
 
+    Notification.create(user: @post.user, subjectable: @comment)
     if @post.user.webhook_url.present? && @post.user != current_user
       WebhookJob.perform_later(
         distination: @post.user.webhook_url,

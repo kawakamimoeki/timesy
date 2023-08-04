@@ -5,6 +5,7 @@ class CommentReactionsController < ApplicationController
     reaction.user = current_user
     reaction.save
     @comment_reaction = CommentReaction.new
+    Notification.create(user: @comment.user, subjectable: reaction)
     if @comment.user.webhook_url.present? && @comment.user != current_user
       WebhookJob.perform_later(
         distination: @comment.user.webhook_url,

@@ -1,0 +1,3 @@
+<%= turbo_frame_tag :notifications do %>
+  <%= render partial: 'notifications/item', collection: @notifications, as: :notification %>
+<% end %>
