@@ -16,17 +16,17 @@
       <time class="text-gray-400 text-sm"><%= time_ago_in_words(@post.created_at) %></time>
       <div class="grow"></div>
       <% if current_user == @post.user %>
-      <button class="hover:bg-gray-100 rounded-full p-2" data-action="post-show#edit" data-post-show-target="editButton">
+      <button class="<%= icon_button_class %>" data-action="post-show#edit" data-post-show-target="editButton">
         <%= image_tag "icons/edit.svg", alt: "edit", class: "icon w-5 h-5" %>
       </button>
-      <button class="hidden hover:bg-gray-100 rounded-full p-2" data-action="post-show#close" data-post-show-target="closeButton">
+      <button class="hidden <%= icon_button_class %>" data-action="post-show#close" data-post-show-target="closeButton">
         <%= image_tag "icons/cancel.svg", alt: "edit", class: "icon w-5 h-5" %>
       </button>
       <div class="mt-[1px]">
         <%= button_to(
           delete_post_url(id: @post.id),
           method: :delete,
-          class: "hover:bg-gray-100 rounded-full p-2",
+          class: "<%= icon_button_class %>",
           onClick: "return confirm('#{I18n.t('posts.confirm_delete')}')",
           data: { turbo: false, post_show_target: "deleteButton" }
         ) do %>
