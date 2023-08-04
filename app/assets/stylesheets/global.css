@@ -35,6 +35,9 @@ body.dark .markdown-body a {
   color: rgb(83, 175, 236);
 }
 
+body.dark .markdown-body .project-tag {
+  color: rgb(83, 175, 236) !important;
+}
 
 .CodeRay span {
   background-color: hsla(0,0%,0%,0) !important
