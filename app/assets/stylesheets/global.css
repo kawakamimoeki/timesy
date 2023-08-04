@@ -67,6 +67,10 @@ body.dark .markdown-body {
   border-bottom-right-radius: 0 !important;
 }
 
+.dark .CodeMirror-selected  {
+  background: #666 !important;
+}
+
 .hljs {
   padding: 0 !important;
 }
