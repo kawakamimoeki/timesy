@@ -8,9 +8,10 @@
 
 <div class="grow max-w-[calc(100vw-2rem)] md:max-w-[calc(100%-256px-1rem)]">
 <div class="max-w-lg mx-auto">
-  <%= form_with model: @user, multipart: true, url: update_settings_path, method: :patch, data: { turbo: false } do |f| %>
-    <%= render partial: "shared/error_messages", locals: { errors: @user.errors.full_messages } %>
-    <%= render partial: "shared/notice_messages", locals: { notice: notice } %>
+  <%= render partial: "shared/error_messages", locals: { errors: @user.errors.full_messages } %>
+  <%= render partial: "shared/notice_messages", locals: { notice: notice } %>
+  <h2 class="border-b dark:border-gray-600 mb-4 font-bold pb-1"><%= I18n.t("settings.profile") %></h2>
+  <%= form_with model: @user, multipart: true, url: update_profile_path, method: :patch, data: { turbo: false } do |f| %>
     <div class="mb-5 flex">
       <div class="grow"></div>
       <div data-controller="file-field">
@@ -38,6 +39,7 @@
       <div class="grow"></div>
     </div>
   <% end %>
+  <h2 class="border-b mt-8 dark:border-gray-600 mb-4 font-bold pb-1"><%= I18n.t("settings.export") %></h2>
   <div class="mt-10 text-center text-sm">
     <% if current_user.exports.find_by(state: "processing") %>
       <%= I18n.t("settings.exporting") %>
@@ -52,6 +54,16 @@
       <% end %>
     <% end %>
   </div>
+  <h2 class="border-b mt-8 dark:border-gray-600 mb-4 font-bold pb-1"><%= I18n.t("settings.webhook") %></h2>
+  <%= form_with model: @user, url: update_webhook_path, method: :patch, data: { turbo: false } do |f| %>
+    <%= f.text_field :webhook_url, class: text_field_class + " mb-5", placeholder: "https://" %>
+    <div class="flex">
+      <div class="grow"></div>
+      <%= f.submit I18n.t("form.submit.update"), class: primary_button_class %>
+      <div class="grow"></div>
+    </div>
+  <% end %>
+  <h2 class="border-b mt-8 dark:border-gray-600 mb-4 font-bold pb-1"><%= I18n.t("settings.account") %></h2>
   <div class="mt-10 text-center text-sm">
     <%= link_to I18n.t("passwordless.sessions.sign_out"), "/users/sign_out", data: { turbo_method: :delete }, method: :delete %>
   </div>
