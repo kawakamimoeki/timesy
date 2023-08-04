@@ -1,6 +1,6 @@
 ja:
   site:
-    description: 開発者のためのマイクロブログサービス
+    description: 開発者のためのソーシャル分報アプリ
   pages:
     following: "%{user}がフォローしている人"
     followers: "%{user}のフォロワー"

@@ -1,6 +1,6 @@
 ![Timesy](./public/ogp.png)
 
-**Timesy**は開発者のためのマイクロブログサービスです。
+**Timesy**は開発者のためのソーシャル分報アプリです。
 
 ## Requirement
 
