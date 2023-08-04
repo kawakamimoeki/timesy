@@ -19,6 +19,22 @@ body.dark {
   color: #ddd;
 }
 
+body.dark .markdown-body table tr {
+  background-color: rgb(30 39 50);
+}
+
+body.dark .markdown-body table tr:nth-child(2n) {
+  background-color: rgb(53, 62, 72);
+}
+
+body.dark .markdown-body table th, body.dark .markdown-body table td {
+  border: 1px solid #888;
+}
+
+body.dark .markdown-body table tr {
+  border-top: 1px solid #888;
+}
+
 body.dark img.icon {
   filter: invert(1);
 }
