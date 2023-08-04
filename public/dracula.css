@@ -10,76 +10,77 @@
  * @author Zeno Rocha <hi@zenorocha.com>
  */
 
-body.dark {
+body.dark .hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #282a36;
+}
 
-  .hljs {
-    display: block;
-    overflow-x: auto;
-    padding: 0.5em;
-    background: #282a36;
-  }
+body.dark .hljs-built_in,
+.hljs-selector-tag,
+.hljs-section,
+.hljs-tag,
+.hljs-link {
+  color: #8be9fd;
+}
 
-  .hljs-built_in,
-  .hljs-selector-tag,
-  .hljs-section,
-  .hljs-link {
-    color: #8be9fd;
-  }
+body.dark .hljs-keyword {
+  color: #ff79c6;
+}
 
-  .hljs-keyword {
-    color: #ff79c6;
-  }
+body.dark .hljs,
+.hljs-subst {
+  color: #f8f8f2;
+}
 
-  .hljs,
-  .hljs-subst {
-    color: #f8f8f2;
-  }
+body.dark .hljs-title,
+.hljs-attr,
+.hljs-meta-keyword {
+  font-style: italic;
+  color: #50fa7b;
+}
 
-  .hljs-title,
-  .hljs-attr,
-  .hljs-meta-keyword {
-    font-style: italic;
-    color: #50fa7b;
-  }
+body.dark .hljs-tag .hljs-name {
+  color: #f1fa8c;
+}
 
-  .hljs-string,
-  .hljs-meta,
-  .hljs-name,
-  .hljs-type,
-  .hljs-symbol,
-  .hljs-bullet,
-  .hljs-addition,
-  .hljs-variable,
-  .hljs-template-tag,
-  .hljs-template-variable {
-    color: #f1fa8c;
-  }
+body.dark .hljs-string,
+.hljs-meta,
+.hljs-name,
+.hljs-type,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-tag,
+.hljs-template-variable {
+  color: #f1fa8c;
+}
 
-  .hljs-comment,
-  .hljs-quote,
-  .hljs-deletion {
-    color: #6272a4;
-  }
+body.dark .hljs-comment,
+.hljs-quote,
+.hljs-deletion {
+  color: #6272a4;
+}
 
-  .hljs-keyword,
-  .hljs-selector-tag,
-  .hljs-literal,
-  .hljs-title,
-  .hljs-section,
-  .hljs-doctag,
-  .hljs-type,
-  .hljs-name,
-  .hljs-strong {
-    font-weight: bold;
-  }
+body.dark .hljs-keyword,
+.hljs-selector-tag,
+.hljs-literal,
+.hljs-title,
+.hljs-section,
+.hljs-doctag,
+.hljs-type,
+.hljs-name,
+.hljs-strong {
+  font-weight: bold;
+}
 
-  .hljs-literal,
-  .hljs-number {
-    color: #bd93f9;
-  }
+body.dark .hljs-literal,
+.hljs-number {
+  color: #bd93f9;
+}
 
-  .hljs-emphasis {
-    font-style: italic;
-  }
-
+body.dark .hljs-emphasis {
+  font-style: italic;
 }
