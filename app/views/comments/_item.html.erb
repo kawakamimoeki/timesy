@@ -4,17 +4,17 @@
     <time class="text-gray-400"><%= time_ago_in_words(item.created_at) %></time>
     <div class="grow"></div>
     <% if item.user == current_user %>
-      <button class="hover:bg-gray-100 rounded-full p-2" data-action="post-show#edit" data-post-show-target="editButton">
+      <button class="<%= icon_button_class %>" data-action="post-show#edit" data-post-show-target="editButton">
         <%= image_tag "icons/edit.svg", alt: "edit", class: "icon w-5 h-5" %>
       </button>
-      <button class="hidden hover:bg-gray-100 rounded-full p-2" data-action="post-show#close" data-post-show-target="closeButton">
+      <button class="hidden <%= icon_button_class %>" data-action="post-show#close" data-post-show-target="closeButton">
         <%= image_tag "icons/cancel.svg", alt: "edit", class: "icon w-5 h-5" %>
       </button>
       <div class="mt-[1px]">
         <%= button_to(
           delete_comment_url(post_id: item.post.id, id: item.id),
           method: :delete,
-          class: "hover:bg-gray-100 rounded-full p-2",
+          class: icon_button_class,
           data: {
             turbo_frame: "comments",
             turbo_confirm: I18n.t("comments.confirm_delete"),
@@ -34,7 +34,7 @@
       <div>
         <%= flash[:error] %>
         <div class="max-w-3xl mx-auto">
-          <div class="bg-white">
+          <div class="bg-none">
             <div data-markdown-target="editorContainer">
               <%= f.text_area :body, data: { markdown_target: "editor", post_editor_target: "body" }, class: "prose resize-none" %>
             </div>
@@ -42,7 +42,7 @@
           </div>
         </div>
       </div>
-      <div class="flex pt-3 w-full items-center bg-white">
+      <div class="flex pt-3 w-full items-center bg-none">
         <div class="grow"></div>
         <div class="px-1">
           <button type="button" class="<%= icon_button_class %>" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton">
