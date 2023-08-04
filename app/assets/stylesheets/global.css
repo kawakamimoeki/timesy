@@ -27,7 +27,7 @@ body.dark .markdown-body {
   background-color: rgb(30 39 50) !important;
 }
 
-.markdown-body {
+.dark .markdown-body {
   color: #ddd !important;
 }
 
