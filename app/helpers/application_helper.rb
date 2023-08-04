@@ -31,7 +31,7 @@ module ApplicationHelper
   end
 
   def label_class
-    "block text-gray-700 text-sm font-bold mb-2"
+    "block text-gray-700 text-sm font-bold mb-2 dark:text-[#eee]"
   end
 
   def text_field_class
