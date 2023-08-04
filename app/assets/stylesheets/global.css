@@ -57,8 +57,14 @@ body.dark .markdown-body {
   padding-left: 2rem;
 }
 
+.EasyMDEContainer {
+  border: none !important;
+}
+
 .EasyMDEContainer .CodeMirror {
   border: none !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
 }
 
 .hljs {
@@ -87,6 +93,8 @@ body.dark .markdown-body {
 
 .CodeMirror {
   padding: 0 !important;
+  border: none;
+  border-radius: 0;
 }
 
 .emoji img {

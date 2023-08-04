@@ -41,6 +41,13 @@
   </head>
 
   <body>
+    <script>
+      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.querySelector("body").classList.add('dark')
+      } else {
+        document.querySelector("body").classList.remove('dark')
+      }
+    </script>
     <header class="w-full shadow-sm bg-white dark:bg-[rgb(30,39,50)] dark:text-[#eee] dark:border-b dark:border-[#30363d]">
       <div class="flex px-5 items-center py-3 text-sm max-w-5xl mx-auto">
         <%= link_to "/", class: "block mr-3" do %>
