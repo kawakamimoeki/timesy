@@ -51,7 +51,7 @@ module ApplicationHelper
   end
 
   def card_class
-    "shadow-sm mb-4 rounded-lg relative bg-white dark p-4 dark:text-[#ddd] dark:bg-[rgb(30,39,50)] dark:border dark:border-[#30363d] dark:text-[#eee]"
+    "shadow-sm mb-4 rounded-lg relative bg-white p-4 dark:text-[#ddd] dark:bg-[rgb(30,39,50)] dark:border dark:border-[#30363d] dark:text-[#eee]"
   end
 
   def block_link_class
