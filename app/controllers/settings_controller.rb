@@ -5,21 +5,29 @@ class SettingsController < ApplicationController
     @user = current_user
   end
 
-  def update
+  def update_profile
     @user = current_user
-    if @user.update(setting_params)
-      if setting_params[:avatar].present?
-        @user.avatar.attach(setting_params[:avatar])
+    if @user.update(profile_params)
+      if profile_params[:avatar].present?
+        @user.avatar.attach(profile_params[:avatar])
       end
       flash[:notice] = I18n.t('settings.updated')
     end
-    render :edit
+    redirect_to settings_path
   end
 
   def export
     @user = current_user
     ExportJob.perform_later(user_id: @user.id)
     flash[:notice] = I18n.t('settings.exporting')
+    redirect_to settings_path
+  end
+
+  def update_webhook
+    @user = current_user
+    if @user.update(webhook_params)
+      flash[:notice] = I18n.t('settings.updated')
+    end
     redirect_to settings_path
   end
 
@@ -33,7 +41,7 @@ class SettingsController < ApplicationController
     end
   end
 
-  private def setting_params
+  private def profile_params
     params.require(:user).permit(
       :email,
       :username,
@@ -43,6 +51,12 @@ class SettingsController < ApplicationController
       :twitter,
       :website,
       :avatar
+    )
+  end
+
+  private def webhook_params
+    params.require(:user).permit(
+      :webhook_url
     )
   end
 end
