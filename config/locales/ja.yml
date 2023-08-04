@@ -105,6 +105,10 @@ ja:
     setting: アカウント設定
     confirm_delete: 削除されるとアカウントは復旧できません。よろしいですか？
   settings:
+    profile: プロフィール
+    export: エクスポート
+    webhook: Webhook通知
+    account: アカウント
     updated: アップデートしました
     start_export: エクスポート
     export_started: エクスポートを開始しました。完了した際にダウンロードリンクを掲載したメールをお送りいたしますのでしばらくお待ち下さい。
@@ -147,6 +151,11 @@ ja:
       change_file: 変更する
   page:
     confirm_leave: ページを離れてもよろしいですか？
+  webhooks:
+    comment: "%{user}さんがコメントしました"
+    post_reaction: "%{user}さんがリアクションしました"
+    comment_reaction: "%{user}さんがリアクションしました"
+    follow: "%{user}さんがあなたをフォローしました"
   datetime:
     distance_in_words:
       half_a_minute: "30秒"
