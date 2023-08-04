@@ -28,11 +28,7 @@ body.dark .markdown-body table tr:nth-child(2n) {
 }
 
 body.dark .markdown-body table th, body.dark .markdown-body table td {
-  border: 1px solid #888;
-}
-
-body.dark .markdown-body table tr {
-  border-top: 1px solid #888;
+  border: 1px solid #545454;
 }
 
 body.dark img.icon {
@@ -41,9 +37,6 @@ body.dark img.icon {
 
 body.dark .markdown-body {
   background-color: rgb(30 39 50) !important;
-}
-
-.dark .markdown-body {
   color: #ddd !important;
 }
 

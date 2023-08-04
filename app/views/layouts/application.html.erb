@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hyrious/github-markdown-css@main/dist/light-dark_dimmed.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@3.0.1/github-markdown.min.css">
     <link rel="stylesheet"
         href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,7 +42,7 @@
 
   <body>
     <script>
-      if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      if (localStorage.theme === 'dark') {
         document.querySelector("body").classList.add('dark')
       } else {
         document.querySelector("body").classList.remove('dark')
@@ -60,10 +60,10 @@
         <% end %>
         <div class="grow"></div>
         <div data-controller="theme" class="mr-3">
-          <button data-action="theme#toggle" data-theme-target="dark" class="hidden">
+          <button data-action="theme#toggle" data-theme-target="dark" class="hidden <%= icon_button_class %>">
             <%= image_tag "icons/light.svg", width: "20px", height: "20px", class: "icon" %>
           </button>
-          <button data-action="theme#toggle" data-theme-target="light" class="hidden">
+          <button data-action="theme#toggle" data-theme-target="light" class="hidden <%= icon_button_class %>">
             <%= image_tag "icons/dark.svg", width: "20px", height: "20px", class: "icon" %>
           </button>
         </div>

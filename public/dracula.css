@@ -10,7 +10,7 @@
  * @author Zeno Rocha <hi@zenorocha.com>
  */
 
- body.dark {
+body.dark {
 
   .hljs {
     display: block;
@@ -23,6 +23,7 @@
   .hljs-selector-tag,
   .hljs-section,
   .hljs-tag,
+  .hljs-punctuation,
   .hljs-link {
     color: #8be9fd;
   }
