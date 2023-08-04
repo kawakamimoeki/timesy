@@ -10,7 +10,7 @@
  * @author Zeno Rocha <hi@zenorocha.com>
  */
 
-@media (prefers-color-scheme: dark) {
+body.dark {
 
   .hljs {
     display: block;

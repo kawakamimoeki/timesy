@@ -113,3 +113,7 @@ body.dark .markdown-body {
 .markdown-body .project-tag {
   color: #0366d6 !important;
 }
+
+body.dark .markdown-body pre {
+  background-color: #282a36;
+}
