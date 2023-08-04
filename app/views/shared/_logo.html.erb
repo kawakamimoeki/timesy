@@ -1,3 +1,8 @@
 <div class="flex items-center">
-  <%= image_tag "/logo.png", alt: Site.title, width: '200px', height: '50px' %>
+  <span class="dark:hidden">
+    <img src="<%= "/logo.png" %>" alt="logo" width="200px" height="50px" />
+  </span>
+  <span class="hidden dark:block">
+    <img src="<%= "/logo-dark.png" %>" alt="logo" width="200px" height="50px" />
+  </span>
 </div>

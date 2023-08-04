@@ -10,8 +10,8 @@
   <%= render partial: 'shared/user_nav', locals: { user: @user } %>
   <div>
     <% if current_user == @user %>
-      <a class="flex space-x-2 hover:shadow mb-4 rounded-lg bg-white shadow-sm p-4" href="<%= new_project_path %>">
-        <%= image_tag "icons/add.svg", class: "w-6 h-6" %>
+      <a class="flex space-x-2 hover:shadow mb-4 <%= card_class %> dark:hover:border-gray-700" href="<%= new_project_path %>">
+        <%= image_tag "icons/add.svg", class: "icon w-6 h-6" %>
         <div class="font-bold"><%= I18n.t("projects.start") %></div>
       </a>
     <% end %>
