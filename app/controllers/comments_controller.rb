@@ -4,15 +4,17 @@ class CommentsController < ApplicationController
     @comment = Comment.create!(comment_params.merge(user: current_user, post: @post))
     @comment.images.attach(comment_params[:images]) if comment_params[:images].present?
 
-    Notification.create(user: @post.user, subjectable: @comment)
-    if @post.user.webhook_url.present? && @post.user != current_user
-      WebhookJob.perform_later(
-        distination: @post.user.webhook_url,
-        type: "comment",
-        subject: Webhooks::CommentSerializer.render_as_hash(@comment),
-        message: I18n.t("webhooks.comment", user: @comment.user.name),
-        url: post_url(@post),
-      )
+    if @post.user != current_user
+      Notification.create(user: @post.user, subjectable: @comment)
+      if @post.user.webhook_url.present?
+        WebhookJob.perform_later(
+          distination: @post.user.webhook_url,
+          type: "comment",
+          subject: Webhooks::CommentSerializer.render_as_hash(@comment),
+          message: I18n.t("webhooks.comment", user: @comment.user.name),
+          url: post_url(@post),
+        )
+      end
     end
   end
 

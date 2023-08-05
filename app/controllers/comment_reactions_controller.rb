@@ -5,15 +5,17 @@ class CommentReactionsController < ApplicationController
     reaction.user = current_user
     reaction.save
     @comment_reaction = CommentReaction.new
-    Notification.create(user: @comment.user, subjectable: reaction)
-    if @comment.user.webhook_url.present? && @comment.user != current_user
-      WebhookJob.perform_later(
-        distination: @comment.user.webhook_url,
-        type: "comment_reaction",
-        subject: Webhooks::CommentReactionSerializer.render_as_hash(reaction),
-        message: I18n.t("webhooks.comment_reaction", user: reaction.user.name),
-        url: post_url(@comment.post),
-      )
+    if @comment.user != current_user
+      Notification.create(user: @comment.user, subjectable: reaction)
+      if @comment.user.webhook_url.present?
+        WebhookJob.perform_later(
+          distination: @comment.user.webhook_url,
+          type: "comment_reaction",
+          subject: Webhooks::CommentReactionSerializer.render_as_hash(reaction),
+          message: I18n.t("webhooks.comment_reaction", user: reaction.user.name),
+          url: post_url(@comment.post),
+        )
+      end
     end
   end
 

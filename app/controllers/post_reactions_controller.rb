@@ -5,15 +5,17 @@ class PostReactionsController < ApplicationController
     reaction.user = current_user
     reaction.save
     @post_reaction = PostReaction.new
-    Notification.create(user: @post.user, subjectable: reaction)
-    if @post.user.webhook_url.present? && @post.user != current_user
-      WebhookJob.perform_later(
-        distination: @post.user.webhook_url,
-        type: "post_reaction",
-        subject: Webhooks::PostReactionSerializer.render_as_hash(reaction),
-        message: I18n.t("webhooks.post_reaction", user: reaction.user.name),
-        url: post_url(@post),
-      )
+    if @post.user != current_user
+      Notification.create(user: @post.user, subjectable: reaction)
+      if @post.user.webhook_url.present?
+        WebhookJob.perform_later(
+          distination: @post.user.webhook_url,
+          type: "post_reaction",
+          subject: Webhooks::PostReactionSerializer.render_as_hash(reaction),
+          message: I18n.t("webhooks.post_reaction", user: reaction.user.name),
+          url: post_url(@post),
+        )
+      end
     end
   end
 
