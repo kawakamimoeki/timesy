@@ -124,6 +124,13 @@ body.dark .markdown-body .project-tag {
   margin: 0 auto;
 }
 
+@media (max-width: 768px) {
+  .markdown-body .link-card img {
+    width: 100% !important;
+    height: 12rem !important;
+  }
+}
+
 .CodeMirror * {
   word-break: break-all !important;
 }
