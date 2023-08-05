@@ -1,0 +1,16 @@
+<div class="py-2 border-b dark:border-[rgb(48,54,61)] hover:bg-gray-50 dark:hover:bg-gray-700 px-3">
+  <%= link_to notification.link, data: { turbo: false } do %>
+    <% user = notification.subjectable_type == "Follow" ? notification.subjectable.follower : notification.subjectable.user %>
+    <div class="flex space-x-3">
+      <%= image_tag(
+        user.avatar_icon,
+        alt: user.username,
+        class: "w-8 h-8 object-cover rounded-full text-xs text-gray-700"
+      ) %>
+      <div>
+        <div><%= notification.message.html_safe %></div>
+        <div class="text-xs opacity-50"><%= time_ago_in_words(notification.created_at) %></div>
+      </div>
+    </div>
+  <% end %>
+</div>

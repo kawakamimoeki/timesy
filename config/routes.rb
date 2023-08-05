@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'notifications/index'
   passwordless_for :users
 
   get 'users/sign_up', to: 'users#new', as: :sign_up
@@ -6,6 +7,8 @@ Rails.application.routes.draw do
   get 'users/register/:token', to: 'users#register', as: :register
   post 'users', to: 'users#create', as: :create_user
   delete 'users/:id', to: 'users#destroy', as: :delete_user
+
+  get '/notifications', to: 'notifications#index', as: :notifications
 
   root 'posts#index'
   get "/latest", to: "posts#latest", as: :latest

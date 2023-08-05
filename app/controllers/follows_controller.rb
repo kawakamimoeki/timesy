@@ -6,6 +6,7 @@ class FollowsController < ApplicationController
   def create
     @followee = User.find_by(username: params[:username])
     follow = Follow.create(follower: current_user, followee: @followee)
+    Notification.create(user: @followee, subjectable: follow)
     if @followee.webhook_url.present?
       WebhookJob.perform_later(
         distination: @followee.webhook_url,

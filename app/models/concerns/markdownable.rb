@@ -2,6 +2,11 @@ require "coderay"
 
 module Markdownable
   extend ActiveSupport::Concern
+  include ActionView::Helpers::SanitizeHelper
+
+  def truncated(length = 64)
+    strip_tags(html).gsub(/\n/, " ").gsub(/\//, "").truncate(length)
+  end
 
   def html(truncate = false)
     markdown = Redcarpet::Markdown.new(

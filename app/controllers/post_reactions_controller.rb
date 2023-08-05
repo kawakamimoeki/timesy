@@ -5,6 +5,7 @@ class PostReactionsController < ApplicationController
     reaction.user = current_user
     reaction.save
     @post_reaction = PostReaction.new
+    Notification.create(user: @post.user, subjectable: reaction)
     if @post.user.webhook_url.present? && @post.user != current_user
       WebhookJob.perform_later(
         distination: @post.user.webhook_url,
