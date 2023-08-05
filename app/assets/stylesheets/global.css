@@ -123,17 +123,20 @@ body.dark .markdown-body .project-tag {
 .markdown-body .link-card img {
   border-radius: 0px;
   border: none !important;
-  width: 6.3rem !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto  !important;
+  aspect-ratio: 1200/630 !important;
   object-fit: cover;
   margin: 0 auto;
 }
 
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
   .markdown-body .link-card img {
+    aspect-ratio: 1200/630 !important;
     width: 100% !important;
-    height: 12rem !important;
   }
-}
+} */
 
 .CodeMirror * {
   word-break: break-all !important;
