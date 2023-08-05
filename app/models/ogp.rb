@@ -13,7 +13,7 @@ class Ogp
   end
 
   def truncated_title
-    @title&.truncate(32)
+    @title&.truncate(48)
   end
 
   def truncated_description
