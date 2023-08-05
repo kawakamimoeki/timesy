@@ -34,8 +34,8 @@ module Markdownable
       link["data-turbo"] = false
     end
     doc.css('p').each do |paragraph|
-      if paragraph.children.length == 1 && paragraph.children.first.name == "a"
-        link = paragraph.children.first
+      if paragraph.children.any? { |child| child.name == "a" }
+        link = paragraph.children.find { |child| child.name == "a" }
         if link.text == link["href"]
           data = Rails.cache.fetch("/ogp/#{Digest::SHA256.hexdigest(link.text)}", expires_in: 1.week) do
             response = Faraday.get(link.text)
