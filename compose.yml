@@ -28,6 +28,7 @@ services:
       - redis
     environment:
       DATABASE_URL: postgres://postgres:password@db:5432
+      REDIS_URL: redis://redis:6379
   redis:
     image: redis:7.0
     command: redis-server --appendonly yes

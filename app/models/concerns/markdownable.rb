@@ -32,6 +32,18 @@ module Markdownable
     end
     doc.css('a').each do |link|
       link["data-turbo"] = false
+      if link.text == link["href"]
+        data = Rails.cache.fetch("/ogp/#{Digest::SHA256.hexdigest(link.text)}", expires_in: 1.week) do
+          response = Faraday.get(link.text)
+          ogp = OGP::OpenGraph.new(response.body)
+          ogp.data
+        rescue
+          false
+        end
+        if data
+          link.replace(ApplicationController.renderer.render(partial: "shared/link_card", locals: { data: data }))
+        end
+      end
     end
     doc = wrap_emoji(doc.to_s)
     doc = wrap_project_tag(doc)
