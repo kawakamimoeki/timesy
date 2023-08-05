@@ -32,16 +32,21 @@ module Markdownable
     end
     doc.css('a').each do |link|
       link["data-turbo"] = false
-      if link.text == link["href"]
-        data = Rails.cache.fetch("/ogp/#{Digest::SHA256.hexdigest(link.text)}", expires_in: 1.week) do
-          response = Faraday.get(link.text)
-          ogp = OGP::OpenGraph.new(response.body)
-          ogp.data
-        rescue
-          false
-        end
-        if data
-          link.replace(ApplicationController.renderer.render(partial: "shared/link_card", locals: { ogp: Ogp.new(data) }))
+    end
+    doc.css('p').each do |paragraph|
+      if paragraph.children.length == 1 && paragraph.children.first.name == "a"
+        link = paragraph.children.first
+        if link.text == link["href"]
+          data = Rails.cache.fetch("/ogp/#{Digest::SHA256.hexdigest(link.text)}", expires_in: 1.week) do
+            response = Faraday.get(link.text)
+            ogp = OGP::OpenGraph.new(response.body)
+            ogp.data
+          rescue
+            false
+          end
+          if data
+            link.replace(ApplicationController.renderer.render(partial: "shared/link_card", locals: { ogp: Ogp.new(data) }))
+          end
         end
       end
     end
