@@ -41,7 +41,7 @@ module Markdownable
           false
         end
         if data
-          link.replace(ApplicationController.renderer.render(partial: "shared/link_card", locals: { data: data }))
+          link.replace(ApplicationController.renderer.render(partial: "shared/link_card", locals: { ogp: Ogp.new(data) }))
         end
       end
     end

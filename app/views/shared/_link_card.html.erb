@@ -1,8 +1,8 @@
-<div class="link-card flex dark:hover:bg-gray-800 cursor-pointer hover:bg-gray-100 max-w-[600px] overflow-hidden mx-auto w-full space-x-4 rounded-lg" onclick="window.open('<%= data["url"] %>')">
-  <%= image_tag data["image"], alt: data["title"], class: "object-cover" %>
-  <div class="grow py-4">
-    <div class="opacity-50"><%= data["url"]&.match(/^(?:https?:\/\/)?(?:[^@\/\n]+@)?(?:www\.)?([^:\/?\n]+)/)[1] %></div>
-    <div><%= data["title"] %></div>
-    <div class="text-xs text-gray-500"><%= data["description"]&.truncate(64) %></div>
+<div class="link-card flex dark:hover:bg-gray-800 cursor-pointer hover:bg-gray-100 max-w-[600px] overflow-hidden mx-auto w-full rounded-lg" onclick="window.open('<%= ogp.url %>')">
+  <%= image_tag ogp.image, alt: ogp.title, class: "object-cover" %>
+  <div class="grow p-4">
+    <div class="opacity-50"><%= ogp.host %></div>
+    <div><%= ogp.truncated_title %></div>
+    <div class="text-xs text-gray-500"><%= ogp.truncated_description %></div>
   </div>
 </div>

@@ -119,9 +119,8 @@ body.dark .markdown-body .project-tag {
 .markdown-body .link-card img {
   border-radius: 0px;
   border: none !important;
-  width: 12rem !important;
-  /* height: 6.3rem !important; */
-  max-width: 100% !important;
+  width: 6.3rem !important;
+  object-fit: cover;
   margin: 0 auto;
 }
 
