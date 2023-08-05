@@ -273,7 +273,7 @@ GEM
       declarative (< 0.1.0)
       trailblazer-option (>= 0.1.1, < 0.2.0)
       uber (< 0.2.0)
-    resend (0.7.1)
+    resend (0.7.2)
       httparty (~> 0.19.1)
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
