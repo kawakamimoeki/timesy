@@ -69,6 +69,8 @@ GEM
       tzinfo (~> 2.0)
     addressable (2.8.4)
       public_suffix (>= 2.0.2, < 6.0)
+    ansi (1.5.0)
+    ast (2.4.2)
     aws_cf_signer (0.1.3)
     bcrypt (3.1.19)
     bindex (0.8.1)
@@ -90,6 +92,7 @@ GEM
       rest-client (>= 2.0.0)
     coderay (1.1.3)
     concurrent-ruby (1.2.2)
+    connection_pool (2.4.1)
     crass (1.0.6)
     date (3.3.3)
     debug (1.8.0)
@@ -212,6 +215,11 @@ GEM
       racc (~> 1.4)
     nokogiri (1.15.3-x86_64-linux)
       racc (~> 1.4)
+    oga (3.4)
+      ast
+      ruby-ll (~> 2.1)
+    ogp (0.5.0)
+      oga (~> 3.3)
     os (1.1.4)
     passwordless (0.12.0)
       bcrypt (~> 3.1.11)
@@ -254,6 +262,10 @@ GEM
       zeitwerk (~> 2.5)
     rake (13.0.6)
     redcarpet (3.6.0)
+    redis (5.0.6)
+      redis-client (>= 0.9.0)
+    redis-client (0.15.0)
+      connection_pool
     regexp_parser (2.8.1)
     reline (0.3.6)
       io-console (~> 0.5)
@@ -270,6 +282,9 @@ GEM
       netrc (~> 0.8)
     retriable (3.1.2)
     rexml (3.2.6)
+    ruby-ll (2.1.3)
+      ansi
+      ast
     ruby-vips (2.1.4)
       ffi (~> 1.12)
     ruby2_keywords (0.0.5)
@@ -358,11 +373,13 @@ DEPENDENCIES
   jbuilder
   meta-tags
   minitest-stub_any_instance
+  ogp
   passwordless
   pg (~> 1.1)
   puma (~> 6.3)
   rails (~> 7.0.6)
   redcarpet
+  redis (>= 4.0.1)
   resend
   rubyzip
   selenium-webdriver

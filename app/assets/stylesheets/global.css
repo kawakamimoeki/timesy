@@ -104,6 +104,27 @@ body.dark .markdown-body .project-tag {
   border: 1px solid #e1e4e8 !important;
 }
 
+.dark .markdown-body img {
+  border: 1px solid #30363d !important;
+}
+
+.markdown-body .link-card {
+  border: 1px solid #e1e4e8 !important;
+}
+
+.dark .markdown-body .link-card {
+  border: 1px solid #30363d !important;
+}
+
+.markdown-body .link-card img {
+  border-radius: 0px;
+  border: none !important;
+  width: 12rem !important;
+  /* height: 6.3rem !important; */
+  max-width: 100% !important;
+  margin: 0 auto;
+}
+
 .CodeMirror * {
   word-break: break-all !important;
 }
