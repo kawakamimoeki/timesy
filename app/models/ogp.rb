@@ -2,8 +2,8 @@ class Ogp
   attr_reader :title, :description, :image, :url
 
   def initialize(data)
-    @title = data["title"].scrub('?')
-    @description = data["description"].scrub('?')
+    @title = data["title"]&.scrub('?')
+    @description = data["description"]&.scrub('?')
     @image = data["image"]
     @url = data["url"]
   end
