@@ -59,7 +59,7 @@ module ApplicationHelper
   end
 
   def icon_button_class
-    "block rounded-full cursor-pointer p-relative p-2 hover:bg-gray-50 transition-all dark:hover:bg-gray-700"
+    "block rounded-full cursor-pointer p-relative p-2 hover:bg-gray-50 transition-all dark:hover:bg-gray-700 opacity-50"
   end
 
   def should_render_sidebar?
