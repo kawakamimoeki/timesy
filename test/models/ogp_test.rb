@@ -40,7 +40,7 @@ class OgpTest < ActiveSupport::TestCase
     subject = Ogp.new({
       "description" => "a" * 100,
     })
-    assert_equal "a" * 62 + "...", subject.truncated_description
+    assert_equal "a" * 61 + "...", subject.truncated_description
   end
 
   test "truncate description with nil" do

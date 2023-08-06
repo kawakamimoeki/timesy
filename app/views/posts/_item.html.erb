@@ -30,7 +30,7 @@
       <% end %>
       <div class="grow"></div>
     </div>
-    <%= link_to post_path(id: item.id), class: icon_button_class, data: { turbo: false } do %>
+    <%= link_to post_path(id: item.id), class: icon_button_class do %>
       <%= image_tag "icons/forward.svg", alt: "forward", class: "icon w-5 h-5" %>
     <% end %>
   </div>
