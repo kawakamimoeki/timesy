@@ -1,5 +1,5 @@
 <div class="py-2 border-b dark:border-[rgb(48,54,61)] hover:bg-gray-50 dark:hover:bg-gray-700 px-3">
-  <%= link_to notification.link do %>
+  <%= link_to notification.link, data: { turbo: false } do %>
     <% user = notification.subjectable_type == "Follow" ? notification.subjectable.follower : notification.subjectable.user %>
     <div class="flex space-x-3">
       <%= image_tag(
