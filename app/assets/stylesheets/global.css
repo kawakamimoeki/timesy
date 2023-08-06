@@ -56,6 +56,10 @@ body.dark .markdown-body .project-tag {
   background-color: hsla(0,0%,0%,0) !important
 }
 
+body.dark .markdown-body code {
+  background-color: #282a36 !important;
+}
+
 .markdown-body {
   font-size: 15px !important;
 }
