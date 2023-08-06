@@ -1,0 +1,24 @@
+<%= turbo_frame_tag :comment_editor do %>
+<% if @comment.user == current_user %>
+  <button class="<%= icon_button_class %>" data-action="post-show#edit" data-post-show-target="editButton">
+    <%= image_tag "icons/edit.svg", alt: "edit", class: "icon w-5 h-5" %>
+  </button>
+  <button class="hidden <%= icon_button_class %>" data-action="post-show#close" data-post-show-target="closeButton">
+    <%= image_tag "icons/cancel.svg", alt: "edit", class: "icon w-5 h-5" %>
+  </button>
+  <div class="mt-[1px]">
+    <%= button_to(
+      delete_comment_url(post_id: @comment.post.id, id: @comment.id),
+      method: :delete,
+      class: icon_button_class,
+      data: {
+        turbo_frame: "comments",
+        turbo_confirm: I18n.t("comments.confirm_delete"),
+        post_show_target: "deleteButton"
+      }
+    ) do %>
+      <%= image_tag "icons/delete.svg", alt: "edit", class: "icon w-5 h-5" %>
+    <% end %>
+  </div>
+<% end %>
+<% end %>

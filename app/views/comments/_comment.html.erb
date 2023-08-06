@@ -1,0 +1,43 @@
+<div class="<%= card_class %> group my-4" data-controller="post-show">
+  <div class="flex space-x-1 text-sm items-center mb-2">
+    <%= render partial: 'shared/avatar', locals: { user: comment.user } %>
+    <time class="text-gray-400"><%= time_ago_in_words(comment.created_at) %></time>
+    <div class="grow"></div>
+    <%= turbo_frame_tag :comment_editor, src: comment_editor_path(comment.post, comment), loading: :lazy, class: "flex items-center space-x-1" %>
+  </div>
+  <div data-post-show-target="show" class="markdown-body" style="<%= comment.emoji_only? ? "font-size: 32px;" : "" %>">
+    <%= comment.html.html_safe %>
+  </div>
+  <div class="hidden" data-post-show-target="editor">
+    <%= form_with model: comment, url: update_comment_path(post_id: comment.post.id, id: comment.id), id: "post-form", medhot: :patch, data: { action: "turbo:submit-end->post-show#close", controller: "turbo-form markdown", post_editor_confirm_message: I18n.t("page.confirm_leave"),  markdown_min_height_value: "100px", markdown_placeholder_value: I18n.t("comments.placeholder") }, class: "grow transition-all" do |f| %>
+      <div>
+        <%= flash[:error] %>
+        <div class="max-w-3xl mx-auto">
+          <div class="bg-none">
+            <div data-markdown-target="editorContainer">
+              <%= f.text_area :body, data: { markdown_target: "editor", post_editor_target: "body" }, class: "prose resize-none" %>
+            </div>
+            <div class="markdown-body hidden px-5 min-h-[100px]" data-markdown-target="preview"></div>
+          </div>
+        </div>
+      </div>
+      <div class="flex pt-3 w-full items-center bg-none">
+        <div class="grow"></div>
+        <div class="px-1">
+          <button type="button" class="<%= icon_button_class %>" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton">
+            <%= image_tag "icons/preview.svg", alt: "preview", class: "icon w-5 h-5" %>
+          </button>
+          <button type="button" class="<%= icon_button_class %> hidden" title="<%=  I18n.t('posts.edit') %>" data-action="markdown#edit" data-markdown-target="editorButton">
+            <%= image_tag "icons/edit.svg", alt: "edit", class: "icon w-5 h-5" %>
+          </button>
+        </div>
+        <div class="px-1">
+          <%= f.submit I18n.t('posts.update'), class: primary_button_class, data: { post_editor_target: "publish" } %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="mt-2">
+    <%= render partial: 'shared/comment_reactions', locals: { comment: comment, reaction: CommentReaction.new } %>
+  </div>
+</div>

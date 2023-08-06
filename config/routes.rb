@@ -19,13 +19,16 @@ Rails.application.routes.draw do
 
   post '/posts/:post_id/reactions', to: 'post_reactions#create', as: :create_post_reaction
   delete '/posts/:post_id/reactions/:id', to: 'post_reactions#destroy', as: :delete_post_reaction
+  get '/posts/:post_id/reactions/list', to: 'post_reactions#list', as: :post_reactions_list
 
   post '/posts/:post_id/comments', to: 'comments#create', as: :comments
   delete '/posts/:post_id/comments/:id', to: 'comments#destroy', as: :delete_comment
   patch '/posts/:post_id/comments/:id', to: 'comments#update', as: :update_comment
+  get '/posts/:post_id/comments/:id/comment_editor', to: 'comments#comment_editor', as: :comment_editor
 
   post '/posts/:post_id/comments/:comment_id/reactions', to: 'comment_reactions#create', as: :create_comment_reaction
   delete '/posts/:post_id/comments/:comment_id/reactions/:id', to: 'comment_reactions#destroy', as: :delete_comment_reaction
+  get '/posts/:post_id/comments/:comment_id/reactions/list', to: 'comment_reactions#list', as: :comment_reactions_list
   
   get 'settings', to: 'settings#edit', as: :settings
   get 'settings/export', to: 'settings#export', as: :export_settings

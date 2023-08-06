@@ -1,3 +1,0 @@
-<%= turbo_frame_tag "comment-#{@comment.id}", data: { post_show_target: "show" }, class: "markdown-body", style: @comment.emoji_only? ? "font-size: 32px;" : "" do %>
-    <%= @comment.html.html_safe %>
-<% end %>

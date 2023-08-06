@@ -47,12 +47,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.create(post_params.merge(user: current_user))
     @post.attach_projects!
-
-    @current_page = params[:page].to_i
-    all = Post.offset(page_limit*@current_page).includes(:user, comments: :user).latest
-    all = all.following(current_user) if params[:current_path]&.include?('following')
-    @posts = all.limit(page_limit)
-    @next_page = @current_page + 1 if all.count > page_limit*@current_page + page_limit
+    @post.broadcast_prepend_to("posts")
   end
 
   def update
@@ -65,6 +60,8 @@ class PostsController < ApplicationController
 
     @post.update(post_params)
     @post.attach_projects!
+    @post.broadcast_remove_to("posts")
+    @post.broadcast_prepend_to("posts")
   end
 
   def destroy

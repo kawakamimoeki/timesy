@@ -3,6 +3,9 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = Comment.create!(comment_params.merge(user: current_user, post: @post))
     @comment.images.attach(comment_params[:images]) if comment_params[:images].present?
+    @post.broadcast_remove_to("posts")
+    @post.broadcast_prepend_to("posts")
+    @comment.broadcast_prepend_to("comments")
 
     if @post.user != current_user
       Notification.create(user: @post.user, subjectable: @comment)
@@ -28,6 +31,9 @@ class CommentsController < ApplicationController
     end
 
     @comment.destroy!
+    @post.broadcast_remove_to("posts")
+    @post.broadcast_prepend_to("posts")
+    @comment.broadcast_remove_to("comments")
   end
 
   def update
@@ -41,6 +47,14 @@ class CommentsController < ApplicationController
 
     @comment.update!(comment_params)
     @comment.images.attach(comment_params[:images]) if comment_params[:images].present?
+    @post.broadcast_remove_to("posts")
+    @post.broadcast_prepend_to("posts")
+    @comment.broadcast_remove_to("comments")
+    @comment.broadcast_prepend_to("comments")
+  end
+
+  def comment_editor
+    @comment = Comment.find(params[:id])
   end
 
   private def comment_params

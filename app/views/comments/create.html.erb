@@ -1,7 +1,0 @@
-<%= turbo_frame_tag "form" do %>
-  <%= render partial: "comments/form", locals: { comment: @comment, post: @post } %>
-<% end %>
-
-<%= turbo_frame_tag "comments" do %>
-  <%= render partial: 'comments/item', collection: @post.comments.order(created_at: :desc) %>
-<% end %>

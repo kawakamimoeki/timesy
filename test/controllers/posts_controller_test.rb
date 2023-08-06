@@ -10,7 +10,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   test "should create post" do
     ApplicationController.stub_any_instance :current_user, users(:general) do
       assert_difference('Post.count') do
-        post "/posts", params: { post: { title: "foo", body: "bar", general: true } }
+        post "/posts.turbo_stream", params: { post: { title: "foo", body: "bar", general: true } }
       end
     end
   end
@@ -18,14 +18,14 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   test "should update post" do
     ApplicationController.stub_any_instance :current_user, users(:general) do
       post = posts(:general)
-      patch "/posts/#{post.id}", params: { post: { title: "foo", body: "bar", general: true } }
+      patch "/posts/#{post.id}.turbo_stream", params: { post: { title: "foo", body: "bar", general: true } }
     end
   end
 
   test "should not update post if not authorized" do
     ApplicationController.stub_any_instance :current_user, User.create(email: "current@example.com", username: "current", name: "Current") do
       post = posts(:general)
-      patch "/posts/#{post.id}", params: { post: { title: "foo", body: "bar", general: true } }
+      patch "/posts/#{post.id}.turbo_stream", params: { post: { title: "foo", body: "bar", general: true } }
       assert_response :unauthorized
     end
   end
@@ -34,7 +34,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     ApplicationController.stub_any_instance :current_user, users(:general) do
       post = posts(:general)
       assert_difference('Post.count', -1) do
-        delete "/posts/#{post.id}"
+        delete "/posts/#{post.id}.turbo_stream"
       end
     end
   end
@@ -43,7 +43,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     ApplicationController.stub_any_instance :current_user, User.create(email: "current@example.com", username: "current", name: "Current") do
       post = posts(:general)
       assert_difference('Post.count', 0) do
-        delete "/posts/#{post.id}"
+        delete "/posts/#{post.id}.turbo_stream"
       end
       assert_response :unauthorized
     end
