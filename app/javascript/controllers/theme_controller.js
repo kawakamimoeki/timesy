@@ -8,23 +8,23 @@ export default class extends Controller {
   }
 
   toggle() {
-    if (localStorage.theme === 'dark') {
+    if (localStorage.theme === 'light') {
       localStorage.removeItem('theme')
     } else {
-      localStorage.theme = 'dark'
+      localStorage.theme = 'light'
     }
     this.switch()
   }
 
   switch() {
-    if (localStorage.theme === 'dark') {
-      document.querySelector("body").classList.add('dark')
-      this.darkTarget.classList.add('hidden')
-      this.lightTarget.classList.remove('hidden')
-    } else {
+    if (localStorage.theme === 'light') {
       document.querySelector("body").classList.remove('dark')
       this.lightTarget.classList.add('hidden')
       this.darkTarget.classList.remove('hidden')
+    } else {
+      document.querySelector("body").classList.add('dark')
+      this.darkTarget.classList.add('hidden')
+      this.lightTarget.classList.remove('hidden')
     }
   }
 }

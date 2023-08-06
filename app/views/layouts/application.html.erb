@@ -40,12 +40,12 @@
     </script>
   </head>
 
-  <body>
+  <body class="dark">
     <script>
-      if (localStorage.theme === 'dark') {
-        document.querySelector("body").classList.add('dark')
-      } else {
+      if (localStorage.theme === 'light') {
         document.querySelector("body").classList.remove('dark')
+      } else {
+        document.querySelector("body").classList.add('dark')
       }
     </script>
     <header class="w-full shadow-sm bg-white dark:bg-[rgb(30,39,50)] dark:text-[#eee] dark:border-b dark:border-[#30363d]">
