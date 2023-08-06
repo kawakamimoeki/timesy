@@ -34,7 +34,7 @@
           <%= render partial: "posts/loading" %>
         </div>
       <% end %>
-      <%= turbo_frame_tag :posts do %>
+      <%= turbo_frame_tag :posts, target: "_top" do %>
       <% end %>
 
       <%= turbo_frame_tag "load_more", src: request.path.include?("latest") ? latest_path(format: :turbo_stream) : root_path(format: :turbo_stream), loading: :lazy  %>
