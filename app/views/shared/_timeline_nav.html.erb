@@ -2,12 +2,16 @@
   <a
     href="<%= root_path %>"
     class="<%= nav_item_class(root_path, "w-1/2") %>"
+    data-turbo-frame="posts"
+    target="_top"
   >
     <%= I18n.t("pages.follow") %>
   </a>
   <a
     href="<%= latest_path %>"
     class="<%= nav_item_class(latest_path, "w-1/2") %>"
+    data-turbo-frame="posts"
+    target="_top"
   >
       <%= I18n.t("pages.latest") %>
   </a>
