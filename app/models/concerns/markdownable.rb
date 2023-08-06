@@ -9,50 +9,52 @@ module Markdownable
   end
 
   def html(truncate = false)
-    markdown = Redcarpet::Markdown.new(
-      Redcarpet::Render::HTML.new(
-        filter_html: true,
-        hard_wrap: true,
-      ),
-      autolink: true,
-      tables: true,
-      fenced_code_blocks: true,
-      strikethrough: true,
-      no_intra_emphasis: true,
-      space_after_headers: true,
-    )
-    if truncate === false
-      body = emojified_body
-    else
-      body = emojified_body.truncate(truncate)
-    end
-    doc = Nokogiri::HTML::DocumentFragment.parse(markdown.render(body))
-    doc.css('code[@class]').each do |code|
-      code[:class] = "language-" + code[:class]
-    end
-    doc.css('a').each do |link|
-      link["data-turbo"] = false
-    end
-    doc.css('p').each do |paragraph|
-      if paragraph.children.any? { |child| child.name == "a" }
-        link = paragraph.children.find { |child| child.name == "a" }
-        if link.text == link["href"]
-          data = Rails.cache.fetch("/ogp/#{Digest::SHA256.hexdigest(link.text)}", expires_in: 1.week) do
-            response = Faraday.get(link.text)
-            ogp = OGP::OpenGraph.new(response.body)
-            ogp.data
-          rescue
-            false
-          end
-          if data
-            link.replace(ApplicationController.renderer.render(partial: "shared/link_card", locals: { ogp: Ogp.new(data) }))
+    Rails.cache.fetch("/markdown/#{Digest::SHA256.hexdigest(body)}", expires_in: 1.week) do
+      markdown = Redcarpet::Markdown.new(
+        Redcarpet::Render::HTML.new(
+          filter_html: true,
+          hard_wrap: true,
+        ),
+        autolink: true,
+        tables: true,
+        fenced_code_blocks: true,
+        strikethrough: true,
+        no_intra_emphasis: true,
+        space_after_headers: true,
+      )
+      if truncate === false
+        body = emojified_body
+      else
+        body = emojified_body.truncate(truncate)
+      end
+      doc = Nokogiri::HTML::DocumentFragment.parse(markdown.render(body))
+      doc.css('code[@class]').each do |code|
+        code[:class] = "language-" + code[:class]
+      end
+      doc.css('a').each do |link|
+        link["data-turbo"] = false
+      end
+      doc.css('p').each do |paragraph|
+        if paragraph.children.any? { |child| child.name == "a" }
+          link = paragraph.children.find { |child| child.name == "a" }
+          if link.text == link["href"]
+            data = Rails.cache.fetch("/ogp/#{Digest::SHA256.hexdigest(link.text)}", expires_in: 1.week) do
+              response = Faraday.get(link.text)
+              ogp = OGP::OpenGraph.new(response.body)
+              ogp.data
+            rescue
+              false
+            end
+            if data
+              link.replace(ApplicationController.renderer.render(partial: "shared/link_card", locals: { ogp: Ogp.new(data) }))
+            end
           end
         end
       end
+      doc = wrap_emoji(doc.to_s)
+      doc = wrap_project_tag(doc)
+      doc
     end
-    doc = wrap_emoji(doc.to_s)
-    doc = wrap_project_tag(doc)
-    doc
   end
 
   def emojified_body
