@@ -2,18 +2,24 @@
   <a
     href="<%= user_path(user.username) %>"
     class="<%= nav_item_class(user_path(user.username), "w-1/3") %>"
+    data-turbo-frame="posts"
+    target="_top"
   >
     <%= I18n.t("pages.posts") %>
   </a>
   <a
     href="<%= user_comments_path(user.username) %>"
     class="<%=  nav_item_class(user_comments_path(user.username), "w-1/3") %>"
+    data-turbo-frame="posts"
+    target="_top"
   >
       <%= I18n.t("users.comments", user: user.name) %>
   </a>
   <a
     href="<%= projects_path(user.username) %>"
     class="<%= nav_item_class(projects_path(user.username), "w-1/3") %>"
+    data-turbo-frame="posts"
+    target="_top"
   >
     <%= I18n.t("users.projects", user: user.name) %>
   </a>
