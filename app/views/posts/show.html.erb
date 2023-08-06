@@ -35,8 +35,10 @@
       </div>
       <% end %>
     </div>
-    <%= turbo_frame_tag :post, data: { post_show_target: "show" }, class: "markdown-body" do %>
-      <%= @post.html.html_safe %>
+    <%= turbo_frame_tag :post do %>
+      <div data-post-show-target="show" class="markdown-body">
+        <%= @post.html.html_safe %>
+      </div>
     <% end %>
     <div class="hidden" data-post-show-target="editor">
       <%= form_with model: @post, url: update_post_path(id: @post.id), id: "post-form", data: { action: "turbo:submit-end->post-show#close",turbo_frame: :post, controller: "turbo-form markdown", post_editor_confirm_message: I18n.t("page.confirm_leave"),  markdown_min_height_value: "100px", markdown_placeholder_value: I18n.t("posts.placeholder") }, class: "grow transition-all" do |f| %>
@@ -77,8 +79,9 @@
   </div>
   <% end %>
   <div>
+    <%= turbo_stream_from "comments" %>
     <%= turbo_frame_tag "comments" do %>
-      <%= render partial: 'comments/item', collection: @post.comments.order(created_at: :desc) %>
+      <%= render @post.comments.order(created_at: :desc) %>
     <% end %>
   </div>
 </div>

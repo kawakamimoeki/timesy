@@ -4,6 +4,8 @@ class PostReactionsController < ApplicationController
     reaction = @post.post_reactions.new(reaction_params)
     reaction.user = current_user
     reaction.save
+    @post.broadcast_remove_to("posts")
+    @post.broadcast_prepend_to("posts")
     @post_reaction = PostReaction.new
     if @post.user != current_user
       Notification.create(user: @post.user, subjectable: reaction)
@@ -24,6 +26,10 @@ class PostReactionsController < ApplicationController
     reaction = @post.post_reactions.find(params[:id])
     reaction.destroy
     @post_reaction = PostReaction.new
+  end
+
+  def list
+    @post = Post.find(params[:post_id])
   end
 
   private def reaction_params

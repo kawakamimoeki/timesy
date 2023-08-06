@@ -25,19 +25,16 @@
       <%= link_to I18n.t("users.sign_up"), "/users/sign_up", class: primary_button_class %>
     </div>
     <% end %>
-    <% if @posts.empty? %>
-      <p class="w-full text-center py-16 font-bold"><%= I18n.t("posts.not_found") %></p>
-    <% else %>
-      <%= turbo_frame_tag "loading" do %>
+    <%= turbo_stream_from "posts" %>
+    <%= turbo_frame_tag "loading" do %>
+      <%= render partial: "posts/loading" %>
+      <div class="hidden sm:block">
         <%= render partial: "posts/loading" %>
-        <div class="hidden sm:block">
-          <%= render partial: "posts/loading" %>
-        </div>
-      <% end %>
-      <%= turbo_frame_tag :posts, target: "_top" do %>
-      <% end %>
-
-      <%= turbo_frame_tag "load_more", src: request.path.include?("latest") ? latest_path(format: :turbo_stream) : root_path(format: :turbo_stream), loading: :lazy  %>
+      </div>
     <% end %>
+    <%= turbo_frame_tag "posts", target: "_top" do %>
+    <% end %>
+
+    <%= turbo_frame_tag "load_more", src: request.path.include?("latest") ? latest_path(format: :turbo_stream) : root_path(format: :turbo_stream), loading: :lazy  %>
   </div>
 </div>

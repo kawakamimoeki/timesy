@@ -4,6 +4,8 @@ class CommentReactionsController < ApplicationController
     reaction = @comment.comment_reactions.new(reaction_params)
     reaction.user = current_user
     reaction.save
+    @comment.broadcast_remove_to("comments")
+    @comment.broadcast_prepend_to("comments")
     @comment_reaction = CommentReaction.new
     if @comment.user != current_user
       Notification.create(user: @comment.user, subjectable: reaction)
@@ -24,6 +26,12 @@ class CommentReactionsController < ApplicationController
     reaction = @comment.comment_reactions.find(params[:id])
     reaction.destroy
     @comment_reaction = CommentReaction.new
+    @comment.broadcast_remove_to("comments")
+    @comment.broadcast_prepend_to("comments")
+  end
+
+  def list
+    @comment = Comment.find(params[:comment_id])
   end
 
   private def reaction_params
