@@ -20,6 +20,9 @@
     <%= turbo_frame_tag :users do %>
     <% end %>
 
-    <%= turbo_frame_tag "load_more", src: following_path(username: @user.username, format: :turbo_stream), loading: :lazy %>
+    <div class="h-4">
+      <%= turbo_frame_tag "load_more", src: following_path(username: @user.username, format: :turbo_stream), loading: :lazy %>
+      <%= render partial: "posts/loading" %>
+    </div>
   <% end %>
 </div>

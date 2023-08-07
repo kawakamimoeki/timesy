@@ -22,7 +22,10 @@
     <%= turbo_frame_tag :posts do %>
     <% end %>
 
-    <%= turbo_frame_tag "load_more", src: user_path(username: @user.username, format: :turbo_stream), loading: :lazy %>
+    <div class="h-4">
+      <%= turbo_frame_tag "load_more", src: user_path(username: @user.username, format: :turbo_stream), loading: :lazy %>
+      <%= render partial: "posts/loading" %>
+    </div>
   <% end %>
 </div>
 <div class="grow hidden border-l h-[calc(100vh-55px)] overflow-scroll <%= card_class %>" id="sidebar">
