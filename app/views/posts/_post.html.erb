@@ -18,7 +18,7 @@
       <%= I18n.t("comments.count", num: post.comments.count) %>
     </div>
     <% end %>
-    <%= link_to thread_path(post.id), data: { turbo_frame: "thread", controller: "sidebar" }, class: icon_button_class + " flex items-center hidden lg:block" do %>
+    <%= link_to thread_path(post.id), data: { turbo_frame: "sidebar", controller: "sidebar" }, class: icon_button_class + " flex items-center hidden lg:block" do %>
       <%= image_tag "icons/comment.svg", alt: "comment", width:"14px", height: "14px", class: "icon" %>
     <% end %>
     <%= link_to post_path(post.id), class: icon_button_class + " flex items-center lg:hidden block" do %>

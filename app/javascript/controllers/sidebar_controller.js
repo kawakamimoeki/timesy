@@ -17,10 +17,10 @@ export default class extends Controller {
   }
 
   open () {
-    document.querySelector('#sidebar').classList.remove('hidden')
+    document.querySelector('#sidebar-container').classList.remove('hidden')
   }
 
   close () {
-    document.querySelector('#sidebar').classList.add('hidden')
+    document.querySelector('#sidebar-container').classList.add('hidden')
   }
 }

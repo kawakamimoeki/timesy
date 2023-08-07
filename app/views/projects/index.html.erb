@@ -19,14 +19,7 @@
     <%= render partial: 'projects/item', collection: @projects, as: :project %>
   </div>
 </div>
-<div class="grow w-1/2 hidden border-l h-[calc(100vh-55px)] overflow-scroll <%= card_class %>" id="sidebar">
-  <div class="flex <%= card_class %> -mt-4">
-    <div class="grow"></div>
-    <button class="<%= icon_button_class %>" id="sidebar-close">
-      <%= image_tag "icons/close.svg", alt: "close", width: "14px", height: "14px",   class: "icon"%>
-    </button>
-  </div>
-  <%= turbo_frame_tag "settings" %>
-  <%= turbo_frame_tag "thread" %>
+<div class="grow w-1/2 hidden border-l h-[calc(100vh-55px)] overflow-scroll <%= card_class %>" id="sidebar-container">
+  <%= turbo_frame_tag "sidebar" %>
 </div>
 </div>

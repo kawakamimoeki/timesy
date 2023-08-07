@@ -1,4 +1,4 @@
-<%= turbo_frame_tag "thread" do %>
+<%= turbo_frame_tag "sidebar" do %>
   <div class="flex <%= card_class %> -mt-4">
     <button data-controller="copy-url" data-copy-url-url-value="<%= post_url(@post) %>" class="<%= block_link_class %> flex items-center space-x-1">
       <%= image_tag "icons/link.svg", alt: "link", width: "14px", height: "14px", class: "icon rotate-45" %>
