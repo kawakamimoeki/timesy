@@ -7,8 +7,8 @@ class CommentReactionsController < ApplicationController
     reaction.save
     @post.broadcast_remove_to("posts")
     @post.broadcast_prepend_to("posts")
-    @comment.broadcast_remove_to("comments")
-    @comment.broadcast_prepend_to("comments")
+    @comment.broadcast_remove_to("comments-of-#{params[:post_id]}")
+    @comment.broadcast_prepend_to("comments-of-#{params[:post_id]}")
     @comment_reaction = CommentReaction.new
     if @comment.user != current_user
       Notification.create(user: @comment.user, subjectable: reaction)
@@ -29,8 +29,8 @@ class CommentReactionsController < ApplicationController
     reaction = @comment.comment_reactions.find(params[:id])
     reaction.destroy
     @comment_reaction = CommentReaction.new
-    @comment.broadcast_remove_to("comments")
-    @comment.broadcast_prepend_to("comments")
+    @comment.broadcast_remove_to("comments-of-#{params[:post_id]}")
+    @comment.broadcast_prepend_to("comments-of-#{params[:post_id]}")
   end
 
   def list
