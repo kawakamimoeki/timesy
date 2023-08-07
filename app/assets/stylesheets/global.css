@@ -16,7 +16,7 @@ body.dark .CodeMirror-cursor {
 
 body.dark {
   background-color: rgb(21, 32, 43);
-  color: #ccc;
+  color: #ddd;
 }
 
 body.dark .markdown-body table tr {
@@ -37,7 +37,7 @@ body.dark img.icon {
 
 body.dark .markdown-body {
   background-color: rgb(30 39 50) !important;
-  color: #ccc !important;
+  color: #ddd !important;
 }
 
 body.dark .markdown-body blockquote {
