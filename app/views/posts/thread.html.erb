@@ -1,3 +1,13 @@
 <%= turbo_frame_tag "thread" do %>
+  <div class="flex <%= card_class %> -mt-4">
+    <button data-controller="copy-url" data-copy-url-url-value="<%= post_url(@post) %>" class="<%= block_link_class %> flex items-center space-x-1">
+      <%= image_tag "icons/link.svg", alt: "link", width: "14px", height: "14px", class: "icon rotate-45" %>
+      <span class="text-sm">Copy Link</span>
+    </button>
+    <div class="grow"></div>
+    <button class="<%= icon_button_class %>" id="sidebar-close">
+      <%= image_tag "icons/close.svg", alt: "close", width: "14px", height: "14px",   class: "icon"%>
+    </button>
+  </div>
   <%= render partial: "posts/thread", locals: { post: @post } %>
 <% end %>
