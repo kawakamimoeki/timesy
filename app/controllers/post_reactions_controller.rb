@@ -26,6 +26,8 @@ class PostReactionsController < ApplicationController
     reaction = @post.post_reactions.find(params[:id])
     reaction.destroy
     @post_reaction = PostReaction.new
+    @post.broadcast_remove_to("posts")
+    @post.broadcast_prepend_to("posts")
   end
 
   def list
