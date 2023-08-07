@@ -1,7 +1,6 @@
 class NotificationsController < ApplicationController
   def index
     all = Notification.where(user: current_user).order(created_at: :desc)
-    all.update_all(read_at: Time.zone.now)
     @notifications = all.limit(10)
   end
 end

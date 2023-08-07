@@ -64,6 +64,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       post 'posts/preview', to: 'posts#preview', as: :preview_post
       get 'blobs/:id/url', to: 'blobs#url', as: :blob_url
+      post 'notifications/read', to: 'notifications#read', as: :read_notifications
     end
   end
 end

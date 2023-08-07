@@ -8,7 +8,8 @@ class PostReactionsController < ApplicationController
     @post.broadcast_prepend_to("posts")
     @post_reaction = PostReaction.new
     if @post.user != current_user
-      Notification.create(user: @post.user, subjectable: reaction)
+      @notification = Notification.create(user: @post.user, subjectable: reaction)
+      @notification.broadcast_prepend_to("notifications-for-#{@post.user.id}")
       if @post.user.webhook_url.present?
         WebhookJob.perform_later(
           distination: @post.user.webhook_url,

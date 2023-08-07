@@ -13,6 +13,7 @@ class Notification < ApplicationRecord
   end
 
   def link
+    return nil if subjectable.nil?
     if subjectable_type == 'Follow'
       Rails.application.routes.url_helpers.user_path(subjectable.follower.username)
     elsif subjectable_type == 'Comment'
