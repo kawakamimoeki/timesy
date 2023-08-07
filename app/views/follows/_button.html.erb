@@ -9,10 +9,14 @@
   <% end %>
 <% else %>
   <div>
-    <button class="<%= block_link_class %> text-sm inline-flex items-center" data-controller="sidebar">
+    <%= link_to settings_sidebar_path, data: { controller: "sidebar", turbo_frame: "settings" }, class: block_link_class +  " text-sm inline-flex items-center hidden lg:flex" do %>
       <%= image_tag "icons/settings.svg", class: "icon w-4 h-4 mr-1" %>
       <%= I18n.t("pages.settings") %>
-    </button>
+    <% end %>
+    <%= link_to settings_path, class: block_link_class +  " text-sm inline-flex items-center lg:hidden flex" do %>
+      <%= image_tag "icons/settings.svg", class: "icon w-4 h-4 mr-1" %>
+      <%= I18n.t("pages.settings") %>
+    <% end %>
   </div>
 <% end %>
 <% end %>

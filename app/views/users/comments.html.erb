@@ -32,8 +32,7 @@
       <%= image_tag "icons/close.svg", alt: "close", width: "14px", height: "14px",   class: "icon"%>
     </button>
   </div>
-  <% if current_user == @user %>
-    <%= render partial: "users/settings", locals: { user: @user } %>
-  <% end %>
+  <%= turbo_frame_tag "settings" %>
+  <%= turbo_frame_tag "thread" %>
 </div>
 </div>
