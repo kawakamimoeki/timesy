@@ -79,7 +79,9 @@
   </div>
   <% end %>
   <div>
-    <%= turbo_stream_from "comments" %>
+    <% if request.from_pc? %>
+      <%= turbo_stream_from "comments" %>
+    <% end %>
     <%= turbo_frame_tag "comments" do %>
       <%= render @post.comments.order(created_at: :desc) %>
     <% end %>

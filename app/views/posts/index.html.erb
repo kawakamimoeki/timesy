@@ -25,7 +25,11 @@
       <%= link_to I18n.t("users.sign_up"), "/users/sign_up", class: primary_button_class %>
     </div>
     <% end %>
-    <%= turbo_stream_from "posts" %>
+    <div class="hidden sm:block">
+      <% if request.from_pc? %>
+        <%= turbo_stream_from "posts" %>
+      <% end %>
+    </div>
     <%= turbo_frame_tag "loading" do %>
       <%= render partial: "posts/loading" %>
       <div class="hidden sm:block">

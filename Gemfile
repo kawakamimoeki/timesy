@@ -66,6 +66,7 @@ gem 'resend'
 gem 'validate_url'
 gem 'faraday'
 gem 'ogp'
+gem 'rack-user_agent'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
