@@ -10,7 +10,8 @@ class CommentReactionsController < ApplicationController
     @comment.broadcast_replace_to("comments-of-#{params[:post_id]}")
     @comment_reaction = CommentReaction.new
     if @comment.user != current_user
-      Notification.create(user: @comment.user, subjectable: reaction)
+      @notification = Notification.create(user: @comment.user, subjectable: reaction)
+      @notification.broadcast_prepend_to("notifications-for-#{@comment.user.id}")
       if @comment.user.webhook_url.present?
         WebhookJob.perform_later(
           distination: @comment.user.webhook_url,

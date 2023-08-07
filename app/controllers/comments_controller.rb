@@ -20,7 +20,8 @@ class CommentsController < ApplicationController
     @comment.broadcast_prepend_to("comments-of-#{params[:post_id]}")
 
     if @post.user != current_user
-      Notification.create(user: @post.user, subjectable: @comment)
+      @notification = Notification.create(user: @post.user, subjectable: @comment)
+      @notification.broadcast_prepend_to("notifications-for-#{@post.user.id}")
       if @post.user.webhook_url.present?
         WebhookJob.perform_later(
           distination: @post.user.webhook_url,

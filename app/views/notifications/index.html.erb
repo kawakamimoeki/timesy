@@ -1,3 +1,12 @@
+<%= turbo_stream_from "notifications-for-#{current_user.id}" %>
 <%= turbo_frame_tag :notifications do %>
-  <%= render @notifications %>
+  <% if @notifications.length > 0 %>
+    <%= render @notifications %>
+  <% else %>
+    <div class="flex flex-col items-center justify-center h-full">
+      <div class="flex flex-col items-center justify-center">
+        <p class="text-gray-400 py-10 text-sm">No notifications yet</p>
+      </div>
+    </div>
+  <% end %>
 <% end %>
