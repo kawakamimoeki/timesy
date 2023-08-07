@@ -74,7 +74,10 @@
         <%= render partial: "comments/comment", collection: @comments %>
       <% end %>
 
-      <%= turbo_frame_tag "load_more", src: comments_path(@post, format: :turbo_stream, page: 1), loading: :lazy  %>
+      <div class="h-4">
+        <%= turbo_frame_tag "load_more", src: comments_path(@post, format: :turbo_stream, page: 1), loading: :lazy  %>
+        <%= render partial: "posts/loading" %>
+      </div>
     </div>
   <% end %>
 </div>

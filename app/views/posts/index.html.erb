@@ -26,7 +26,10 @@
       <%= turbo_frame_tag "posts", target: "_top" do %>
       <% end %>
 
-      <%= turbo_frame_tag "load_more", src: request.path.include?("latest") ? latest_path(format: :turbo_stream) : root_path(format: :turbo_stream), loading: :lazy  %>
+      <div class="h-4">
+        <%= turbo_frame_tag "load_more", src: request.path.include?("latest") ? latest_path(format: :turbo_stream) : root_path(format: :turbo_stream), loading: :lazy  %>
+        <%= render partial: "posts/loading" %>
+      </div>
     </div>
   </div>
   <div class="hidden w-2/5 border-l h-[calc(100vh-55px)] overflow-scroll <%= card_class %>" id="sidebar">
