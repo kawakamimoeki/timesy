@@ -78,16 +78,18 @@
     <%= render partial: "comments/form", locals: { comment: @comment, post: @post } %>
   </div>
   <% end %>
-  <div>
-    <% if request.from_pc? %>
-      <%= turbo_stream_from "comments" %>
-    <% end %>
-    <%= turbo_frame_tag "loading" do %>
-      <%= render partial: "posts/loading" %>
-    <% end %>
-    <%= turbo_frame_tag "comments", target: "_top" do %>
-    <% end %>
+  <% if @post.comments.count > 0 %>
+    <div>
+      <% if request.from_pc? %>
+        <%= turbo_stream_from "comments" %>
+      <% end %>
+      <%= turbo_frame_tag "loading" do %>
+        <%= render partial: "posts/loading" %>
+      <% end %>
+      <%= turbo_frame_tag "comments", target: "_top" do %>
+      <% end %>
 
-    <%= turbo_frame_tag "load_more", src: comments_path(@post, format: :turbo_stream), loading: :lazy  %>
-  </div>
+      <%= turbo_frame_tag "load_more", src: comments_path(@post, format: :turbo_stream), loading: :lazy  %>
+    </div>
+  <% end %>
 </div>
