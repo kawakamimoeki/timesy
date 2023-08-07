@@ -61,8 +61,7 @@ class CommentsController < ApplicationController
     @comment.images.attach(comment_params[:images]) if comment_params[:images].present?
     @post.broadcast_remove_to("posts")
     @post.broadcast_prepend_to("posts")
-    @comment.broadcast_remove_to("comments-of-#{params[:post_id]}")
-    @comment.broadcast_prepend_to("comments-of-#{params[:post_id]}}")
+    @comment.broadcast_replace_to("comments-of-#{params[:post_id]}")
   end
 
   def comment_editor
