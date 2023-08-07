@@ -7,5 +7,12 @@
       <%= button_to I18n.t("users.follow"), follow_user_path(user.username), method: :post, class: "bg-sky-500 text-white px-3 py-1 rounded-full text-sm shadow-sm font-bold hover:bg-sky-600 border border-sky-500 hover:border-sky-600" %>
     <% end %>
   <% end %>
+<% else %>
+  <div>
+    <button class="<%= block_link_class %> text-sm inline-flex items-center" data-controller="sidebar">
+      <%= image_tag "icons/settings.svg", class: "icon w-4 h-4 mr-1" %>
+      <%= I18n.t("pages.settings") %>
+    </button>
+  </div>
 <% end %>
 <% end %>

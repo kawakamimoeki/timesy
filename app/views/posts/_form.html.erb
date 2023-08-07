@@ -16,7 +16,7 @@
     <input type="hidden" name="page" value="<%= page %>" />
     <input type="hidden" name="current_path" value="<%= page %>" />
     <%= f.file_field :images, multiple: true, direct_upload: true, class: "hidden" %>
-    <div class="max-w-3xl mx-auto">
+    <div>
       <div class="">
         <div data-markdown-target="editorContainer">
           <%= f.text_area(
@@ -44,7 +44,7 @@
         data-action="markdown#preview"
         data-markdown-target="previewButton"
       >
-        <%= image_tag "icons/preview.svg", alt: "preview", class: "icon w-5 h-5" %>
+        <%= image_tag "icons/preview.svg", alt: "preview", width:"14px", height: "14px",class: "icon" %>
       </button>
       <button
         type="button"
@@ -53,7 +53,7 @@
         data-action="markdown#edit"
         data-markdown-target="editorButton"
       >
-        <%= image_tag "icons/edit.svg", alt: "edit", class: "icon w-5 h-5" %>
+        <%= image_tag "icons/edit.svg", alt: "edit", width:"14px", height: "14px",class: "icon" %>
       </button>
     </div>
     <div class="px-1">

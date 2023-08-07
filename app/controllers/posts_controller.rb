@@ -28,6 +28,17 @@ class PostsController < ApplicationController
     render :index
   end
 
+  def thread
+    @post = Post.includes(comments: :user).find_by(id: params[:id])
+    @post_reaction = PostReaction.new
+    @comment_reaction = CommentReaction.new
+    if @post.nil?
+      render file: "#{Rails.root}/public/404.html", status: :not_found
+      return
+    end
+    @comment = Comment.new
+  end
+
   def show
     @post = Post.includes(comments: :user).find_by(id: params[:id])
     @post_reaction = PostReaction.new

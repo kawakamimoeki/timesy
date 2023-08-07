@@ -35,7 +35,7 @@ module ApplicationHelper
   end
 
   def text_field_class
-    "block rounded w-full px-3 py-2 border text-gray-700 hover:bg-gray-100 transition-all dark:bg-[rgb(30,39,50)] dark:border dark:border-[#30363d] dark:text-[#ddd] dark:hover:bg-[rgb(30,39,50)] dark:hover:border-[#30363d]"
+    "block rounded w-full max-w-2xl px-3 py-2 border text-gray-700 hover:bg-gray-100 transition-all dark:bg-[rgb(30,39,50)] dark:border dark:border-[#30363d] dark:text-[#ddd] dark:hover:bg-[rgb(30,39,50)] dark:hover:border-[#30363d]"
   end
 
   def loading_box_class
@@ -43,15 +43,15 @@ module ApplicationHelper
   end
 
   def nav_class
-    "w-full mb-4 flex text-sm items-center border-b dark:border-slate-600"
+    "w-full flex text-sm items-center border-b dark:border-slate-600"
   end
 
   def nav_item_class(path, width)
-    "hover:bg-gray-100 dark:hover:bg-[rgb(30,39,50)] py-2 #{width} text-center #{request.path == path ? "font-bold border-b-2 border-sky-500" : ""}"
+    "hover:bg-gray-100 dark:hover:bg-[rgb(30,39,50)] py-2 #{width} text-center #{request.path == path ? "dark:bg-[rgb(30,39,50)] bg-white font-bold border-b-2 border-sky-500" : ""}"
   end
 
   def card_class
-    "shadow-sm mb-4 rounded-lg relative bg-white p-4 dark:text-[#ddd] dark:bg-[rgb(30,39,50)] dark:border dark:border-[#30363d] dark:text-[#ddd]"
+    "relative bg-white p-4 dark:text-[#ddd] dark:bg-[rgb(30,39,50)] border-b dark:border-[#30363d] dark:text-[#ddd]"
   end
 
   def block_link_class
@@ -59,7 +59,7 @@ module ApplicationHelper
   end
 
   def icon_button_class
-    "block rounded-full cursor-pointer p-relative p-2 hover:bg-gray-50 transition-all dark:hover:bg-gray-700 opacity-50"
+    "block rounded-full cursor-pointer p-relative p-2 hover:bg-gray-50 transition-all dark:hover:bg-gray-700"
   end
 
   def should_render_sidebar?

@@ -13,14 +13,14 @@
         <button
           data-controller="tooltip"
           data-tooltip-text-value="<%= reactions.map { |r| "@#{r.user.username}" }.uniq.join(",") %>"
-          class="rounded-full <%= reacted ? "bg-sky-50 hover:bg-sky-100 border dark:bg-sky-900  dark:hover:bg-sky-800 dark:border-sky-400 border-sky-600" : "hover:bg-gray-100 bg-gray-50 border-gray-50 hover:border-gray-100 dark:bg-slate-700 dark:border-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-600" %> py-[2px] px-[6px] mx-1 text-sm  my-1 flex items-center space-x-[2px] border dark:text-slate-50"
+          class="rounded-full <%= reacted ? "bg-sky-50 hover:bg-sky-100 border dark:bg-sky-900  dark:hover:bg-sky-800 dark:border-sky-400 border-sky-600" : "hover:bg-gray-100 bg-gray-50 border-gray-50 hover:border-gray-100 dark:bg-slate-700 dark:border-slate-700 dark:hover:border-slate-600 dark:hover:bg-slate-600" %> py-[2px] px-[6px] mx-[2px] text-sm  my-1 flex items-center space-x-[2px] border dark:text-slate-50"
         >
           <span class="emoji mr-1"><%= body.html_safe %></span>
           <span class="text-xs"><%= reactions.length %></span>
         </button>
       <% end %>
     <% else %>
-      <div class="rounded-full py-[2px] px-1 mx-1 text-sm my-1 flex items-center space-x-1 border bg-gray-50 dark:bg-slate-700 dark:border-slate-700 border-gray-50">
+      <div class="rounded-full py-[2px] mx-[2px] px-1 text-sm my-1 flex items-center space-x-1 border bg-gray-50 dark:bg-slate-700 dark:border-slate-700 border-gray-50">
         <span class="emoji mr-1"><%= body.html_safe %></span>
         <span class="text-gray-400 text-xs dark:text-slate-50"><%= reactions.length %></span>
       </div>
