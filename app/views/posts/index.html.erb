@@ -26,9 +26,7 @@
     </div>
     <% end %>
     <div class="hidden sm:block">
-      <% if request.from_pc? %>
-        <%= turbo_stream_from "posts" %>
-      <% end %>
+      <%= turbo_stream_from "posts" %>
     </div>
     <%= turbo_frame_tag "loading" do %>
       <%= render partial: "posts/loading" %>

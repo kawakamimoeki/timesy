@@ -80,9 +80,7 @@
   <% end %>
   <% if @post.comments.count > 0 %>
     <div>
-      <% if request.from_pc? %>
-        <%= turbo_stream_from "comments-of-#{@post.id}" %>
-      <% end %>
+      <%= turbo_stream_from "comments-of-#{@post.id}" %>
       <%= turbo_frame_tag "loading" do %>
         <%= render partial: "posts/loading" %>
       <% end %>
