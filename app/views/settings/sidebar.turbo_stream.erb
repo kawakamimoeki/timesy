@@ -1,4 +1,4 @@
-<%= turbo_frame_tag "sidebar" do %>
+<%= turbo_stream.replace "sidebar" do %>
   <div class="flex <%= card_class %> -mt-4">
     <div class="grow"></div>
     <button class="<%= icon_button_class %>" id="sidebar-close">
