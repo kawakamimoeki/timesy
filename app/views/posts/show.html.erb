@@ -82,8 +82,15 @@
     <% if request.from_pc? %>
       <%= turbo_stream_from "comments" %>
     <% end %>
-    <%= turbo_frame_tag "comments" do %>
-      <%= render @post.comments.order(created_at: :desc) %>
+    <%= turbo_frame_tag "loading" do %>
+      <%= render partial: "posts/loading" %>
+      <div class="hidden sm:block">
+        <%= render partial: "posts/loading" %>
+      </div>
     <% end %>
+    <%= turbo_frame_tag "comments", target: "_top" do %>
+    <% end %>
+
+    <%= turbo_frame_tag "load_more", src: comments_path(@post, format: :turbo_stream), loading: :lazy  %>
   </div>
 </div>

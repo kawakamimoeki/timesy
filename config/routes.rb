@@ -21,7 +21,8 @@ Rails.application.routes.draw do
   delete '/posts/:post_id/reactions/:id', to: 'post_reactions#destroy', as: :delete_post_reaction
   get '/posts/:post_id/reactions/list', to: 'post_reactions#list', as: :post_reactions_list
 
-  post '/posts/:post_id/comments', to: 'comments#create', as: :comments
+  get '/posts/:post_id/comments', to: 'comments#index', as: :comments
+  post '/posts/:post_id/comments', to: 'comments#create', as: :create_comment
   delete '/posts/:post_id/comments/:id', to: 'comments#destroy', as: :delete_comment
   patch '/posts/:post_id/comments/:id', to: 'comments#update', as: :update_comment
   get '/posts/:post_id/comments/:id/comment_editor', to: 'comments#comment_editor', as: :comment_editor
