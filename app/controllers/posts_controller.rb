@@ -37,6 +37,14 @@ class PostsController < ApplicationController
       return
     end
     @comment = Comment.new
+    @current_page = params[:page].to_i
+
+    @comments = @post.comments.offset(page_limit*@current_page)
+      .includes(:user, comments: :user, post_reactions: :user)
+      .latest
+      .limit(page_limit)
+    @next_page = @current_page + 1 if Post.all.count > page_limit*@current_page + page_limit
+    @comment = Comment.new
   end
 
   def show
@@ -47,6 +55,13 @@ class PostsController < ApplicationController
       render file: "#{Rails.root}/public/404.html", status: :not_found
       return
     end
+    @current_page = params[:page].to_i
+
+    @comments = @post.comments.offset(page_limit*@current_page)
+      .includes(:user, comment_reactions: :user)
+      .latest
+      .limit(page_limit)
+    @next_page = @current_page + 1 if Post.all.count > page_limit*@current_page + page_limit
     @comment = Comment.new
   end
 
