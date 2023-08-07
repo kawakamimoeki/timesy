@@ -31,11 +31,11 @@ module ApplicationHelper
   end
 
   def label_class
-    "block text-gray-700 text-sm font-bold mb-2 dark:text-[#eee]"
+    "block text-gray-700 text-sm font-bold mb-2 dark:text-[#ccc]"
   end
 
   def text_field_class
-    "block rounded w-full px-3 py-2 border text-gray-700 hover:bg-gray-100 transition-all dark:bg-[rgb(30,39,50)] dark:border dark:border-[#30363d] dark:text-[#eee] dark:hover:bg-[rgb(30,39,50)] dark:hover:border-[#30363d]"
+    "block rounded w-full px-3 py-2 border text-gray-700 hover:bg-gray-100 transition-all dark:bg-[rgb(30,39,50)] dark:border dark:border-[#30363d] dark:text-[#ccc] dark:hover:bg-[rgb(30,39,50)] dark:hover:border-[#30363d]"
   end
 
   def loading_box_class
@@ -51,11 +51,11 @@ module ApplicationHelper
   end
 
   def card_class
-    "shadow-sm mb-4 rounded-lg relative bg-white p-4 dark:text-[#ddd] dark:bg-[rgb(30,39,50)] dark:border dark:border-[#30363d] dark:text-[#eee]"
+    "shadow-sm mb-4 rounded-lg relative bg-white p-4 dark:text-[#ccc] dark:bg-[rgb(30,39,50)] dark:border dark:border-[#30363d] dark:text-[#ccc]"
   end
 
   def block_link_class
-    "py-1 px-2 block hover:bg-gray-50 rounded dark:hover:bg-gray-700 transition-all"
+    "py-1 px-2 block hover:bg-gray-50 rounded dark:hover:bg-gray-700 transition-all dark:text-[#ccc]"
   end
 
   def icon_button_class

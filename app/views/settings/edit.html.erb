@@ -16,7 +16,7 @@
       <div class="grow"></div>
       <div data-controller="file-field">
         <%= image_tag @user.avatar_icon, alt: @user.username, width: "100px", height: "100px", class: "w-20 h-20 object-cover rounded-full preview" %>
-        <button type="button" class="text-gray-600 text-center w-full text-sm hover:bg-gray-100 dark:text-[#eee] dark:hover:bg-gray-700 rounded-full py-1 px-3 mt-3" data-action="file-field#click" ><%= I18n.t("form.button.change_file") %></button>
+        <button type="button" class="text-gray-600 text-center w-full text-sm hover:bg-gray-100 dark:text-[#ccc] dark:hover:bg-gray-700 rounded-full py-1 px-3 mt-3" data-action="file-field#click" ><%= I18n.t("form.button.change_file") %></button>
         <%= f.file_field :avatar, data: { file_field_target: "field" }, accept: "image/png, image/jpeg", class: "hidden" %>
       </div>
       <div class="grow"></div>
