@@ -2,11 +2,8 @@
 <% end %>
 
 <%= turbo_stream.append "users" do %>
-  <%= render partial: 'users/item', collection: @followees %>
-<% end %>
-
-<% if @next_page.present? %>
-  <%= turbo_stream.replace "load_more" do %>
+  <% if @next_page.present? %>
     <%= turbo_frame_tag "load_more", src: following_path(username: @user.username, page: @next_page, format: :turbo_stream), loading: :lazy %>
   <% end %>
+  <%= render partial: 'users/item', collection: @followees %>
 <% end %>
