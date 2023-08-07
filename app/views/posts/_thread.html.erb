@@ -70,13 +70,11 @@
   <% if @post.comments.count > 0 %>
     <div>
       <%= turbo_stream_from "comments-of-#{@post.id}" %>
-      <%= turbo_frame_tag "loading" do %>
-        <%= render partial: "posts/loading" %>
-      <% end %>
       <%= turbo_frame_tag "comments", target: "_top" do %>
+        <%= render partial: "comments/comment", collection: @comments %>
       <% end %>
 
-      <%= turbo_frame_tag "load_more", src: comments_path(@post, format: :turbo_stream), loading: :lazy  %>
+      <%= turbo_frame_tag "load_more", src: comments_path(@post, format: :turbo_stream, page: 1), loading: :lazy  %>
     </div>
   <% end %>
 </div>
