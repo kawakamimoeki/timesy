@@ -2,6 +2,11 @@ require "test_helper"
 require 'minitest/mock'
 
 class CommentsControllerTest < ActionDispatch::IntegrationTest
+  test "should get index" do
+    get "/posts/#{posts(:general).id}/comments.turbo_stream"
+    assert_response :success
+  end
+
   test "should get create" do
     ApplicationController.stub_any_instance :current_user, users(:general) do
       post "/posts/#{posts(:general).id}/comments.turbo_stream", params: { comment: { body: "Hello" } }
