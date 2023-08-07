@@ -17,22 +17,21 @@
       <div class="hidden sm:block">
         <%= turbo_stream_from "posts" %>
       </div>
-      <%= turbo_frame_tag "loading" do %>
-        <%= render partial: "posts/loading" %>
-        <div class="hidden sm:block">
-          <%= render partial: "posts/loading" %>
-        </div>
-      <% end %>
       <%= turbo_frame_tag "posts", target: "_top" do %>
       <% end %>
 
-      <div class="h-4">
+      <div class="h-1">
         <%= turbo_frame_tag "load_more", src: request.path.include?("latest") ? latest_path(format: :turbo_stream) : root_path(format: :turbo_stream), loading: :lazy  %>
-        <%= render partial: "posts/loading" %>
+        <%= turbo_frame_tag "loading" do %>
+          <%= render partial: "posts/loading" %>
+          <div class="hidden sm:block">
+            <%= render partial: "posts/loading" %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>
-  <div class="hidden w-1/2 border-l h-[calc(100vh-55px)] overflow-scroll <%= card_class %>" id="sidebar">
+  <div class="hidden w-1/2 border-l h-[calc(100vh-55px)] overflow-scroll" id="sidebar">
     <%= turbo_frame_tag "thread" %>
   </div>
 </div>
