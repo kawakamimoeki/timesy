@@ -6,7 +6,8 @@
 ) %>
 
 
-<div class="grow max-w-[calc(100vw-2rem)] md:max-w-[calc(100%-256px-1rem)]">
+<div class="flex w-full grow">
+<div class="grow h-[calc(100vh-55px)] overflow-scroll">
   <%= render partial: "shared/profile", locals: { user: @user } %>
   <%= render partial: 'shared/user_nav', locals: { user: @user } %>
   <% if @posts.empty? %>
@@ -23,4 +24,16 @@
 
     <%= turbo_frame_tag "load_more", src: user_path(username: @user.username, format: :turbo_stream), loading: :lazy %>
   <% end %>
+</div>
+<div class="grow hidden border-l h-[calc(100vh-55px)] overflow-scroll <%= card_class %>" id="sidebar">
+  <div class="flex <%= card_class %> -mt-4">
+    <div class="grow"></div>
+    <button class="<%= icon_button_class %>" id="sidebar-close">
+      <%= image_tag "icons/close.svg", alt: "close", width: "14px", height: "14px",   class: "icon"%>
+    </button>
+  </div>
+  <% if current_user == @user %>
+    <%= render partial: "users/settings", locals: { user: @user } %>
+  <% end %>
+</div>
 </div>

@@ -45,7 +45,7 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
   test "should patch update" do
     project = projects(:general)
     ApplicationController.stub_any_instance :current_user, project.user do
-      patch update_project_url(project.user.username, project.codename), params: { project: { title: 'title', codename: 'codename', link: 'https://example.com' } }
+      patch update_project_url(project.user.username, project.id), params: { project: { title: 'title', codename: 'codename', link: 'https://example.com' } }
       assert_response :redirect
     end
   end
@@ -53,7 +53,7 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
   test "should not update project if not authorized" do
     ApplicationController.stub_any_instance :current_user, User.create(email: "test@example.com", username: "test", name: "Test") do
       project = projects(:general)
-      patch update_project_url(project.user.username, project.codename), params: { project: { title: 'title', codename: 'codename', link: 'https://example.com' } }
+      patch update_project_url(project.user.username, project.id), params: { project: { title: 'title', codename: 'codename', link: 'https://example.com' } }
       assert_response :redirect
     end
   end

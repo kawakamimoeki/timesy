@@ -41,12 +41,18 @@ class ProjectsController < ApplicationController
 
   def update
     @user = User.find_by(username: params[:username])
+    @project = Project.find_by(user_id: @user.id, codename: params[:id])
+    
     if @user.id != current_user.id
-      redirect_to project_path(params[:username], params[:codename])
+      redirect_to projects_path(@user.username)
       return
     end
 
-    @project = Project.find_by(user_id: @user.id, codename: params[:codename])
+    if @project.nil?
+      redirect_to projects_path(@user.username)
+      return
+    end
+
     if @project.update(project_params)
       @project.icon.attach(params[:project][:icon]) if params[:project][:icon]
       redirect_to project_path(@project.user.username, @project.codename)

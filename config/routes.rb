@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   patch "posts/:id", to: "posts#update", as: :update_post
   delete "posts/:id", to: "posts#destroy", as: :delete_post
 
+  get '/posts/:id/thread', to: 'posts#thread', as: :thread
+
   post '/posts/:post_id/reactions', to: 'post_reactions#create', as: :create_post_reaction
   delete '/posts/:post_id/reactions/:id', to: 'post_reactions#destroy', as: :delete_post_reaction
   get '/posts/:post_id/reactions/list', to: 'post_reactions#list', as: :post_reactions_list
@@ -53,7 +55,7 @@ Rails.application.routes.draw do
   get 'projects/new', to: 'projects#new', as: :new_project
   post 'projects', to: 'projects#create', as: :create_project
   get '/:username/projects/:codename/edit', to: 'projects#edit', as: :edit_project
-  patch '/:username/projects/:codename', to: 'projects#update', as: :update_project
+  patch '/:username/projects/:id', to: 'projects#update', as: :update_project
   delete '/:username/projects/:codename', to: 'projects#destroy', as: :delete_project
   post '/:username/follows', to: 'follows#create', as: :follow_user
   delete '/:username/follows', to: 'follows#destroy', as: :unfollow_user

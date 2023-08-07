@@ -1,0 +1,82 @@
+<div class="grow">
+  <div class=" <%= card_class %>" data-controller="post-show">
+    <div class="flex mb-3 items-center space-x-1">
+      <%= render partial: "shared/avatar", locals: { user: @post.user } %>
+      <time class="text-gray-400 text-sm"><%= time_ago_in_words(@post.created_at) %></time>
+      <div class="grow"></div>
+      <% if current_user == @post.user %>
+      <button class="<%= icon_button_class %>" data-action="post-show#edit" data-post-show-target="editButton">
+        <%= image_tag "icons/edit.svg", alt: "edit", width: "14px", height: "14px", class: "icon" %>
+      </button>
+      <button class="hidden <%= icon_button_class %>" data-action="post-show#close" data-post-show-target="closeButton">
+        <%= image_tag "icons/cancel.svg", alt: "edit", width: "14px", height: "14px", class: "icon" %>
+      </button>
+      <div class="mt-[1px]">
+        <%= button_to(
+          delete_post_url(id: @post.id),
+          method: :delete,
+          class: "#{icon_button_class}",
+          onClick: "return confirm('#{I18n.t('posts.confirm_delete')}')",
+          data: { turbo: false, post_show_target: "deleteButton" }
+        ) do %>
+          <%= image_tag "icons/delete.svg", alt: "edit", width: "14px", height: "14px", class: "icon" %>
+        <% end %>
+      </div>
+      <% end %>
+    </div>
+    <%= turbo_frame_tag :post do %>
+      <div data-post-show-target="show" class="markdown-body">
+        <%= @post.html.html_safe %>
+      </div>
+    <% end %>
+    <div class="hidden" data-post-show-target="editor">
+      <%= form_with model: @post, url: update_post_path(id: @post.id), id: "post-form", data: { action: "turbo:submit-end->post-show#close",turbo_frame: :post, controller: "turbo-form markdown", post_editor_confirm_message: I18n.t("page.confirm_leave"),  markdown_min_height_value: "100px", markdown_placeholder_value: I18n.t("posts.placeholder") }, class: "grow transition-all" do |f| %>
+        <div>
+          <%= flash[:error] %>
+          <div class="max-w-3xl mx-auto">
+            <div class="">
+              <div data-markdown-target="editorContainer">
+                <%= f.text_area :body, data: { markdown_target: "editor", post_editor_target: "body" }, class: "prose resize-none min-h-[114px]" %>
+              </div>
+              <div class="markdown-body hidden px-5 min-h-[120px]" data-markdown-target="preview"></div>
+            </div>
+          </div>
+        </div>
+        <div class="flex pt-3 w-full items-center bg-none">
+          <div class="grow"></div>
+          <div class="px-1">
+            <button type="button" class="<%= icon_button_class %>" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton">
+              <%= image_tag "icons/preview.svg", alt: "preview", width: "14px", height: "14px", class: "icon" %>
+            </button>
+            <button type="button" class="<%= icon_button_class %> hidden" title="<%=  I18n.t('posts.edit') %>" data-action="markdown#edit" data-markdown-target="editorButton">
+              <%= image_tag "icons/edit.svg", alt: "edit", width: "14px", height: "14px", class: "icon" %>
+            </button>
+          </div>
+          <div class="px-1">
+            <%= f.submit I18n.t('posts.update'), disabled: true, class: primary_button_class, data: { post_editor_target: "publish" } %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="mt-2">
+      <%= render partial: 'shared/post_reactions', locals: { current_user: current_user, post: @post, reaction: @post_reaction } %>
+    </div>
+  </div>
+  <% if current_user %>
+  <div class="<%= card_class %>">
+    <%= render partial: "comments/form", locals: { comment: @comment, post: @post } %>
+  </div>
+  <% end %>
+  <% if @post.comments.count > 0 %>
+    <div>
+      <%= turbo_stream_from "comments-of-#{@post.id}" %>
+      <%= turbo_frame_tag "loading" do %>
+        <%= render partial: "posts/loading" %>
+      <% end %>
+      <%= turbo_frame_tag "comments", target: "_top" do %>
+      <% end %>
+
+      <%= turbo_frame_tag "load_more", src: comments_path(@post, format: :turbo_stream), loading: :lazy  %>
+    </div>
+  <% end %>
+</div>

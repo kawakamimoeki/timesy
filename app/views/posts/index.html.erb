@@ -1,42 +1,41 @@
-<div class="grow max-w-[calc(100vw-2rem)] md:max-w-[calc(100%-256px-1rem)]">
-  <% if current_user %>
-    <%= render partial: "shared/timeline_nav" %>
-  <% end %>
-  <div class="">
+<div class="flex w-full grow relative">
+  <div class="grow h-[calc(100vh-55px)] overflow-scroll">
     <% if current_user %>
-    <div class="flex w-full <%= card_class %> space-x-3  mb-4">
-      <div class="transition-all">
-        <%= link_to user_path(username: current_user.username), class: "w-8 flex items-center space-x-1 hover:underline mt-1" do %>
-          <%= image_tag current_user.avatar_icon, alt: current_user.username, class: "w-8 h-8 object-cover rounded-full" %>
-        <% end %>
-      </div>
-      <%= render partial: "posts/form", locals: { post: @post, page: @page } %>
-    </div>
-    <% else %>
-    <div class="text-center max-w-sm mx-auto w-full <%= card_class %> space-x-3 mb-4">
-      <h2 class="font-bold mb-2 text-lg">How to use Timesy</h2>
-      <ul class="mb-4 text-sm flex space-y-2 flex-col">
-        <li>timesとして</li>
-        <li>見つけた記事のスクラップ</li>
-        <li>ブログ記事などの感想をまとめる</li>
-        <li>Podcastを聞きながらメモを取る</li>
-        <li>他愛もないつぶやき</li>
-      </ul>
-      <%= link_to I18n.t("users.sign_up"), "/users/sign_up", class: primary_button_class %>
-    </div>
+      <%= render partial: "shared/timeline_nav" %>
     <% end %>
-    <div class="hidden sm:block">
-      <%= turbo_stream_from "posts" %>
-    </div>
-    <%= turbo_frame_tag "loading" do %>
-      <%= render partial: "posts/loading" %>
+    <div class="">
+      <% if current_user %>
+      <div class="flex w-full <%= card_class %> space-x-3">
+        <div class="transition-all">
+          <%= link_to user_path(username: current_user.username), class: "w-8 flex items-center space-x-1 hover:underline mt-1" do %>
+            <%= image_tag current_user.avatar_icon, alt: current_user.username, class: "w-8 h-8 object-cover rounded-full" %>
+          <% end %>
+        </div>
+        <%= render partial: "posts/form", locals: { post: @post, page: @page } %>
+      </div>
+      <% end %>
       <div class="hidden sm:block">
-        <%= render partial: "posts/loading" %>
+        <%= turbo_stream_from "posts" %>
       </div>
-    <% end %>
-    <%= turbo_frame_tag "posts", target: "_top" do %>
-    <% end %>
+      <%= turbo_frame_tag "loading" do %>
+        <%= render partial: "posts/loading" %>
+        <div class="hidden sm:block">
+          <%= render partial: "posts/loading" %>
+        </div>
+      <% end %>
+      <%= turbo_frame_tag "posts", target: "_top" do %>
+      <% end %>
 
-    <%= turbo_frame_tag "load_more", src: request.path.include?("latest") ? latest_path(format: :turbo_stream) : root_path(format: :turbo_stream), loading: :lazy  %>
+      <%= turbo_frame_tag "load_more", src: request.path.include?("latest") ? latest_path(format: :turbo_stream) : root_path(format: :turbo_stream), loading: :lazy  %>
+    </div>
+  </div>
+  <div class="hidden w-2/5 border-l h-[calc(100vh-55px)] overflow-scroll <%= card_class %>" id="sidebar">
+    <div class="flex <%= card_class %> -mt-4">
+      <div class="grow"></div>
+      <button class="<%= icon_button_class %>" id="sidebar-close">
+        <%= image_tag "icons/close.svg", alt: "close", width: "14px", height: "14px",   class: "icon"%>
+      </button>
+    </div>
+    <%= turbo_frame_tag "thread" %>
   </div>
 </div>

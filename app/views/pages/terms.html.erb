@@ -6,9 +6,12 @@
 ) %>
 
 
-<div lass="grow max-w-[calc(100vw-2rem)] md:max-w-[calc(100%-256px-1rem)]">
-  <h1 class="font-bold text-3xl mb-4"><%= I18n.t("pages.terms") %></h1>
-  <div class="markdown-body max-w-3xl mx-auto w-full py-10 <%= card_class %>">
-    <%= @content %>
+<div class="grow p-4 h-[calc(100vh-55px)] overflow-scroll">
+  <h1 class="max-w-3xl mx-auto font-bold text-3xl mb-4"><%= I18n.t("pages.terms") %></h1>
+  <div class="max-w-3xl mx-auto w-full py-10 <%= card_class %>">
+    <div class="markdown-body">
+      <%= @content %>
+    </div>
   </div>
 </div>
+

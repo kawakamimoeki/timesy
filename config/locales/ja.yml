@@ -64,6 +64,7 @@ ja:
     delete: 削除する
     confirm_delete: コメントを削除してよろしいですか？
     placeholder: Write in Markdown
+    count: "%{num}件"
   passwordless:
     sign_in: ログイン
     send: ログインリンクを送信

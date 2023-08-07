@@ -1,0 +1,65 @@
+<div class="p-4">
+  <%= render partial: "shared/error_messages", locals: { errors: @user.errors.full_messages } %>
+  <%= render partial: "shared/notice_messages", locals: { notice: notice } %>
+  <h2 class="border-b dark:border-gray-600 mb-4 font-bold pb-1"><%= I18n.t("settings.profile") %></h2>
+  <%= form_with model: @user, multipart: true, url: update_profile_path, method: :patch, data: { turbo: false } do |f| %>
+    <div data-controller="file-field" class="mb-4">
+      <%= image_tag @user.avatar_icon, alt: @user.username, width: "100px", height: "100px", class: "w-20 h-20 object-cover rounded-full preview" %>
+      <button type="button" class="text-gray-600 inline text-sm hover:bg-gray-100 dark:text-[#ddd] dark:hover:bg-gray-700 rounded-full py-1 px-3 mt-3" data-action="file-field#click" ><%= I18n.t("form.button.change_file") %></button>
+      <%= f.file_field :avatar, data: { file_field_target: "field" }, accept: "image/png, image/jpeg", class: "hidden" %>
+    </div>
+    <%= f.label :username, class: label_class %>
+    <%= f.text_field :username, class: text_field_class + " mb-5" %>
+    <%= f.label :name, class: label_class %>
+    <%= f.text_field :name, class: text_field_class + " mb-5" %>
+    <%= f.label :bio, class: label_class %>
+    <%= f.text_area :bio, class: text_field_class + " mb-5", placeholder: I18n.t("form.placeholder.normal", field: User.human_attribute_name(:bio)) %>
+    <%= f.label :github, class: label_class %>
+    <%= f.text_field :github, class: text_field_class + " mb-5", placeholder: I18n.t("form.placeholder.github") %>
+    <%= f.label :twitter, class: label_class %>
+    <%= f.text_field :twitter, class: text_field_class + " mb-5", placeholder: I18n.t("form.placeholder.twitter") %>
+    <%= f.label :website, class: label_class %>
+    <%= f.text_field :website, class: text_field_class + " mb-5", placeholder: "https://" %>
+    <div class="flex">
+      <div class="grow"></div>
+      <%= f.submit I18n.t("form.submit.update"), class: primary_button_class %>
+    </div>
+  <% end %>
+  <h2 class="border-b mt-8 dark:border-gray-600 mb-4 font-bold pb-1"><%= I18n.t("settings.export") %></h2>
+  <div class="text-left text-sm">
+    <% if current_user.exports.find_by(state: "processing") %>
+      <%= I18n.t("settings.exporting") %>
+    <% else %>
+      <%= link_to(
+        "/settings/export",
+        data: { turbo: false },
+        class: primary_button_class + " inline-flex items-center space-x-1",
+      ) do %>
+        <%= image_tag "icons/export.svg", alt: I18n.t("settings.export"), class: "icon w-4 h-4" %>
+        <%= I18n.t("settings.start_export") %>
+      <% end %>
+    <% end %>
+  </div>
+  <h2 class="border-b mt-8 dark:border-gray-600 mb-4 font-bold pb-1"><%= I18n.t("settings.webhook") %></h2>
+  <%= form_with model: @user, url: update_webhook_path, method: :patch, data: { turbo: false } do |f| %>
+    <%= f.text_field :webhook_url, class: text_field_class + " mb-5", placeholder: "https://" %>
+    <div class="flex">
+      <div class="grow"></div>
+      <%= f.submit I18n.t("form.submit.update"), class: primary_button_class %>
+    </div>
+  <% end %>
+  <h2 class="border-b mt-8 dark:border-gray-600 mb-4 font-bold pb-1"><%= I18n.t("settings.account") %></h2>
+  <div class="text-left text-sm">
+    <%= link_to I18n.t("passwordless.sessions.sign_out"), "/users/sign_out", data: { turbo_method: :delete }, method: :delete %>
+  </div>
+  <h2 class="border-b mt-8 dark:border-gray-600 mb-4 font-bold pb-1">Danger Zone</h2>
+  <div class="text-left text-sm">
+    <%= link_to(
+      I18n.t("users.delete"),
+      "/users/#{current_user.id}",
+      data: { turbo_method: :delete, turbo_confirm: I18n.t("users.confirm_delete") },
+      method: :delete,
+      class: "text-red-500"
+    ) %>
+  </div>
+</div>

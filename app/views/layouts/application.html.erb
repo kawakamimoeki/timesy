@@ -49,7 +49,7 @@
       }
     </script>
     <header class="w-full shadow-sm bg-white dark:bg-[rgb(30,39,50)] dark:text-[#ddd] dark:border-b dark:border-[#30363d]">
-      <div class="flex px-5 items-center py-3 text-sm max-w-5xl mx-auto">
+      <div class="flex px-5 items-center py-3 text-sm">
         <%= link_to "/", class: "block mr-3" do %>
           <span class="dark:hidden">
             <img src="<%= "/logo.png" %>" alt="logo" width="70px" height="20px" />
@@ -61,10 +61,10 @@
         <div class="grow"></div>
         <div data-controller="theme" class="mr-1">
           <button data-action="theme#toggle" data-theme-target="dark" class="hidden <%= icon_button_class %>">
-            <%= image_tag "icons/light.svg", width: "20px", height: "20px", class: "icon" %>
+            <%= image_tag "icons/light.svg", width: "14px", height: "14px", class: "icon" %>
           </button>
           <button data-action="theme#toggle" data-theme-target="light" class="hidden <%= icon_button_class %>">
-            <%= image_tag "icons/dark.svg", width: "20px", height: "20px", class: "icon" %>
+            <%= image_tag "icons/dark.svg", width: "14px", height: "14px", class: "icon" %>
           </button>
         </div>
         <% if current_user %>
@@ -74,7 +74,7 @@
               class="relative <%= icon_button_class %>"
               data-turbo-frame="notifications"
             >
-              <%= image_tag "icons/notification.svg", width: "20px", height: "20px", class: "icon" %>
+              <%= image_tag "icons/notification.svg", width: "14px", height: "14px", class: "icon" %>
               <div data-notification-target="indicator" class="hidden absolute top-2 right-2 w-2 h-2 rounded-full bg-red-500 text-white text-xs items-center justify-center"></div>
             </button>
             <div
@@ -96,13 +96,19 @@
       <div>
     </header>
 
-    <main class="p-4 min-h-[calc(100vh-55px-136px)] flex max-w-5xl mx-auto items-stretch space-x-4">
-      <%= yield %>
-      <div class="relative  hidden <%= should_render_sidebar? ? "md:block" : "md:hidden" %>">
-        <div class="sticky text-sm top-4 <%= card_class %> w-64 p-4">
+    <main class="min-h-[calc(100vh-55px)] flex items-stretch">
+      <div class="relative hidden <%= should_render_sidebar? ? "lg:block" : "lg:hidden" %>">
+        <div class="text-sm h-full <%= card_class %> w-64 p-4 border-r dark:border-[#30363d]">
           <ul class="mb-4 flex flex-col">
             <% if current_user %>
             <li>
+              <%= link_to I18n.t("pages.follow"), root_path, class: "#{request.path === root_path ? "font-bold" : ""} #{block_link_class}" %>
+            </li>
+            <% end %>
+            <li>
+              <%= link_to I18n.t("pages.latest"), latest_path, class: "#{request.path === latest_path ? "font-bold" : ""} #{block_link_class}" %>
+            </li>
+            <% if current_user %>
             <li>
               <%= link_to I18n.t("pages.your_posts"), user_path(current_user.username), class: "#{request.path === user_path(current_user.username) ? "font-bold" : ""} #{block_link_class}" %>
             </li>
@@ -111,9 +117,6 @@
             </li>
             <li>
               <%= link_to I18n.t("pages.your_projects"), projects_path(current_user.username), class: "#{request.path === projects_path(current_user.username) ? "font-bold" : ""} #{block_link_class}" %>
-            </li>
-            <li>
-              <%= link_to I18n.t("pages.settings"), settings_path, class: "#{request.path === settings_path ? "font-bold" : ""} #{block_link_class}" %>
             </li>
             <li class="w-full dark:border-[#555] border-b pb-2"></li>
             <li class="w-full pb-2"></li>
@@ -155,30 +158,9 @@
               <% end %>
             </li>
           </ul>
-          <div>
-            <p class="text-right text-gray-500 font-normal text-xs">
-              &copy; 2023 Timesy
-            </p>
-          </div>
         </div>
       </div>
-
+      <%= yield %>
     </main>
-    <footer class="text-center py-8 px-5 text-sm">
-      <div class="mb-2">
-        <%= link_to Site.title, root_path, class: "font-bold" %> - <%= Site.description %>
-      </div>
-      <div class="mb-2">
-        <%= link_to "About", about_path, class: "text-gray-600" %>
-        <span>・</span>
-        <%= link_to "Terms", terms_path, class: "text-gray-600" %>
-        <span>・</span>
-        <%= link_to "Privacy", privacy_path, class: "text-gray-600" %>
-        <span>・</span>
-        <%= link_to "Status", "https://status.timesy.dev/", class: "text-gray-600", target: "_blank" %>
-      </div>
-      <p class="text-gray-600 text-xs">© 2023 Timesy</p>
-    </footer>
-
   </body>
 </html>

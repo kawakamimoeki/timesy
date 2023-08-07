@@ -1,4 +1,4 @@
-<div id="comment_<%= comment.id %>" class="<%= card_class %> group my-4" data-controller="post-show">
+<div id="comment_<%= comment.id %>" class="<%= card_class %> group " data-controller="post-show">
   <div class="flex space-x-1 text-sm items-center mb-2">
     <%= render partial: 'shared/avatar', locals: { user: comment.user } %>
     <time class="text-gray-400"><%= time_ago_in_words(comment.created_at) %></time>
@@ -25,10 +25,10 @@
         <div class="grow"></div>
         <div class="px-1">
           <button type="button" class="<%= icon_button_class %>" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton">
-            <%= image_tag "icons/preview.svg", alt: "preview", class: "icon w-5 h-5" %>
+            <%= image_tag "icons/preview.svg", alt: "preview", width:"14px", height: "14px", class: "icon" %>
           </button>
           <button type="button" class="<%= icon_button_class %> hidden" title="<%=  I18n.t('posts.edit') %>" data-action="markdown#edit" data-markdown-target="editorButton">
-            <%= image_tag "icons/edit.svg", alt: "edit", class: "icon w-5 h-5" %>
+            <%= image_tag "icons/edit.svg", alt: "edit", width:"14px", height: "14px", class: "icon" %>
           </button>
         </div>
         <div class="px-1">
