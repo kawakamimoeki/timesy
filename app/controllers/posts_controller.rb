@@ -40,7 +40,7 @@ class PostsController < ApplicationController
     @current_page = params[:page].to_i
 
     @comments = @post.comments.offset(page_limit*@current_page)
-      .includes(:user, comments: :user, post_reactions: :user)
+      .includes(:user, comment_reactions: :user)
       .latest
       .limit(page_limit)
     @next_page = @current_page + 1 if Post.all.count > page_limit*@current_page + page_limit
