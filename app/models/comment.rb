@@ -6,5 +6,5 @@ class Comment < ApplicationRecord
   has_many :comment_reactions, dependent: :destroy
   has_many_attached :images
 
-  scope :latest, -> { order(updated_at: :desc) }
+  scope :latest, -> { order(created_at: :desc) }
 end

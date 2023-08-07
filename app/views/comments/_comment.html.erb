@@ -1,4 +1,4 @@
-<div id="<%= comment.id %>" class="<%= card_class %> group my-4" data-controller="post-show">
+<div id="comment_<%= comment.id %>" class="<%= card_class %> group my-4" data-controller="post-show">
   <div class="flex space-x-1 text-sm items-center mb-2">
     <%= render partial: 'shared/avatar', locals: { user: comment.user } %>
     <time class="text-gray-400"><%= time_ago_in_words(comment.created_at) %></time>
