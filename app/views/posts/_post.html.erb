@@ -13,8 +13,8 @@
     <div class="flex items-center w-full flex-wrap overflow-hidden">
       <%= render partial: 'shared/post_reactions', locals: { current_user: current_user, post: post, reaction: @post_reaction } %>
     </div>
-    <% if post.comments.count %>
-    <div class="text-xs mr-1 w-6 mb-[2px]">
+    <% if post.comments.count > 0 %>
+    <div class="text-xs mr-1 w-10 text-right mb-[2px]">
       <%= I18n.t("comments.count", num: post.comments.count) %>
     </div>
     <% end %>

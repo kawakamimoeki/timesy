@@ -48,7 +48,7 @@
         document.querySelector("body").classList.remove('dark')
       }
     </script>
-    <header class="w-full shadow-sm bg-white dark:bg-[rgb(30,39,50)] dark:text-[#ddd] dark:border-b dark:border-[#30363d]">
+    <header class="w-full bg-white dark:bg-[rgb(30,39,50)] dark:text-[#ddd] border-b dark:border-[#30363d]">
       <div class="flex px-5 items-center py-3 text-sm">
         <%= link_to "/", class: "block mr-3" do %>
           <span class="dark:hidden">
@@ -98,7 +98,7 @@
 
     <main class="min-h-[calc(100vh-55px)] flex items-stretch">
       <div class="relative hidden <%= should_render_sidebar? ? "lg:block" : "lg:hidden" %>">
-        <div class="text-sm h-full <%= card_class %> w-64 p-4 border-r dark:border-[#30363d]">
+        <div class="text-sm h-full <%= card_class %> w-48 p-4 border-r dark:border-[#30363d]">
           <ul class="mb-4 flex flex-col">
             <% if current_user %>
             <li>
