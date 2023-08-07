@@ -21,7 +21,6 @@
     <%= f.label :website, class: label_class %>
     <%= f.text_field :website, class: text_field_class + " mb-5", placeholder: "https://" %>
     <div class="flex">
-      <div class="grow"></div>
       <%= f.submit I18n.t("form.submit.update"), class: primary_button_class %>
     </div>
   <% end %>
@@ -44,7 +43,6 @@
   <%= form_with model: @user, url: update_webhook_path, method: :patch, data: { turbo: false } do |f| %>
     <%= f.text_field :webhook_url, class: text_field_class + " mb-5", placeholder: "https://" %>
     <div class="flex">
-      <div class="grow"></div>
       <%= f.submit I18n.t("form.submit.update"), class: primary_button_class %>
     </div>
   <% end %>

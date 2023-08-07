@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   get 'settings', to: 'settings#edit', as: :settings
   get 'settings/export', to: 'settings#export', as: :export_settings
   get 'settings/exports/:id/download', to: 'settings#download_export', as: :download_export
+  get 'settings/sidebar', to: 'settings#sidebar', as: :settings_sidebar
   patch 'settings/profile', to: 'settings#update_profile', as: :update_profile
   patch 'settings/webhook', to: 'settings#update_webhook', as: :update_webhook
 

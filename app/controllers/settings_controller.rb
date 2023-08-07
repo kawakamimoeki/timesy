@@ -41,6 +41,10 @@ class SettingsController < ApplicationController
     end
   end
 
+  def sidebar
+    @user = current_user
+  end
+
   private def profile_params
     params.require(:user).permit(
       :email,
