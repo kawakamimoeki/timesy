@@ -19,7 +19,7 @@
     <%= render partial: 'projects/item', collection: @projects, as: :project %>
   </div>
 </div>
-<div class="grow hidden border-l h-[calc(100vh-55px)] overflow-scroll <%= card_class %>" id="sidebar">
+<div class="grow w-1/2 hidden border-l h-[calc(100vh-55px)] overflow-scroll <%= card_class %>" id="sidebar">
   <div class="flex <%= card_class %> -mt-4">
     <div class="grow"></div>
     <button class="<%= icon_button_class %>" id="sidebar-close">
