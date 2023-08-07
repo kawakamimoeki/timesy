@@ -1,9 +1,12 @@
 class CommentReactionsController < ApplicationController
   def create
+    @post = Post.find(params[:post_id])
     @comment = Comment.find(params[:comment_id])
     reaction = @comment.comment_reactions.new(reaction_params)
     reaction.user = current_user
     reaction.save
+    @post.broadcast_remove_to("posts")
+    @post.broadcast_prepend_to("posts")
     @comment.broadcast_remove_to("comments")
     @comment.broadcast_prepend_to("comments")
     @comment_reaction = CommentReaction.new
