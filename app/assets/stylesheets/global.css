@@ -57,7 +57,7 @@ body.dark .markdown-body .project-tag {
 }
 
 body.dark .markdown-body code {
-  background-color: #282a36 !important;
+  background-color: #282a36 !important;;
 }
 
 .markdown-body {
@@ -102,6 +102,7 @@ body.dark .markdown-body code {
 
 .hljs {
   padding: 0 !important;
+  width: 100% !important;
 }
 
 .markdown-body img {

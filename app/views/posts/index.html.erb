@@ -1,5 +1,5 @@
 <div class="flex w-full grow relative">
-  <div class="grow h-[calc(100vh-55px)]" id="main">
+  <div class="grow h-[calc(100vh-55px)] w-full" id="main">
     <%= turbo_frame_tag "timeline" do %>
     <% if current_user %>
       <%= render partial: "shared/timeline_nav" %>

@@ -19,10 +19,12 @@ export default class extends Controller {
   open () {
     document.querySelector('#sidebar-container').classList.remove('hidden')
     document.querySelector('#main').classList.add('w-1/2')
+    document.querySelector('#main').classList.remove('w-full')
   }
 
   close () {
     document.querySelector('#sidebar-container').classList.add('hidden')
     document.querySelector('#main').classList.remove('w-1/2')
+    document.querySelector('#main').classList.add('w-full')
   }
 }
