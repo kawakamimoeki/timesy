@@ -17,7 +17,7 @@ class PagesController < ApplicationController
   private def set_content(type)
     file = File.read(Rails.root.join("app", "assets", type, I18n.locale.to_s + ".md.erb"))
     erb = ERB.new(file).result(binding)
-    Rails.cache.fetch("/#{type}/#{I18n.locale}", expires_in: 1.week) do
+    Rails.cache.fetch("/#{type}/#{Digest::SHA256.hexdigest(erb)}", expires_in: 1.week) do
       markdown = Redcarpet::Markdown.new(
         Redcarpet::Render::HTML.new(
           filter_html: true,

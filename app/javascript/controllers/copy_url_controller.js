@@ -11,7 +11,7 @@ export default class extends Controller {
   copy() {
     navigator.clipboard.writeText(this.urlValue)
     Toastify({
-      text: "リンクをコピーしました",
+      text: "クリップボードにコピーしました",
       gravity: "bottom",
       duration: 3000,
       position: "right",
