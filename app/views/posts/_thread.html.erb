@@ -71,12 +71,10 @@
     <div>
       <%= turbo_stream_from "comments-of-#{@post.id}" %>
       <%= turbo_frame_tag "comments", target: "_top" do %>
-        <%= render partial: "comments/comment", collection: @comments %>
       <% end %>
 
-      <div class="h-4">
-        <%= turbo_frame_tag "load_more", src: comments_path(@post, format: :turbo_stream, page: 1), loading: :lazy  %>
-        <%= render partial: "posts/loading" %>
+      <div class="h-1">
+        <%= turbo_frame_tag "load_more", src: comments_path(@post, format: :turbo_stream), loading: :lazy  %>
       </div>
     </div>
   <% end %>
