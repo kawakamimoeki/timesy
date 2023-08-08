@@ -86,9 +86,75 @@
             </div>
             <div data-action="click->notification#toggle" data-notification-target="backdrop" class="hidden fixed top-0 bottom-0 right-0 left-0 inset-0 z-[90] bg-black opacity-0"></div>
           </div>
-          <%= link_to user_path(username: current_user.username) do %>
-            <%= image_tag current_user.avatar_icon, alt: current_user.username, class: "w-8 h-8 object-cover rounded-full" %>
-          <% end %>
+          <div data-controller="menu" class="overflow-visible relative">
+            <button data-action="click->menu#toggle">
+              <%= image_tag current_user.avatar_icon, alt: current_user.username, class: "w-8 h-8 object-cover rounded-full" %>
+            </button>
+            <div data-action="click->menu#toggle" data-menu-target="backdrop" class="hidden fixed top-0 bottom-0 right-0 left-0 inset-0 z-[90] bg-black opacity-0"></div>
+            <div class="overflow-scroll absolute top-8 right-0 z-[100] text-sm hidden w-72 bg-white dark:bg-[rgb(30,39,50)] shadow rounded-lg border dark:border-[rgb(48,54,61)]"  data-menu-target="dropdown">
+              <div class="text-sm h-full <%= card_class %> w-full p-4 dark:border-[#30363d]">
+                <ul class="flex flex-col">
+                  <% if current_user %>
+                  <li>
+                    <%= link_to I18n.t("pages.follow"), root_path, class: "#{request.path === root_path ? "font-bold" : ""} #{block_link_class}" %>
+                  </li>
+                  <% end %>
+                  <li>
+                    <%= link_to I18n.t("pages.latest"), latest_path, class: "#{request.path === latest_path ? "font-bold" : ""} #{block_link_class}" %>
+                  </li>
+                  <% if current_user %>
+                  <li>
+                    <%= link_to I18n.t("pages.your_posts"), user_path(current_user.username), class: "#{request.path === user_path(current_user.username) ? "font-bold" : ""} #{block_link_class}" %>
+                  </li>
+                  <li>
+                    <%= link_to I18n.t("pages.your_comments"), user_comments_path(current_user.username), class: "#{request.path === user_comments_path(current_user.username) ? "font-bold" : ""} #{block_link_class}" %>
+                  </li>
+                  <li>
+                    <%= link_to I18n.t("pages.your_projects"), projects_path(current_user.username), class: "#{request.path === projects_path(current_user.username) ? "font-bold" : ""} #{block_link_class}" %>
+                  </li>
+                  <li class="w-full dark:border-[#555] border-b pb-2"></li>
+                  <li class="w-full pb-2"></li>
+                  <% end %>
+                  <li>
+                    <%= link_to I18n.t("pages.docs"), docs_path, class: "#{request.path === docs_path ? "font-bold" : ""} #{block_link_class}" %>
+                  </li>
+                  <li>
+                    <%= link_to I18n.t("pages.about"), about_path, class: "#{request.path === about_path ? "font-bold" : ""} #{block_link_class}" %>
+                  </li>
+                  <li>
+                    <%= link_to I18n.t("pages.terms"), terms_path, class: "#{request.path === terms_path ? "font-bold" : ""} #{block_link_class}" %>
+                  </li>
+                  <li>
+                    <%= link_to I18n.t("pages.privacy"), privacy_path, class: "#{request.path === privacy_path ? "font-bold" : ""} #{block_link_class}" %>
+                  </li>
+                  <li>
+                    <%= link_to "https://forms.gle/7FZz2iHzYLQYiom7A", class: " #{block_link_class}", target: "_blank" do %>
+                      <span><%= I18n.t("pages.emoji_request") %></span>
+                      <%= image_tag "icons/newtab.svg", class: "icon inline-block h-3 w-3 pb-[1px] ml-[1px]" %>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to "https://github.com/moekidev/timesy", class: " #{block_link_class}", target: "_blank" do %>
+                      <span><%= I18n.t("pages.github") %></span>
+                      <%= image_tag "icons/newtab.svg", class: "icon inline-block h-3 w-3 pb-[1px] ml-[1px]" %>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to "https://status.timesy.dev/", class: " #{block_link_class}", target: "_blank" do %>
+                      <span><%= I18n.t("pages.status") %></span>
+                      <%= image_tag "icons/newtab.svg", class: "icon inline-block h-3 w-3 pb-[1px] ml-[1px]" %>
+                    <% end %>
+                  </li>
+                  <li>
+                    <%= link_to "https://www.buymeacoffee.com/moekidev", class: " #{block_link_class}", target: "_blank" do %>
+                      <span><%= I18n.t("pages.tip") %></span>
+                      <%= image_tag "icons/newtab.svg", class: "icon inline-block h-3 w-3 pb-[1px] ml-[1px]" %>
+                    <% end %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         <% else %>
           <%= link_to I18n.t("users.sign_in"), "/users/sign_in", class: "mr-2 rounded hover:bg-gray-50 dark:hover:bg-gray-700 py-1 px-2" %>
           <%= link_to I18n.t("users.sign_up"), "/users/sign_up", class: primary_button_class %>
@@ -97,69 +163,6 @@
     </header>
 
     <main class="min-h-[calc(100vh-55px)] flex items-stretch">
-      <div class="relative hidden <%= should_render_sidebar? ? "lg:block" : "lg:hidden" %>">
-        <div class="text-sm h-full <%= card_class %> w-48 p-4 border-r dark:border-[#30363d]">
-          <ul class="mb-4 flex flex-col">
-            <% if current_user %>
-            <li>
-              <%= link_to I18n.t("pages.follow"), root_path, class: "#{request.path === root_path ? "font-bold" : ""} #{block_link_class}" %>
-            </li>
-            <% end %>
-            <li>
-              <%= link_to I18n.t("pages.latest"), latest_path, class: "#{request.path === latest_path ? "font-bold" : ""} #{block_link_class}" %>
-            </li>
-            <% if current_user %>
-            <li>
-              <%= link_to I18n.t("pages.your_posts"), user_path(current_user.username), class: "#{request.path === user_path(current_user.username) ? "font-bold" : ""} #{block_link_class}" %>
-            </li>
-            <li>
-              <%= link_to I18n.t("pages.your_comments"), user_comments_path(current_user.username), class: "#{request.path === user_comments_path(current_user.username) ? "font-bold" : ""} #{block_link_class}" %>
-            </li>
-            <li>
-              <%= link_to I18n.t("pages.your_projects"), projects_path(current_user.username), class: "#{request.path === projects_path(current_user.username) ? "font-bold" : ""} #{block_link_class}" %>
-            </li>
-            <li class="w-full dark:border-[#555] border-b pb-2"></li>
-            <li class="w-full pb-2"></li>
-            <% end %>
-            <li>
-              <%= link_to I18n.t("pages.docs"), docs_path, class: "#{request.path === docs_path ? "font-bold" : ""} #{block_link_class}" %>
-            </li>
-            <li>
-              <%= link_to I18n.t("pages.about"), about_path, class: "#{request.path === about_path ? "font-bold" : ""} #{block_link_class}" %>
-            </li>
-            <li>
-              <%= link_to I18n.t("pages.terms"), terms_path, class: "#{request.path === terms_path ? "font-bold" : ""} #{block_link_class}" %>
-            </li>
-            <li>
-              <%= link_to I18n.t("pages.privacy"), privacy_path, class: "#{request.path === privacy_path ? "font-bold" : ""} #{block_link_class}" %>
-            </li>
-            <li>
-              <%= link_to "https://forms.gle/7FZz2iHzYLQYiom7A", class: " #{block_link_class}", target: "_blank" do %>
-                <span><%= I18n.t("pages.emoji_request") %></span>
-                <%= image_tag "icons/newtab.svg", class: "icon inline-block h-3 w-3 pb-[1px] ml-[1px]" %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "https://github.com/moekidev/timesy", class: " #{block_link_class}", target: "_blank" do %>
-                <span><%= I18n.t("pages.github") %></span>
-                <%= image_tag "icons/newtab.svg", class: "icon inline-block h-3 w-3 pb-[1px] ml-[1px]" %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "https://status.timesy.dev/", class: " #{block_link_class}", target: "_blank" do %>
-                <span><%= I18n.t("pages.status") %></span>
-                <%= image_tag "icons/newtab.svg", class: "icon inline-block h-3 w-3 pb-[1px] ml-[1px]" %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to "https://www.buymeacoffee.com/moekidev", class: " #{block_link_class}", target: "_blank" do %>
-                <span><%= I18n.t("pages.tip") %></span>
-                <%= image_tag "icons/newtab.svg", class: "icon inline-block h-3 w-3 pb-[1px] ml-[1px]" %>
-              <% end %>
-            </li>
-          </ul>
-        </div>
-      </div>
       <%= yield %>
     </main>
   </body>
