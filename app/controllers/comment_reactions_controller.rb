@@ -5,8 +5,7 @@ class CommentReactionsController < ApplicationController
     reaction = @comment.comment_reactions.new(reaction_params)
     reaction.user = current_user
     reaction.save
-    @post.broadcast_remove_to("posts")
-    @post.broadcast_prepend_to("posts")
+    @post.broadcast_replace_to("posts")
     @comment.broadcast_replace_to("comments-of-#{params[:post_id]}")
     @comment_reaction = CommentReaction.new
     if @comment.user != current_user
