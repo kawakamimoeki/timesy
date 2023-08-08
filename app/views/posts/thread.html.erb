@@ -4,6 +4,9 @@
       <%= image_tag "icons/link.svg", alt: "link", width: "14px", height: "14px", class: "icon rotate-45" %>
       <span class="text-sm">Copy Link</span>
     </button>
+    <%= link_to post_path(@post), class: icon_button_class, target: "_blank" do %>
+      <%= image_tag "icons/newtab.svg", alt: "newtab", width: "14px", height: "14px", class: "icon" %>
+    <% end %>
     <div class="grow"></div>
     <button class="<%= icon_button_class %>" id="sidebar-close">
       <%= image_tag "icons/close.svg", alt: "close", width: "14px", height: "14px",   class: "icon"%>
