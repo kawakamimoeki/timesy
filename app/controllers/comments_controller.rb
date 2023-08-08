@@ -3,12 +3,9 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @current_page = params[:page].to_i
 
-    all_comments = @post.comments.offset(page_limit*@current_page)
+    @comments = @post.comments.offset(page_limit*@current_page)
       .includes(:user, comment_reactions: :user)
       .latest
-    
-    @comments = all_comments.limit(page_limit)
-    @next_page = @current_page + 1 if all_comments.count > page_limit*@current_page + page_limit
   end
 
   def create
