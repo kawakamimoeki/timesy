@@ -1,10 +1,10 @@
 <%= turbo_frame_tag :comment_editor do %>
 <% if @comment.user == current_user %>
   <button class="<%= icon_button_class %>" data-action="post-show#edit" data-post-show-target="editButton">
-    <%= image_tag "icons/edit.svg", alt: "edit", width: "14px", height: "14px", class: "icon" %>
+    <%= image_tag "icons/edit.svg", alt: "edit", width: "16px", height: "16px",class: "icon" %>
   </button>
   <button class="hidden <%= icon_button_class %>" data-action="post-show#close" data-post-show-target="closeButton">
-    <%= image_tag "icons/cancel.svg", alt: "edit", width: "14px", height: "14px", class: "icon" %>
+    <%= image_tag "icons/cancel.svg", alt: "edit", width: "16px", height: "16px",class: "icon" %>
   </button>
   <div class="mt-[1px]">
     <%= button_to(
@@ -17,7 +17,7 @@
         post_show_target: "deleteButton"
       }
     ) do %>
-      <%= image_tag "icons/delete.svg", alt: "edit", width: "14px", height: "14px", class: "icon" %>
+      <%= image_tag "icons/delete.svg", alt: "edit", width: "16px", height: "16px",class: "icon" %>
     <% end %>
   </div>
 <% end %>
