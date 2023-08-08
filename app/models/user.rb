@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :followee_users, through: :followees, source: :followee
   has_many :follower_users, through: :followers, source: :follower
   has_many :notifications, dependent: :destroy
+  has_many :access_tokens, dependent: :destroy
 
   validates :name, presence: true
   validates :name, exclusion: {

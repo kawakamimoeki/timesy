@@ -35,6 +35,8 @@ ja:
         github: GitHub
         twitter: X
         website: ウェブサイト
+        access_token: API Access Token
+        webhook: Webhook通知先
   errors:
     messages:
       blank: "を入力してください"
@@ -113,7 +115,13 @@ ja:
   settings:
     profile: プロフィール
     export: エクスポート
-    webhook: Webhook通知
+    api: API
+    webhook: Webhook通知先
+    access_token:
+      generate: 生成する
+      regenerate: 再生成する
+      confirm: 再生成してよろしいですか？
+    copy: コピーする
     account: アカウント
     updated: アップデートしました
     start_export: エクスポート

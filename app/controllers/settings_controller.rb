@@ -13,14 +13,22 @@ class SettingsController < ApplicationController
       end
       flash[:notice] = I18n.t('settings.updated')
     end
-    redirect_to user_path(current_user.username)
+    redirect_to settings_path
   end
 
   def export
     @user = current_user
     ExportJob.perform_later(user_id: @user.id)
     flash[:notice] = I18n.t('settings.exporting')
-    redirect_to user_path(current_user.username)
+    redirect_to settings_path
+  end
+
+  def update_access_token
+    @user = current_user
+    AccessToken.where(user_id: @user.id).destroy_all
+    AccessToken.create(user_id: @user.id)
+    flash[:notice] = I18n.t('settings.updated')
+    redirect_to settings_path
   end
 
   def update_webhook
@@ -28,7 +36,7 @@ class SettingsController < ApplicationController
     if @user.update(webhook_params)
       flash[:notice] = I18n.t('settings.updated')
     end
-    redirect_to user_path(current_user.username)
+    redirect_to settings_path
   end
 
   def download_export
@@ -37,7 +45,7 @@ class SettingsController < ApplicationController
       send_data export.download, filename: export.filename
     else
       flash[:notice] = I18n.t('settings.exporting')
-      redirect_to user_path(current_user.username)
+      redirect_to settings_path
     end
   end
 

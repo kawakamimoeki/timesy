@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   get 'settings/sidebar', to: 'settings#sidebar', as: :settings_sidebar
   patch 'settings/profile', to: 'settings#update_profile', as: :update_profile
   patch 'settings/webhook', to: 'settings#update_webhook', as: :update_webhook
+  patch 'settings/access_token', to: 'settings#update_access_token', as: :update_access_token
 
   get 'privacy', to: 'pages#privacy', as: :privacy
   get 'terms', to: 'pages#terms', as: :terms
@@ -65,6 +66,17 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      post 'posts', to: 'posts#create', as: :create_post
+      patch 'posts/:id', to: 'posts#update', as: :update_post
+      delete 'posts/:id', to: 'posts#destroy', as: :delete_post
+      post 'comments/previews', to: 'comments#preview', as: :preview_comment
+      post 'posts/:post_id/comments', to: 'comments#create', as: :create_comment
+      patch 'posts/:post_id/comments/:id', to: 'comments#update', as: :update_comment
+      delete 'posts/:post_id/comments/:id', to: 'comments#destroy', as: :delete_comment
+      post 'projects/previews', to: 'projects#preview', as: :preview_project
+      post 'projects', to: 'projects#create', as: :create_project
+      patch 'projects/:id', to: 'projects#update', as: :update_project
+      delete 'projects/:id', to: 'projects#destroy', as: :delete_project
       post 'posts/preview', to: 'posts#preview', as: :preview_post
       get 'blobs/:id/url', to: 'blobs#url', as: :blob_url
       post 'notifications/read', to: 'notifications#read', as: :read_notifications

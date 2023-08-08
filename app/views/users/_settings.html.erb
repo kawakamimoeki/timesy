@@ -39,8 +39,20 @@
       <% end %>
     <% end %>
   </div>
-  <h2 class="border-b mt-8 dark:border-gray-600 mb-4 font-bold pb-1"><%= I18n.t("settings.webhook") %></h2>
+  <h2 class="border-b mt-8 dark:border-gray-600 mb-4 font-bold pb-1"><%= I18n.t("settings.api") %></h2>
+  <%= form_with model: @user, url: update_access_token_path, method: :patch, data: { turbo: false }, class: "mb-4" do |f| %>
+    <%= f.label :access_token, class: label_class %>
+    <%= f.text_field :access_token, class: text_field_class + " mb-5", readonly: true, value: current_user.access_tokens.first&.token %>
+    <div class="flex items-center space-x-2">
+      <button type="button" data-controller="copy-url" data-copy-url-url-value="<%= current_user.access_tokens.first&.token %>" class="<%= block_link_class %> text-sm flex items-center space-x-1">
+        <%= image_tag "icons/copy.svg", alt: I18n.t("settings.copy"), class: "icon w-4 h-4" %>
+        <span><%= I18n.t("settings.copy") %></span>
+      </button>
+      <%= f.submit current_user.access_tokens.first&.token ? I18n.t("settings.access_token.regenerate") : I18n.t("settings.access_token.generate"), class: primary_button_class, onclick: "#{ current_user.access_tokens.first&.token ? "return confirm('#{I18n.t("settings.access_token.confirm")}')" : ""}" %>
+    </div>
+  <% end %>
   <%= form_with model: @user, url: update_webhook_path, method: :patch, data: { turbo: false } do |f| %>
+    <%= f.label :webhook_url, class: label_class %>
     <%= f.text_field :webhook_url, class: text_field_class + " mb-5", placeholder: "https://" %>
     <div class="flex">
       <%= f.submit I18n.t("form.submit.update"), class: primary_button_class %>
