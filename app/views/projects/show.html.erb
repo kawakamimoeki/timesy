@@ -5,7 +5,8 @@
   }
 ) %>
 
-<div class="grow p-4 overflow-visible sm:h-[calc(100vh-55px)] sm:overflow-scroll">
+<div class="flex w-full grow relative">
+<div class="goverflow-visible sm:h-[calc(100vh-55px-36px)] sm:overflow-scroll" id="main">
   <div class="mb-4 w-full">
     <div class="flex space-x-4 w-full mb-4">
       <%= image_tag @project.icon_url, class: "w-20 h-20 rounded" %>
