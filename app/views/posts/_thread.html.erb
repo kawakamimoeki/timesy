@@ -67,15 +67,13 @@
     <%= render partial: "comments/form", locals: { comment: @comment, post: @post } %>
   </div>
   <% end %>
-  <% if @post.comments.count > 0 %>
-    <div>
-      <%= turbo_stream_from "comments-of-#{@post.id}" %>
-      <%= turbo_frame_tag "comments", target: "_top" do %>
-      <% end %>
+  <div>
+    <%= turbo_stream_from "comments-of-#{@post.id}" %>
+    <%= turbo_frame_tag "comments", target: "_top" do %>
+    <% end %>
 
-      <div class="h-1">
-        <%= turbo_frame_tag "load_more", src: comments_path(@post, format: :turbo_stream), loading: :lazy  %>
-      </div>
+    <div class="h-1">
+      <%= turbo_frame_tag "load_more", src: comments_path(@post, format: :turbo_stream), loading: :lazy  %>
     </div>
-  <% end %>
+  </div>
 </div>
