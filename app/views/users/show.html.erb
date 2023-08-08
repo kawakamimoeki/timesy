@@ -7,7 +7,7 @@
 
 
 <div class="flex w-full grow">
-<div class="grow h-[calc(100vh-55px)] overflow-scroll">
+<div class="grow h-[calc(100vh-55px)] overflow-scroll" id="main">
   <%= render partial: "shared/profile", locals: { user: @user } %>
   <%= render partial: 'shared/user_nav', locals: { user: @user } %>
   <% if @posts.empty? %>
