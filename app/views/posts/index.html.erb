@@ -1,9 +1,9 @@
 <div class="flex w-full grow relative">
-  <div class="grow h-[calc(100vh-55px)] overflow-scroll" id="main">
+  <div class="grow h-[calc(100vh-55px)]" id="main">
     <% if current_user %>
       <%= render partial: "shared/timeline_nav" %>
     <% end %>
-    <div class="">
+    <div class="h-[calc(100vh-55px-36px)] overflow-scroll">
       <% if current_user %>
       <div class="flex w-full <%= card_class %> space-x-3">
         <div class="transition-all">
