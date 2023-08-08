@@ -1,4 +1,4 @@
-<%= turbo_frame_tag :post_reactions_list do %>
+<%= turbo_frame_tag "post_reactions_list-#{@post.id}" do %>
   <% @post.post_reactions.pluck(:body).uniq.each do |body| %>
     <% reactions = @post.post_reactions.filter { |r| r.body === body } %>
     <% if current_user %>
