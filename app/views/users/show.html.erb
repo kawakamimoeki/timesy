@@ -7,7 +7,7 @@
 
 
 <div class="flex w-full grow">
-<div class="grow h-[calc(100vh-55px)] overflow-scroll" id="main">
+<div class="grow w-full overflow-visible sm:h-[calc(100vh-55px)] sm:overflow-scroll" id="main">
   <%= render partial: "shared/profile", locals: { user: @user } %>
   <%= render partial: 'shared/user_nav', locals: { user: @user } %>
   <% if @posts.empty? %>
@@ -27,7 +27,7 @@
     </div>
   <% end %>
 </div>
-<div class="grow w-1/2 hidden border-l h-[calc(100vh-55px)] overflow-scroll <%= card_class %>" id="sidebar-container">
+<div class="grow w-1/2 hidden border-l overflow-visible sm:h-[calc(100vh-55px)] sm:overflow-scroll <%= card_class %>" id="sidebar-container">
   <%= turbo_frame_tag "sidebar" %>
 </div>
 </div>

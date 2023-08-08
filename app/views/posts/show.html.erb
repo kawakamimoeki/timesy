@@ -9,6 +9,6 @@
   }
 ) %>
 
-<div class="grow h-[calc(100vh-55px)] overflow-scroll">
+<div class="grow overflow-visible sm:h-[calc(100vh-55px)] sm:overflow-scroll">
   <%= render partial: "posts/thread", locals: { post: @post, comments: @comments } %>
 </div>
