@@ -50,7 +50,7 @@
       <% end %>
 
       <div class="h-1">
-        <%= turbo_frame_tag "load_more", src: rproject_path(@user.username, @project.codename, format: :turbo_stream), loading: :lazy  %>
+        <%= turbo_frame_tag "load_more", src: project_path(@user.username, @project.codename, format: :turbo_stream), loading: :lazy  %>
         <%= turbo_frame_tag "loading" do %>
           <%= render partial: "posts/loading" %>
           <div class="hidden sm:block">
