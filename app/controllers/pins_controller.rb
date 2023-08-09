@@ -2,7 +2,9 @@ class PinsController < ApplicationController
   def create
     @post = Post.find(params[:post_id])
     pin = Pin.create(post: @post, user: current_user)
-    Notification.create(user: @post.user, subjectable: pin)
+    if current_user != @post.user
+      Notification.create(user: @post.user, subjectable: pin)
+    end
   end
 
   def destroy
