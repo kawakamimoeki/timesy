@@ -7,16 +7,5 @@
       <%= button_to I18n.t("users.follow"), follow_user_path(user.username), method: :post, class: "bg-sky-500 text-white px-3 py-1 rounded-full text-sm shadow-sm font-bold hover:bg-sky-600 border border-sky-500 hover:border-sky-600" %>
     <% end %>
   <% end %>
-<% else %>
-  <div>
-    <%= link_to settings_path, data: { controller: "sidebar", turbo: false }, class: block_link_class +  " text-sm inline-flex items-center hidden lg:flex" do %>
-      <%= image_tag "icons/settings.svg", class: "icon w-4 h-4 mr-1" %>
-      <%= I18n.t("pages.settings") %>
-    <% end %>
-    <%= link_to settings_path, class: block_link_class +  " text-sm inline-flex items-center lg:hidden flex" do %>
-      <%= image_tag "icons/settings.svg", class: "icon w-4 h-4 mr-1" %>
-      <%= I18n.t("pages.settings") %>
-    <% end %>
-  </div>
 <% end %>
 <% end %>

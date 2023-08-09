@@ -1,14 +1,16 @@
-<nav class="<%= nav_class %>">
-  <a
-    href="<%= following_path(user.username) %>"
-    class="<%= nav_item_class(following_path(user.username), "w-1/2") %>"
-  >
-    <%= I18n.t("users.following") %>
-  </a>
-  <a
-    href="<%= followers_path(user.username) %>"
-    class="<%= nav_item_class(followers_path(user.username), "w-1/2") %>"
-  >
-      <%= I18n.t("users.followers", user: user.name) %>
-  </a>
+<nav class="<%= nav_class %> sticky flex items-center space-x-3 mb-4 top-0 z-[50] bg-[rgb(246,248,250)] dark:bg-[rgb(21,32,43)]">
+  <div class="flex max-w-3xl mx-auto w-full items-center space-x-3">
+    <a
+      href="<%= following_path(user.username) %>"
+      class="<%= nav_item_class(following_path(user.username)) %>"
+    >
+      <%= I18n.t("users.following") %>
+    </a>
+    <a
+      href="<%= followers_path(user.username) %>"
+      class="<%= nav_item_class(followers_path(user.username)) %>"
+    >
+        <%= I18n.t("users.followers", user: user.name) %>
+    </a>
+  </div>
 </nav>

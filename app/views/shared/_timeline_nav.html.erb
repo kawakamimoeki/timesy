@@ -1,16 +1,18 @@
-<nav class="<%= nav_class %>">
-  <a
-    href="<%= root_path %>"
-    class="<%= nav_item_class(root_path, "w-1/2") %> "
-    data-turbo-frame="timeline"
-  >
-    <%= I18n.t("pages.follow") %>
-  </a>
-  <a
-    href="<%= latest_path %>"
-    class="<%= nav_item_class(latest_path, "w-1/2") %> "
-    data-turbo-frame="timeline"
-  >
-      <%= I18n.t("pages.latest") %>
-  </a>
+<nav class="<%= nav_class %> sticky flex items-center space-x-3 mb-4 top-0 z-[50] bg-[rgb(246,248,250)] dark:bg-[rgb(21,32,43)]">
+  <div class="flex max-w-3xl mx-auto w-full items-center space-x-3">
+    <a
+      href="<%= root_path %>"
+      class="<%= nav_item_class(root_path) %> "
+      data-turbo-frame="timeline"
+    >
+      <%= I18n.t("pages.follow") %>
+    </a>
+    <a
+      href="<%= latest_path %>"
+      class="<%= nav_item_class(latest_path) %> "
+      data-turbo-frame="timeline"
+    >
+        <%= I18n.t("pages.latest") %>
+    </a>
+  </div>
 </nav>

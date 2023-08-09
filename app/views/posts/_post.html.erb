@@ -10,19 +10,24 @@
     <%= post.html(400).html_safe %>
   </div>
   <div class="flex mt-3 items-center">
-    <div class="flex items-center w-full flex-wrap overflow-hidden">
+    <div class="flex items-center flex-wrap overflow-hidden">
       <%= render partial: 'shared/post_reactions', locals: { current_user: current_user, post: post, reaction: @post_reaction } %>
     </div>
-    <% if post.comments.count > 0 %>
-    <div class="text-xs mr-1 w-10 text-right mb-[2px]">
-      <%= I18n.t("comments.count", num: post.comments.count) %>
+    <div class="flex px-2 items-center space-x-2">
+      <% post.comments.latest[0..1].each do |comment| %>
+        <div class="text-xs w-auto ounded-full py-[4px] mx-[2px] px-1 my-1 flex items-center space-x-1 border bg-gray-50 dark:bg-slate-700 dark:border-slate-700 border-gray-50">
+          <%= comment.truncated %>
+        </div>
+      <% end %>
+    </div>
+    <% if post.comments.count > 2 %>
+    <div class="text-xs mr-1 text-right">
+      <%= I18n.t("comments.count", num: post.comments.count - 2) %>
     </div>
     <% end %>
-    <%= link_to thread_path(post.id), data: { turbo_frame: "sidebar", controller: "sidebar" }, class: icon_button_class + " flex items-center hidden lg:block" do %>
-      <%= image_tag "icons/comment.svg", alt: "comment", width:"14px", height: "14px", class: "icon" %>
-    <% end %>
-    <%= link_to post_path(post.id), class: icon_button_class + " flex items-center lg:hidden block" do %>
-      <%= image_tag "icons/comment.svg", alt: "comment", width:"14px", height: "14px", class: "icon" %>
+    <div class="grow"></div>
+    <%= link_to post_path(post.id), class: icon_button_class + " flex items-center" do %>
+      <%= image_tag "icons/forward.svg", alt: "forward", width:"14px", height: "14px", class: "icon" %>
     <% end %>
   </div>
 </div>
