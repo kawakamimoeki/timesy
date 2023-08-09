@@ -12,7 +12,7 @@
   <% if @posts.empty? %>
     <p class="w-full text-center py-20 font-bold"><%= I18n.t("posts.not_found") %></p>
   <% else %>
-    <%= turbo_frame_tag :posts do %>
+    <%= turbo_frame_tag :posts, target: "_top" do %>
     <% end %>
 
     <div class="h-4">
