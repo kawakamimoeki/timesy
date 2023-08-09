@@ -7,6 +7,20 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get latest" do
+    ApplicationController.stub_any_instance :current_user, users(:general) do
+      get latest_url
+      assert_response :success
+    end
+  end
+
+  test "should get pinned" do
+    ApplicationController.stub_any_instance :current_user, users(:general) do
+      get pinned_url
+      assert_response :success
+    end
+  end
+
   test "should create post" do
     ApplicationController.stub_any_instance :current_user, users(:general) do
       assert_difference('Post.count') do

@@ -1,4 +1,16 @@
 <div class="grow w-full">
+  <div class="mb-4 flex items-center space-x-4">
+    <div class="grow"></div>
+    <% if current_user %>
+      <%= turbo_frame_tag :pin_button do %>
+        <%= render partial: "shared/pin_button", locals: { post: @post } %>
+      <% end %>
+    <% end %>
+    <button class="<%= block_link_class %> " data-controller="tobottom">
+      <%= image_tag "icons/down.svg", alt: "down", width: "24px", height: "24px",class: "icon" %>
+      <span>To Bottom</span>
+    </button>
+  </div>
   <div class=" <%= card_class %>" data-controller="post-show">
     <div class="flex mb-3 items-center space-x-1">
       <%= render partial: "shared/avatar", locals: { user: @post.user } %>
@@ -86,7 +98,4 @@
     <%= render partial: "comments/form", locals: { comment: @comment, post: @post } %>
   </div>
   <% end %>
-  <button class="<%= icon_button_class %> bg-white fixed bottom-10 right-10 dark:bg-slate-500 shadow rounded-full" data-controller="tooltip tobottom" data-tooltip-text-value="To bottom">
-    <%= image_tag "icons/down.svg", alt: "down", width: "32px", height: "32px",class: "icon" %>
-  </button>
 </div>

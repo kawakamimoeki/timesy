@@ -12,10 +12,14 @@ Rails.application.routes.draw do
 
   root 'posts#index'
   get "/latest", to: "posts#latest", as: :latest
+  get "/pined", to: "posts#pinned", as: :pinned
   get "posts/:id", to: "posts#show", as: :post
   post "posts", to: "posts#create", as: :create_post
   patch "posts/:id", to: "posts#update", as: :update_post
   delete "posts/:id", to: "posts#destroy", as: :delete_post
+
+  post '/posts/:post_id/pins', to: 'pins#create', as: :create_pin
+  delete '/posts/:post_id/pins/:id', to: 'pins#destroy', as: :delete_pin
 
   post '/posts/:post_id/reactions', to: 'post_reactions#create', as: :create_post_reaction
   delete '/posts/:post_id/reactions/:id', to: 'post_reactions#destroy', as: :delete_post_reaction
