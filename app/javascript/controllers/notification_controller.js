@@ -45,7 +45,11 @@ export default class extends Controller {
     if (unreaded.length > 0) {
       this.indicatorTarget.classList.remove("hidden")
       const title = document.title
-      document.title = `(${unreaded.length}) ${title}`
+      if (title.match(/^\(\d+\)\s/)) {
+        document.title = title.replace(/^\(\d+\)/, `(${unreaded.length})`)
+      } else {
+        document.title = `(${unreaded.length}) ${title}`
+      }
     } else {
       this.indicatorTarget.classList.add("hidden")
       document.title = document.title.replace(/^\(\d+\)\s/, "")
