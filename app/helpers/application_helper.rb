@@ -27,7 +27,7 @@ module ApplicationHelper
   end
 
   def primary_button_class
-    "rounded-sm px-2 py-1 shadow-sm text-white bg-sky-500 font-bold hover:bg-sky-600 transition-all disabled:opacity-30 cursor-pointer"
+    "rounded-sm px-2 py-1 shadow-sm text-white bg-sky-500 font-bold hover:bg-sky-600 transition-all disabled:opacity-30 cursor-pointer flex items-center space-x-1"
   end
 
   def label_class
@@ -59,7 +59,7 @@ module ApplicationHelper
   end
 
   def block_link_class
-    "py-1 px-2 block hover:bg-gray-50 rounded dark:hover:bg-gray-700 transition-all dark:text-[#ddd]"
+    "py-1 px-2 block hover:bg-gray-100 rounded dark:hover:bg-gray-600 border dark:border-[#30363d] transition-all dark:text-[#ddd] flex items-center space-x-1 bg-gray-50 dark:bg-gray-700"
   end
 
   def icon_button_class

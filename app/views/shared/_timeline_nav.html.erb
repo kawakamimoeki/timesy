@@ -14,5 +14,12 @@
     >
         <%= I18n.t("pages.latest") %>
     </a>
+    <a
+      href="<%= pinned_path %>"
+      class="<%= nav_item_class(pinned_path) %> "
+      data-turbo-frame="timeline"
+    >
+        <%= I18n.t("pages.pinned") %>
+    </a>
   </div>
 </nav>
