@@ -22,6 +22,8 @@ class Notification < ApplicationRecord
       Rails.application.routes.url_helpers.post_path(subjectable.post)
     elsif subjectable_type == 'CommentReaction'
       Rails.application.routes.url_helpers.post_path(subjectable.comment.post)
+    elsif subjectable_type == 'Pin'
+      Rails.application.routes.url_helpers.post_path(subjectable.post)
     end
   end
 
@@ -34,6 +36,8 @@ class Notification < ApplicationRecord
       I18n.t('notifications.post_reaction', user: subjectable.user.name, post: subjectable.post.truncated(16))
     elsif subjectable_type == 'CommentReaction'
       I18n.t('notifications.comment_reaction', user: subjectable.user.name, comment: subjectable.comment.truncated(16))
+    elsif subjectable_type == 'Pin'
+      I18n.t('notifications.pin', user: subjectable.user.name, post: subjectable.post.truncated(16))
     end
   end
 end

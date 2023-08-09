@@ -4,7 +4,7 @@
     <span class="text-sm"><%= I18n.t("posts.unpin") %></span>
   <% end %>
 <% else %>
-  <%= button_to create_pin_path(post_id: post.id), method: :post, class: "#{primary_button_class}" do %>
+  <%= button_to create_pin_path(post_id: post.id), method: :post, class: "#{block_link_class}" do %>
     <%= image_tag "icons/pin.svg", width: "24px", height: "24px", class: "icon" %>
     <span class="text-sm"><%= I18n.t("posts.pin") %></span>
   <% end %>
