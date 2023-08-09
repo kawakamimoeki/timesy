@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_08_214651) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_09_221001) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -130,6 +130,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_08_214651) do
     t.index ["authenticatable_type", "authenticatable_id"], name: "authenticatable"
   end
 
+  create_table "pins", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "user_id", null: false
+    t.uuid "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_pins_on_post_id"
+    t.index ["user_id"], name: "index_pins_on_user_id"
+  end
+
   create_table "post_reactions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "post_id", null: false
     t.uuid "user_id", null: false
@@ -199,6 +208,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_08_214651) do
   add_foreign_key "follows", "users", column: "followee_id"
   add_foreign_key "follows", "users", column: "follower_id"
   add_foreign_key "notifications", "users"
+  add_foreign_key "pins", "posts"
+  add_foreign_key "pins", "users"
   add_foreign_key "post_reactions", "posts"
   add_foreign_key "post_reactions", "users"
   add_foreign_key "posts", "users"
