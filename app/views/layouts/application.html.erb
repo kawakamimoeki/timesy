@@ -173,17 +173,15 @@
     </main>
 
     <% if request.path.match?("posts") || request.path === settings_path %>
-    <footer class="flex items-center space-x-4 p-4 mx-auto max-w-3xl text-xs text-gray-500">
-      <div class="grow"></div>
-      <%= link_to I18n.t("pages.docs"), docs_path %>
-      <%= link_to I18n.t("pages.about"), about_path %>
-      <%= link_to I18n.t("pages.terms"), terms_path %>
-      <%= link_to I18n.t("pages.privacy"), privacy_path %>
-      <%= link_to I18n.t("pages.emoji_request"), "https://forms.gle/7FZz2iHzYLQYiom7A" %>
-      <%= link_to I18n.t("pages.github"), "https://github.com/moekidev/timesy" %>
-      <%= link_to I18n.t("pages.status"), "https://status.timesy.dev/" %>
+    <footer class="flex leading-5 justify-center items-center p-4 mx-auto max-w-3xl text-xs text-gray-500 flex-wrap">
+      <%= link_to I18n.t("pages.docs"), docs_path %>・
+      <%= link_to I18n.t("pages.about"), about_path %>・
+      <%= link_to I18n.t("pages.terms"), terms_path %>・
+      <%= link_to I18n.t("pages.privacy"), privacy_path %>・
+      <%= link_to I18n.t("pages.emoji_request"), "https://forms.gle/7FZz2iHzYLQYiom7A" %>・
+      <%= link_to I18n.t("pages.github"), "https://github.com/moekidev/timesy" %>・
+      <%= link_to I18n.t("pages.status"), "https://status.timesy.dev/" %>・
       <%= link_to I18n.t("pages.tip"), "https://www.buymeacoffee.com/moekidev" %>
-      <div class="grow"></div>
     </footer>
     <% end %>
   </body>
