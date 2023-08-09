@@ -12,7 +12,6 @@ Rails.application.routes.draw do
 
   root 'posts#index'
   get "/latest", to: "posts#latest", as: :latest
-  get "/mine", to: "posts#mine", as: :mine
   get "posts/:id", to: "posts#show", as: :post
   post "posts", to: "posts#create", as: :create_post
   patch "posts/:id", to: "posts#update", as: :update_post
