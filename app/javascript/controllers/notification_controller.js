@@ -44,8 +44,11 @@ export default class extends Controller {
     const unreaded = this.element.querySelectorAll(".unread")
     if (unreaded.length > 0) {
       this.indicatorTarget.classList.remove("hidden")
+      const title = document.title
+      document.title = `(${unreaded.length}) ${title}`
     } else {
       this.indicatorTarget.classList.add("hidden")
+      document.title = document.title.replace(/^\(\d+\)\s/, "")
     }
   }
 }
