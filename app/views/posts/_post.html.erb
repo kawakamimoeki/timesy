@@ -1,4 +1,4 @@
-<div id="post_<%= post.id %>" class="<%= card_class %>  transition-opacity animate-fade-in">
+<div id="post_<%= post.id %>" class="<%= card_class %> <%= strip_tags(post.html).length < 64 && !post.comments.present? ? "max-w-sm mx-auto" : "" %> transition-opacity animate-fade-in">
   <div class="mb-3 flex items-center space-x-1">
     <div class="flex hover:underline items-center space-x-1 relative">
       <%= render partial: 'shared/avatar', locals: { user: post.user } %>
