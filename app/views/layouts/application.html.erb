@@ -79,7 +79,7 @@
             </button>
             <div
               data-notification-target="dropdown"
-              class="<%= dropdown_class %>">
+              class="<%= dropdown_class %> max-h-96 overflow-scroll">
               <%= turbo_stream_from "notifications-for-#{current_user.id}" %>
               <%= turbo_frame_tag :notifications, src: notifications_path do %>
               <% end %>
