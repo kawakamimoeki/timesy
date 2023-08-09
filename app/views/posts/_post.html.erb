@@ -9,8 +9,8 @@
   <div class="markdown-body" style="<%= post.emoji_only? ? "font-size: 32px;" : "" %>">
     <%= post.html(400).html_safe %>
   </div>
-  <div class="flex mt-3 items-center">
-    <div class="flex items-center flex-wrap overflow-hidden">
+  <div class="flex mt-3 items-center flex-wrap">
+    <div class="flex items-center overflow-hidden">
       <%= render partial: 'shared/post_reactions', locals: { current_user: current_user, post: post, reaction: @post_reaction } %>
     </div>
     <div class="flex px-2 items-center space-x-2">
