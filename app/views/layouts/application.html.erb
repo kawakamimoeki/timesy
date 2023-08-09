@@ -79,12 +79,12 @@
             </button>
             <div
               data-notification-target="dropdown"
-              class="overflow-scroll max-h-96 absolute top-8 right-0 z-[100] text-sm hidden w-72 bg-white dark:bg-[rgb(30,39,50)] shadow rounded-lg border dark:border-[rgb(48,54,61)]">
+              class="<%= dropdown_class %>">
               <%= turbo_stream_from "notifications-for-#{current_user.id}" %>
               <%= turbo_frame_tag :notifications, src: notifications_path do %>
               <% end %>
             </div>
-            <div data-action="click->notification#toggle" data-notification-target="backdrop" class="hidden fixed top-0 bottom-0 right-0 left-0 inset-0 z-[90] bg-black opacity-0"></div>
+            <div data-action="click->notification#toggle" data-notification-target="backdrop" class="<%= backdrop_class %>"></div>
           </div>
         <% end %>
         <% if !current_user %>

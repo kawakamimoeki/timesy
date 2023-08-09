@@ -67,7 +67,7 @@ module ApplicationHelper
   end
 
   def dropdown_class
-    "overflow-scroll absolute top-8 right-0 z-[100] hidden w-72 bg-white dark:bg-[rgb(30,39,50)] shadow rounded-lg border dark:border-[rgb(48,54,61)]"
+    "overflow-scroll absolute top-12 right-0 z-[100] hidden w-72 bg-white dark:bg-[rgb(30,39,50)] shadow rounded-lg border dark:border-[rgb(48,54,61)]"
   end
 
   def backdrop_class
