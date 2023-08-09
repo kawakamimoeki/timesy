@@ -10,6 +10,7 @@ ja:
     following: "%{user}がフォローしている人"
     followers: "%{user}のフォロワー"
     posts: 投稿
+    mine: 自分の投稿
     follow: フォロー中
     comments: "%{user}のコメント"
     projects: "%{user}のプロジェクト"

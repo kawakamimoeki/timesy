@@ -8,9 +8,16 @@
   </a>
   <a
     href="<%= latest_path %>"
-    class="<%= nav_item_class(latest_path, "w-1/2") %>"
+    class="<%= nav_item_class(latest_path, "w-1/2") %> border-l dark:border-l-[#30363d]"
     data-turbo-frame="timeline"
   >
       <%= I18n.t("pages.latest") %>
+  </a>
+  <a
+    href="<%= mine_path %>"
+    class="<%= nav_item_class(mine_path, "w-1/2") %> border-l dark:border-l-[#30363d]"
+    data-turbo-frame="timeline"
+  >
+      <%= I18n.t("pages.mine") %>
   </a>
 </nav>
