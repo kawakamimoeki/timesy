@@ -10,7 +10,16 @@ body * {
   scrollbar-width: none;
 }
 
+body {
+  -ms-overflow-style: none;    /* IE, Edge 対応 */
+  scrollbar-width: none;
+}
+
 body *::-webkit-scrollbar {
+  display: none;
+}
+
+body::-webkit-scrollbar {
   display: none;
 }
 
