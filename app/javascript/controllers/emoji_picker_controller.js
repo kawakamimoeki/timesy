@@ -105,6 +105,13 @@ export default class extends Controller {
           tags: [],
           data: { custom: true }
         },
+        {
+          emoji: 'iine',
+          label: 'いいね',
+          url: "https://res.cloudinary.com/dw1xpb7if/image/upload/v1691588207/mvdlwyuzkllmokncl2y0.png",
+          tags: [],
+          data: { custom: true }
+        }
       ]
     }, {
       triggerElement: this.buttonTarget,
