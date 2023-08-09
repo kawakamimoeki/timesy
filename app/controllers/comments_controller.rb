@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
 
     @comments = @post.comments.offset(page_limit*@current_page)
       .includes(:user, comment_reactions: :user)
-      .latest
+      .oldest
   end
 
   def create
@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
     @comment.images.attach(comment_params[:images]) if comment_params[:images].present?
     @post.broadcast_remove_to("posts")
     @post.broadcast_prepend_to("posts")
-    @comment.broadcast_prepend_to("comments-of-#{params[:post_id]}")
+    @comment.broadcast_append_to("comments-of-#{params[:post_id]}")
 
     if @post.user != current_user
       @notification = Notification.create(user: @post.user, subjectable: @comment)
