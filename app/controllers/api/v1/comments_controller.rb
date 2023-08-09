@@ -17,7 +17,7 @@ module Api
         @comment.save
         @post.broadcast_remove_to("posts")
         @post.broadcast_prepend_to("posts")
-        @comment.broadcast_prepend_to("comments")
+        @comment.broadcast_append_to("comments")
         render json: { comment: CommentSerializer.render_as_hash(@comment) }
       end
 

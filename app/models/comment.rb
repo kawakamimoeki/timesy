@@ -7,4 +7,5 @@ class Comment < ApplicationRecord
   has_many_attached :images
 
   scope :latest, -> { order(created_at: :desc) }
+  scope :oldest, -> { order(created_at: :asc) }
 end
