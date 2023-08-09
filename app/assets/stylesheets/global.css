@@ -5,21 +5,12 @@ body {
   background-color: rgb(246, 248, 250);
 } 
 
-body * {
+body .scrollbar-none {
   -ms-overflow-style: none;    /* IE, Edge 対応 */
   scrollbar-width: none;
 }
 
-body {
-  -ms-overflow-style: none;    /* IE, Edge 対応 */
-  scrollbar-width: none;
-}
-
-body *::-webkit-scrollbar {
-  display: none;
-}
-
-body::-webkit-scrollbar {
+body .scrollbar-none::-webkit-scrollbar {
   display: none;
 }
 
