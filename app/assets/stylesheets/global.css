@@ -31,6 +31,10 @@ body.dark .markdown-body table th, body.dark .markdown-body table td {
   border: 1px solid #545454;
 }
 
+img.icon {
+  opacity: 0.7;
+}
+
 body.dark img.icon {
   filter: invert(1);
 }

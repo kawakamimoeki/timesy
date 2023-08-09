@@ -5,23 +5,31 @@
       <time class="text-gray-400 text-sm"><%= time_ago_in_words(@post.created_at) %></time>
       <div class="grow"></div>
       <% if current_user == @post.user %>
-      <button class="<%= icon_button_class %>" data-action="post-show#edit" data-post-show-target="editButton">
-        <%= image_tag "icons/edit.svg", alt: "edit", width: "16px", height: "16px",class: "icon" %>
-      </button>
-      <button class="hidden <%= icon_button_class %>" data-action="post-show#close" data-post-show-target="closeButton">
-        <%= image_tag "icons/cancel.svg", alt: "edit", width: "16px", height: "16px",class: "icon" %>
-      </button>
-      <div class="mt-[1px]">
-        <%= button_to(
-          delete_post_url(id: @post.id),
-          method: :delete,
-          class: "#{icon_button_class}",
-          onClick: "return confirm('#{I18n.t('posts.confirm_delete')}')",
-          data: { turbo: false, post_show_target: "deleteButton" }
-        ) do %>
-          <%= image_tag "icons/delete.svg", alt: "edit", width: "16px", height: "16px",class: "icon" %>
-        <% end %>
+      <div data-controller="menu" data-post-show-target="menu" class="overflow-visible relative">
+        <button class="<%= icon_button_class %>" data-action="menu#toggle">
+          <%= image_tag "icons/more.svg", width: "24px", height: "24px", class: "icon" %>
+        </button>
+        <div data-action="click->menu#toggle" data-menu-target="backdrop" class="<%= backdrop_class %>"></div>
+        <div class="<%= dropdown_class %> w-full" data-menu-target="dropdown">
+          <button class="<%= icon_button_class %> w-full flex items-center space-x-2" data-action="post-show#edit" data-post-show-target="editButton">
+            <%= image_tag "icons/edit.svg", alt: "edit", width: "24px", height: "16px", class: "icon" %>
+          </button>
+          <div class="mt-[1px]">
+            <%= button_to(
+              delete_post_url(id: @post.id),
+              method: :delete,
+              class: "#{icon_button_class} w-full flex items-center space-x-2",
+              onClick: "return confirm('#{I18n.t('posts.confirm_delete')}')",
+              data: { turbo: false, post_show_target: "deleteButton" }
+            ) do %>
+              <%= image_tag "icons/delete.svg", alt: "edit", width: "24px", height: "16px",class: "icon" %>
+            <% end %>
+          </div>
+        </div>
       </div>
+      <button class="hidden <%= icon_button_class %>" data-action="post-show#close" data-post-show-target="closeButton">
+        <%= image_tag "icons/cancel.svg", alt: "edit", width: "24px", height: "16px",class: "icon" %>
+      </button>
       <% end %>
     </div>
     <%= turbo_frame_tag :post do %>
@@ -46,10 +54,10 @@
           <div class="grow"></div>
           <div class="px-1">
             <button type="button" class="<%= icon_button_class %>" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton">
-              <%= image_tag "icons/preview.svg", alt: "preview", width: "16px", height: "16px",class: "icon" %>
+              <%= image_tag "icons/preview.svg", alt: "preview", width: "24px", height: "16px",class: "icon" %>
             </button>
             <button type="button" class="<%= icon_button_class %> hidden" title="<%=  I18n.t('posts.edit') %>" data-action="markdown#edit" data-markdown-target="editorButton">
-              <%= image_tag "icons/edit.svg", alt: "edit", width: "16px", height: "16px",class: "icon" %>
+              <%= image_tag "icons/edit.svg", alt: "edit", width: "24px", height: "16px",class: "icon" %>
             </button>
           </div>
           <div class="px-1">

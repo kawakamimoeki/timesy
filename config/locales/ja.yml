@@ -50,7 +50,7 @@ ja:
     draft: 下書き
     new: 記事を書く
     publish: Post
-    update: 更新する
+    update: Update
     save_as_draft: 下書きに保存
     preview: プレビュー
     edit: 編集する
@@ -159,7 +159,7 @@ ja:
       start: はじめる
       create: 作成する
       edit: 編集する
-      update: 更新する
+      update: Update
       delete: 削除する
     button:
       change_file: 変更する
