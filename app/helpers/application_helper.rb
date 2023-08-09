@@ -47,7 +47,7 @@ module ApplicationHelper
   end
 
   def nav_item_class(path, width)
-    "hover:bg-gray-100 dark:hover:bg-[rgb(30,39,50)] py-2 #{width} text-center #{request.path == path ? "dark:bg-[rgb(30,39,50)] bg-white font-bold border-b-2 border-b-sky-500" : ""}"
+    "hover:bg-gray-100 dark:hover:bg-[rgb(30,39,50)] py-2 #{width} text-center #{request.path == path ? "dark:bg-[rgb(30,39,50)] bg-white font-bold border-b-2 border-sky-500" : ""}"
   end
 
   def card_class
