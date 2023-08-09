@@ -33,13 +33,12 @@ class PostsController < ApplicationController
     @post_reaction = PostReaction.new
     @current_page = params[:page].to_i
 
-    @posts = Post.offset(page_limit*@current_page)
+    all = Post.offset(page_limit*@current_page)
       .includes(:user, comments: :user, post_reactions: :user)
       .where(user: current_user)
       .latest
-      .limit(page_limit)
-    @next_page = @current_page + 1 if Post.all.count > page_limit*@current_page + page_limit
-    render :index
+    @posts = all.limit(page_limit)
+    @next_page = @current_page + 1 if all.count > page_limit*@current_page + page_limit
   end
 
   def thread
