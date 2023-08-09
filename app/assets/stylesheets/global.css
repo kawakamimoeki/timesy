@@ -5,6 +5,15 @@ body {
   background-color: rgb(246, 248, 250);
 } 
 
+body * {
+  -ms-overflow-style: none;    /* IE, Edge 対応 */
+  scrollbar-width: none;
+}
+
+body *::-webkit-scrollbar {
+  display: none;
+}
+
 body.dark .CodeMirror {
   background-color: rgb(30, 39, 50) !important;
   color: #eee !important;
