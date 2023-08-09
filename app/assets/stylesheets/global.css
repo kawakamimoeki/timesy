@@ -109,6 +109,7 @@ body.dark .markdown-body code {
   border-radius: 10px;
   width: 100% !important;
   max-width: 400px !important;
+  margin: 0 auto;
   border: 1px solid #e1e4e8 !important;
 }
 
