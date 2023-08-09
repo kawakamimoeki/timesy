@@ -119,7 +119,7 @@ body.dark .markdown-body code {
 
 .markdown-body .link-card {
   border: 1px solid #e1e4e8 !important;
-  margin: 0 !important;
+  margin: 0 auto !important;
 }
 
 .dark .markdown-body .link-card {
