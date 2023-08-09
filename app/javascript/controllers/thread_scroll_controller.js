@@ -10,7 +10,12 @@ export default class extends Controller {
     })
   }
 
-  scroll () {
+  async sleep (ms) {
+    return new Promise(resolve => setTimeout(resolve, ms))
+  }
+
+  async scroll () {
+    await this.sleep(300)
     window.scrollTo({
       top: document.body.scrollHeight,
       behavior: "smooth"
