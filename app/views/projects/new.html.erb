@@ -5,6 +5,6 @@
   }
 ) %>
 
-<div class="grow max-w-[calc(100vw-2rem)] md:max-w-[calc(100%-256px-1rem)] p-4">
+<div class="max-w-3xl mx-auto w-full p-4">
   <%= render partial: 'projects/form', locals: { project: @project, path: create_project_path, submit_label: I18n.t("form.submit.create"), method: :post } %>
 </div>

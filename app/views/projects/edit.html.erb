@@ -5,7 +5,7 @@
   }
 ) %>
 
-<div class="grow overflow-visible sm:h-[calc(100vh-55px)] sm:overflow-scroll p-4">
+<div class="mx-auto max-w-3xl w-full  p-4">
   <%= render partial: 'projects/form', locals: { project: @project, path: update_project_path(current_user.username, @project.codename), submit_label: I18n.t("form.submit.update"), method: :patch } %>
   <div class="flex">
     <%= button_to I18n.t("form.submit.delete"), project_path(current_user.username, @project.codename), data: { turbo_method: :delete, turbo_confirm: I18n.t("projects.confirm_delete") }, method: :delete, class: "text-red-500 mt-10 text-sm" %>

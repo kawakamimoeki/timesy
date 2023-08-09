@@ -35,7 +35,7 @@ module ApplicationHelper
   end
 
   def text_field_class
-    "block rounded w-full max-w-2xl px-3 py-2 border text-gray-700 hover:bg-gray-100 transition-all dark:bg-[rgb(30,39,50)] dark:border dark:border-[#30363d] dark:text-[#ddd] dark:hover:bg-[rgb(30,39,50)] dark:hover:border-[#30363d]"
+    "block rounded w-full max-w-2xl px-3 py-2 border text-gray-700 transition-all dark:bg-[rgb(30,39,50)] dark:border dark:border-[#30363d] dark:text-[#ddd]"
   end
 
   def loading_box_class

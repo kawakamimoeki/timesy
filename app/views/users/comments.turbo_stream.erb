@@ -2,7 +2,7 @@
 <% end %>
 
 <%= turbo_stream.append "posts" do %>
-  <%= render partial: 'posts/post', collection: @posts %>
+  <%= render @posts %>
 <% end %>
 
 <% if @next_page.present? %>

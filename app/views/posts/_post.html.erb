@@ -26,7 +26,7 @@
     </div>
     <% end %>
     <div class="grow"></div>
-    <%= link_to post_path(post.id), class: icon_button_class + " flex items-center" do %>
+    <%= link_to post_path(post.id), data: { turbo: false }, class: icon_button_class + " flex items-center" do %>
       <%= image_tag "icons/forward.svg", alt: "forward", width:"14px", height: "14px", class: "icon" %>
     <% end %>
   </div>
