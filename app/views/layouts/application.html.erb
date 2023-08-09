@@ -172,8 +172,8 @@
       <%= yield %>
     </main>
 
-    <% if request.path.match?("posts") || request.path === settings_path %>
-    <footer class="flex leading-5 justify-center items-center p-4 mx-auto max-w-3xl text-xs text-gray-500 flex-wrap">
+    <% if request.path.match?("posts") || request.path.in?([settings_path, about_path, docs_path, terms_path, privacy_path]) %>
+    <footer class="flex leading-5 justify-center items-center px-4 pt-4 pb-12 mx-auto max-w-3xl text-xs text-gray-500 flex-wrap">
       <%= link_to I18n.t("pages.docs"), docs_path %>・
       <%= link_to I18n.t("pages.about"), about_path %>・
       <%= link_to I18n.t("pages.terms"), terms_path %>・

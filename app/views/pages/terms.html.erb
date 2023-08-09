@@ -6,9 +6,9 @@
 ) %>
 
 
-<div class="grow p-4 overflow-visible sm:h-[calc(100vh-55px)] sm:overflow-scroll">
+<div class="max-w-3xl mx-auto p-4">
   <h1 class="max-w-3xl mx-auto font-bold text-3xl mb-4"><%= I18n.t("pages.terms") %></h1>
-  <div class="max-w-3xl mx-auto w-full py-10 <%= card_class %>">
+  <div class="max-w-3xl mx-auto w-full <%= card_class %>">
     <div class="markdown-body">
       <%= @content %>
     </div>
