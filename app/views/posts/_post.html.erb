@@ -11,7 +11,9 @@
   </div>
   <div class="flex mt-3 items-center flex-wrap">
     <div class="flex items-center overflow-hidden">
-      <%= render partial: 'shared/post_reactions', locals: { current_user: current_user, post: post, reaction: @post_reaction } %>
+      <%= turbo_frame_tag "post-reactions-#{post.id}" do %>
+        <%= render partial: 'shared/post_reactions', locals: { current_user: current_user, post: post, reaction: @post_reaction } %>
+      <% end %>
     </div>
     <div class="flex px-2 items-center space-x-2">
       <% post.comments.latest[0..1].each do |comment| %>

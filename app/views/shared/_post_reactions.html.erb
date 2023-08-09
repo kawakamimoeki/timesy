@@ -4,7 +4,7 @@
     model: PostReaction.new,
     url: create_post_reaction_path(post_id: post.id),
     class: "flex my-1 items-center",
-    data: { controller: "emoji-picker" }
+    data: { controller: "emoji-picker", turbo_frame: "post_reactions_list-#{post.id}" }
   ) do |f| %>
     <%= f.hidden_field :body, data: { emoji_picker_target: "input" } %>
     <button
