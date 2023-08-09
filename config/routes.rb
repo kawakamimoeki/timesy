@@ -17,8 +17,6 @@ Rails.application.routes.draw do
   patch "posts/:id", to: "posts#update", as: :update_post
   delete "posts/:id", to: "posts#destroy", as: :delete_post
 
-  get '/posts/:id/thread', to: 'posts#thread', as: :thread
-
   post '/posts/:post_id/reactions', to: 'post_reactions#create', as: :create_post_reaction
   delete '/posts/:post_id/reactions/:id', to: 'post_reactions#destroy', as: :delete_post_reaction
   get '/posts/:post_id/reactions/list', to: 'post_reactions#list', as: :post_reactions_list
@@ -36,7 +34,6 @@ Rails.application.routes.draw do
   get 'settings', to: 'settings#edit', as: :settings
   get 'settings/export', to: 'settings#export', as: :export_settings
   get 'settings/exports/:id/download', to: 'settings#download_export', as: :download_export
-  get 'settings/sidebar', to: 'settings#sidebar', as: :settings_sidebar
   patch 'settings/profile', to: 'settings#update_profile', as: :update_profile
   patch 'settings/webhook', to: 'settings#update_webhook', as: :update_webhook
   patch 'settings/access_token', to: 'settings#update_access_token', as: :update_access_token

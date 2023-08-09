@@ -1,9 +1,0 @@
-<%= turbo_frame_tag "sidebar" do %>
-  <div class="flex <%= card_class %> -mt-4">
-    <div class="grow"></div>
-    <button class="<%= icon_button_class %>" id="sidebar-close">
-      <%= image_tag "icons/close.svg", alt: "close", width: "16px", height: "16px",  class: "icon"%>
-    </button>
-  </div>
-  <%= render partial: "users/settings", locals: { user: @user } %>
-<% end %>
