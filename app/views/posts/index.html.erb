@@ -1,10 +1,10 @@
-<div class="flex w-full grow relative">
-  <div class="grow h-[calc(100vh-55px)] w-full" id="main">
+<div class="flex w-full grow relative px-4">
+  <div class="grow w-full" id="main">
     <%= turbo_frame_tag "timeline" do %>
     <% if current_user %>
       <%= render partial: "shared/timeline_nav" %>
     <% end %>
-    <div class="overflow-visible sm:h-[calc(100vh-55px-36px)] sm:overflow-scroll">
+    <div class="max-w-3xl mx-auto">
       <% if current_user %>
       <div class="flex w-full <%= card_class %> space-x-3">
         <div class="transition-all">

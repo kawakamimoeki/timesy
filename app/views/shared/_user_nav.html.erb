@@ -1,26 +1,28 @@
-<nav class="<%= nav_class %>">
-  <a
-    href="<%= user_path(user.username) %>"
-    class="<%= nav_item_class(user_path(user.username), "w-1/3") %>"
-    data-turbo-frame="posts"
-    target="_top"
-  >
-    <%= I18n.t("pages.posts") %>
-  </a>
-  <a
-    href="<%= user_comments_path(user.username) %>"
-    class="<%=  nav_item_class(user_comments_path(user.username), "w-1/3") %>"
-    data-turbo-frame="posts"
-    target="_top"
-  >
-      <%= I18n.t("users.comments", user: user.name) %>
-  </a>
-  <a
-    href="<%= projects_path(user.username) %>"
-    class="<%= nav_item_class(projects_path(user.username), "w-1/3") %>"
-    data-turbo-frame="posts"
-    target="_top"
-  >
-    <%= I18n.t("users.projects", user: user.name) %>
-  </a>
+<nav class="<%= nav_class %> sticky flex items-center space-x-3 mb-4 top-0 z-[50] bg-[rgb(246,248,250)] dark:bg-[rgb(21,32,43)]">
+  <div class="flex max-w-3xl mx-auto w-full items-center space-x-3">
+    <a
+      href="<%= user_path(user.username) %>"
+      class="<%= nav_item_class(user_path(user.username)) %>"
+      data-turbo-frame="posts"
+      target="_top"
+    >
+      <%= I18n.t("pages.posts") %>
+    </a>
+    <a
+      href="<%= user_comments_path(user.username) %>"
+      class="<%=  nav_item_class(user_comments_path(user.username)) %>"
+      data-turbo-frame="posts"
+      target="_top"
+    >
+        <%= I18n.t("users.comments", user: user.name) %>
+    </a>
+    <a
+      href="<%= projects_path(user.username) %>"
+      class="<%= nav_item_class(projects_path(user.username)) %>"
+      data-turbo-frame="posts"
+      target="_top"
+    >
+      <%= I18n.t("users.projects", user: user.name) %>
+    </a>
+  </div>
 </nav>

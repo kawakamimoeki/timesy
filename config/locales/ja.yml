@@ -9,24 +9,23 @@ ja:
   pages:
     following: "%{user}がフォローしている人"
     followers: "%{user}のフォロワー"
-    posts: 投稿
-    mine: 自分の投稿
-    follow: フォロー中
+    posts: Posts
+    follow: Following
     comments: "%{user}のコメント"
     projects: "%{user}のプロジェクト"
-    latest: 最近の投稿
-    your_posts: あなたの投稿
-    your_comments: コメントした投稿
-    your_projects: あなたのプロジェクト
-    settings: 設定
-    docs: ドキュメント
-    about: Timesyについて
-    terms: 利用規約
-    privacy: プライバシーポリシー
-    emoji_request: 絵文字リクエスト
+    latest: Latest
+    your_posts: Your Posts
+    your_comments: Your Comments
+    your_projects: Your Projects
+    settings: Settings
+    docs: Docs
+    about: About
+    terms: Terms
+    privacy: Privacy
+    emoji_request: Emoji request
     github: GitHub
-    status: ステータスページ
-    tip: チップを送る
+    status: Status
+    tip: Tip
   activerecord:
     attributes:
       user:
@@ -67,7 +66,7 @@ ja:
     delete: 削除する
     confirm_delete: コメントを削除してよろしいですか？
     placeholder: Write in Markdown
-    count: "%{num}件"
+    count: "%{num} more"
   passwordless:
     sign_in: ログイン
     send: ログインリンクを送信
@@ -101,8 +100,8 @@ ja:
     follow: フォロー
     following: フォロー中
     followers: フォロワー
-    comments: コメント
-    projects: プロジェクト
+    comments: Comments
+    projects: Projects
     sign_in: ログイン
     sign_up: はじめる
     sign_out: ログアウト
