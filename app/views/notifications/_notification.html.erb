@@ -1,6 +1,6 @@
 <% user = notification.subjectable_type == "Follow" ? notification.subjectable.follower : notification.subjectable&.user %>
 <% if user %>
-  <div data-id="<%= notification.id %>" id="notification_<%= notification.id %>" class="py-2 border-b dark:border-[rgb(48,54,61)] hover:bg-gray-50 dark:hover:bg-gray-700 px-3 <%= notification.read? ? "read" : "unread" %>">
+  <div data-id="<%= notification.id %>" id="notification_<%= notification.id %>" class="py-2 border-b dark:border-dark-border hover:bg-gray-50 dark:hover:bg-gray-700 px-3 <%= notification.read? ? "read" : "unread" %>">
     <%= link_to notification.link, data: { turbo: false } do %>
       <div class="flex space-x-3">
         <%= image_tag(

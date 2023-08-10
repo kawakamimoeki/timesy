@@ -31,11 +31,11 @@ module ApplicationHelper
   end
 
   def label_class
-    "block text-gray-700 font-bold mb-2 dark:text-[#ddd]"
+    "block text-gray-700 font-bold mb-2 dark:text-gray-200"
   end
 
   def text_field_class
-    "block rounded w-full max-w-2xl px-3 py-2 border text-gray-700 transition-all dark:bg-[rgb(30,39,50)] dark:border dark:border-[#30363d] dark:text-[#ddd]"
+    "block rounded w-full max-w-2xl px-3 py-2 border text-gray-700 transition-all dark:bg-dark-card dark:border dark:border-dark-border dark:text-gray-200"
   end
 
   def loading_box_class
@@ -43,7 +43,7 @@ module ApplicationHelper
   end
 
   def nav_class
-    "w-full flex items-center border-b dark:border-[#30363d] sticky space-x-3 mb-4 top-0 z-[50] bg-[rgb(246,248,250)] dark:bg-[rgb(21,32,43)]"
+    "w-full flex items-center border-b dark:border-dark-border sticky space-x-3 mb-4 top-0 z-[50] bg-background dark:bg-dark-background dark:text-gray-200"
   end
 
   def nav_list_class
@@ -51,15 +51,15 @@ module ApplicationHelper
   end
 
   def nav_item_class(path)
-    "hover:opacity-100 py-2 text-center dark:border-[#30363d] border-b #{request.path == path ? "font-bold border-sky-600 dark:border-sky-600" : "opacity-50"}"
+    "hover:opacity-100 py-2 text-center dark:border-dark-border border-b #{request.path == path ? "font-bold border-sky-600 dark:border-sky-600" : "opacity-50"}"
   end
 
   def card_class
-    "relative bg-white p-4 rounded-lg border mb-4 dark:text-[#ddd] dark:bg-[rgb(30,39,50)] dark:border-[#30363d] dark:text-[#ddd]"
+    "relative bg-white p-4 rounded-lg border mb-4 dark:text-gray-200 dark:bg-dark-card dark:border-dark-border dark:text-gray-200"
   end
 
   def block_link_class
-    "py-1 px-2 block hover:bg-gray-50 rounded dark:hover:bg-gray-700 transition-all dark:text-[#ddd] flex items-center space-x-1"
+    "py-1 px-2 block hover:bg-gray-50 rounded dark:hover:bg-gray-700 transition-all dark:text-gray-200 flex items-center space-x-1"
   end
 
   def icon_button_class
@@ -67,7 +67,7 @@ module ApplicationHelper
   end
 
   def dropdown_class
-    "overflow-scroll absolute top-10 right-0 z-[100] hidden w-72 bg-white dark:bg-[rgb(30,39,50)] shadow rounded-lg border dark:border-[rgb(48,54,61)] scrollbar-none"
+    "overflow-scroll absolute top-10 right-0 z-[100] hidden w-72 bg-white dark:bg-dark-card shadow rounded-lg border dark:border-dark-border scrollbar-none"
   end
 
   def backdrop_class
