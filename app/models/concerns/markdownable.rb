@@ -38,15 +38,19 @@ module Markdownable
         if paragraph.children.any? { |child| child.name == "a" }
           link = paragraph.children.find { |child| child.name == "a" }
           if link.text == link["href"]
-            data = Rails.cache.fetch("/ogp/#{Digest::SHA256.hexdigest(link.text)}", expires_in: 1.week) do
-              response = Faraday.get(link.text)
-              ogp = OGP::OpenGraph.new(response.body)
-              ogp.data
-            rescue
-              false
-            end
-            if data
-              link.replace(ApplicationController.renderer.render(partial: "shared/link_card", locals: { ogp: Ogp.new(data) }))
+            if link.text.match?(/twitter\.com\/\w+\/status\/\d+/)
+              link.replace(ApplicationController.renderer.render(partial: "shared/tweet_card", locals: { url: link.text }))
+            else
+              data = Rails.cache.fetch("/ogp/#{Digest::SHA256.hexdigest(link.text)}", expires_in: 1.week) do
+                response = Faraday.get(link.text)
+                ogp = OGP::OpenGraph.new(response.body)
+                ogp.data
+              rescue
+                false
+              end
+              if data
+                link.replace(ApplicationController.renderer.render(partial: "shared/link_card", locals: { ogp: Ogp.new(data) }))
+              end
             end
           end
         end

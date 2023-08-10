@@ -51,4 +51,9 @@ class MarkdownableTest < ActiveSupport::TestCase
     post = TestPost.new(body: "#test")
     assert_equal %(<a href=\"/test/projects/test\" data-controller=\"tooltip\" data-tooltip-text-value=\"test @test\" data-turbo=\"false\" class=\"project-tag\">#test</a>), post.wrap_project_tag(post.body)
   end
+
+  test "#html returns twitter card when body is twitter url" do
+    post = TestPost.new(body: "https://twitter.com/username/status/1234567890")
+    assert_equal %(<p><blockquote class="twitter-tweet"><a href="https://twitter.com/username/status/1234567890"></a></blockquote>\n</p>\n), post.html
+  end
 end
