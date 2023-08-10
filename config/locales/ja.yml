@@ -121,6 +121,7 @@ ja:
     confirm_delete: 削除されるとアカウントは復旧できません。よろしいですか？
   settings:
     profile: プロフィール
+    wallpaper: 壁紙設定
     export: エクスポート
     api: API
     webhook: Webhook通知先

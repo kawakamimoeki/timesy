@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_one_attached :avatar
+  has_one_attached :wallpaper
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :exports, dependent: :destroy
@@ -46,6 +47,27 @@ class User < ApplicationRecord
       "https://api.dicebear.com/6.x/thumbs/svg?seed=#{username}"
     end
   end
+
+  def wallpaper_or_none
+    if wallpaper.attached?
+      wallpaper_url
+    else
+      no_wallpaper
+    end
+  end
+
+  def no_wallpaper
+    "https://res.cloudinary.com/dw1xpb7if/image/upload/v1691677320/lhr70ktzse7gzw1jtosw.png"
+  end
+
+  def wallpaper_url
+    if ENV["CLOUDINARY_CLOUD_NAME"].present? && ENV["CLOUDINARY_API_KEY"].present? && ENV["CLOUDINARY_API_SECRET"].present?
+      Cloudinary::Utils.cloudinary_url(wallpaper.key, crop: :fill)
+    else
+      wallpaper
+    end
+  end
+
 
   def actor_json
     {

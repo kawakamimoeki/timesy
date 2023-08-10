@@ -5,6 +5,18 @@ class SettingsController < ApplicationController
     @user = current_user
   end
 
+  def update_wallpaper
+    @user = current_user
+    if wallpaper_params[:no_wallpaper] == "true"
+      @user.wallpaper.purge
+    end
+    if wallpaper_params[:wallpaper].present?
+      @user.wallpaper.attach(wallpaper_params[:wallpaper])
+    end
+    flash[:notice] = I18n.t('settings.updated')
+    redirect_to settings_path
+  end
+
   def update_profile
     @user = current_user
     if @user.update(profile_params)
@@ -69,6 +81,13 @@ class SettingsController < ApplicationController
   private def webhook_params
     params.require(:user).permit(
       :webhook_url
+    )
+  end
+
+  private def wallpaper_params
+    params.require(:user).permit(
+      :wallpaper,
+      :no_wallpaper
     )
   end
 end
