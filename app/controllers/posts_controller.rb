@@ -36,6 +36,7 @@ class PostsController < ApplicationController
     all = Post.offset(page_limit*@current_page)
       .includes(:user, comments: :user, post_reactions: :user)
       .pinned_by(current_user)
+      .latest
     @posts = all.limit(page_limit)
     @next_page = @current_page + 1 if all.count > page_limit*@current_page + page_limit
   end
