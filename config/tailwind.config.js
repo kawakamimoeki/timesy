@@ -11,6 +11,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        'background': 'rgb(246, 248, 250)',
+        'dark-background': 'rgb(21, 32, 43)',
+        'dark-border': '#30363d',
+        'dark-card': 'rgb(30,39,50)',
+      },
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },

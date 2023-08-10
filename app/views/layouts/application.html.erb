@@ -56,7 +56,7 @@
     }(document, "script", "twitter-wjs"));</script>
   </head>
 
-  <body>
+  <body class="bg-background dark:bg-dark-background">
     <script>
       if (localStorage.theme === 'dark') {
         document.querySelector("body").classList.add('dark')
@@ -64,7 +64,7 @@
         document.querySelector("body").classList.remove('dark')
       }
     </script>
-    <header class="w-full bg-white dark:bg-[rgb(30,39,50)] dark:text-[#ddd] border-b dark:border-[#30363d]">
+    <header class="w-full bg-white dark:bg-dark-background dark:text-gray-200 border-b dark:border-dark-border">
       <div class="flex max-w-3xl mx-auto px-4 items-center py-3 text-sm">
         <%= link_to "/", class: "block mr-3" do %>
           <span class="dark:hidden">
@@ -119,7 +119,7 @@
           <% end %>
           <div data-action="click->menu#toggle" data-menu-target="backdrop" class="<%= backdrop_class %>"></div>
           <div class="<%= dropdown_class %>"  data-menu-target="dropdown">
-            <div class="text-sm h-full w-full p-4 dark:border-[#30363d]">
+            <div class="text-sm h-full w-full p-4 dark:border-dark-border">
               <ul class="flex flex-col space-y-1">
                 <% if current_user %>
                 <li>
@@ -142,7 +142,7 @@
                 <li>
                   <%= link_to I18n.t("pages.settings"), settings_path, class: "#{request.path === settings_path ? "font-bold" : ""} #{block_link_class}" %>
                 </li>
-                <li class="w-full dark:border-[#555] border-b pb-2"></li>
+                <li class="w-full dark:border-dark-border border-b pb-2"></li>
                 <li class="w-full pb-2"></li>
                 <% end %>
                 <li>
@@ -192,7 +192,8 @@
     </main>
 
     <% if request.path.match?("posts") || request.path.in?([settings_path, about_path, docs_path, terms_path, privacy_path]) %>
-    <footer class="flex leading-5 justify-center items-center px-4 pt-4 pb-12 mx-auto max-w-3xl text-xs text-gray-500 flex-wrap">
+    <div class="w-full px-4 mx-auto max-w-3xl">
+    <footer class="flex leading-5 justify-center items-center mb-12 text-xs text-gray-500 flex-wrap bg-background dark:bg-dark-background rounded-lg p-3">
       <%= link_to I18n.t("pages.docs"), docs_path %>・
       <%= link_to I18n.t("pages.about"), about_path %>・
       <%= link_to I18n.t("pages.terms"), terms_path %>・
@@ -202,6 +203,7 @@
       <%= link_to I18n.t("pages.status"), "https://status.timesy.dev/" %>・
       <%= link_to I18n.t("pages.tip"), "https://www.buymeacoffee.com/moekidev" %>
     </footer>
+    </div>
     <% end %>
   </body>
 </html>
