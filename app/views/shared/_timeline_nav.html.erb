@@ -4,6 +4,7 @@
       href="<%= root_path %>"
       class="<%= nav_item_class(root_path) %> "
       data-turbo-frame="timeline"
+      data-turbo="false"
     >
       <%= I18n.t("pages.follow") %>
     </a>
@@ -11,6 +12,7 @@
       href="<%= latest_path %>"
       class="<%= nav_item_class(latest_path) %> "
       data-turbo-frame="timeline"
+      data-turbo="false"
     >
         <%= I18n.t("pages.latest") %>
     </a>
@@ -18,6 +20,7 @@
       href="<%= pinned_path %>"
       class="<%= nav_item_class(pinned_path) %> "
       data-turbo-frame="timeline"
+      data-turbo="false"
     >
         <%= I18n.t("pages.pinned") %>
     </a>
