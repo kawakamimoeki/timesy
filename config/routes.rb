@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   get 'notifications/index'
   passwordless_for :users
 
+  get "t/sitemap", to: "sitemap#index", as: :sitemap, defaults: { format: "xml" }
+
   get 'users/sign_up', to: 'users#new', as: :sign_up
   post 'users/confirm', to: 'users#confirm', as: :confirm
   get 'users/register/:token', to: 'users#register', as: :register
