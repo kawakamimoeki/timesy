@@ -188,3 +188,8 @@ body.dark .markdown-body code {
 body.dark .markdown-body pre {
   background-color: #282a36;
 }
+
+.twitter-tweet {
+  margin: 0 auto !important;
+  max-width: 400px !important;
+}
