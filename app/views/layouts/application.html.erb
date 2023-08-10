@@ -201,5 +201,7 @@
     </footer>
     <% end %>
   </body>
-  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <%= turbo_frame_tag "twitter_script" do %>
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <% end %>
 </html>
