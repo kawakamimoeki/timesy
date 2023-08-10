@@ -56,7 +56,7 @@
     }(document, "script", "twitter-wjs"));</script>
   </head>
 
-  <body class="bg-background bg-cover bg-fixed dark:bg-dark-background" data-controller="wallpaper" data-wallpaper-url-value="<%= current_user&.wallpaper_url %>">
+  <body class="bg-background bg-cover bg-fixed dark:bg-dark-background" data-controller="wallpaper" data-wallpaper-url-value="<%= !browser.device.mobile? && !browser.device.tablet? && current_user&.wallpaper_url %>">
     <script>
       if (localStorage.theme === 'dark') {
         document.querySelector("body").classList.add('dark')
