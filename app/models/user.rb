@@ -39,7 +39,7 @@ class User < ApplicationRecord
   def avatar_icon
     if avatar.attached?
       if ENV["CLOUDINARY_CLOUD_NAME"].present? && ENV["CLOUDINARY_API_KEY"].present? && ENV["CLOUDINARY_API_SECRET"].present?
-        Cloudinary::Utils.cloudinary_url(avatar.key, width: 150, height: 150, crop: :fill)
+        Cloudinary::Utils.cloudinary_url(avatar.key, width: 150, height: 150, crop: :fill, secure: true)
       else
         avatar
       end
@@ -62,7 +62,7 @@ class User < ApplicationRecord
 
   def wallpaper_url
     if ENV["CLOUDINARY_CLOUD_NAME"].present? && ENV["CLOUDINARY_API_KEY"].present? && ENV["CLOUDINARY_API_SECRET"].present?
-      Cloudinary::Utils.cloudinary_url(wallpaper.key, crop: :fill)
+      Cloudinary::Utils.cloudinary_url(wallpaper.key, crop: :fill, secure: true)
     else
       wallpaper
     end
