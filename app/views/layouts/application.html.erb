@@ -186,6 +186,9 @@
 
     <main class="flex items-stretch">
       <%= yield %>
+      <%= turbo_frame_tag "twitter_script" do %>
+        <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+      <% end %>
     </main>
 
     <% if request.path.match?("posts") || request.path.in?([settings_path, about_path, docs_path, terms_path, privacy_path]) %>
@@ -201,7 +204,4 @@
     </footer>
     <% end %>
   </body>
-  <%= turbo_frame_tag "twitter_script" do %>
-    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-  <% end %>
 </html>
