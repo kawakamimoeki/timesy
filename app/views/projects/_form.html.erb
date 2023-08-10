@@ -3,15 +3,16 @@
   url: path,
   method: method,
   multipart: true,
+  class: "bg-background dark:bg-dark-background p-4",
   data: {
-  action: "turbo:submit-end->markdown#clear",
-  turbo_frame: :posts,
-  turbo: false,
-  controller: "turbo-form markdown",
-  post_editor_confirm_message: I18n.t("page.confirm_leave"),
-  markdown_min_height_value: "100px",
-  markdown_placeholder_value: I18n.t("posts.placeholder"),
-},
+    action: "turbo:submit-end->markdown#clear",
+    turbo_frame: :posts,
+    turbo: false,
+    controller: "turbo-form markdown",
+    post_editor_confirm_message: I18n.t("page.confirm_leave"),
+    markdown_min_height_value: "100px",
+    markdown_placeholder_value: I18n.t("posts.placeholder"),
+  },
 ) do |f| %>
   <%= render partial: "shared/error_messages", locals: { errors: project.errors.full_messages } %>
   <%= render partial: "shared/notice_messages", locals: { notice: notice } %>
