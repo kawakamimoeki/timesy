@@ -28,16 +28,6 @@
     <script src="https://unpkg.com/tippy.js@6"></script>
     <link rel="stylesheet" type="text/css" href="/dracula.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
-    <script>
-      hljs.highlightAll();
-      const mo = new MutationObserver(() => {
-        hljs.highlightAll();
-      })
-      mo.observe(document.documentElement, { childList: true });
-      document.documentElement.addEventListener('turbo:frame-render', () => {
-        hljs.highlightAll();
-      })
-    </script>
     <script>window.twttr = (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0],
         t = window.twttr || {};
@@ -54,16 +44,33 @@
 
       return t;
     }(document, "script", "twitter-wjs"));</script>
+    <script>
+      hljs.highlightAll();
+      const hmo = new MutationObserver(() => {
+        hljs.highlightAll();
+      })
+      hmo.observe(document.documentElement, { childList: true });
+      document.documentElement.addEventListener('turbo:frame-render', () => {
+        hljs.highlightAll();
+      })
+      const bmo = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (mutation.type === "childList") {
+            document.querySelector("body").style.backgroundImage = `url(${document.querySelector("body").dataset.backgroundImage})`
+          }
+        })
+      })
+    </script>
   </head>
 
   <body class="bg-background bg-cover bg-fixed dark:bg-dark-background" data-background-image="<%= !browser.device.mobile? && !browser.device.tablet? && current_user&.wallpaper_url %>">
     <script>
-      const body = document.querySelector('body')
-      body.style.backgroundImage = `url(${body.dataset.backgroundImage})`
+      document.querySelector('body').style.backgroundImage = `url(${document.querySelector('body').dataset.backgroundImage})`
+      bmo.observe(document.querySelector('body'), { childList: true })
       if (localStorage.theme === 'dark') {
-        body.classList.add('dark')
+        document.querySelector('body').classList.add('dark')
       } else {
-        body.classList.remove('dark')
+        document.querySelector('body').classList.remove('dark')
       }
     </script>
     <header class="w-full bg-white dark:bg-dark-background dark:text-gray-200 border-b dark:border-dark-border">
