@@ -6,7 +6,7 @@
     <time class="text-gray-400 text-sm"><%= time_ago_in_words(post.created_at) %></time>
     <div class="grow"></div>
   </div>
-  <div class="markdown-body" style="<%= post.emoji_only? ? "font-size: 32px;" : "" %>">
+  <div class="markdown-body" data-controller="image-modal" style="<%= post.emoji_only? ? "font-size: 32px;" : "" %>">
     <%= post.html(400).html_safe %>
   </div>
   <div class="flex mt-3 items-end flex-wrap">

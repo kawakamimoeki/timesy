@@ -102,3 +102,7 @@ body.dark .markdown-body table th, body.dark .markdown-body table td {
 body.dark .markdown-body table tr {
   background-color: rgb(30 39 50);
 }
+
+.markdown-body p > img {
+  cursor: zoom-in
+}

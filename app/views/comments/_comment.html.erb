@@ -5,7 +5,7 @@
     <div class="grow"></div>
     <%= turbo_frame_tag :comment_editor, src: comment_editor_path(comment.post, comment), loading: :lazy, class: "flex items-center space-x-1" %>
   </div>
-  <div data-post-show-target="show" class="markdown-body" style="<%= comment.emoji_only? ? "font-size: 32px;" : "" %>">
+  <div data-post-show-target="show" data-controller="image-modal" class="markdown-body" style="<%= comment.emoji_only? ? "font-size: 32px;" : "" %>">
     <%= comment.html.html_safe %>
   </div>
   <div class="hidden" data-post-show-target="editor">

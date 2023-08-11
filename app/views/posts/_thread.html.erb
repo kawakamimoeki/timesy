@@ -45,7 +45,7 @@
       <% end %>
     </div>
     <%= turbo_frame_tag :post do %>
-      <div data-post-show-target="show" class="markdown-body">
+      <div data-post-show-target="show" data-controller="image-modal" class="markdown-body">
         <%= @post.html.html_safe %>
       </div>
     <% end %>
