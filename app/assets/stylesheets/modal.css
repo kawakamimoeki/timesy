@@ -1,0 +1,80 @@
+.modal {
+  font-family: -apple-system,BlinkMacSystemFont,avenir next,avenir,helvetica neue,helvetica,ubuntu,roboto,noto,segoe ui,arial,sans-serif;
+  z-index: 9999;
+  cursor: zoom-out
+}
+
+.modal__overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(227, 227, 227, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.dark .modal__overlay {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.modal__container {
+  border-radius: 4px;
+  overflow-y: auto;
+  box-sizing: border-box;
+}
+
+/**************************\
+  Demo Animation Style
+\**************************/
+@keyframes mmfadeIn {
+    from { opacity: 0; }
+      to { opacity: 1; }
+}
+
+@keyframes mmfadeOut {
+    from { opacity: 1; }
+      to { opacity: 0; }
+}
+
+@keyframes mmzoomIn {
+  from { transform: scale(0.7) }
+    to { transform: scale(1) }
+}
+
+@keyframes mmzoomOut {
+    from { transform: scale(1) }
+    to { transform: scale(0.7) }
+}
+
+.micromodal-zoom {
+  display: none;
+}
+
+.micromodal-zoom.is-open {
+  display: block;
+}
+
+.micromodal-zoom[aria-hidden="false"] .modal__overlay {
+  animation: mmfadeIn .1s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+.micromodal-zoom[aria-hidden="false"] .modal__container {
+  animation: mmzoomIn .1s cubic-bezier(0, 0, .2, 1);
+}
+
+.micromodal-zoom[aria-hidden="true"] .modal__overlay {
+  animation: mmfadeOut .1s cubic-bezier(0.0, 0.0, 0.2, 1);
+}
+
+.micromodal-zoom[aria-hidden="true"] .modal__container {
+  animation: mmzoomOut .1s cubic-bezier(0, 0, .2, 1);
+}
+
+.micromodal-zoom .modal__container,
+.micromodal-zoom .modal__overlay {
+  will-change: transform;
+}
