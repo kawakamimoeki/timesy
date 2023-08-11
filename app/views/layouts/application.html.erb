@@ -26,7 +26,9 @@
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script src="https://unpkg.com/@popperjs/core@2"></script>
     <script src="https://unpkg.com/tippy.js@6"></script>
-    <link rel="stylesheet" type="text/css" href="/dracula.css">
+    <% if current_user&.code_theme %>
+      <link rel="stylesheet" type="text/css" href="/code_themes/<%= current_user&.code_theme&.name %>.css">
+    <% end %>
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
     <script>window.twttr = (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0],

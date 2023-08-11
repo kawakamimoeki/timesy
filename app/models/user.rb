@@ -12,6 +12,7 @@ class User < ApplicationRecord
   has_many :notifications, dependent: :destroy
   has_many :access_tokens, dependent: :destroy
   has_many :pins, dependent: :destroy
+  belongs_to :code_theme, optional: true
 
   validates :name, presence: true
   validates :name, exclusion: {
