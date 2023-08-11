@@ -7,7 +7,7 @@
       <% end %>
     <% end %>
     <button class="<%= block_link_class %> bg-gray-50 border dark:border-dark-border dark:bg-gray-700 hover:bg-gray-100 hover:dark:bg-gray-600" data-controller="tobottom">
-      <%= image_tag "icons/down.svg", alt: "down", width: "24px", height: "24px",class: "icon" %>
+      <%= image_tag "icons/down.svg", alt: "down", width: "24px", height: "24px",class: "icon animate-fade-in transition-all" %>
       <span class="text-sm">To Bottom</span>
     </button>
   </div>
@@ -19,12 +19,12 @@
       <% if current_user == @post.user %>
       <div data-controller="menu" data-post-show-target="menu" class="overflow-visible relative">
         <button class="<%= icon_button_class %>" data-action="menu#toggle">
-          <%= image_tag "icons/more.svg", width: "24px", height: "24px", class: "icon" %>
+          <%= image_tag "icons/more.svg", width: "24px", height: "24px", class: "icon animate-fade-in transition-all" %>
         </button>
         <div data-action="click->menu#toggle" data-menu-target="backdrop" class="<%= backdrop_class %>"></div>
         <div class="<%= dropdown_class %> w-full" data-menu-target="dropdown">
           <button class="<%= icon_button_class %> w-full flex items-center space-x-2" data-action="post-show#edit" data-post-show-target="editButton">
-            <%= image_tag "icons/edit.svg", alt: "edit", width: "24px", height: "16px", class: "icon" %>
+            <%= image_tag "icons/edit.svg", alt: "edit", width: "24px", height: "16px", class: "icon animate-fade-in transition-all" %>
           </button>
           <div class="mt-[1px]">
             <%= button_to(
@@ -34,13 +34,13 @@
               onClick: "return confirm('#{I18n.t('posts.confirm_delete')}')",
               data: { turbo: false, post_show_target: "deleteButton" }
             ) do %>
-              <%= image_tag "icons/delete.svg", alt: "edit", width: "24px", height: "16px",class: "icon" %>
+              <%= image_tag "icons/delete.svg", alt: "edit", width: "24px", height: "16px",class: "icon animate-fade-in transition-all" %>
             <% end %>
           </div>
         </div>
       </div>
       <button class="hidden <%= icon_button_class %>" data-action="post-show#close" data-post-show-target="closeButton">
-        <%= image_tag "icons/cancel.svg", alt: "edit", width: "24px", height: "16px",class: "icon" %>
+        <%= image_tag "icons/cancel.svg", alt: "edit", width: "24px", height: "16px",class: "icon animate-fade-in transition-all" %>
       </button>
       <% end %>
     </div>
@@ -66,10 +66,10 @@
           <div class="grow"></div>
           <div class="px-1">
             <button type="button" class="<%= icon_button_class %>" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton">
-              <%= image_tag "icons/preview.svg", alt: "preview", width: "24px", height: "16px",class: "icon" %>
+              <%= image_tag "icons/preview.svg", alt: "preview", width: "24px", height: "16px",class: "icon animate-fade-in transition-all" %>
             </button>
             <button type="button" class="<%= icon_button_class %> hidden" title="<%=  I18n.t('posts.edit') %>" data-action="markdown#edit" data-markdown-target="editorButton">
-              <%= image_tag "icons/edit.svg", alt: "edit", width: "24px", height: "16px",class: "icon" %>
+              <%= image_tag "icons/edit.svg", alt: "edit", width: "24px", height: "16px",class: "icon animate-fade-in transition-all" %>
             </button>
           </div>
           <div class="px-1">

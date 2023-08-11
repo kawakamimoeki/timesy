@@ -79,10 +79,10 @@
         <div class="grow"></div>
         <div data-controller="theme" class="mr-1">
           <button data-action="theme#toggle" data-theme-target="dark" class="hidden <%= icon_button_class %>">
-            <%= image_tag "icons/light.svg", width: "24px", height: "16px",class: "icon" %>
+            <%= image_tag "icons/light.svg", width: "24px", height: "16px",class: "icon animate-fade-in transition-all" %>
           </button>
           <button data-action="theme#toggle" data-theme-target="light" class="hidden <%= icon_button_class %>">
-            <%= image_tag "icons/dark.svg", width: "24px", height: "16px",class: "icon" %>
+            <%= image_tag "icons/dark.svg", width: "24px", height: "16px",class: "icon animate-fade-in transition-all" %>
           </button>
         </div>
         <% if current_user %>
@@ -92,7 +92,7 @@
               class="relative <%= icon_button_class %>"
               data-turbo-frame="notifications"
             >
-              <%= image_tag "icons/notification.svg", width: "24px", height: "16px",class: "icon" %>
+              <%= image_tag "icons/notification.svg", width: "24px", height: "16px",class: "icon animate-fade-in transition-all" %>
               <div data-notification-target="indicator" class="hidden absolute top-2 right-2 w-2 h-2 rounded-full bg-red-500 text-white text-xs items-center justify-center"></div>
             </button>
             <div
@@ -116,7 +116,7 @@
             </button>
           <% else %>
             <button data-action="click->menu#toggle" class="<%= icon_button_class %> ml-1">
-              <%= image_tag "icons/menu.svg", width: "24px", height: "16px",class: "icon" %>
+              <%= image_tag "icons/menu.svg", width: "24px", height: "16px",class: "icon animate-fade-in transition-all" %>
             </button>
           <% end %>
           <div data-action="click->menu#toggle" data-menu-target="backdrop" class="<%= backdrop_class %>"></div>

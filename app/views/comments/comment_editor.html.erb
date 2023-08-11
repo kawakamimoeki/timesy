@@ -2,12 +2,12 @@
 <% if @comment.user == current_user %>
   <div data-controller="menu" data-post-show-target="menu" class="overflow-visible relative">
     <button class="<%= icon_button_class %>" data-action="menu#toggle">
-      <%= image_tag "icons/more.svg", width: "24px", height: "24px", class: "icon" %>
+      <%= image_tag "icons/more.svg", width: "24px", height: "24px", class: "icon animate-fade-in transition-all" %>
     </button>
     <div data-action="click->menu#toggle" data-menu-target="backdrop" class="<%= backdrop_class %>"></div>
     <div class="<%= dropdown_class %> w-full" data-menu-target="dropdown">
       <button class="<%= icon_button_class %> w-full flex items-center space-x-2" data-action="post-show#edit" data-post-show-target="editButton">
-        <%= image_tag "icons/edit.svg", alt: "edit", width: "24px", height: "16px", class: "icon" %>
+        <%= image_tag "icons/edit.svg", alt: "edit", width: "24px", height: "16px", class: "icon animate-fade-in transition-all" %>
       </button>
       <div class="mt-[1px]">
         <%= button_to(
@@ -16,13 +16,13 @@
           class: "#{icon_button_class} w-full flex items-center space-x-2",
           data: { turbo_frame: "comments", turbo_confirm: I18n.t("comments.confirm_delete"), post_show_target: "deleteButton" }
         ) do %>
-          <%= image_tag "icons/delete.svg", alt: "edit", width: "24px", height: "16px",class: "icon" %>
+          <%= image_tag "icons/delete.svg", alt: "edit", width: "24px", height: "16px",class: "icon animate-fade-in transition-all" %>
         <% end %>
       </div>
     </div>
   </div>
       <button class="hidden <%= icon_button_class %>" data-action="post-show#close" data-post-show-target="closeButton">
-        <%= image_tag "icons/cancel.svg", alt: "edit", width: "24px", height: "16px",class: "icon" %>
+        <%= image_tag "icons/cancel.svg", alt: "edit", width: "24px", height: "16px",class: "icon animate-fade-in transition-all" %>
       </button>
   </div>
 <% end %>
