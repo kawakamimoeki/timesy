@@ -2,7 +2,7 @@
   Five-color theme from a single blue hue.
 */
 .hljs {
-  background: #eaeef3;
+  background: #eaeef3 !important;
   color: #00193a;
 }
 

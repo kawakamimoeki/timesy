@@ -4,7 +4,7 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 
 .hljs {
   color: #000;
-  background: #f8f8ff;
+  background: #f8f8ff !important;
 }
 
 .hljs-comment,
@@ -77,11 +77,11 @@ Docco style used in http://jashkenas.github.com/docco/ converted by Simon Madine
 }
 
 .hljs-deletion {
-  background: #fdd;
+  background: #fdd !important;
 }
 
 .hljs-addition {
-  background: #dfd;
+  background: #dfd !important;
 }
 
 .hljs-emphasis {

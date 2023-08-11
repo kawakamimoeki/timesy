@@ -20,7 +20,7 @@
 */
 
 .hljs {
-  background: #333;
+  background: #333 !important;
   color: #fff;
 }
 
@@ -103,12 +103,12 @@
 }
 
 .hljs-deletion {
-  background: #fc9b9b;
+  background: #fc9b9b !important;
   color: #333;
 }
 
 .hljs-addition {
-  background: #a2fca2;
+  background: #a2fca2 !important;
   color: #333;
 }
 
@@ -134,6 +134,6 @@
 }
 
 .hljs mark {
-  background: #555;
+  background: #555 !important;
   color: inherit;
 }

@@ -7,7 +7,7 @@ Date: 2013-04-02
 */
 
 .hljs {
-  background: #eee;
+  background: #eee !important;
   color: black;
 }
 

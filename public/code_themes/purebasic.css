@@ -22,7 +22,7 @@ NOTE_2:	Color names provided in comments were derived using "Name that Color" on
 */
 
 .hljs {
-	background: #FFFFDF; /* Half and Half (approx.) */
+	background: #FFFFDF !important; /* Half and Half (approx.) */
 }
 
 .hljs, /* --- used for PureBASIC base color --- */

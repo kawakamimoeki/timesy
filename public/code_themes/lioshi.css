@@ -2,7 +2,7 @@
 /* Original theme - https://github.com/lioshi/vscode-lioshi-theme */
 
 .hljs {
-  background: #303030;
+  background: #303030 !important;
   color: #c5c8c6;
 }
 

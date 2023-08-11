@@ -10,7 +10,7 @@
 
 .hljs {
   color: #adbac7;
-  background: #22272e;
+  background: #22272e !important;
 }
 
 .hljs-doctag,

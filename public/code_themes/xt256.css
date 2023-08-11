@@ -8,7 +8,7 @@
 
 .hljs {
   color: #eaeaea;
-  background: #000;
+  background: #000 !important;
 }
 
 .hljs-subst {

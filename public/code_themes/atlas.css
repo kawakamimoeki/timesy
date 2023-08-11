@@ -46,7 +46,7 @@ code.hljs {
 
 .hljs {
   color: #a1a19a;
-  background: #002635;
+  background: #002635 !important;
 }
 
 .hljs::selection,

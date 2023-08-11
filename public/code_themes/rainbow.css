@@ -5,7 +5,7 @@ Style with support for rainbow parens
 */
 
 .hljs {
-  background: #474949;
+  background: #474949 !important;
   color: #d1d9e1;
 }
 
@@ -70,7 +70,7 @@ Style with support for rainbow parens
 }
 
 .hljs-formula {
-  background: #eee8d5;
+  background: #eee8d5 !important;
 }
 
 .hljs-attr,

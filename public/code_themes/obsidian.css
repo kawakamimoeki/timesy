@@ -5,7 +5,7 @@
 
 .hljs {
   color: #e0e2e4;
-  background: #282b2e;
+  background: #282b2e !important;
 }
 
 .hljs-keyword,

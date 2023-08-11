@@ -7,7 +7,7 @@ Original One Dark Syntax theme from https://github.com/atom/one-dark-syntax
 */
 .hljs {
   color: #abb2bf;
-  background: #282c34;
+  background: #282c34 !important;
 }
 .hljs-keyword, .hljs-operator {
   color: #F92672;

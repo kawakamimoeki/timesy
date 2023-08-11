@@ -8,7 +8,7 @@ Ported by Fabrício Tavares de Oliveira
 
 .hljs {
   color: #000;
-  background: #fff;
+  background: #fff !important;
 }
 
 .hljs-subst {

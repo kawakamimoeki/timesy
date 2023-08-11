@@ -6,7 +6,7 @@ grayscale style (c) MY Sun <simonmysun@gmail.com>
 
 .hljs {
   color: #333;
-  background: #fff;
+  background: #fff !important;
 }
 
 .hljs-comment,

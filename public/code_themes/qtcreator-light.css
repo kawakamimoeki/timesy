@@ -5,7 +5,7 @@ Qt Creator light color scheme
 
 .hljs {
   color: #000000;
-  background: #ffffff;
+  background: #ffffff !important;
 }
 
 .hljs-strong,

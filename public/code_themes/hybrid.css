@@ -5,19 +5,19 @@ vim-hybrid theme by w0ng (https://github.com/w0ng/vim-hybrid)
 */
 
 .hljs {
-  background: #1d1f21;
+  background: #1d1f21 !important;
   color: #c5c8c6;
 }
 
 /*selection color*/
 .hljs::selection,
 .hljs span::selection {
-  background: #373b41;
+  background: #373b41 !important;
 }
 
 .hljs::-moz-selection,
 .hljs span::-moz-selection {
-  background: #373b41;
+  background: #373b41 !important;
 }
 
 /*color: fg_yellow*/

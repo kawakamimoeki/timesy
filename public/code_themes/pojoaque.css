@@ -69,7 +69,7 @@ Based on Solarized Style from http://ethanschoonover.com/solarized
 }
 
 .hljs-formula {
-  background: #073642;
+  background: #073642 !important;
 }
 
 .hljs-emphasis {

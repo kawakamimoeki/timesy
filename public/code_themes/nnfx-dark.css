@@ -10,7 +10,7 @@
 */
 
 .hljs {
-  background: #333;
+  background: #333 !important;
   color: #fff;
 }
 

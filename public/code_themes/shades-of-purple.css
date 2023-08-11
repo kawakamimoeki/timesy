@@ -7,7 +7,7 @@
  */
 
 .hljs {
-  background: #2d2b57;
+  background: #2d2b57 !important;
   color: #e3dfff;
   font-weight: normal;
 }

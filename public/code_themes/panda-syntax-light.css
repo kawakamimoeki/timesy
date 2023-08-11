@@ -6,7 +6,7 @@
 
 .hljs {
   color: #2a2c2d;
-  background: #e6e6e6;
+  background: #e6e6e6 !important;
 }
 
 .hljs-emphasis {

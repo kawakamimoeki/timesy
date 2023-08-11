@@ -8,13 +8,13 @@
 
 .hljs {
   color: #dddde1;
-  background: #1e1e22;
+  background: #1e1e22 !important;
 }
 
 .hljs::selection,
 .hljs ::selection {
   color: #1e1e22;
-  background: #bf8fef;
+  background: #bf8fef !important;
 }
 
 .hljs-comment,

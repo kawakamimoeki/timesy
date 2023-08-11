@@ -6,7 +6,7 @@ Intellij-light style (c) Pegasis <me@pegasis.site>
 
 .hljs {
   color: #000;
-  background: #fff;
+  background: #fff !important;
 }
 
 .hljs-subst,
@@ -91,11 +91,11 @@ Intellij-light style (c) Pegasis <me@pegasis.site>
 }
 
 .hljs-addition {
-  background: #BEE6BE;
+  background: #BEE6BE !important;
 }
 
 .hljs-deletion {
-  background: #D6D6D6;
+  background: #D6D6D6 !important;
 }
 
 .hljs-emphasis {

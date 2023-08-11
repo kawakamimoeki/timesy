@@ -7,7 +7,7 @@ Qt Creator dark color scheme
 
 .hljs {
   color: #aaaaaa;
-  background: #000000;
+  background: #000000 !important;
 }
 
 .hljs-strong,

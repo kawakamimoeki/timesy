@@ -104,7 +104,7 @@
 .hljs-punctuation {color: #343b58}
 
 .hljs {
-  background: #d5d6db;
+  background: #d5d6db !important;
   color: #565a6e;
 }
 

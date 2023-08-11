@@ -28,7 +28,7 @@ SOFTWARE.
 */
 
 .hljs {
-  background: #011627;
+  background: #011627 !important;
   color: #d6deeb;
 }
 

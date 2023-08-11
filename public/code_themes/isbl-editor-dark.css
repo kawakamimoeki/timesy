@@ -5,7 +5,7 @@ ISBL Editor style dark color scheme (c) Dmitriy Tarasov <dimatar@gmail.com>
 */
 
 .hljs {
-  background: #404040;
+  background: #404040 !important;
   color: #f0f0f0;
 }
 

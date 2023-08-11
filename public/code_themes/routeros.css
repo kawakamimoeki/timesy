@@ -6,7 +6,7 @@
 
 .hljs {
   color: #444;
-  background: #F0F0F0;
+  background: #F0F0F0 !important;
 }
 
 /* Base color: saturation 0; */

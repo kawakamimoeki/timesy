@@ -16,7 +16,7 @@
   /* var(--highlight-color) */
   color: #2f3337;
   /* var(--highlight-bg) */
-  background: #f6f6f6;
+  background: #f6f6f6 !important;
 }
 
 .hljs-subst {

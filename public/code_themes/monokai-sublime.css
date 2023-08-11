@@ -5,7 +5,7 @@ Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-lic
 */
 
 .hljs {
-  background: #23241f;
+  background: #23241f !important;
   color: #f8f8f2;
 }
 

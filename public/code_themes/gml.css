@@ -5,7 +5,7 @@ GML Theme - Meseta <meseta@gmail.com>
 */
 
 .hljs {
-  background: #222222;
+  background: #222222 !important;
   color: #C0C0C0;
 }
 
