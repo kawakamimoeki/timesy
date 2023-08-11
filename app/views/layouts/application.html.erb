@@ -56,12 +56,14 @@
     }(document, "script", "twitter-wjs"));</script>
   </head>
 
-  <body class="bg-background bg-cover bg-fixed dark:bg-dark-background" data-controller="wallpaper" data-wallpaper-url-value="<%= !browser.device.mobile? && !browser.device.tablet? && current_user&.wallpaper_url %>">
+  <body class="bg-background bg-cover bg-fixed dark:bg-dark-background" data-background-image="<%= !browser.device.mobile? && !browser.device.tablet? && current_user&.wallpaper_url %>">
     <script>
+      const body = document.querySelector('body')
+      body.style.backgroundImage = `url(${body.dataset.backgroundImage})`
       if (localStorage.theme === 'dark') {
-        document.querySelector("body").classList.add('dark')
+        body.classList.add('dark')
       } else {
-        document.querySelector("body").classList.remove('dark')
+        body.classList.remove('dark')
       }
     </script>
     <header class="w-full bg-white dark:bg-dark-background dark:text-gray-200 border-b dark:border-dark-border">
