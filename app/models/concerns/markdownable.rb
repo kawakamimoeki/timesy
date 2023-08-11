@@ -4,7 +4,7 @@ module Markdownable
   extend ActiveSupport::Concern
   include ActionView::Helpers::SanitizeHelper
 
-  CACHE_NAMESPACE = "202308111935"
+  CACHE_NAMESPACE = "202308112320"
 
   def truncated(length = 64)
     strip_tags(strip_emoji(html)).gsub(/\n/, " ").gsub(/\//, "").truncate(length)

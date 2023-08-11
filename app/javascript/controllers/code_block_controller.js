@@ -2,6 +2,16 @@ import { Controller } from "@hotwired/stimulus"
 import Toastify from 'toastify-js'
 
 export default class extends Controller {
+  static targets = ["button"]
+
+  connect () {
+    this.element.addEventListener("mouseenter", () => {
+      this.buttonTarget.classList.remove("hidden")
+    })
+    this.element.addEventListener("mouseleave", () => {
+      this.buttonTarget.classList.add("hidden")
+    })
+  }
 
   copy() {
     const code = this.element.querySelector("code").innerText
