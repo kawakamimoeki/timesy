@@ -14,13 +14,16 @@ body.dark .markdown-body pre {
   color: rgb(29, 155, 240);
 }
 
+.markdown-body img {
+  background: none !important;
+}
 
 .hljs {
   padding: 0 !important;
   width: 100% !important;
 }
 
-.markdown-body img {
+.markdown-body img:not(.not-inline) {
   border-radius: 10px;
   width: 100% !important;
   max-width: 400px !important;
@@ -28,7 +31,7 @@ body.dark .markdown-body pre {
   border: 1px solid #e1e4e8 !important;
 }
 
-.dark .markdown-body img {
+.dark .markdown-body img:not(.not-inline) {
   border: 1px solid #30363d !important;
 }
 
@@ -103,6 +106,6 @@ body.dark .markdown-body table tr {
   background-color: rgb(30 39 50);
 }
 
-.markdown-body p > img {
+.markdown-body p > img:not(.not-inline) {
   cursor: zoom-in
 }

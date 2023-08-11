@@ -4,7 +4,7 @@ module Markdownable
   extend ActiveSupport::Concern
   include ActionView::Helpers::SanitizeHelper
 
-  CACHE_NAMESPACE = "202308111933"
+  CACHE_NAMESPACE = "202308111935"
 
   def truncated(length = 64)
     strip_tags(strip_emoji(html)).gsub(/\n/, " ").gsub(/\//, "").truncate(length)
@@ -30,6 +30,13 @@ module Markdownable
         body = emojified_body.truncate(truncate)
       end
       doc = Nokogiri::HTML::DocumentFragment.parse(markdown.render(body))
+      doc.css('pre').each do |pre|
+        if pre.children.first.name == "code"
+          pre[:class] = "relative group"
+          pre["data-controller"] = "code-block"
+          pre.inner_html = ApplicationController.renderer.render(partial: "shared/code_block", locals: { code: pre.inner_html })
+        end
+      end
       doc.css('code[@class]').each do |code|
         code[:class] = "language-" + code[:class]
       end
