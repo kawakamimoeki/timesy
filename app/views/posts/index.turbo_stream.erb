@@ -1,16 +1,5 @@
 <%= turbo_stream.append "posts" do %>
   <%= render @posts %>
-  <script>
-    twttr.widgets.load()
-    const tweets = document.querySelectorAll(".twitter-tweet")
-    if (localStorage.theme === 'dark') {
-      if (tweets) {
-        tweets.forEach((tweet) => {
-          tweet.dataset.theme = 'dark'
-        })
-      }
-    }
-  </script>
 <% end %>
 
 <% if @next_page.present? %>
