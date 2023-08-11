@@ -105,4 +105,5 @@ body.dark .markdown-body table tr {
   padding: 0 !important;
   background: none !important;
   margin-top: -16px !important
+  margin-bottom: -8px !important
 }
