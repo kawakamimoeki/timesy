@@ -5,18 +5,6 @@ class SettingsController < ApplicationController
     @user = current_user
   end
 
-  def update_wallpaper
-    @user = current_user
-    if wallpaper_params[:no_wallpaper] == "true"
-      @user.wallpaper.purge
-    end
-    if wallpaper_params[:wallpaper].present?
-      @user.wallpaper.attach(wallpaper_params[:wallpaper])
-    end
-    flash[:notice] = I18n.t('settings.updated')
-    redirect_to settings_path
-  end
-
   def update_profile
     @user = current_user
     if @user.update(profile_params)
@@ -32,6 +20,19 @@ class SettingsController < ApplicationController
     @user = current_user
     ExportJob.perform_later(user_id: @user.id)
     flash[:notice] = I18n.t('settings.exporting')
+    redirect_to settings_path
+  end
+
+  def update_theme
+    @user = current_user
+    if theme_params[:no_wallpaper] == "true"
+      @user.wallpaper.purge
+    end
+    if theme_params[:wallpaper].present?
+      @user.wallpaper.attach(theme_params[:wallpaper])
+    end
+    @user.update(code_theme_id: theme_params[:code_theme_id])
+    flash[:notice] = I18n.t('settings.updated')
     redirect_to settings_path
   end
 
@@ -84,10 +85,11 @@ class SettingsController < ApplicationController
     )
   end
 
-  private def wallpaper_params
+  private def theme_params
     params.require(:user).permit(
       :wallpaper,
-      :no_wallpaper
+      :no_wallpaper,
+      :code_theme_id
     )
   end
 end

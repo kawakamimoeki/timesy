@@ -1,4 +1,4 @@
-<div class="p-4 bg-background dark:bg-dark-background">
+<div class="p-4 my-4 bg-background dark:bg-dark-background">
   <%= render partial: "shared/error_messages", locals: { errors: @user.errors.full_messages } %>
   <%= render partial: "shared/notice_messages", locals: { notice: notice } %>
   <h2 class="border-b dark:border-gray-600 mb-4 font-bold pb-1"><%= I18n.t("settings.profile") %></h2>
@@ -24,9 +24,15 @@
       <%= f.submit I18n.t("form.submit.update"), class: primary_button_class %>
     </div>
   <% end %>
-  <h2 class="border-b mt-8 dark:border-gray-600 mb-4 font-bold pb-1"><%= I18n.t("settings.wallpaper") %></h2>
-  <%= form_with model: @user, multipart: true, url: update_wallpaper_path, method: :patch, data: { turbo: false } do |f| %>
-  <div data-controller="file-field" data-file-field-fallback-value="<%= current_user.no_wallpaper %>" class="mb-4">
+  <h2 class="border-b mt-8 dark:border-gray-600 mb-4 font-bold pb-1"><%= I18n.t("settings.theme") %></h2>
+  <%= form_with model: @user, url: update_theme_path, method: :patch, data: { turbo: false }, multipart: true do |f| %>
+    <%= f.label :code_theme_id, class: label_class %>
+    <a href="https://highlightjs.org/examples" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline mb-4 flex items-center space-x-2">
+      <span><%= I18n.t("settings.theme_preview") %></span>
+    </a>
+    <%= f.select :code_theme_id, CodeTheme.order(:name).map { |theme| [theme.name, theme.id] }, {}, class: "#{text_field_class} mb-3" %>
+    <%= f.label :wallpaper, class: label_class %>
+    <div data-controller="file-field" data-file-field-fallback-value="<%= current_user.no_wallpaper %>" class="mb-4">
     <%= image_tag @user.wallpaper_or_none, alt: "wallpaper", class: "w-[400px] h-[220px] object-cover preview rounded-lg" %>
     <button type="button" class="text-gray-600 inline text-sm hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700 rounded-full py-1 px-3 mt-3" data-action="file-field#click" ><%= I18n.t("form.button.change_file") %></button>
     <button type="button" class="text-red-600 inline text-sm hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700 rounded-full py-1 px-3 mt-3" data-action="file-field#remove" ><%= I18n.t("form.submit.delete") %></button>

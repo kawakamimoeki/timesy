@@ -2,10 +2,6 @@
   color: #0366d6 !important;
 }
 
-body.dark .markdown-body pre {
-  background-color: #282a36;
-}
-
 .markdown-body * {
   word-break: break-all !important;
 }
@@ -63,10 +59,6 @@ body.dark .markdown-body pre {
 .markdown-body ol {
   list-style: decimal;
   padding-left: 2rem;
-}
-
-body.dark .markdown-body code {
-  background-color: #282a36 !important;;
 }
 
 .markdown-body {

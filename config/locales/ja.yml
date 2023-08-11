@@ -34,6 +34,8 @@ ja:
         username: ユーザーネーム
         name: 表示名
         bio: 自己紹介
+        code_theme_id: コードブロックのテーマ
+        wallpaper: 壁紙
         github: GitHub
         twitter: X
         website: ウェブサイト
@@ -120,6 +122,8 @@ ja:
     setting: アカウント設定
     confirm_delete: 削除されるとアカウントは復旧できません。よろしいですか？
   settings:
+    theme: テーマ設定 (hightlight.js)
+    theme_preview: highlight.jsのサイトでテーマプレビューを見る→
     profile: プロフィール
     wallpaper: 壁紙設定
     export: エクスポート
