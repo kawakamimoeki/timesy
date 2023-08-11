@@ -38,7 +38,7 @@ module Markdownable
         end
       end
       doc.css('code[@class]').each do |code|
-        code[:class] = "language-" + code[:class]
+        code[:class] = "p-4 language-" + code[:class]
       end
       doc.css('a').each do |link|
         link["data-turbo"] = false

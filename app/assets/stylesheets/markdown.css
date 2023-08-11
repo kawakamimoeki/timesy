@@ -15,7 +15,6 @@
 }
 
 .hljs {
-  padding: 0 !important;
   width: 100% !important;
 }
 
@@ -100,4 +99,10 @@ body.dark .markdown-body table tr {
 
 .markdown-body p > img:not(.not-inline) {
   cursor: zoom-in
+}
+
+.markdown-body pre {
+  padding: 0 !important;
+  background: none !important;
+  margin: -16px 0 !important
 }
