@@ -4,12 +4,14 @@ module Markdownable
   extend ActiveSupport::Concern
   include ActionView::Helpers::SanitizeHelper
 
+  CACHE_NAMESPACE = "202308111933"
+
   def truncated(length = 64)
     strip_tags(strip_emoji(html)).gsub(/\n/, " ").gsub(/\//, "").truncate(length)
   end
 
   def html(truncate = false)
-    Rails.cache.fetch("/markdown/202308111912/#{Digest::SHA256.hexdigest(body)}", expires_in: 1.week) do
+    Rails.cache.fetch("/markdown/#{CACHE_NAMESPACE}/#{Digest::SHA256.hexdigest(body)}", expires_in: 1.week) do
       markdown = Redcarpet::Markdown.new(
         Redcarpet::Render::HTML.new(
           filter_html: true,
@@ -41,7 +43,7 @@ module Markdownable
             if link.text.match?(/twitter\.com\/\w+\/status\/\d+/)
               link.replace(ApplicationController.renderer.render(partial: "shared/tweet_card", locals: { url: link.text }))
             else
-              data = Rails.cache.fetch("/ogp/202308111912/#{Digest::SHA256.hexdigest(link.text)}", expires_in: 1.week) do
+              data = Rails.cache.fetch("/ogp/#{CACHE_NAMESPACE}/#{Digest::SHA256.hexdigest(link.text)}", expires_in: 1.week) do
                 response = Faraday.get(link.text)
                 ogp = OGP::OpenGraph.new(response.body)
                 ogp.data
