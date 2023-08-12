@@ -185,6 +185,10 @@ GEM
       net-smtp
     marcel (1.0.2)
     matrix (0.4.2)
+    meilisearch (0.23.0)
+      httparty (>= 0.17.1, < 0.22.0)
+    meilisearch-rails (0.9.1)
+      meilisearch (~> 0.23.0)
     memoist (0.16.2)
     meta-tags (2.18.0)
       actionpack (>= 3.2.0, < 7.1)
@@ -377,6 +381,7 @@ DEPENDENCIES
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
+  meilisearch-rails
   meta-tags
   minitest-stub_any_instance
   ogp

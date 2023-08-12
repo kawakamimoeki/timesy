@@ -15,9 +15,7 @@
         <%= render partial: "posts/form", locals: { post: @post, page: @page } %>
       </div>
       <% end %>
-      <div class="hidden sm:block">
-        <%= turbo_stream_from "posts" %>
-      </div>
+      <%= turbo_stream_from "posts" %>
       <%= turbo_frame_tag "posts", target: "_top" do %>
       <% end %>
 

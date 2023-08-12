@@ -1,0 +1,17 @@
+<div class=" w-full grow relative mt-4">
+  <div class="max-w-3xl mx-auto px-4 mb-4">
+    <%= form_tag search_path, data: { turbo: false }, method: :get, class: "w-full" do |f| %>
+    <input type="search" name="q" id="q" value="<%= params[:q] %>" placeholder="<%= I18n.t("pages.search") %>" class="<%= text_field_class %> rounded-full mx-auto w-full m-0 px-6 py-3" />
+  <% end %>
+  </div>
+  <div class="grow w-full" id="main">
+    <div class="max-w-3xl mx-auto px-4 <%= current_user ? "" : "pt-4"%>">
+      <%= turbo_frame_tag "posts", target: "_top" do %>
+        <%= render @posts %>
+      <% end %>
+    </div>
+  </div>
+  <div class="grow w-1/2 hidden border-l overflow-visible sm:h-[calc(100vh-55px)] sm:overflow-scroll dark:border-l-dark-border" id="sidebar-container">
+    <%= turbo_frame_tag "sidebar" %>
+  </div>
+</div>

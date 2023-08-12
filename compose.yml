@@ -13,6 +13,12 @@ services:
     container_name: mailcatcher
     ports:
       - '1080:1080'
+  meilisearch:
+    image: getmeili/meilisearch:v1.3.1
+    command: meilisearch --master-key=${MEILISEARCH_MASTER_KEY}
+    container_name: meilisearch
+    ports:
+      - '7700:7700'
   web:
     build: .
     command: bin/dev
@@ -26,9 +32,12 @@ services:
       - db
       - mailcatcher
       - redis
+      - meilisearch
     environment:
       DATABASE_URL: postgres://postgres:password@db:5432
       REDIS_URL: redis://redis:6379
+      MEILISEARCH_URL: http://meilisearch:7700
+      MEILISEARCH_MASTER_KEY: ${MEILISEARCH_MASTER_KEY}
   redis:
     image: redis:7.0
     command: redis-server --appendonly yes
