@@ -62,6 +62,7 @@
 
 .markdown-body {
   font-size: 16px !important;
+  line-height: 1.5 !important;
 }
 
 body.dark .markdown-body .project-tag {
