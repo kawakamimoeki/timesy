@@ -18,12 +18,12 @@
       </div>
       <div class="flex flex-wrap items-center">
         <% post.comments.latest[0..1].each do |comment| %>
-          <div class="w-auto ounded-full py-[4px] mr-2 px-3 my-1 flex items-center border bg-gray-50 dark:bg-slate-700 shadow dark:border-slate-700 border-gray-50 text-sm rounded-lg">
+          <div class="w-auto py-[4px] mr-2 px-3 my-1 flex items-center border bg-gray-50 dark:bg-slate-700 shadow dark:border-slate-700 border-gray-50 text-sm rounded-full">
             <%= comment.truncated(32) %>
           </div>
         <% end %>
         <% if post.comments.count > 2 %>
-        <div class="text-sm text-right">
+        <div class="w-auto py-[4px] mr-2 px-3 my-1 flex items-center border bg-gray-50 dark:bg-slate-700 shadow dark:border-slate-700 border-gray-50 text-sm rounded-full">
           <%= I18n.t("comments.count", num: post.comments.count - 2) %>
         </div>
         <% end %>
