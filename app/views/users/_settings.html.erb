@@ -27,7 +27,7 @@
   <h2 class="border-b mt-8 dark:border-gray-600 mb-4 font-bold pb-1"><%= I18n.t("settings.theme") %></h2>
   <%= form_with model: @user, url: update_theme_path, method: :patch, data: { turbo: false }, multipart: true do |f| %>
     <%= f.label :code_theme_id, class: label_class %>
-    <a href="https://highlightjs.org/examples" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline mb-4 flex items-center space-x-2">
+    <a href="https://highlightjs.org/examples" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline mb-4 flex items-center space-x-2 text-sm">
       <span><%= I18n.t("settings.theme_preview") %></span>
     </a>
     <%= f.select :code_theme_id, CodeTheme.order(:name).map { |theme| [theme.name, theme.id] }, {}, class: "#{text_field_class} mb-3" %>

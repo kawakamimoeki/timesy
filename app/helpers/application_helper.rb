@@ -43,7 +43,7 @@ module ApplicationHelper
   end
 
   def nav_class
-    "w-full flex items-center border-b dark:border-dark-border sticky space-x-3 mb-4 top-0 z-[50] bg-background dark:bg-dark-background dark:text-gray-200"
+    "w-full flex items-center shadow font-bold dark:border-dark-border sticky space-x-3 mb-4 top-0 z-[50] bg-background dark:bg-dark-background dark:text-gray-200"
   end
 
   def nav_list_class
@@ -51,11 +51,11 @@ module ApplicationHelper
   end
 
   def nav_item_class(path)
-    "hover:opacity-100 py-2 text-center dark:border-dark-border border-b #{request.path == path ? " border-sky-600 dark:border-sky-600" : "opacity-50"}"
+    "hover:opacity-100 py-2 text-center dark:border-dark-border border-b #{request.path == path ? " border-sky-600 dark:border-sky-600" : "opacity-30"}"
   end
 
   def card_class
-    "relative bg-white p-4 rounded-lg border mb-4 dark:text-gray-200 dark:bg-dark-card dark:border-dark-border dark:text-gray-200"
+    "relative bg-white p-4 rounded-lg shadow mb-4 dark:text-gray-200 dark:bg-dark-card dark:border dark:border-dark-border dark:text-gray-200"
   end
 
   def block_link_class
