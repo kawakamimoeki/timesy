@@ -44,7 +44,7 @@ module Markdownable
         link["data-turbo"] = false
       end
       doc.css('p').each do |paragraph|
-        if paragraph.children.any? { |child| child.name == "a" }
+        if paragraph.children.length == 1 && paragraph.children.first.name == "a"
           link = paragraph.children.find { |child| child.name == "a" }
           if link.text == link["href"]
             if link.text.match?(/twitter\.com\/\w+\/status\/\d+/)
