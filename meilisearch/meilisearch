@@ -1,27 +1,3 @@
 #!/bin/sh
 
-# Map input values from the GitHub Actions workflow to shell variables
-MEILISEARCH_VERSION=1.3.1
-MEILISEARCH_PORT=7700
-MEILISEARCH_API_KEY=oUc8UO6J7G3_IrN7ddImmnEUI1BBdbmEOK2EkgR361Y
-
-if [ -z "$MEILISEARCH_API_KEY" ]; then
-  echo "::group::Starting Meilisearch server"
-  echo "  - port [$MEILISEARCH_PORT]"
-  echo "  - version [$MEILISEARCH_VERSION]"
-  echo ""
-
-  docker run --name meilisearch --publish $MEILISEARCH_PORT:$MEILISEARCH_PORT -e MEILI_NO_ANALYTICS=true --detach --volume "$(pwd)/data.ms:/data.ms" getmeili/meilisearch:$MEILISEARCH_VERSION
-  echo "::endgroup::"
-
-  return
-fi
-
-echo "::group::Starting Meilisearch server"
-echo "  - port [$MEILISEARCH_PORT]"
-echo "  - version [$MEILISEARCH_VERSION]"
-echo "  - api key [$MEILISEARCH_API_KEY]"
-echo ""
-
-docker run --name meilisearch --publish $MEILISEARCH_PORT:$MEILISEARCH_PORT -e MEILI_MASTER_KEY="$MEILISEARCH_API_KEY" -e MEILI_NO_ANALYTICS=true --detach --volume "$(pwd)/data.ms:/data.ms" getmeili/meilisearch:$MEILISEARCH_VERSION
-echo "::endgroup::"
+docker run --name meilisearch --publish 7700:7700 -e MEILI_MASTER_KEY="oUc8UO6J7G3_IrN7ddImmnEUI1BBdbmEOK2EkgR361Y" -e MEILI_NO_ANALYTICS=true --detach --volume $"(pwd)"/data.ms:/data.ms getmeili/meilisearch:v1.3.1
