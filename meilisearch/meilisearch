@@ -1,3 +1,3 @@
 #!/bin/sh
 
-docker run --name meilisearch --publish 7700:7700 -e MEILI_MASTER_KEY="oUc8UO6J7G3_IrN7ddImmnEUI1BBdbmEOK2EkgR361Y" -e MEILI_NO_ANALYTICS=true --detach --volume $"(pwd)"/data.ms:/data.ms getmeili/meilisearch:v1.3.1
+docker run --publish 7700:7700 -e MEILI_MASTER_KEY="oUc8UO6J7G3_IrN7ddImmnEUI1BBdbmEOK2EkgR361Y" --detach getmeili/meilisearch:v1.3.1 meilisearch
