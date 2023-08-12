@@ -51,7 +51,7 @@ module ApplicationHelper
   end
 
   def nav_item_class(path)
-    "hover:opacity-100 py-2 text-center dark:border-dark-border border-b #{request.path == path ? "font-bold border-sky-600 dark:border-sky-600" : "opacity-50"}"
+    "hover:opacity-100 py-2 text-center dark:border-dark-border border-b #{request.path == path ? " border-sky-600 dark:border-sky-600" : "opacity-50"}"
   end
 
   def card_class
