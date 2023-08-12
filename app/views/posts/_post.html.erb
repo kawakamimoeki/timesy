@@ -11,7 +11,7 @@
   </div>
   <div class="flex mt-3 items-end flex-wrap">
     <div class="flex items-center flex-wrap w-[calc(100%-48px)]">
-      <div class="flex items-center overflow-hidden">
+      <div class="flex items-center overflow-hidden mr-2">
         <%= turbo_frame_tag "post-reactions-#{post.id}" do %>
           <%= render partial: 'shared/post_reactions', locals: { current_user: current_user, post: post, reaction: @post_reaction } %>
         <% end %>
