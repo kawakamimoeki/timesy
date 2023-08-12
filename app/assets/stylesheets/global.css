@@ -19,10 +19,6 @@ body.dark {
   color: #ddd;
 }
 
-img.icon {
-  opacity: 0.5;
-}
-
 body.dark img.icon {
   filter: invert(1);
 }
