@@ -77,7 +77,7 @@
         document.querySelector('body').classList.remove('dark')
       }
     </script>
-    <header class="w-full bg-white dark:bg-dark-background dark:text-gray-200 border-b dark:border-dark-border">
+    <header class="w-full shadow-sm  bg-white dark:bg-dark-background dark:text-gray-200 border-b dark:border-dark-border">
       <div class="flex max-w-3xl mx-auto px-4 items-center py-3 text-sm">
         <%= link_to "/", class: "block mr-3" do %>
           <span class="dark:hidden">
@@ -122,7 +122,7 @@
           </div>
         <% end %>
         <% if !current_user %>
-          <%= link_to I18n.t("users.sign_in"), "/users/sign_in", class: "mr-2 rounded hover:bg-gray-50 dark:hover:bg-gray-700 py-1 px-2" %>
+          <%= link_to I18n.t("users.sign_in"), "/users/sign_in", class: "#{block_link_class} mr-2" %>
           <%= link_to I18n.t("users.sign_up"), "/users/sign_up", class: primary_button_class %>
         <% end %>
         <div data-controller="menu" class="-mb-[4px] overflow-visible relative">
