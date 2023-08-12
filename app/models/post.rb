@@ -25,6 +25,10 @@ class Post < ApplicationRecord
     end
   end
 
+  def self.trigger_job(record, remove)
+    MeilisearchIndexJob.perform_later(self, record.id, remove)
+  end
+
   def attach_projects!
     projects.clear
 

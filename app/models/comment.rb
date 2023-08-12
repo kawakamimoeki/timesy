@@ -21,4 +21,8 @@ class Comment < ApplicationRecord
       user.username
     end
   end
+
+  def self.trigger_job(record, remove)
+    MeilisearchIndexJob.perform_later(self, record.id, remove)
+  end
 end
