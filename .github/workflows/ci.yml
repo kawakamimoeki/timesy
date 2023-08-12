@@ -40,12 +40,8 @@ jobs:
       run: |
         bin/rails db:schema:load
     
-    - name: Start Meilisearch
-      uses: moy2010/meilisearch-github-action@0.1
-      with:
-        meilisearch-version: v1.3.1
-        meilisearch-api-key: oUc8UO6J7G3_IrN7ddImmnEUI1BBdbmEOK2EkgR361Y
-        meilisearch-port: 7700
+    - name: 👀 Meilisearch
+      run: meilisearch/meilisearch
 
     - name: 🔦 Run Test
       env:
