@@ -10,7 +10,7 @@ class Comment < ApplicationRecord
   scope :latest, -> { order(created_at: :desc) }
   scope :oldest, -> { order(created_at: :asc) }
 
-  meilisearch do
+  meilisearch enqueue: :trigger_job do
     attribute :body
 
     attribute :user do

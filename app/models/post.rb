@@ -13,7 +13,7 @@ class Post < ApplicationRecord
   scope :following, -> (user) {where(user: user.followee_users).or(where(user: user)) }
   scope :pinned_by, -> (user) { joins(:pins).where(pins: {user: user}) }
 
-  meilisearch do
+  meilisearch enqueue: :trigger_job do
     attribute :body
 
     attribute :user do
