@@ -88,6 +88,11 @@
           </span>
         <% end %>
         <div class="grow"></div>
+        <%= form_tag search_path, data: { turbo: false }, method: :get, class: "mr-2" do |f| %>
+          <div class="flex">
+            <input type="search" name="q" id="q" value="<%= params[:q] %>" placeholder="<%= I18n.t("pages.search") %>" class="<%= text_field_class %> py-1 rounded-full" />
+          </div>
+        <% end %>
         <div data-controller="theme" class="mr-1">
           <button data-action="theme#toggle" data-theme-target="dark" class="hidden <%= icon_button_class %>">
             <%= image_tag "icons/light.svg", width: "24px", height: "16px",class: "icon" %>
