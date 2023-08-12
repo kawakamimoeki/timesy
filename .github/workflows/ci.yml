@@ -45,6 +45,7 @@ jobs:
       with:
         meilisearch-version: v1.3.1
         meilisearch-api-key: oUc8UO6J7G3_IrN7ddImmnEUI1BBdbmEOK2EkgR361Y
+        meilisearch-port: 7700
 
     - name: 🔦 Run Test
       env:
