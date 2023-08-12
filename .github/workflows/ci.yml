@@ -39,8 +39,15 @@ jobs:
         DATABASE_URL: postgres://postgres:postgres@localhost:5432/test_db
       run: |
         bin/rails db:schema:load
+    
+    - name: Start Meilisearch
+      uses: moy2010/meilisearch-github-action@0.1
+      with:
+        meilisearch-version: v1.3.1
+        meilisearch-api-key: oUc8UO6J7G3_IrN7ddImmnEUI1BBdbmEOK2EkgR361Y
 
     - name: 🔦 Run Test
       env:
         DATABASE_URL: postgres://postgres:postgres@localhost:5432/test_db
+        MEILISEARCH_HOST: http://localhost:7700
       run: bundle exec rake
