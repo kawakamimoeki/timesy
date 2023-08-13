@@ -1,11 +1,34 @@
-// Import and register all your controllers from the importmap under controllers/*
+import { Application } from "@hotwired/stimulus"
+import CodeBlockController from "./code_block_controller"
+import CopyUrlController from "./copy_url_controller"
+import EmojiPickerController from "./emoji_picker_controller"
+import FileFieldController from "./file_field_controller"
+import ImageModalController from "./image_modal_controller"
+import MarkdownController from "./markdown_controller"
+import MenuController from "./menu_controller"
+import NotificationController from "./notification_controller"
+import PostShowController from "./post_show_controller"
+import ThemeController from "./theme_controller"
+import ThreadScrollController from "./thread_scroll_controller"
+import TobottomController from "./tobottom_controller"
+import TooltipController from "./tooltip_controller"
+import TurboFormController from "./turbo_form_controller"
+import TwitterController from "./twitter_controller"
 
-import { application } from "controllers/application"
+const application = Application.start()
 
-// Eager load all controllers defined in the import map under controllers/**/*_controller
-import { eagerLoadControllersFrom } from "@hotwired/stimulus-loading"
-eagerLoadControllersFrom("controllers", application)
-
-// Lazy load controllers as they appear in the DOM (remember not to preload controllers in import map!)
-// import { lazyLoadControllersFrom } from "@hotwired/stimulus-loading"
-// lazyLoadControllersFrom("controllers", application)
+application.register("code-block", CodeBlockController)
+application.register("copy-url", CopyUrlController)
+application.register("emoji-picker", EmojiPickerController)
+application.register("file-field", FileFieldController)
+application.register("image-modal", ImageModalController)
+application.register("markdown", MarkdownController)
+application.register("menu", MenuController)
+application.register("notification", NotificationController)
+application.register("post-show", PostShowController)
+application.register("theme", ThemeController)
+application.register("thread", ThreadScrollController)
+application.register("tobottom", TobottomController)
+application.register("tooltip", TooltipController)
+application.register("turbo-form", TurboFormController)
+application.register("twitter", TwitterController)

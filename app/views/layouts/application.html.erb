@@ -18,7 +18,6 @@
 
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/easymde/dist/easymde.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
@@ -74,6 +73,8 @@
         })
       })
     </script>
+    <%= vite_client_tag %>
+    <%= vite_javascript_tag 'application' %>
   </head>
 
   <body class="bg-background bg-cover bg-fixed dark:bg-dark-background" data-background-image="<%= !browser.device.mobile? && !browser.device.tablet? && current_user&.wallpaper_url %>">
@@ -90,10 +91,10 @@
       <div class="flex max-w-3xl mx-auto px-4 items-center py-3 text-sm">
         <%= link_to "/", class: "block mr-3" do %>
           <span class="dark:hidden">
-            <img src="<%= "/logo.png" %>" alt="logo" width="70px" height="20px" />
+            <%= image_tag "/logo.png", alt: "logo", width: "70px", height: "20px" %>
           </span>
           <span class="hidden dark:block">
-            <img src="<%= "/logo-dark.png" %>" alt="logo" width="70px" height="20px" />
+            <%= image_tag "/logo-dark.png", alt: "logo", width: "70px", height: "20px" %>
           </span>
         <% end %>
         <div class="grow"></div>
