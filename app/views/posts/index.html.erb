@@ -1,6 +1,5 @@
 <div class="flex w-full grow relative ">
   <div class="grow w-full" id="main">
-    <%= turbo_frame_tag "timeline" do %>
     <% if current_user %>
       <%= render partial: "shared/timeline_nav" %>
     <% end %>
@@ -29,7 +28,6 @@
         <% end %>
       </div>
     </div>
-    <% end %>
   </div>
   <div class="grow w-1/2 hidden border-l overflow-visible sm:h-[calc(100vh-55px)] sm:overflow-scroll dark:border-l-dark-border" id="sidebar-container">
     <%= turbo_frame_tag "sidebar" %>
