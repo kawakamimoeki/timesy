@@ -40,3 +40,7 @@
     </div>
   </div>
 </div>
+<div class="p-4 bg-background dark:bg-dark-background">
+  <h4 class="mb-2 font-bold">Activities (<%= params[:year] || Date.today.year %>)</h4>
+  <%= render partial: "shared/activities", locals: { user: user, year: params[:year] || Date.today.year } %>
+</div>

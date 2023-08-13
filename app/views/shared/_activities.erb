@@ -1,0 +1,40 @@
+<div class="flex w-full max-w-3xl overflow-hidden">
+  <div class="pt-[18px]">
+    <div class="flex pt-[14px] flex-col h-[130px] text-xs pr-[2px] text-right">
+      <div class="h-[32px]">Mon</div>
+      <div class="h-[32px]">Wed</div>
+      <div class="h-[32px]">Fri</div>
+    </div>
+  </div>
+  <div class="w-full max-w-full overflow-scroll">
+    <div class="flex flex-col h-[130px] w-[832px] flex-wrap">
+      <% score_per_day = Post.score_per_day(user) %>
+      <% (Date.new(year.to_i, 1, 1).beginning_of_year..Date.new(year.to_i, 1, 1).end_of_year).each_with_index do |date, i| %>
+        <% if date.sunday? %>
+          <% if date.day < 8 %>
+            <div class="h-[16px] w-[16px] p-[2px] text-xs mb-[2px]">
+              <%= date.strftime("%b") %>
+            </div>
+          <% else %>
+            <div class="h-[16px] w-[16px] p-[2px] mb-[2px]">
+            </div>
+          <% end %>
+        <% end %>
+        <% if i == 0 %>
+          <% if !date.sunday? %>
+            <div class="h-[16px] w-[16px] p-[2px] mb-[2px]">
+            </div>
+          <% end %>
+          <% (Date.new(year.to_i, 1, 1).wday).times do |date| %>
+            <div class="h-[16px] w-[16px] p-[2px]">
+              <div class="h-[12px] w-[12px]"></div>
+            </div>
+          <% end %>
+        <% end %>
+        <div class="h-[16px] w-[16px] p-[2px]">
+          <div class="h-[12px] w-[12px] rounded-sm <%= "cell-#{score_per_day[date] ? score_per_day[date] : "0"}" %>"></div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

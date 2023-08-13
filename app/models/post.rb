@@ -29,6 +29,35 @@ class Post < ApplicationRecord
     MeilisearchIndexJob.perform_later(self, record.id, remove)
   end
 
+  def self.score_per_day(user)
+    posts = Post
+      .where(user: user)
+      .group("created_at::DATE")
+      .count
+    comments = Comment
+      .where(user: user)
+      .group("created_at::DATE")
+      .count
+    count = posts.merge(comments)
+    score = {}
+    count.each do |date, c|
+      if c == 0
+        score[date] = 0
+      elsif c > 0 && c <= 5
+        score[date] = 1
+      elsif c > 5 && c <= 10
+        score[date] = 2
+      elsif c > 10 && c <= 20
+        score[date] = 3
+      elsif c > 20 && c <= 30
+        score[date] = 4
+      elsif c > 30
+        score[date] = 5
+      end
+    end
+    score
+  end
+
   def attach_projects!
     projects.clear
 
