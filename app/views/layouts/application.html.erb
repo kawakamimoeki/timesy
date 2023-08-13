@@ -100,7 +100,7 @@
         <div class="hidden sm:block">
           <%= form_tag search_path, data: { turbo: false }, method: :get, class: "mr-2" do |f| %>
             <div class="flex">
-              <input type="search" name="q" id="q" value="<%= params[:q] %>" placeholder="<%= I18n.t("pages.search") %>" class="<%= text_field_class %> py-1 rounded-full" />
+              <input type="search" name="q" id="q" value="<%= params[:q] %>" placeholder="<%= I18n.t("pages.search") %>" class="<%= text_field_class %> px-4 py-1 rounded-full" />
             </div>
           <% end %>
         </div>
