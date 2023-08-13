@@ -21,7 +21,7 @@ class UsersController < ApplicationController
 
     @posts = Post.offset(page_limit*@current_page)
       .where(user_id: @user.id)
-      .includes(:user)
+      .includes(:user, :comments, :post_reactions)
       .latest
       .limit(page_limit)
     @next_page = @current_page + 1 if Post.all.count > page_limit*@current_page + page_limit
@@ -42,7 +42,7 @@ class UsersController < ApplicationController
     @posts = Post.where(id: comments.map(&:post_id))
       .where.not(user_id: @user.id)
       .offset(page_limit*@current_page)
-      .includes(:user)
+      .includes(:user, :comments, :post_reactions)
       .latest
       .limit(page_limit)
     @next_page = @current_page + 1 if Post.all.count > page_limit*@current_page + page_limit

@@ -1,0 +1,28 @@
+.cell-0 {
+  background-color: white;
+  outline: 1px solid #eee;
+}
+
+.cell-1 {
+  background-color: #CAEBFB;
+  outline: 1px solid #fefefe;
+}
+
+.cell-2 {
+  background-color: #86CDF1;
+  outline: 1px solid #fefefe;
+}
+
+.cell-3 {
+  background-color: #59BBEC;
+  outline: 1px solid #fefefe;
+}
+
+.cell-4 {
+  background-color: #2184B6;
+  outline: 1px solid #fefefe;
+}
+
+.cell-5 {
+  background-color: #175777;
+}
