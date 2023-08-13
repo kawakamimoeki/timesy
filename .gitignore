@@ -34,5 +34,6 @@
 !/app/assets/builds/.keep
 
 .env
+node_modules
 
 .DS_Store
