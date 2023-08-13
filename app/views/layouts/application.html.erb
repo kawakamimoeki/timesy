@@ -58,12 +58,24 @@
     }(document, "script", "twitter-wjs"));</script>
     <script>
       hljs.highlightAll();
+      hljs.configure({
+        ignoreUnescapedHTML: true,
+        throwUnescapedHTML: false,
+      })
       const hmo = new MutationObserver(() => {
         hljs.highlightAll();
+        hljs.configure({
+          ignoreUnescapedHTML: true,
+          throwUnescapedHTML: false,
+        })
       })
       hmo.observe(document.documentElement, { childList: true });
       document.documentElement.addEventListener('turbo:frame-render', () => {
         hljs.highlightAll();
+        hljs.configure({
+          ignoreUnescapedHTML: true,
+          throwUnescapedHTML: false,
+        })
       })
       const bmo = new MutationObserver((mutations) => {
         mutations.forEach((mutation) => {
