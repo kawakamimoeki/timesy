@@ -1,0 +1,22 @@
+declare const _default: {
+    'categories.activities': string;
+    'categories.animals-nature': string;
+    'categories.custom': string;
+    'categories.flags': string;
+    'categories.food-drink': string;
+    'categories.objects': string;
+    'categories.people-body': string;
+    'categories.recents': string;
+    'categories.smileys-emotion': string;
+    'categories.symbols': string;
+    'categories.travel-places': string;
+    'error.load': string;
+    'recents.clear': string;
+    'recents.none': string;
+    retry: string;
+    'search.clear': string;
+    'search.error': string;
+    'search.notFound': string;
+    search: string;
+};
+export default _default;
