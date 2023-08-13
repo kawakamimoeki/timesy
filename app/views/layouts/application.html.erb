@@ -105,11 +105,11 @@
             </div>
           <% end %>
         </div>
-        <div data-controller="theme" class="mr-1">
-          <button data-action="theme#toggle" data-theme-target="dark" class="hidden <%= icon_button_class %>">
+        <div data-controller="theme" class="mr-1 w-10">
+          <button data-action="theme#toggle" data-theme-target="dark" class="hidden <%= icon_button_class %> transition-all animate-fade-in">
             <%= image_tag "icons/light.svg", width: "24px", height: "16px",class: "icon" %>
           </button>
-          <button data-action="theme#toggle" data-theme-target="light" class="hidden <%= icon_button_class %>">
+          <button data-action="theme#toggle" data-theme-target="light" class="hidden <%= icon_button_class %> transition-all animate-fade-in">
             <%= image_tag "icons/dark.svg", width: "24px", height: "16px",class: "icon" %>
           </button>
         </div>
@@ -120,7 +120,7 @@
               class="relative <%= icon_button_class %>"
               data-turbo-frame="notifications"
             >
-              <%= image_tag "icons/notification.svg", width: "24px", height: "16px",class: "icon" %>
+              <%= image_tag "icons/notification.svg", width: "24px", height: "16px",class: "icon " %>
               <div data-notification-target="indicator" class="hidden absolute top-2 right-2 w-2 h-2 rounded-full bg-red-500 text-white text-xs items-center justify-center"></div>
             </button>
             <div
