@@ -1,5 +1,5 @@
 <div class="link-card  dark:hover:bg-gray-800 cursor-pointer hover:bg-gray-100 max-w-[384px] overflow-hidden w-full rounded-lg" onclick="window.open('<%= ogp.url %>')">
-  <%= image_tag ogp.image, class: "object-cover" %>
+  <img src="<%= ogp.image %>" class="object-cover">
   <div class="grow p-4">
     <div class="opacity-50"><%= ogp.host %></div>
     <div class="text-sm"><%= ogp.truncated_title %></div>
