@@ -107,6 +107,8 @@ ja:
     not_found: フォロワーがいません
   followees:
     not_found: フォローしている人がいません
+  following:
+    empty: Latestタイムラインから気になるユーザーをフォローしてみましょう！
   users:
     follow: フォロー
     following: フォロー中

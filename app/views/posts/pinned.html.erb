@@ -19,17 +19,6 @@
       <%= turbo_frame_tag "posts", target: "_top" do %>
       <% end %>
 
-      <% if @posts.empty? %>
-        <div class="<%= card_class %>">
-          <div class="text-gray-400 text-center">
-            <%= I18n.t("pinned.empty") %>
-          </div>
-          <div class="text-gray-400 text-center">
-            <%= I18n.t("pinned.empty2") %>
-          </div>
-        </div>
-      <% end %>
-
       <div class="h-1">
         <%= turbo_frame_tag "load_more", src: pinned_path(format: :turbo_stream), loading: :lazy  %>
         <%= turbo_frame_tag "loading" do %>

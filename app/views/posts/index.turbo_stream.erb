@@ -1,5 +1,14 @@
 <%= turbo_stream.append "posts" do %>
-  <%= render @posts %>
+  <% if @posts.present? %>
+    <%= render @posts %>
+  <% else %>
+    <div class="<%= card_class %> font-bold text-center">
+      <div class="card-body">
+        <p class="card-text">
+          <%= I18n.t("following.empty") %>
+      </div>
+    </div>
+  <% end %>
 <% end %>
 
 <% if @next_page.present? %>
