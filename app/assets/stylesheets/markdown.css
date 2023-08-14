@@ -56,10 +56,6 @@
   margin: 0 auto;
 }
 
-.markdown-bocy pre {
-  overflow: visible !important;
-}
-
 .markdown-body ul {
   list-style: disc;
   padding-left: 2rem;
@@ -117,6 +113,7 @@ body.dark .markdown-body table tr {
   background: none !important;
   margin-top: -16px !important;
   margin-bottom: -8px !important;
+  overflow: visible !important;
 }
 
 .markdown-body pre code {
