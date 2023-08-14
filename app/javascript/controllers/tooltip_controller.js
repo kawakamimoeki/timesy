@@ -1,9 +1,4 @@
 import { Controller } from "@hotwired/stimulus"
-import tippy from 'tippy.js'
-import 'tippy.js/dist/tippy.css'
-import 'tippy.js/animations/shift-away.css'
-import 'tippy.js/themes/light.css'
-import 'tippy.js/dist/backdrop.css'
 
 export default class extends Controller {
   static values = { text: String }
