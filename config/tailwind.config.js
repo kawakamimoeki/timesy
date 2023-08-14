@@ -22,7 +22,7 @@ module.exports = {
       },
       animation: {
         "fade-in": "fade-in 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both",
-        "fade-out": "fade-out 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both",
+        "down": "down 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both",
       },
       keyframes: {
         "fade-in": {
@@ -30,6 +30,16 @@ module.exports = {
             opacity: "0"
           },
           to: {
+            opacity: "1"
+          }
+        },
+        "down": {
+          "0%": {
+            transform: "translateY(-10%)",
+            opacity: "0"
+          },
+          to: {
+            transform: "translateY(0)",
             opacity: "1"
           }
         }

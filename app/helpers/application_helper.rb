@@ -59,11 +59,11 @@ module ApplicationHelper
   end
 
   def block_link_class
-    "py-1 px-2 block hover:bg-gray-50 rounded dark:hover:bg-gray-700 transition-all dark:text-gray-200 flex items-center space-x-1 font-bold text-gray-700"
+    "py-1 px-2 block hover:bg-gray-50 rounded-lg dark:hover:bg-gray-700 transition-all dark:text-gray-200 flex items-center space-x-1 font-bold text-gray-700 hover:shadow transition-all"
   end
 
   def icon_button_class
-    "block rounded-full cursor-pointer p-relative p-2 hover:bg-gray-50 transition-all dark:hover:bg-gray-700"
+    "block rounded-full hover:shadow transition-all cursor-pointer p-relative p-2 hover:bg-gray-50 transition-all dark:hover:bg-gray-700"
   end
 
   def dropdown_class
