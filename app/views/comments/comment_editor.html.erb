@@ -6,15 +6,15 @@
     </button>
     <div data-action="click->menu#toggle" data-menu-target="backdrop" class="<%= backdrop_class %>"></div>
     <div class="absolute top-10 transition-all animate-down right-0 z-[100] hidden w-full" data-menu-target="dropdown">
-      <button class="<%= icon_button_class %> shadow mb-2 border dark:border-dark-border w-full flex items-center space-x-2" data-action="post-show#edit" data-post-show-target="editButton">
+      <button class="<%= icon_button_class %> shadow mb-2 border dark:border-dark-border w-full flex items-center space-x-2 bg-white dark:bg-dark-card" data-action="post-show#edit menu#toggle" data-post-show-target="editButton">
         <%= image_tag "icons/edit.svg", alt: "edit", width: "24px", height: "16px", class: "icon" %>
       </button>
       <div class="mt-[1px]">
         <%= button_to(
           delete_comment_url(post_id: @comment.post.id, id: @comment.id),
           method: :delete,
-          class: "#{icon_button_class} shadow w-full flex items-center space-x-2 border dark:border-dark-border ",
-          data: { turbo_frame: "comments", turbo_confirm: I18n.t("comments.confirm_delete"), post_show_target: "deleteButton" }
+          class: "#{icon_button_class} shadow w-full flex items-center space-x-2 border dark:border-dark-border bg-white dark:bg-dark-card",
+          data: { turbo_frame: "comments", turbo_confirm: I18n.t("comments.confirm_delete"), post_show_target: "deleteButton", action: "menu#toggle" }
         ) do %>
           <%= image_tag "icons/delete.svg", alt: "edit", width: "24px", height: "16px",class: "icon" %>
         <% end %>
