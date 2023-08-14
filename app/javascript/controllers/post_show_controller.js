@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["editor", "show", "editButton", "closeButton", "deleteButton"]
+  static targets = ["editor", "show", "editButton", "closeButton", "deleteButton", "menu"]
 
   edit() {
     this.editorTarget.classList.remove("hidden");
@@ -20,5 +20,6 @@ export default class extends Controller {
     this.editButtonTarget.classList.remove("hidden");
     this.closeButtonTarget.classList.add("hidden");
     this.deleteButtonTarget.classList.remove("hidden");
+    this.menuTarget.classList.remove("hidden");
   }
 }
