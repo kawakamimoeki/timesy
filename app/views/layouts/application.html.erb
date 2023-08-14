@@ -20,17 +20,9 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@3.0.1/github-markdown.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/themes/light.css" />
-    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/dist/backdrop.css" />
-    <link rel="stylesheet" href="https://unpkg.com/tippy.js@6/animations/shift-away.css" />
-
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
-    <script src="https://unpkg.com/@popperjs/core@2"></script>
-    <script src="https://unpkg.com/tippy.js@6"></script>
     <%= vite_client_tag %>
     <%= vite_javascript_tag 'application' %>
     <% if current_user&.code_theme %>
@@ -55,22 +47,12 @@
       };
 
       return t;
-    }(document, "script", "twitter-wjs"));</script>
-    <script>
-      const bmo = new MutationObserver((mutations) => {
-        mutations.forEach((mutation) => {
-          if (mutation.type === "childList") {
-            document.querySelector("body").style.backgroundImage = `url(${document.querySelector("body").dataset.backgroundImage})`
-          }
-        })
-      })
-    </script>
+    }(document, "script", "twitter-wjs"));</script> 
   </head>
 
   <body class="bg-background bg-cover bg-fixed dark:bg-dark-background" data-background-image="<%= !browser.device.mobile? && !browser.device.tablet? && current_user&.wallpaper_url %>">
     <script>
       document.querySelector('body').style.backgroundImage = `url(${document.querySelector('body').dataset.backgroundImage})`
-      bmo.observe(document.querySelector('body'), { childList: true })
       if (localStorage.theme === 'dark') {
         document.querySelector('body').classList.add('dark')
       } else {
