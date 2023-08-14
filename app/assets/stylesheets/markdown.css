@@ -12,6 +12,7 @@
 
 .markdown-body img {
   background: none !important;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
 }
 
 .hljs {
@@ -48,6 +49,10 @@
   aspect-ratio: 1200/630 !important;
   object-fit: cover;
   margin: 0 auto;
+}
+
+.markdown-bocy pre {
+  overflow: visible !important;
 }
 
 .markdown-body ul {
@@ -103,14 +108,15 @@ body.dark .markdown-body table tr {
 }
 
 .markdown-body pre {
-  padding: 0 !important;
+  padding: 8px !important;
   background: none !important;
   margin-top: -16px !important;
   margin-bottom: -8px !important;
-  overflow: hidden !important;
 }
 
 .markdown-body pre code {
   display: block !important;
   padding: 16px !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
 }
