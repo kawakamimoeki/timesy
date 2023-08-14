@@ -143,7 +143,6 @@ export default class extends Controller {
         hiddenField.setAttribute("value", blob.signed_id)
         hiddenField.name = "post[images][]"
         this.element.appendChild(hiddenField)
-        console.log(hiddenField)
         const res = await fetch("/api/v1/blobs/" + blob.signed_id + "/url", {
           method: "GET",
           headers: {
