@@ -69,6 +69,8 @@
 .markdown-body {
   font-size: 16px !important;
   line-height: 1.5 !important;
+  background-color: white !important;
+  color: #434343 !important;
 }
 
 body.dark .markdown-body .project-tag {
@@ -121,4 +123,5 @@ body.dark .markdown-body table tr {
   padding: 16px !important;
   border-radius: 0.5rem !important;
   box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
+  overflow: scroll !important;
 }
