@@ -233,8 +233,8 @@
       <%= yield %>
     </main>
 
-    <% if request.path.match?("posts") || request.path.in?([settings_path, terms_path, privacy_path]) %>
-    <div class="w-full px-4 mx-auto max-w-3xl">
+    <% if request.path.match?("posts") || request.path.match?("projects") || request.path.in?([settings_path, terms_path, privacy_path]) %>
+    <div class="w-full mt-4 px-4 mx-auto max-w-3xl">
     <footer class="flex leading-5 justify-center items-center mb-12 text-xs text-gray-500 flex-wrap">
       <%= link_to I18n.t("pages.docs"), "https://about.timesy.dev/docs" %>・
       <%= link_to I18n.t("pages.about"), "https://about.timesy.dev" %>・
