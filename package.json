@@ -9,6 +9,8 @@
     "@picmo/popup-picker": "^5.8.5",
     "@rails/activestorage": "^7.0.7",
     "easymde": "^2.18.0",
+    "github-markdown-css": "^5.2.0",
+    "highlight.js": "^11.8.0",
     "micromodal": "^0.4.10",
     "picmo": "^5.8.5",
     "toastify-js": "^1.12.0",
