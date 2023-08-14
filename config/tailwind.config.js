@@ -35,7 +35,7 @@ module.exports = {
         },
         "down": {
           "0%": {
-            transform: "translateY(-10%)",
+            transform: "translateY(-3%)",
             opacity: "0"
           },
           to: {
