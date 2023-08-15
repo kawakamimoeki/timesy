@@ -59,6 +59,8 @@ module Markdownable
       doc = wrap_project_tag(doc)
       doc
     end
+  rescue
+    "Parse error"
   end
 
   def emojified_body
