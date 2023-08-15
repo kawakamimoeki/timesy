@@ -26,6 +26,10 @@ class OgpParser
       data[:title] = doc.css("title")[0].text
     end
 
+    unless data[:image].match?(/http/)
+      data[:image] = ""
+    end
+
     unless data[:description].present?
       doc.css("meta").each do |meta|
         if meta[:name]&.downcase == "description"
