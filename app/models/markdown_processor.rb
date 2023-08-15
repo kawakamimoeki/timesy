@@ -30,5 +30,7 @@ class MarkdownProcessor
       html = ProjectTag.process(html)
       html
     end
+  rescue
+    "すみません🙏パースエラーが起きました。"
   end
 end
