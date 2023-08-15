@@ -2,7 +2,9 @@ class MarkdownProcessor
   class Truncate
     def self.process(markdown, length = 64)
       if length.is_a?(Integer)
-        ActionController::Base.helpers.strip_tags(strip_emoji(markdown)).gsub(/\n/, " ").gsub(/\//, "").truncate(length)
+        markdown = Emoji::Shortcode.process(markdown)
+        html = MarkdownProcessor.processor.render(markdown)
+        ActionController::Base.helpers.strip_tags(strip_emoji(html)).gsub(/\n/, " ").gsub(/\//, "").truncate(length)
       else
         markdown
       end

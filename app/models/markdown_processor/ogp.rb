@@ -15,6 +15,8 @@ class MarkdownProcessor
         end
       end
       doc.to_s
+    rescue
+      doc.to_s
     end
   end
 end
