@@ -1,5 +1,7 @@
 <div class="link-card cursor-pointer  max-w-[384px] overflow-hidden w-full rounded-lg shadow hover:shadow-lg transition-all" onclick="window.open('<%= ogp.url %>')">
-  <img src="<%= ogp.image %>" class="object-cover" alt="">
+  <% if ogp.image.present? %>
+    <img src="<%= ogp.image %>" class="object-cover" alt="">
+  <% end %>
   <div class="grow p-4">
     <div class="opacity-50"><%= ogp.host %></div>
     <div class="text-sm"><%= ogp.truncated_title %></div>

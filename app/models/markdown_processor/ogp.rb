@@ -11,11 +11,8 @@ class MarkdownProcessor
             link.replace(ApplicationController.renderer.render(partial: "shared/tweet_card", locals: { url: link.text }))
           else
             data = Rails.cache.fetch("/ogp/#{VERSION}/#{Digest::SHA256.hexdigest(link.text)}", expires_in: 1.week) do
-              response = Faraday.get(link.text)
-              ogp = ::OGP::OpenGraph.new(response.body)
-              ogp.data
-            rescue
-              false
+              res = Faraday.get(link.text)
+              OgpParser.parse(res.body, link.text)
             end
             if data
               link.replace(ApplicationController.renderer.render(partial: "shared/link_card", locals: { ogp: ::Ogp.new(data) }))
