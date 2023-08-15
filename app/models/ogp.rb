@@ -2,16 +2,16 @@ class Ogp
   attr_reader :title, :description, :image, :url
 
   def initialize(data)
-    if data["title"].is_a?(String)
-      @title = data["title"]&.scrub('?')
-    elsif data["title"].is_a?(Array)
-      @title = data["title"].first&.scrub('?')
+    if data[:title].is_a?(String)
+      @title = data[:title]&.scrub('?')
+    elsif data[:title].is_a?(Array)
+      @title = data[:title].first&.scrub('?')
     else
       @title = nil
     end
-    @description = data["description"]&.scrub('?')
-    @image = data["image"]
-    @url = data["url"]
+    @description = data[:description]&.scrub('?')
+    @image = data[:image]
+    @url = data[:url]
   end
 
   def host
