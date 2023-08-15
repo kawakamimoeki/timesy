@@ -21,8 +21,8 @@ module.exports = {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
       animation: {
-        "fade-in": "fade-in 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both",
-        "down": "down 0.3s cubic-bezier(0.390, 0.575, 0.565, 1.000) both",
+        "fade-in": "fade-in 0.1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both",
+        "down": "down 0.1s cubic-bezier(0.390, 0.575, 0.565, 1.000) both",
       },
       keyframes: {
         "fade-in": {
