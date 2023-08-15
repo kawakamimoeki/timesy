@@ -10,7 +10,7 @@
     url: "/posts/#{post.id}/comments",
     data: {
       turbo_frame: "comments",
-      controller: "turbo-form markdown",
+      controller: "turbo-form markdown thread-scroll",
       action: "turbo:submit-end->turbo-form#clear",
       markdown_min_height_value: "100px",
       markdown_placeholder_value: I18n.t("comments.placeholder"),
@@ -38,7 +38,7 @@
         </button>
       </div>
       <div class="px-1">
-        <%= f.submit I18n.t("comments.submit"), disabled: true, class: primary_button_class %>
+        <%= f.submit I18n.t("comments.submit"), disabled: true, class: primary_button_class, data: { action: "thread-scroll#scroll" } %>
       </div>
     </div>
   <% end %>
