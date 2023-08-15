@@ -20,7 +20,9 @@ class MarkdownProcessor
 
   def self.process(markdown, length = false)
     Rails.cache.fetch("/markdown/#{VERSION}/#{Digest::SHA256.hexdigest(markdown)}", expires_in: 1.week) do
-      markdown = Truncate.process(markdown, length)
+      if length.is_a?(Integer)
+        markdown = markdown.truncate(length)
+      end
       markdown = Emoji::Shortcode.process(markdown)
       html = processor.render(markdown)
       html = Code.process(html)
