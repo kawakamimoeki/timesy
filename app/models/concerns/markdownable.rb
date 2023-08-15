@@ -4,7 +4,7 @@ module Markdownable
   extend ActiveSupport::Concern
   include ActionView::Helpers::SanitizeHelper
 
-  CACHE_NAMESPACE = "202308160718"
+  CACHE_NAMESPACE = "202308160726"
 
   def truncated(length = 64)
     strip_tags(strip_emoji(html)).gsub(/\n/, " ").gsub(/\//, "").truncate(length)
@@ -46,12 +46,23 @@ module Markdownable
       doc.css('p').each do |paragraph|
         if paragraph.children.length == 1 && paragraph.children.first.name == "a"
           link = paragraph.children.find { |child| child.name == "a" }
-          if link.text.match?(/twitter\.com\/\w+\/status\/\d+/)
-            link.replace(ApplicationController.renderer.render(partial: "shared/tweet_card", locals: { url: link.text }))
-          else
-            res = Faraday.get(link.text)
-            data = OgpParser.parse(res.body, link.text)
-            link.replace(ApplicationController.renderer.render(partial: "shared/link_card", locals: { ogp: ::Ogp.new(data) }))
+          if link.text == link["href"]
+            if link.text.match?(/twitter\.com\/\w+\/status\/\d+/)
+              link.replace(ApplicationController.renderer.render(partial: "shared/tweet_card", locals: { url: link.text }))
+            else
+              data = Rails.cache.fetch("/ogp/#{CACHE_NAMESPACE}/#{Digest::SHA256.hexdigest(link.text)}", expires_in: 1.week) do
+                response = Faraday.get(link.text)
+                ogp = OGP::OpenGraph.new(response.body)
+                p "kawakami"
+                p ogp.data
+                ogp.data
+              rescue
+                false
+              end
+              if data
+                link.replace(ApplicationController.renderer.render(partial: "shared/link_card", locals: { ogp: Ogp.new(data) }))
+              end
+            end
           end
         end
       end
