@@ -14,7 +14,7 @@ export default class extends Controller {
   }
 
   async scroll () {
-    await this.sleep(500)
+    await this.sleep(300)
     window.scrollTo({
       top: document.body.scrollHeight,
       behavior: "smooth"
