@@ -33,6 +33,7 @@
 .markdown-body .link-card {
   border: 1px solid #e1e4e8 !important;
   margin: 0 auto !important;
+  margin-bottom: 16px !important;
 }
 
 .dark .markdown-body .link-card {
