@@ -58,6 +58,14 @@ class Post < ApplicationRecord
     score
   end
 
+  def truncated(length = 64)
+    MarkdownProcessor.process(body, length)
+  end
+
+  def html(length = false)
+    MarkdownProcessor.process(body, length)
+  end
+
   def attach_projects!
     projects.clear
 
