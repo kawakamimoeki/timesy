@@ -183,7 +183,7 @@
     </header>
 
     <main class="flex w-full items-stretch max-w-7xl mx-auto">
-      <div class="hidden lg:block">
+      <div class="hidden xl:block">
         <div class="p-4 pr-0 w-[240px] top-0 sticky">
            <ul class="flex flex-col space-y-1 <%= card_class %>">
               <% if current_user %>
@@ -248,10 +248,10 @@
             </ul>
         </div>
       </div>
-      <div class="grow max-w-full lg:w-[calc(100%-240px-400px)]">
+      <div class="grow max-w-full xl:w-[calc(100%-240px-400px)]">
         <%= yield %>
       </div>
-      <div class="hidden w-[400px] lg:block">
+      <div class="hidden w-[400px] xl:block">
         <div class="p-4 pl-0 top-0 sticky h-screen overflow-scroll">
           <%= form_tag search_path, data: { turbo: false }, method: :get, class: "mr-2" do |f| %>
             <div class="flex">
