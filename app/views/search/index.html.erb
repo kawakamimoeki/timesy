@@ -1,11 +1,11 @@
 <div class=" w-full grow relative mt-4">
-  <div class="max-w-3xl mx-auto px-4 mb-4">
+  <div class="max-w-2xl mx-auto px-4 mb-4">
     <%= form_tag search_path, data: { turbo: false }, method: :get, class: "w-full" do |f| %>
     <input type="search" name="q" id="q" value="<%= params[:q] %>" placeholder="<%= I18n.t("pages.search") %>" class="<%= text_field_class %> rounded-full mx-auto w-full m-0 px-6 py-3" />
   <% end %>
   </div>
   <div class="grow w-full" id="main">
-    <div class="max-w-3xl mx-auto px-4 <%= current_user ? "" : "pt-4"%>">
+    <div class="max-w-2xl mx-auto px-4 <%= current_user ? "" : "pt-4"%>">
       <%= turbo_frame_tag "posts", target: "_top" do %>
         <%= render @posts %>
       <% end %>

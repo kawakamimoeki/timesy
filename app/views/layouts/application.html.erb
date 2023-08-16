@@ -60,7 +60,7 @@
       }
     </script>
     <header class="w-full shadow-sm  bg-white dark:bg-dark-background dark:text-gray-200 border-b dark:border-dark-border">
-      <div class="flex max-w-3xl mx-auto px-4 items-center py-3 text-sm">
+      <div class="flex max-w-2xl mx-auto px-4 items-center py-3 text-sm">
         <%= link_to "/", class: "block mr-3" do %>
           <span class="dark:hidden">
             <%= image_tag "/logo.png", alt: "logo", width: "70px", height: "20px" %>
@@ -194,7 +194,7 @@
     </main>
 
     <% if request.path.match?("posts") || request.path.match?("projects") || request.path.in?([settings_path, terms_path, privacy_path]) %>
-    <div class="w-full mt-4 px-4 mx-auto max-w-3xl">
+    <div class="w-full mt-4 px-4 mx-auto max-w-2xl">
     <footer class="flex leading-5 justify-center items-center mb-12 text-xs text-gray-500 flex-wrap">
       <%= link_to I18n.t("pages.docs"), "https://about.timesy.dev/docs" %>・
       <%= link_to I18n.t("pages.about"), "https://about.timesy.dev" %>・

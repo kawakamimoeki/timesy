@@ -5,7 +5,7 @@
   }
 ) %>
 
-<div class="max-w-3xl mx-auto px-4 w-full">
+<div class="max-w-2xl mx-auto px-4 w-full">
   <%= render partial: "shared/profile", locals: { user: @user } %>
   <%= render partial: "shared/follow_nav", locals: { user: @user } %>
   <% if @followees.empty? %>
