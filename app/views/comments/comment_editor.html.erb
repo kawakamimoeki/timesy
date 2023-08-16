@@ -5,7 +5,7 @@
       <%= image_tag "icons/more.svg", width: "24px", height: "24px", class: "icon" %>
     </button>
     <div data-action="click->menu#toggle" data-menu-target="backdrop" class="<%= backdrop_class %>"></div>
-    <div class="absolute top-10 transition-all animate-down right-0 z-[200] hidden w-full" data-menu-target="dropdown">
+    <div class="absolute top-10 transition-all animate-down right-0 z-[100] hidden w-full" data-menu-target="dropdown">
       <button class="<%= icon_button_class %> shadow mb-2 border dark:border-dark-border w-full flex items-center space-x-2 bg-white dark:bg-dark-card" data-action="post-show#edit menu#toggle" data-post-show-target="editButton">
         <%= image_tag "icons/edit.svg", alt: "edit", width: "24px", height: "16px", class: "icon" %>
       </button>
