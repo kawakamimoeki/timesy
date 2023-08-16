@@ -3,8 +3,7 @@ class ProjectsController < ApplicationController
     @user = User.find_by(username: params[:username])
     @current_page = params[:page].to_i
     all_projects = Project.offset(page_limit*@current_page)
-      .joins(:posts)
-      .order("posts.updated_at DESC")
+      .latest
       .where(user_id: @user.id)
     
     @projects = all_projects.limit(params[:limit] || page_limit)

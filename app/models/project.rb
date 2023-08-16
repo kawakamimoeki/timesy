@@ -10,6 +10,8 @@ class Project < ApplicationRecord
   validates :codename, presence: true, uniqueness: true, format: { with: /\A[a-z0-9_]*\z/ }
   validates :link, url: { allow_blank: true }
 
+  scope :latest, -> { order(updated_at: :desc) }
+
   def icon_url
     if icon.attached?
       if ENV["CLOUDINARY_CLOUD_NAME"].present? && ENV["CLOUDINARY_API_KEY"].present? && ENV["CLOUDINARY_API_SECRET"].present?

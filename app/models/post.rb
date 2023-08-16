@@ -3,7 +3,7 @@ class Post < ApplicationRecord
   include MeiliSearch::Rails
 
   belongs_to :user
-  has_and_belongs_to_many :projects
+  has_and_belongs_to_many :projects, touch: true
   has_many :comments, dependent: :destroy
   has_many :post_reactions, dependent: :destroy
   has_many_attached :images
