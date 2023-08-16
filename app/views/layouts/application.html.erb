@@ -184,7 +184,7 @@
 
     <main class="flex w-full items-stretch max-w-7xl mx-auto">
       <div class="hidden lg:block">
-        <div class="p-4 w-[280px] top-0 sticky">
+        <div class="p-4 pr-0 w-[240px] top-0 sticky">
            <ul class="flex flex-col space-y-1 <%= card_class %>">
               <% if current_user %>
               <li>
@@ -248,11 +248,11 @@
             </ul>
         </div>
       </div>
-      <div class="grow max-w-full lg:w-[calc(100%-280px-400px)]">
+      <div class="grow max-w-full lg:w-[calc(100%-240px-400px)]">
         <%= yield %>
       </div>
       <div class="hidden w-[400px] lg:block">
-        <div class="p-4 top-0 sticky h-screen overflow-scroll">
+        <div class="p-4 pl-0 top-0 sticky h-screen overflow-scroll">
           <%= form_tag search_path, data: { turbo: false }, method: :get, class: "mr-2" do |f| %>
             <div class="flex">
               <input type="search" name="q" id="q" value="<%= params[:q] %>" placeholder="<%= I18n.t("pages.search") %>" class="<%= text_field_class %> px-4 py-1 rounded-full" />
