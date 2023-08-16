@@ -61,7 +61,7 @@
     </script>
     <header class="w-full shadow-sm  bg-white dark:bg-dark-background dark:text-gray-200 border-b dark:border-dark-border">
       <div class="flex max-w-2xl mx-auto px-4 items-center py-3 text-sm">
-        <%= link_to "/", class: "block mr-3", data: { turbo_frame: "timeline" } do %>
+        <%= link_to "/", class: "block mr-3", data: { turbo_frame: "_top" } do %>
           <span class="dark:hidden">
             <%= image_tag "/logo.png", alt: "logo", width: "70px", height: "20px" %>
           </span>
@@ -118,24 +118,24 @@
               <ul class="flex flex-col space-y-1">
                 <% if current_user %>
                 <li>
-                  <%= link_to I18n.t("pages.follow"), root_path, class: "#{request.path === root_path ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "timeline" } %>
+                  <%= link_to I18n.t("pages.follow"), root_path, class: "#{request.path === root_path ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "_top" } %>
                 </li>
                 <% end %>
                 <li>
-                  <%= link_to I18n.t("pages.latest"), latest_path, class: "#{request.path === latest_path ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "timeline" } %>
+                  <%= link_to I18n.t("pages.latest"), latest_path, class: "#{request.path === latest_path ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "_top" } %>
                 </li>
                 <% if current_user %>
                 <li>
-                  <%= link_to I18n.t("pages.your_posts"), user_path(current_user.username), class: "#{request.path === user_path(current_user.username) ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "timeline" } %>
+                  <%= link_to I18n.t("pages.your_posts"), user_path(current_user.username), class: "#{request.path === user_path(current_user.username) ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "_top" } %>
                 </li>
                 <li>
-                  <%= link_to I18n.t("pages.your_comments"), user_comments_path(current_user.username), class: "#{request.path === user_comments_path(current_user.username) ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "timeline" } %>
+                  <%= link_to I18n.t("pages.your_comments"), user_comments_path(current_user.username), class: "#{request.path === user_comments_path(current_user.username) ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "_top" } %>
                 </li>
                 <li>
-                  <%= link_to I18n.t("pages.your_projects"), projects_path(current_user.username), class: "#{request.path === projects_path(current_user.username) ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "timeline" } %>
+                  <%= link_to I18n.t("pages.your_projects"), projects_path(current_user.username), class: "#{request.path === projects_path(current_user.username) ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "_top" } %>
                 </li>
                 <li>
-                  <%= link_to I18n.t("pages.settings"), settings_path, class: "#{request.path === settings_path ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "timeline" } %>
+                  <%= link_to I18n.t("pages.settings"), settings_path, class: "#{request.path === settings_path ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "_top" } %>
                 </li>
                 <li class="w-full dark:border-dark-border border-b pb-2"></li>
                 <li class="w-full pb-2"></li>
@@ -150,10 +150,10 @@
                   <%= link_to I18n.t("pages.blog"), "https://about.timesy.dev/blog", class: "#{block_link_class}" %>
                 </li>
                 <li>
-                  <%= link_to I18n.t("pages.terms"), terms_path, class: "#{request.path === terms_path ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "timeline" } %>
+                  <%= link_to I18n.t("pages.terms"), terms_path, class: "#{request.path === terms_path ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "_top" } %>
                 </li>
                 <li>
-                  <%= link_to I18n.t("pages.privacy"), privacy_path, class: "#{request.path === privacy_path ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "timeline" } %>
+                  <%= link_to I18n.t("pages.privacy"), privacy_path, class: "#{request.path === privacy_path ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "_top" } %>
                 </li>
                 <li>
                   <%= link_to "https://forms.gle/7FZz2iHzYLQYiom7A", class: " #{block_link_class}" do %>
@@ -188,24 +188,24 @@
            <ul class="flex flex-col space-y-1 <%= card_class %>">
               <% if current_user %>
               <li>
-                <%= link_to I18n.t("pages.follow"), root_path, class: "#{request.path === root_path ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "timeline" } %>
+                <%= link_to I18n.t("pages.follow"), root_path, class: "#{request.path === root_path ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "_top" } %>
               </li>
               <% end %>
               <li>
-                <%= link_to I18n.t("pages.latest"), latest_path, class: "#{request.path === latest_path ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "timeline" } %>
+                <%= link_to I18n.t("pages.latest"), latest_path, class: "#{request.path === latest_path ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "_top" } %>
               </li>
               <% if current_user %>
               <li>
-                <%= link_to I18n.t("pages.your_posts"), user_path(current_user.username), class: "#{request.path === user_path(current_user.username) ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "timeline" } %>
+                <%= link_to I18n.t("pages.your_posts"), user_path(current_user.username), class: "#{request.path === user_path(current_user.username) ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "_top" } %>
               </li>
               <li>
-                <%= link_to I18n.t("pages.your_comments"), user_comments_path(current_user.username), class: "#{request.path === user_comments_path(current_user.username) ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "timeline" } %>
+                <%= link_to I18n.t("pages.your_comments"), user_comments_path(current_user.username), class: "#{request.path === user_comments_path(current_user.username) ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "_top" } %>
               </li>
               <li>
-                <%= link_to I18n.t("pages.your_projects"), projects_path(current_user.username), class: "#{request.path === projects_path(current_user.username) ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "timeline" } %>
+                <%= link_to I18n.t("pages.your_projects"), projects_path(current_user.username), class: "#{request.path === projects_path(current_user.username) ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "_top" } %>
               </li>
               <li>
-                <%= link_to I18n.t("pages.settings"), settings_path, class: "#{request.path === settings_path ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "timeline" } %>
+                <%= link_to I18n.t("pages.settings"), settings_path, class: "#{request.path === settings_path ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "_top" } %>
               </li>
               <li class="w-full dark:border-dark-border border-b pb-2"></li>
               <li class="w-full pb-2"></li>
@@ -220,10 +220,10 @@
                 <%= link_to I18n.t("pages.blog"), "https://about.timesy.dev/blog", class: "#{block_link_class}" %>
               </li>
               <li>
-                <%= link_to I18n.t("pages.terms"), terms_path, class: "#{request.path === terms_path ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "timeline" } %>
+                <%= link_to I18n.t("pages.terms"), terms_path, class: "#{request.path === terms_path ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "_top" } %>
               </li>
               <li>
-                <%= link_to I18n.t("pages.privacy"), privacy_path, class: "#{request.path === privacy_path ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "timeline" } %>
+                <%= link_to I18n.t("pages.privacy"), privacy_path, class: "#{request.path === privacy_path ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "_top" } %>
               </li>
               <li>
                 <%= link_to "https://forms.gle/7FZz2iHzYLQYiom7A", class: " #{block_link_class}" do %>
@@ -251,7 +251,7 @@
       <div class="grow max-w-full xl:w-[calc(100%-240px-400px)]">
         <%= yield %>
       </div>
-      <div class="hidden w-[400px] xl:block">
+      <div class="hidden w-[400px] xl:block" id="sidebar" data-turbo-permanent>
         <div class="p-4 pl-0 top-0 sticky h-screen overflow-scroll">
           <%= form_tag search_path, data: { turbo: false }, method: :get, class: "mr-2" do |f| %>
             <div class="flex">
