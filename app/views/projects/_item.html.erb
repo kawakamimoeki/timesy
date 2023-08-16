@@ -1,10 +1,10 @@
 <a class="flex space-x-4 hover:shadow <%= card_class %> dark:hover:border-gray-700" href="<%= project_path(project.user.username, project.codename) %>">
   <%= image_tag project.icon_url, class: "w-12 h-12 rounded" %>
   <div>
-    <div class="flex items-center space-x-2">
       <h4 class="text-lg font-bold"><%= project.title %></h4>
-      <h5 class="">#<%= project.codename %></h5>
+    <div class="flex items-center space-x-2">
+      <h5 class="text-sm">#<%= project.codename %></h5>
+      <p class="text-sm"><%= project.posts.count > 0 ? "#{project.posts.count} Posts" : "No Post" %></p>
     </div>
-    <p class="text-sm"><%= project.posts.count > 0 ? "#{project.posts.count} Posts" : "No Post" %></p>
   </div>
 </a>
