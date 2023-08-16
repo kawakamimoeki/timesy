@@ -61,7 +61,7 @@
     </script>
     <header class="w-full shadow-sm  bg-white dark:bg-dark-background dark:text-gray-200 border-b dark:border-dark-border">
       <div class="flex max-w-2xl mx-auto px-4 items-center py-3 text-sm">
-        <%= link_to "/", class: "block mr-3" do %>
+        <%= link_to "/", class: "block mr-3", data: { turbo_frame: "timeline" } do %>
           <span class="dark:hidden">
             <%= image_tag "/logo.png", alt: "logo", width: "70px", height: "20px" %>
           </span>
