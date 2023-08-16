@@ -3,21 +3,21 @@
     <a
       href="<%= user_path(user.username) %>"
       class="<%= nav_item_class(user_path(user.username)) %>"
-      data-turbo-frame="timeline"
+      data-turbo-frame="_top"
     >
       <%= I18n.t("pages.posts") %>
     </a>
     <a
       href="<%= user_comments_path(user.username) %>"
       class="<%=  nav_item_class(user_comments_path(user.username)) %>"
-      data-turbo-frame="timeline"
+      data-turbo-frame="_top"
     >
         <%= I18n.t("users.comments", user: user.name) %>
     </a>
     <a
       href="<%= projects_path(user.username) %>"
       class="<%= nav_item_class(projects_path(user.username)) %>"
-      data-turbo-frame="timeline"
+      data-turbo-frame="_top"
     >
       <%= I18n.t("users.projects", user: user.name) %>
     </a>

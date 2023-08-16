@@ -4,14 +4,14 @@
     <a
       href="<%= following_path(user.username) %>"
       class="<%= nav_item_class(following_path(user.username)) %>"
-      data-turbo-frame="timeline"
+      data-turbo-frame="_top"
     >
       <%= I18n.t("users.following") %>
     </a>
     <a
       href="<%= followers_path(user.username) %>"
       class="<%= nav_item_class(followers_path(user.username)) %>"
-      data-turbo-frame="timeline"
+      data-turbo-frame="_top"
     >
         <%= I18n.t("users.followers", user: user.name) %>
     </a>
