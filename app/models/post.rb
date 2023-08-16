@@ -3,11 +3,13 @@ class Post < ApplicationRecord
   include MeiliSearch::Rails
 
   belongs_to :user
-  has_and_belongs_to_many :projects, touch: true
+  has_and_belongs_to_many :projects
   has_many :comments, dependent: :destroy
   has_many :post_reactions, dependent: :destroy
   has_many_attached :images
   has_many :pins, dependent: :destroy
+
+  after_save -> { projects.each(&:touch) }
 
   scope :latest, -> { order(updated_at: :desc) }
   scope :following, -> (user) {where(user: user.followee_users).or(where(user: user)) }
