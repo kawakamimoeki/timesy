@@ -10,6 +10,7 @@ ja:
   pages:
     trending: Trending
     search: Search
+    view_all: More
     following: "%{user}がフォローしている人"
     followers: "%{user}のフォロワー"
     posts: Posts

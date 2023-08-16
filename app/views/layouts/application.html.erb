@@ -272,6 +272,12 @@
               <%= turbo_frame_tag "projects_loading" do %>
                 <%= render partial: "posts/loading" %>
               <% end %>
+
+              <% if current_user.projects.count > 3 %>
+                <div class="flex justify-center mt-4">
+                  <%= link_to I18n.t("pages.view_all"), projects_path(current_user.username), class: "text-sm text-gray-500 hover:underline" %>
+                </div>
+              <% end %>
             </div>
             <div class="<%= card_class %> mt-4">
               <h3 class="font-bold mb-4 "><%= I18n.t("pages.pinned") %></h3>
@@ -282,6 +288,12 @@
               <%= turbo_frame_tag "pinned_loading" do %>
                 <%= render partial: "posts/loading" %>
               <% end %>
+
+              <% if current_user.pins.count > 3 %>
+                <div class="flex justify-center mt-4">
+                  <%= link_to I18n.t("pages.view_all"), pinned_path, class: "text-sm text-gray-500 hover:underline" %>
+                </div>
+              <% end %>
             </div>
             <div class="<%= card_class %> mt-4">
               <h3 class="font-bold mb-4 "><%= I18n.t("pages.your_posts") %></h3>
@@ -291,6 +303,12 @@
 
               <%= turbo_frame_tag "users_loading" do %>
                 <%= render partial: "posts/loading" %>
+              <% end %>
+
+              <% if current_user.posts.count > 3 %>
+                <div class="flex justify-center mt-4">
+                  <%= link_to I18n.t("pages.view_all"), user_path(current_user.username), class: "text-sm text-gray-500 hover:underline" %>
+                </div>
               <% end %>
             </div>
           <% end %>
