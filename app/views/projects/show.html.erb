@@ -15,7 +15,7 @@
           <h1 class="grow font-bold text-xl"><%= @project.title %></h1>
           <% if @project.user == current_user %>
             <div class="ml-2 w-24">
-              <%= link_to edit_project_path(current_user.username, @project.codename), class: "#{block_link_class} text-sm inline-flex" do %>
+              <%= link_to edit_project_path(current_user.username, @project.codename), class: "#{block_link_class} text-sm inline-flex", data: { turbo_frame: "_top" }  do %>
                 <%= image_tag "icons/edit.svg", class: "icon w-4 h-4 mr-1 mt-[2px]" %>
                 <%= I18n.t("form.submit.edit") %>
               <% end %>
