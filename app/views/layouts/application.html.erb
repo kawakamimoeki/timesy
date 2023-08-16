@@ -253,9 +253,9 @@
       </div>
       <div class="hidden w-[400px] xl:block" id="sidebar" data-turbo-permanent>
         <div class="p-4 pl-0 top-0 sticky h-screen overflow-scroll">
-          <%= form_tag search_path, data: { turbo: false }, method: :get, class: "mr-2" do |f| %>
+          <%= form_tag search_path, data: { turbo: false }, method: :get do |f| %>
             <div class="flex">
-              <input type="search" name="q" id="q" value="<%= params[:q] %>" placeholder="<%= I18n.t("pages.search") %>" class="<%= text_field_class %> px-4 py-1 rounded-full" />
+              <input type="search" name="q" id="q" value="<%= params[:q] %>" placeholder="<%= I18n.t("pages.search") %>" class="<%= text_field_class %> border-none shadow px-4 py-1 rounded-full" />
             </div>
           <% end %>
           <% if current_user %>
