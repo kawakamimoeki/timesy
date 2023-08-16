@@ -30,7 +30,7 @@ ja:
     emoji_request: Emoji request
     github: GitHub
     status: Status
-    tip: Tip
+    tip: Buy Me a Coffee
   activerecord:
     attributes:
       user:

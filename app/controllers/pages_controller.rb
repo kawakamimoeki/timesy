@@ -17,6 +17,6 @@ class PagesController < ApplicationController
   private def set_content(type)
     file = File.read(Rails.root.join("app", "assets", type, I18n.locale.to_s + ".md.erb"))
     erb = ERB.new(file).result(binding)
-    MarkdownProcessor.process(erb)
+    MarkdownProcessor.process(erb).html_safe
   end
 end

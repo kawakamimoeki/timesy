@@ -5,6 +5,7 @@
   }
 ) %>
 
+<%= turbo_frame_tag "timeline" do %>
 <div class="mx-auto max-w-2xl px-4 w-full">
   <%= render partial: "shared/profile", locals: { user: @user } %>
   <%= render partial: 'shared/user_nav', locals: { user: @user } %>
@@ -25,3 +26,4 @@
     </div>
   <% end %>
 </div>
+<% end %>
