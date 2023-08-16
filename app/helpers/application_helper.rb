@@ -43,7 +43,7 @@ module ApplicationHelper
   end
 
   def nav_class
-    "w-full flex items-center shadow font-bold dark:border-dark-border sticky space-x-3 top-0 z-[50] bg-background dark:bg-dark-background dark:text-gray-200 text-gray-700"
+    "w-full flex items-center shadow font-bold dark:border-dark-border sticky space-x-3 z-[50] bg-background dark:bg-dark-background dark:text-gray-200 text-gray-700"
   end
 
   def nav_list_class
