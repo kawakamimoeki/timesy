@@ -16,7 +16,13 @@
         <div class="font-bold"><%= I18n.t("projects.start") %></div>
       </a>
     <% end %>
-    <%= render partial: 'projects/item', collection: @projects, as: :project %>
+    <%= turbo_frame_tag "projects", target: "_top" %>
+
+    <%= turbo_frame_tag "projects_load_more", src: projects_path(format: :turbo_stream), loading: :lazy  %>
+
+    <%= turbo_frame_tag "projects_loading" do %>
+      <%= render partial: "posts/loading" %>
+    <% end %>
   </div>
 </div>
 <% end %>

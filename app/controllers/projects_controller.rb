@@ -1,13 +1,19 @@
 class ProjectsController < ApplicationController
   def index
     @user = User.find_by(username: params[:username])
-    @projects = Project.where(user_id: @user.id)
+    @current_page = params[:page].to_i
+    all_projects = Project.offset(page_limit*@current_page)
+      .joins(:posts)
+      .order("posts.updated_at DESC")
+      .where(user_id: @user.id)
+    
+    @projects = all_projects.limit(params[:limit] || page_limit)
+    @next_page = @current_page + 1 if all_projects.count > page_limit*@current_page + page_limit
   end
 
   def show
     @user = User.find_by(username: params[:username])
     @project = Project.find_by(user_id: @user.id, codename: params[:codename])
-    page_limit = 20
     @current_page = params[:page].to_i
 
     @posts = @project.posts.offset(page_limit*@current_page)
@@ -75,5 +81,9 @@ class ProjectsController < ApplicationController
 
   private def project_params
     params.require(:project).permit(:title, :codename, :link, :body, :icon)
+  end
+
+  private def page_limit
+    20
   end
 end

@@ -1,0 +1,12 @@
+<%= turbo_stream.append "projects" do %>
+  <%= render partial: 'projects/item', collection: @projects, as: :project %>
+<% end %>
+
+<% if @next_page.present? && !params[:limit] %>
+  <%= turbo_stream.replace "projects_load_more" do %>
+    <%= turbo_frame_tag "projects_load_more", src: projects_path(@user.username, @project.codename, page: @next_page, format: :turbo_stream), loading: :lazy %>
+  <% end %>
+<% else %>
+  <%= turbo_stream.replace "projects_loading" do %>
+  <% end %>
+<% end %>
