@@ -24,11 +24,7 @@ class UsersController < ApplicationController
       .includes(:user, :comments, :post_reactions)
       .latest
     
-    if params[:limit]
-      @posts = all.limit(params[:limit])
-    else
-      @posts = all.limit(page_limit)
-    end
+    @posts = all.limit(params[:limit] || page_limit)
     @next_page = @current_page + 1 if all.count > page_limit*@current_page + page_limit
   end
 

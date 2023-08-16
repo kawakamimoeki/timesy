@@ -13,7 +13,7 @@
   <% end %>
 <% end %>
 
-<% if @next_page.present? && !params[:limit] %>
+<% if @next_page.present? && !params[:limit].present? %>
   <%= turbo_stream.replace "pinned_load_more" do %>
     <%= turbo_frame_tag "pinned_load_more", src: pinned_path(format: :turbo_stream), loading: :lazy %>
   <% end %>
