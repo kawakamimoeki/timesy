@@ -182,7 +182,7 @@
       <div>
     </header>
 
-    <main class="flex items-stretch max-w-7xl mx-auto">
+    <main class="flex w-full items-stretch max-w-7xl mx-auto">
       <div class="hidden lg:block">
         <div class="p-4 w-[280px] top-0 sticky">
            <ul class="flex flex-col space-y-1 <%= card_class %>">
@@ -248,7 +248,7 @@
             </ul>
         </div>
       </div>
-      <div class="grow lg:w-[calc(100%-280px-400px)]">
+      <div class="grow max-w-full lg:w-[calc(100%-280px-400px)]">
         <%= yield %>
       </div>
       <div class="hidden w-[400px] lg:block">
