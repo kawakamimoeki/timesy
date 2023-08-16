@@ -293,21 +293,6 @@
       </div>
     </main>
 
-    <% if request.path.match?("posts") || request.path.match?("projects") || request.path.in?([settings_path, terms_path, privacy_path]) %>
-    <div class="w-full mt-4 px-4 mx-auto max-w-2xl">
-    <footer class="flex leading-5 justify-center items-center mb-12 text-xs text-gray-500 flex-wrap">
-      <%= link_to I18n.t("pages.docs"), "https://about.timesy.dev/docs" %>・
-      <%= link_to I18n.t("pages.about"), "https://about.timesy.dev" %>・
-      <%= link_to I18n.t("pages.blog"), "https://about.timesy.dev/blog" %>・
-      <%= link_to I18n.t("pages.terms"), terms_path %>・
-      <%= link_to I18n.t("pages.privacy"), privacy_path %>・
-      <%= link_to I18n.t("pages.emoji_request"), "https://forms.gle/7FZz2iHzYLQYiom7A" %>・
-      <%= link_to I18n.t("pages.github"), "https://github.com/moekidev/timesy" %>・
-      <%= link_to I18n.t("pages.status"), "https://status.timesy.dev/" %>・
-      <%= link_to I18n.t("pages.tip"), "https://www.buymeacoffee.com/moekidev" %>
-    </footer>
-    </div>
-    <% end %>
     <div id="image-modal" class="modal micromodal-zoom" aria-hidden="true">
       <div class="modal__overlay" tabindex="-1" data-micromodal-close>
         <div role="dialog" aria-modal="true" class="modal__container" >
