@@ -15,13 +15,12 @@
         <%= render partial: "posts/form", locals: { post: @post, page: @page } %>
       </div>
       <% end %>
-      <%= turbo_stream_from "posts" %>
-      <%= turbo_frame_tag "posts", target: "_top" do %>
+      <%= turbo_frame_tag "pinned", target: "_top" do %>
       <% end %>
 
       <div class="h-1">
-        <%= turbo_frame_tag "load_more", src: pinned_path(format: :turbo_stream), loading: :lazy  %>
-        <%= turbo_frame_tag "loading" do %>
+        <%= turbo_frame_tag "pinned_load_more", src: pinned_path(format: :turbo_stream), loading: :lazy  %>
+        <%= turbo_frame_tag "pinned_loading" do %>
           <%= render partial: "posts/loading" %>
           <div class="hidden sm:block">
             <%= render partial: "posts/loading" %>

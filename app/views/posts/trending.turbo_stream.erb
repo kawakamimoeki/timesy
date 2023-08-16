@@ -1,0 +1,11 @@
+<%= turbo_stream.append "trending" do %>
+  <% if @posts.present? %>
+    <%= render @posts %>
+  <% end %>
+<% end %>
+
+<%= turbo_stream.replace "trending_loading" do %>
+<% end %>
+
+<%= turbo_stream.replace "trending_load_more" do %>
+<% end %>

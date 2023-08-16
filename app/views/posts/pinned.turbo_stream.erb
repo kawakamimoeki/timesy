@@ -1,4 +1,4 @@
-<%= turbo_stream.append "posts" do %>
+<%= turbo_stream.append "pinned" do %>
   <% if @posts.present? %>
     <%= render @posts %>
   <% else %>
@@ -13,11 +13,11 @@
   <% end %>
 <% end %>
 
-<% if @next_page.present? %>
-  <%= turbo_stream.replace "load_more" do %>
-    <%= turbo_frame_tag "load_more", src: pinned_path(format: :turbo_stream), loading: :lazy %>
+<% if @next_page.present? && !params[:limit] %>
+  <%= turbo_stream.replace "pinned_load_more" do %>
+    <%= turbo_frame_tag "pinned_load_more", src: pinned_path(format: :turbo_stream), loading: :lazy %>
   <% end %>
 <% else %>
-  <%= turbo_stream.replace "loading" do %>
+  <%= turbo_stream.replace "pinned_loading" do %>
   <% end %>
 <% end %>

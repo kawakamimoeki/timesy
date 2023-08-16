@@ -12,12 +12,12 @@
   <% if @posts.empty? %>
     <p class="w-full text-center py-20 font-bold"><%= I18n.t("posts.not_found") %></p>
   <% else %>
-    <%= turbo_frame_tag :posts, target: "_top" do %>
+    <%= turbo_frame_tag "users_posts", target: "_top" do %>
     <% end %>
 
     <div class="h-4">
-      <%= turbo_frame_tag "load_more", src: user_path(username: @user.username, format: :turbo_stream), loading: :lazy %>
-      <%= turbo_frame_tag "loading" do %>
+      <%= turbo_frame_tag "usres_load_more", src: user_path(username: @user.username, format: :turbo_stream), loading: :lazy %>
+      <%= turbo_frame_tag "users_loading" do %>
       <%= render partial: "posts/loading" %>
       <div class="hidden sm:block">
         <%= render partial: "posts/loading" %>

@@ -1,4 +1,9 @@
 class PostsController < ApplicationController
+  def trending
+    @posts = Post.trending
+      .includes(:user, comments: :user, post_reactions: :user)
+      .limit(5)
+  end
   def index
     @post = Post.new
     @post_reaction = PostReaction.new
@@ -36,6 +41,7 @@ class PostsController < ApplicationController
     all = Post.offset(page_limit*@current_page)
       .includes(:user, comments: :user, post_reactions: :user)
       .pinned_by(current_user)
+      .limit(params[:limit])
       .latest
     @posts = all.limit(page_limit)
     @next_page = @current_page + 1 if all.count > page_limit*@current_page + page_limit

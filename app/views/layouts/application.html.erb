@@ -70,13 +70,6 @@
           </span>
         <% end %>
         <div class="grow"></div>
-        <div class="hidden sm:block">
-          <%= form_tag search_path, data: { turbo: false }, method: :get, class: "mr-2" do |f| %>
-            <div class="flex">
-              <input type="search" name="q" id="q" value="<%= params[:q] %>" placeholder="<%= I18n.t("pages.search") %>" class="<%= text_field_class %> px-4 py-1 rounded-full" />
-            </div>
-          <% end %>
-        </div>
         <div data-controller="theme" class="mr-1 w-10 h-10">
           <button data-action="theme#toggle" data-theme-target="dark" class="hidden <%= icon_button_class %> transition-all animate-fade-in">
             <%= image_tag "icons/light.svg", width: "24px", height: "16px",class: "icon" %>
@@ -189,8 +182,115 @@
       <div>
     </header>
 
-    <main class="flex items-stretch">
-      <%= yield %>
+    <main class="flex items-stretch max-w-7xl mx-auto">
+      <div class="hidden lg:block">
+        <div class="p-4 w-[280px] top-0 sticky">
+           <ul class="flex flex-col space-y-1 <%= card_class %>">
+              <% if current_user %>
+              <li>
+                <%= link_to I18n.t("pages.follow"), root_path, class: "#{request.path === root_path ? "font-bold" : ""} #{block_link_class}" %>
+              </li>
+              <% end %>
+              <li>
+                <%= link_to I18n.t("pages.latest"), latest_path, class: "#{request.path === latest_path ? "font-bold" : ""} #{block_link_class}" %>
+              </li>
+              <% if current_user %>
+              <li>
+                <%= link_to I18n.t("pages.your_posts"), user_path(current_user.username), class: "#{request.path === user_path(current_user.username) ? "font-bold" : ""} #{block_link_class}" %>
+              </li>
+              <li>
+                <%= link_to I18n.t("pages.your_comments"), user_comments_path(current_user.username), class: "#{request.path === user_comments_path(current_user.username) ? "font-bold" : ""} #{block_link_class}" %>
+              </li>
+              <li>
+                <%= link_to I18n.t("pages.your_projects"), projects_path(current_user.username), class: "#{request.path === projects_path(current_user.username) ? "font-bold" : ""} #{block_link_class}" %>
+              </li>
+              <li>
+                <%= link_to I18n.t("pages.settings"), settings_path, class: "#{request.path === settings_path ? "font-bold" : ""} #{block_link_class}" %>
+              </li>
+              <li class="w-full dark:border-dark-border border-b pb-2"></li>
+              <li class="w-full pb-2"></li>
+              <% end %>
+              <li>
+                <%= link_to I18n.t("pages.docs"), "https://about.timesy.dev/docs", class: "#{block_link_class}" %>
+              </li>
+              <li>
+                <%= link_to I18n.t("pages.about"), "https://about.timesy.dev", class: "#{block_link_class}" %>
+              </li>
+              <li>
+                <%= link_to I18n.t("pages.blog"), "https://about.timesy.dev/blog", class: "#{block_link_class}" %>
+              </li>
+              <li>
+                <%= link_to I18n.t("pages.terms"), terms_path, class: "#{request.path === terms_path ? "font-bold" : ""} #{block_link_class}" %>
+              </li>
+              <li>
+                <%= link_to I18n.t("pages.privacy"), privacy_path, class: "#{request.path === privacy_path ? "font-bold" : ""} #{block_link_class}" %>
+              </li>
+              <li>
+                <%= link_to "https://forms.gle/7FZz2iHzYLQYiom7A", class: " #{block_link_class}" do %>
+                  <span><%= I18n.t("pages.emoji_request") %></span>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to "https://github.com/moekidev/timesy", class: " #{block_link_class}" do %>
+                  <span><%= I18n.t("pages.github") %></span>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to "https://status.timesy.dev/", class: " #{block_link_class}" do %>
+                  <span><%= I18n.t("pages.status") %></span>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to "https://www.buymeacoffee.com/moekidev", class: " #{block_link_class}" do %>
+                  <span><%= I18n.t("pages.tip") %></span>
+                <% end %>
+              </li>
+            </ul>
+        </div>
+      </div>
+      <div class="w-[calc(100%-240px-400px)]">
+        <%= yield %>
+      </div>
+      <div class="hidden w-[400px] lg:block">
+        <div class="p-4 top-0 sticky h-[calc(100vh-65px)] overflow-scroll">
+          <%= form_tag search_path, data: { turbo: false }, method: :get, class: "mr-2" do |f| %>
+            <div class="flex">
+              <input type="search" name="q" id="q" value="<%= params[:q] %>" placeholder="<%= I18n.t("pages.search") %>" class="<%= text_field_class %> px-4 py-1 rounded-full" />
+            </div>
+          <% end %>
+          <% if current_user %>
+            <div class="<%= card_class %> mt-4">
+              <h3 class="font-bold mb-4 ">ピンしたスレッド</h3>
+              <%= turbo_frame_tag "pinned" %>
+
+              <%= turbo_frame_tag "pinned_load_more", src: pinned_path(format: :turbo_stream, limit: 3), loading: :lazy  %>
+
+              <%= turbo_frame_tag "pinned_loading" do %>
+                <%= render partial: "posts/loading" %>
+              <% end %>
+            </div>
+            <div class="<%= card_class %> mt-4">
+              <h3 class="font-bold mb-4 ">あなたの最近の投稿</h3>
+              <%= turbo_frame_tag "users_posts" %>
+
+              <%= turbo_frame_tag "users_load_more", src: user_path(current_user.username, format: :turbo_stream, limit: 3), loading: :lazy  %>
+
+              <%= turbo_frame_tag "users_loading" do %>
+                <%= render partial: "posts/loading" %>
+              <% end %>
+            </div>
+          <% end %>
+          <div class="<%= card_class %> mt-4">
+            <h3 class="font-bold mb-4 ">トレンド</h3>
+            <%= turbo_frame_tag "trending" %>
+
+            <%= turbo_frame_tag "trending_load_more", src: trending_path(format: :turbo_stream), loading: :lazy  %>
+            <%= turbo_frame_tag "trending_loading" do %>
+              <%= render partial: "posts/loading" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
     </main>
 
     <% if request.path.match?("posts") || request.path.match?("projects") || request.path.in?([settings_path, terms_path, privacy_path]) %>
