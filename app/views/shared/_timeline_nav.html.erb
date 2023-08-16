@@ -5,7 +5,7 @@
       class="<%= nav_item_class(root_path) %> "
       data-turbo-frame="timeline"
     >
-      <%= I18n.t("pages.follow") %>
+      <%= current_user ? I18n.t("pages.follow") : I18n.t("pages.latest") %>
     </a>
     <% if current_user %>
     <a
