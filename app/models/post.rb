@@ -12,6 +12,13 @@ class Post < ApplicationRecord
   scope :latest, -> { order(updated_at: :desc) }
   scope :following, -> (user) {where(user: user.followee_users).or(where(user: user)) }
   scope :pinned_by, -> (user) { joins(:pins).where(pins: {user: user}) }
+  scope :trending, -> {
+    joins(:post_reactions)
+    .select('posts.*, count(post_reactions) as reaction_count')
+    .group('posts.id')
+    .order('reaction_count desc')
+    .where('posts.created_at > ?', 1.week.ago)
+  }
 
   meilisearch enqueue: :trigger_job do
     attribute :body

@@ -17,7 +17,7 @@ class User < ApplicationRecord
   validates :name, presence: true
   validates :name, exclusion: {
     in: %w(
-      posts users sign_up confirm register settings comments notifications api search pinned latest following notifications
+      posts users sign_up confirm register settings comments trending notifications api search pinned latest following notifications
       guide help support contact faq docs about privacy terms t
     )
   }
