@@ -67,11 +67,11 @@ module ApplicationHelper
   end
 
   def dropdown_class
-    "overflow-scroll absolute top-10 right-0 z-[100] hidden w-72 bg-white dark:bg-dark-card shadow rounded-lg border dark:border-dark-border scrollbar-none transition-all animate-down"
+    "overflow-scroll absolute top-10 right-0 z-[200] hidden w-72 bg-white dark:bg-dark-card shadow rounded-lg border dark:border-dark-border scrollbar-none transition-all animate-down"
   end
 
   def backdrop_class
-    "hidden fixed top-0 bottom-0 right-0 left-0 inset-0 z-[90] bg-black opacity-0"
+    "hidden fixed top-0 bottom-0 right-0 left-0 inset-0 z-[190] bg-black opacity-0"
   end
 
   def should_render_sidebar?
