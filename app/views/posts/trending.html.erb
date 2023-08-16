@@ -13,13 +13,13 @@
         <%= render partial: "posts/form", locals: { post: @post, page: @page } %>
       </div>
       <% end %>
-      <%= turbo_stream_from "posts" %>
-      <%= turbo_frame_tag "posts", target: "_top" do %>
+      <%= turbo_stream_from "trending" %>
+      <%= turbo_frame_tag "trending", target: "_top" do %>
       <% end %>
 
       <div class="h-1">
-        <%= turbo_frame_tag "load_more", src: request.path.include?("latest") ? latest_path(format: :turbo_stream) : root_path(format: :turbo_stream), loading: :lazy  %>
-        <%= turbo_frame_tag "loading" do %>
+        <%= turbo_frame_tag "trending_load_more", src: trending_path(format: :turbo_stream), loading: :lazy  %>
+        <%= turbo_frame_tag "trending_loading" do %>
           <%= render partial: "posts/loading" %>
           <div class="hidden sm:block">
             <%= render partial: "posts/loading" %>

@@ -260,7 +260,7 @@
           <% end %>
           <% if current_user %>
             <div class="<%= card_class %> mt-4">
-              <h3 class="font-bold mb-4 ">ピンしたスレッド</h3>
+              <h3 class="font-bold mb-4 "><%= I18n.t("pages.pinned") %></h3>
               <%= turbo_frame_tag "pinned", target: "_top" %>
 
               <%= turbo_frame_tag "pinned_load_more", src: pinned_path(format: :turbo_stream, limit: 3), loading: :lazy  %>
@@ -270,7 +270,7 @@
               <% end %>
             </div>
             <div class="<%= card_class %> mt-4">
-              <h3 class="font-bold mb-4 ">あなたの最近の投稿</h3>
+              <h3 class="font-bold mb-4 "><%= I18n.t("pages.your_posts") %></h3>
               <%= turbo_frame_tag "users_posts", target: "_top" %>
 
               <%= turbo_frame_tag "users_load_more", src: user_path(current_user.username, format: :turbo_stream, limit: 3), loading: :lazy  %>
@@ -281,7 +281,7 @@
             </div>
           <% end %>
           <div class="<%= card_class %> mt-4">
-            <h3 class="font-bold mb-4 ">トレンド</h3>
+            <h3 class="font-bold mb-4 "><%= I18n.t("pages.trending") %></h3>
             <%= turbo_frame_tag "trending", target: "_top" %>
 
             <%= turbo_frame_tag "trending_load_more", src: trending_path(format: :turbo_stream), loading: :lazy  %>

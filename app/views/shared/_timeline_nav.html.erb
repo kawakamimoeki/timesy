@@ -7,6 +7,7 @@
     >
       <%= I18n.t("pages.follow") %>
     </a>
+    <% if current_user %>
     <a
       href="<%= latest_path %>"
       class="<%= nav_item_class(latest_path) %> "
@@ -20,6 +21,14 @@
       data-turbo-frame="timeline"
     >
         <%= I18n.t("pages.pinned") %>
+    </a>
+    <% end %>
+    <a
+      href="<%= trending_path %>"
+      class="<%= nav_item_class(trending_path) %> "
+      data-turbo-frame="timeline"
+    >
+        <%= I18n.t("pages.trending") %>
     </a>
   </div>
 </nav>
