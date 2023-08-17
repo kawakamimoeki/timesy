@@ -1,0 +1,72 @@
+<%= turbo_frame_tag :post_main do %>
+  <div class="flex mb-3 items-center space-x-1">
+    <%= render partial: "shared/avatar", locals: { user: @post.user } %>
+    <time class="text-gray-400 text-sm"><%= time_ago_in_words(@post.created_at) %></time>
+    <div class="grow"></div>
+     <% if current_user == @post.user %>
+      <div data-controller="menu" data-post-show-target="menu" class="overflow-visible relative">
+        <button class="<%= icon_button_class %>" data-action="menu#toggle">
+          <%= image_tag "icons/more.svg", width: "24px", height: "24px", class: "icon" %>
+        </button>
+        <div data-action="click->menu#toggle" data-menu-target="backdrop" class="<%= backdrop_class %>"></div>
+        <div class="absolute top-10 transition-all animate-down right-0 z-[100] hidden w-full" data-menu-target="dropdown">
+          <button class="<%= icon_button_class %> shadow mb-2 border dark:border-dark-border w-full flex items-center space-x-2 bg-white dark:bg-dark-card" data-action="post-show#edit menu#toggle" data-post-show-target="editButton">
+            <%= image_tag "icons/edit.svg", alt: "edit", width: "24px", height: "16px", class: "icon" %>
+          </button>
+          <div class="mt-[1px]">
+            <%= button_to(
+              delete_post_url(id: @post.id),
+              method: :delete,
+              class: "#{icon_button_class} shadow w-full flex items-center space-x-2 border dark:border-dark-border bg-white dark:bg-dark-card",
+              onClick: "return confirm('#{I18n.t('posts.confirm_delete')}')",
+              data: { turbo: false, post_show_target: "deleteButton", action: "menu#toggle" }
+            ) do %>
+              <%= image_tag "icons/delete.svg", alt: "edit", width: "24px", height: "16px",class: "icon" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <button class="hidden <%= icon_button_class %>" data-action="post-show#close" data-post-show-target="closeButton">
+        <%= image_tag "icons/cancel.svg", alt: "edit", width: "24px", height: "16px",class: "icon" %>
+      </button>
+    <% end %>
+  </div>
+  <%= turbo_frame_tag :post do %>
+    <div data-post-show-target="show" data-controller="image-modal twitter" class="markdown-body">
+      <%= @post.html.html_safe %>
+    </div>
+  <% end %>
+  <div class="hidden" data-post-show-target="editor">
+    <%= form_with model: @post, url: update_post_path(id: @post.id), id: "post-form", data: { action: "turbo:submit-end->post-show#close",turbo_frame: :post, controller: "turbo-form markdown", post_editor_confirm_message: I18n.t("page.confirm_leave"),  markdown_min_height_value: "100px", markdown_placeholder_value: I18n.t("posts.placeholder") }, class: "grow transition-all" do |f| %>
+      <div>
+        <%= flash[:error] %>
+        <div class="max-w-2xl mx-auto">
+          <div class="">
+            <div data-markdown-target="editorContainer">
+              <%= f.text_area :body, data: { markdown_target: "editor", post_editor_target: "body" }, class: "prose resize-none min-h-[114px]" %>
+            </div>
+            <div class="markdown-body hidden min-h-[120px]" data-markdown-target="preview"></div>
+          </div>
+        </div>
+      </div>
+      <div class="flex pt-3 w-full items-center bg-none">
+        <div class="grow"></div>
+        <div class="px-1">
+          <button type="button" class="<%= icon_button_class %>" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton">
+            <%= image_tag "icons/preview.svg", alt: "preview", width: "24px", height: "16px",class: "icon" %>
+          </button>
+          <button type="button" class="<%= icon_button_class %> hidden" title="<%=  I18n.t('posts.edit') %>" data-action="markdown#edit" data-markdown-target="editorButton">
+            <%= image_tag "icons/edit.svg", alt: "edit", width: "24px", height: "16px",class: "icon" %>
+          </button>
+        </div>
+        <div class="px-1">
+          <%= f.submit I18n.t('posts.update'), disabled: true, class: primary_button_class, data: { post_editor_target: "publish" } %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="mt-2">
+    <%= render partial: 'shared/post_reactions', locals: { current_user: current_user, post: @post, reaction: @post_reaction } %>
+  </div>
+
+<% end %>

@@ -25,6 +25,8 @@ Rails.application.routes.draw do
   post "posts", to: "posts#create", as: :create_post
   patch "posts/:id", to: "posts#update", as: :update_post
   delete "posts/:id", to: "posts#destroy", as: :delete_post
+  get "posts/:id/main", to: "posts#main", as: :post_main
+  get '/posts/:id/pin_button', to: 'posts#pin_button', as: :post_pin_button
 
   post '/posts/:post_id/pins', to: 'pins#create', as: :create_pin
   delete '/posts/:post_id/pins/:id', to: 'pins#destroy', as: :delete_pin
@@ -62,12 +64,15 @@ Rails.application.routes.draw do
   get '/:username', to: 'users#actor', as: :actor, constraints: lambda { |request| request.format == :json }
   get '/:username', to: 'users#show', as: :user, constraints: lambda { |request| request.format != :json }
   get 'users/:username' => redirect('/%{username}')
+  get '/:username/profile', to: 'users#profile', as: :profile
   get '/:username/projects', to: 'projects#index', as: :projects
+  get '/:username/projects/list', to: 'projects#list', as: :projects_list
   get '/:username/projects/:codename', to: 'projects#show', as: :project
   get '/:username/comments', to: 'users#comments', as: :user_comments
   get 'projects/new', to: 'projects#new', as: :new_project
   post 'projects', to: 'projects#create', as: :create_project
   get '/:username/projects/:codename/edit', to: 'projects#edit', as: :edit_project
+  get '/:username/projects/:codename/details', to: 'projects#details', as: :project_details
   patch '/:username/projects/:id', to: 'projects#update', as: :update_project
   delete '/:username/projects/:codename', to: 'projects#destroy', as: :delete_project
   post '/:username/follows', to: 'follows#create', as: :follow_user

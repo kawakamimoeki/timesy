@@ -1,0 +1,7 @@
+<%= turbo_frame_tag "pin_button_container" do %>
+  <% if current_user %>
+    <%= turbo_frame_tag :pin_button do %>
+      <%= render partial: "shared/pin_button", locals: { post: @post } %>
+    <% end %>
+  <% end %>
+<% end %>
