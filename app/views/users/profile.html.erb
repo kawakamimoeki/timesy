@@ -1,0 +1,48 @@
+<%= turbo_frame_tag "profile" do %>
+  <div class="flex p-4 rounded-lg space-x-3 bg-background dark:bg-dark-background mt-4">
+    <div>
+      <%= image_tag @user.avatar_icon, alt: @user.username, width: "100px", height: "100px", class: "w-10 h-10 object-cover rounded-full" %>
+    </div>
+    <div class="grow">
+      <div class="flex items-center">
+        <h1 class="font-bold text-xl">
+          <%= link_to user_path(@user.username), class: "hover:underline", data: { turbo_frame: "_top" } do %>
+            <%= @user.name %>
+          <% end %>
+        </h1>
+        <div class="grow"></div>
+        <%= render partial: "follows/button", locals: { user: @user } %>
+      </div>
+      <div class="mb-2">
+        <div class="flex items-center mb-2">
+          <p class="text-gray-500 text-sm">@<%= @user.username %></p>
+          <% if @user.github.present? %>
+            <%= link_to "https://github.com/#{@user.github}", target: "_blank" do %>
+              <%= image_tag "icons/github.svg", alt: "github", width: "20px", height: "20px", class: "icon ml-2" %>
+            <% end %>
+          <% end %>
+          <% if @user.twitter.present? %>
+            <%= link_to "https://twitter.com/#{@user.twitter}", target: "_blank", class: "block", style: "margin-top: 2px;" do %>
+              <%= image_tag "icons/x.png", alt: "X", width: "20px", height: "20px", class: "icon ml-2" %>
+            <% end %>
+          <% end %>
+          <% if @user.website.present? %>
+            <%= link_to @user.website, target: "_blank" do %>
+              <%= image_tag "icons/link.svg", alt: "website", width: "24px", height: "24px", class: "icon ml-1 -rotate-45 -mb-[2px]" %>
+            <% end %>
+          <% end %>
+        </div>
+        <% if @user.bio.present? %>
+          <p class="text-sm"><%= @user.bio %></p>
+        <% end %>
+      </div>
+      <div>
+        <%= render partial: "shared/follows", locals: { user: @user } %>
+      </div>
+    </div>
+  </div>
+  <div class="p-4 bg-background dark:bg-dark-background">
+    <h4 class="mb-2 font-bold">Activities (<%= params[:year] || Date.today.year %>)</h4>
+    <%= render partial: "shared/activities", locals: { user: @user, year: params[:year] || Date.today.year } %>
+  </div>
+<% end %>

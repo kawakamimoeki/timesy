@@ -7,16 +7,10 @@
 
 <%= turbo_frame_tag "timeline" do %>
 <div class="max-w-2xl mx-auto w-full mt-4 px-4">
-  <%= render partial: 'shared/profile', locals: { user: @user } %>
-  <%= render partial: 'shared/user_nav', locals: { user: @user } %>
-  <div>
-    <% if current_user == @user %>
-      <a class="flex space-x-2 <%= card_class %> dark:hover:border-gray-700" href="<%= new_project_path %>">
-        <%= image_tag "icons/add.svg", class: "icon w-6 h-6" %>
-        <div class="font-bold"><%= I18n.t("projects.start") %></div>
-      </a>
-    <% end %>
-    <%= render partial: 'projects/item', collection: @projects, as: :project %>
+  <div id="profile-<%= @user.id %>" data-turbo-permanent>
+    <%= turbo_frame_tag "profile", src: profile_path(@user.username), loading: :lazy %>
   </div>
+  <%= render partial: 'shared/user_nav', locals: { user: @user } %>
+  <%= turbo_frame_tag "project_list", src: projects_list_path(@user.username), loading: :lazy %>
 </div>
 <% end %>

@@ -7,6 +7,15 @@ class PostsController < ApplicationController
     end
   end
 
+  def pin_button
+    @post = Post.find(params[:id])
+  end
+
+  def main
+    @post = Post.find(params[:id])
+    @post_reaction = PostReaction.new
+  end
+
   def form
     @post = Post.new
   end
@@ -62,25 +71,6 @@ class PostsController < ApplicationController
     @next_page = @current_page + 1 if all.count > page_limit*@current_page + page_limit
   end
 
-  def thread
-    @post = Post.includes(comments: :user).find_by(id: params[:id])
-    @post_reaction = PostReaction.new
-    @comment_reaction = CommentReaction.new
-    if @post.nil?
-      render file: "#{Rails.root}/public/404.html", status: :not_found
-      return
-    end
-    @comment = Comment.new
-    @current_page = params[:page].to_i
-
-    @comments = @post.comments.offset(page_limit*@current_page)
-      .includes(:user, comment_reactions: :user)
-      .latest
-      .limit(page_limit)
-    @next_page = @current_page + 1 if Post.all.count > page_limit*@current_page + page_limit
-    @comment = Comment.new
-  end
-
   def show
     @post = Post.includes(comments: :user).find_by(id: params[:id])
     @post_reaction = PostReaction.new
@@ -99,9 +89,16 @@ class PostsController < ApplicationController
     @comment = Comment.new
   end
 
-  def new
+  def pin_button
+    @post = Post.find(params[:id])
+  end
+
+  def editor
+    @post = Post.find(params[:id])
+  end
+
+  def form
     @post = Post.new
-    render :new, layout: 'editor'
   end
 
   def create

@@ -1,19 +1,21 @@
 <%= turbo_frame_tag :comment_reactions, class: "flex items-center flex-wrap" do %>
   <%= turbo_frame_tag :comment_reactions_list, src: comment_reactions_list_path(comment.post, comment), class: "flex items-center flex-wrap" %>
-  <%= form_with(
-    model: CommentReaction.new,
-    url: create_comment_reaction_path(post_id: comment.post.id, comment_id: comment.id),
-    class: "flex my-1 items-center",
-    data: { controller: "emoji-picker" }
-  ) do |f| %>
-    <%= f.hidden_field :body, data: { emoji_picker_target: "input" } %>
-    <button
-      type="button"
-      data-emoji-picker-target="button"
-      data-action="click->emoji-picker#open"
-      class="flex items-center rounded-full p-[6px] hover:bg-gray-100 bg-gray-50 dark:bg-slate-700 dark:hover:bg-slate-600 transition-all mr-3"
-    >
-      <%= image_tag "icons/add-reaction.svg", alt: "add-reaction", width: "20px", height: "20px", class: "icon " %>
-    </button>
+  <% if current_user %>
+    <%= form_with(
+      model: CommentReaction.new,
+      url: create_comment_reaction_path(post_id: comment.post.id, comment_id: comment.id),
+      class: "flex my-1 items-center",
+      data: { controller: "emoji-picker" }
+    ) do |f| %>
+      <%= f.hidden_field :body, data: { emoji_picker_target: "input" } %>
+      <button
+        type="button"
+        data-emoji-picker-target="button"
+        data-action="click->emoji-picker#open"
+        class="flex items-center rounded-full p-[6px] hover:bg-gray-100 bg-gray-50 dark:bg-slate-700 dark:hover:bg-slate-600 transition-all mr-3"
+      >
+        <%= image_tag "icons/add-reaction.svg", alt: "add-reaction", width: "20px", height: "20px", class: "icon " %>
+      </button>
+    <% end %>
   <% end %>
 <% end %>

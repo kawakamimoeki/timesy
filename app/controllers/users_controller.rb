@@ -15,6 +15,10 @@ class UsersController < ApplicationController
   def timeline_nav
   end
 
+  def profile
+    @user = User.find_by(username: params[:username])
+  end
+
   def new
     @user = User.new
   end
