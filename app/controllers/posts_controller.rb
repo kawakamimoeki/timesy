@@ -137,6 +137,6 @@ class PostsController < ApplicationController
   end
 
   private def page_limit
-    40
+    10
   end
 end
