@@ -22,7 +22,7 @@ class PostsController < ApplicationController
         .includes(:user, comments: :user, post_reactions: :user)
         .latest
         .limit(page_limit)
-      @next_page = @current_page + 1
+      @next_page = @current_page + 1 if Post.all.count > page_limit*@current_page + page_limit
     end
   end
 
@@ -35,7 +35,7 @@ class PostsController < ApplicationController
       .includes(:user, comments: :user, post_reactions: :user)
       .latest
       .limit(page_limit)
-    @next_page = @current_page + 1
+    @next_page = @current_page + 1 if Post.all.count > page_limit*@current_page + page_limit
     render :index
   end
 
