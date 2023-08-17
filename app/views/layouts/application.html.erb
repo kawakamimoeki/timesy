@@ -79,45 +79,45 @@
     <main class="flex w-full items-stretch max-w-7xl mx-auto">
       <div class="hidden xl:block">
         <div class="p-4 pr-0 w-[240px] top-0 sticky" id="left-sidebar" data-turbo-permanent>
-           <ul class="flex flex-col space-y-1 <%= card_class %>">
+           <ul class="flex flex-col <%= card_class %>">
               <li>
-                <%= link_to I18n.t("pages.timeline"), root_path, class: "#{request.path === root_path ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "_top" } %>
+                <%= link_to I18n.t("pages.timeline"), root_path, class: "#{request.path === root_path ? "font-bold" : ""} #{block_link_class} mb-1", data: { turbo_frame: "_top" } %>
               </li>
               <%= turbo_frame_tag "left_sidebar", src: users_left_sidebar_path, loading: :lazy %>
               <li class="w-full dark:border-dark-border border-b pb-2"></li>
               <li class="w-full pb-2"></li>
               <li>
-                <%= link_to I18n.t("pages.docs"), "https://about.timesy.dev/docs/intro", class: "#{block_link_class}" %>
+                <%= link_to I18n.t("pages.docs"), "https://about.timesy.dev/docs/intro", class: "#{block_link_class} mb-1" %>
               </li>
               <li>
-                <%= link_to I18n.t("pages.about"), "https://about.timesy.dev", class: "#{block_link_class}" %>
+                <%= link_to I18n.t("pages.about"), "https://about.timesy.dev", class: "#{block_link_class} mb-1" %>
               </li>
               <li>
-                <%= link_to I18n.t("pages.blog"), "https://about.timesy.dev/blog", class: "#{block_link_class}" %>
+                <%= link_to I18n.t("pages.blog"), "https://about.timesy.dev/blog", class: "#{block_link_class} mb-1" %>
               </li>
               <li>
-                <%= link_to I18n.t("pages.terms"), terms_path, class: "#{request.path === terms_path ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "_top" } %>
+                <%= link_to I18n.t("pages.terms"), terms_path, class: "#{request.path === terms_path ? "font-bold" : ""} #{block_link_class} mb-1", data: { turbo_frame: "_top" } %>
               </li>
               <li>
-                <%= link_to I18n.t("pages.privacy"), privacy_path, class: "#{request.path === privacy_path ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "_top" } %>
+                <%= link_to I18n.t("pages.privacy"), privacy_path, class: "#{request.path === privacy_path ? "font-bold" : ""} #{block_link_class} mb-1", data: { turbo_frame: "_top" } %>
               </li>
               <li>
-                <%= link_to "https://forms.gle/7FZz2iHzYLQYiom7A", class: " #{block_link_class}" do %>
+                <%= link_to "https://forms.gle/7FZz2iHzYLQYiom7A", class: " #{block_link_class} mb-1" do %>
                   <span><%= I18n.t("pages.emoji_request") %></span>
                 <% end %>
               </li>
               <li>
-                <%= link_to "https://github.com/moekidev/timesy", class: " #{block_link_class}" do %>
+                <%= link_to "https://github.com/moekidev/timesy", class: " #{block_link_class} mb-1" do %>
                   <span><%= I18n.t("pages.github") %></span>
                 <% end %>
               </li>
               <li>
-                <%= link_to "https://status.timesy.dev/", class: " #{block_link_class}" do %>
+                <%= link_to "https://status.timesy.dev/", class: " #{block_link_class} mb-1" do %>
                   <span><%= I18n.t("pages.status") %></span>
                 <% end %>
               </li>
               <li>
-                <%= link_to "https://www.buymeacoffee.com/moekidev", class: " #{block_link_class}" do %>
+                <%= link_to "https://www.buymeacoffee.com/moekidev", class: " #{block_link_class} mb-1" do %>
                   <span><%= I18n.t("pages.tip") %></span>
                 <% end %>
               </li>
