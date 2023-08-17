@@ -25,4 +25,10 @@ class ApplicationController < ActionController::Base
     end
     @current_user = access_token.user
   end
+
+  def set_cache_control_headers(max_age = 2592000)
+    request.session_options[:skip] = true
+    response.headers['Cache-Control'] = "public, no-cache"
+    response.headers['Surrogate-Control'] = "max-age=#{max_age}"
+  end
 end
