@@ -16,14 +16,14 @@ class PostsController < ApplicationController
         .latest
         .limit(page_limit)
         .following(current_user)
+      @next_page = @current_page + 1 if Post.following(current_user).count > page_limit*@current_page + page_limit
     else
       @posts = Post.offset(page_limit*@current_page)
         .includes(:user, comments: :user, post_reactions: :user)
         .latest
         .limit(page_limit)
+      @next_page = @current_page + 1
     end
-
-    @next_page = @current_page + 1
   end
 
   def latest
