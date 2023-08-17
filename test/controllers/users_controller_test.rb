@@ -13,6 +13,18 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "should get left_sidebar" do
+    get "/users/left_sidebar"
+    assert_response :success
+  end
+
+  test "should get left_sidebar with current user" do
+    ApplicationController.stub_any_instance :current_user, users(:general) do
+      get "/users/left_sidebar"
+      assert_response :success
+    end
+  end
+
   test "should get sign_up" do
     get "/users/sign_up"
     assert_response :success

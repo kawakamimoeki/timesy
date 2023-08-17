@@ -6,6 +6,9 @@ class UsersController < ApplicationController
   def header
   end
 
+  def left_sidebar
+  end
+
   def new
     @user = User.new
   end

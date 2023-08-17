@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "t/sitemap", to: "sitemap#index", as: :sitemap, defaults: { format: "xml" }
 
   get 'users/header', to: 'users#header', as: :users_header
+  get 'users/left_sidebar', to: 'users#left_sidebar', as: :users_left_sidebar
   get 'users/sign_up', to: 'users#new', as: :sign_up
   post 'users/confirm', to: 'users#confirm', as: :confirm
   get 'users/register/:token', to: 'users#register', as: :register
