@@ -47,7 +47,7 @@ module ApplicationHelper
   end
 
   def nav_list_class
-    "flex max-w-2xl px-4 mx-auto w-full items-center space-x-5"
+    "flex max-w-2xl px-4 mx-auto w-full items-center"
   end
 
   def nav_item_class(path)

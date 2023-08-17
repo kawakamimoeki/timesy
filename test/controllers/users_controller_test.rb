@@ -37,6 +37,18 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "should get timeline_nav" do
+    get "/users/timeline_nav"
+    assert_response :success
+  end
+
+  test "should get timeline_nav with current user" do
+    ApplicationController.stub_any_instance :current_user, users(:general) do
+      get "/users/timeline_nav"
+      assert_response :success
+    end
+  end
+
   test "should get sign_up" do
     get "/users/sign_up"
     assert_response :success

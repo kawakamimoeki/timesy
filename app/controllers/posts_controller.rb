@@ -7,6 +7,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def form
+    @post = Post.new
+  end
+
   def index
     @post = Post.new
     @post_reaction = PostReaction.new

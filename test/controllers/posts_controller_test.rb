@@ -2,6 +2,18 @@ require "test_helper"
 require 'minitest/mock'
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
+  test "should get form" do
+    get post_form_url
+    assert_response :success
+  end
+
+  test "should get form with current user" do
+    ApplicationController.stub_any_instance :current_user, users(:general) do
+      get post_form_url
+      assert_response :success
+    end
+  end
+
   test "should get index" do
     get root_url
     assert_response :success
