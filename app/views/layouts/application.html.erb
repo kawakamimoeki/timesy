@@ -78,26 +78,9 @@
             <%= image_tag "icons/dark.svg", width: "24px", height: "16px",class: "icon" %>
           </button>
         </div>
-        <% if current_user %>
-          <div class="overflow-visible mr-3 relative" data-controller="notification">
-            <button
-              data-action="click->notification#toggle click->notification#read"
-              class="relative <%= icon_button_class %>"
-              data-turbo-frame="notifications"
-            >
-              <%= image_tag "icons/notification.svg", width: "24px", height: "16px",class: "icon " %>
-              <div data-notification-target="indicator" class="hidden absolute top-2 right-2 w-2 h-2 rounded-full bg-red-500 text-white text-xs items-center justify-center"></div>
-            </button>
-            <div
-              data-notification-target="dropdown"
-              class="<%= dropdown_class %> max-h-96 overflow-scroll">
-              <%= turbo_stream_from "notifications-for-#{current_user.id}" %>
-              <%= turbo_frame_tag :notifications, src: notifications_path do %>
-              <% end %>
-            </div>
-            <div data-action="click->notification#toggle" data-notification-target="backdrop" class="<%= backdrop_class %>"></div>
-          </div>
-        <% end %>
+        <div class="w-10 h-10 mr-3">
+        <%= turbo_frame_tag "notifications_button", src: notifications_button_path, loading: :lazy %>
+        </div>
         <% if !current_user %>
           <%= link_to I18n.t("users.sign_in"), "/users/sign_in", class: "#{block_link_class} mr-2" %>
           <%= link_to I18n.t("users.sign_up"), "/users/sign_up", class: primary_button_class %>

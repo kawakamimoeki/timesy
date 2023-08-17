@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   get 'notifications/index'
+  get 'notifications/button', as: :notifications_button
   passwordless_for :users
 
   get "t/sitemap", to: "sitemap#index", as: :sitemap, defaults: { format: "xml" }

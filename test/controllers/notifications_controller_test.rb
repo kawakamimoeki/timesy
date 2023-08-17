@@ -7,4 +7,11 @@ class NotificationsControllerTest < ActionDispatch::IntegrationTest
       assert_response :success
     end
   end
+
+  test "should get button" do
+    ApplicationController.stub_any_instance :current_user, users(:general) do
+      get notifications_button_url
+      assert_response :success
+    end
+  end
 end
