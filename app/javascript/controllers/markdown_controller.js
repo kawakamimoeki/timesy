@@ -2,6 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 import EasyMDE from "easymde"
 import { DirectUpload } from "@rails/activestorage"
 import Toastify from 'toastify-js'
+import hljs from 'highlight.js';
 
 export default class extends Controller {
   static values = { minHeight: String, placeholder: String, directUploadUrl: String }
@@ -87,8 +88,8 @@ export default class extends Controller {
     });
     const data = await res.json();
     this.previewTarget.innerHTML = data.body;
-    window.hljs.highlightAll();
-    window.hljs.configure({
+    hljs.highlightAll();
+    hljs.configure({
       ignoreUnescapedHTML: true,
       throwUnescapedHTML: false,
     })
