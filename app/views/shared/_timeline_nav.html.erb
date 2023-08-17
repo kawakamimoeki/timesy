@@ -3,34 +3,19 @@
   <div class="<%= nav_list_class %> rounded-lg">
     <a
       href="<%= root_path %>"
-      class="<%= nav_item_class(root_path) %> "
+      class="<%= nav_item_class(root_path) %> mr-5"
       data-turbo-frame="timeline"
     >
-      <%= current_user ? I18n.t("pages.follow") : I18n.t("pages.latest") %>
+      <%= I18n.t("pages.home") %>
     </a>
-    <% if current_user %>
-    <a
-      href="<%= latest_path %>"
-      class="<%= nav_item_class(latest_path) %> "
-      data-turbo-frame="timeline"
-    >
-        <%= I18n.t("pages.latest") %>
-    </a>
-    <a
-      href="<%= pinned_path %>"
-      class="<%= nav_item_class(pinned_path) %> "
-      data-turbo-frame="timeline"
-    >
-        <%= I18n.t("pages.pinned") %>
-    </a>
-    <% end %>
     <a
       href="<%= trending_path %>"
-      class="<%= nav_item_class(trending_path) %> "
+      class="<%= nav_item_class(trending_path) %> mr-5"
       data-turbo-frame="timeline"
     >
         <%= I18n.t("pages.trending") %>
     </a>
+    <%= turbo_frame_tag "timeline_nav_for_current_user", src: users_timeline_nav_path, loading: :lazy %>
   </div>
 </nav>
 </div>

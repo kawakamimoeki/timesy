@@ -1,0 +1,14 @@
+<%= turbo_frame_tag "post_form" do %>
+  <% if current_user %>
+    <div class="flex w-full <%= card_class %> space-x-3">
+      <div class="transition-all w-[32px]">
+        <%= link_to user_path(username: current_user.username), class: "w-8 flex items-center space-x-1 hover:underline mt-1" do %>
+          <%= image_tag current_user.avatar_icon, alt: current_user.username, class: "w-8 h-8 object-cover rounded-full" %>
+        <% end %>
+      </div>
+      <div class="w-[calc(100%-45px)]">
+        <%= render partial: "posts/form", locals: { post: @post, page: @page } %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

@@ -12,6 +12,9 @@ class UsersController < ApplicationController
   def right_sidebar
   end
 
+  def timeline_nav
+  end
+
   def new
     @user = User.new
   end

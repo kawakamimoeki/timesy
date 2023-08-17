@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'users/header', to: 'users#header', as: :users_header
   get 'users/left_sidebar', to: 'users#left_sidebar', as: :users_left_sidebar
   get 'users/right_sidebar', to: 'users#right_sidebar', as: :users_right_sidebar
+  get 'users/timeline_nav', to: 'users#timeline_nav', as: :users_timeline_nav
   get 'users/sign_up', to: 'users#new', as: :sign_up
   post 'users/confirm', to: 'users#confirm', as: :confirm
   get 'users/register/:token', to: 'users#register', as: :register
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
   get "/pined", to: "posts#pinned", as: :pinned
   get "/trending", to: "posts#trending", as: :trending
   get "/search", to: "search#index", as: :search
+  get "posts/form", to: "posts#form", as: :post_form
   get "posts/:id", to: "posts#show", as: :post
   post "posts", to: "posts#create", as: :create_post
   patch "posts/:id", to: "posts#update", as: :update_post
@@ -36,6 +38,7 @@ Rails.application.routes.draw do
   delete '/posts/:post_id/comments/:id', to: 'comments#destroy', as: :delete_comment
   patch '/posts/:post_id/comments/:id', to: 'comments#update', as: :update_comment
   get '/posts/:post_id/comments/:id/comment_editor', to: 'comments#comment_editor', as: :comment_editor
+  get '/posts/:post_id/comments/form', to: 'comments#form', as: :comment_form
 
   post '/posts/:post_id/comments/:comment_id/reactions', to: 'comment_reactions#create', as: :create_comment_reaction
   delete '/posts/:post_id/comments/:comment_id/reactions/:id', to: 'comment_reactions#destroy', as: :delete_comment_reaction

@@ -1,4 +1,9 @@
 class CommentsController < ApplicationController
+  def form
+    @post = Post.find(params[:post_id])
+    @comment = Comment.new
+  end
+
   def index
     @post = Post.find(params[:post_id])
     @current_page = params[:page].to_i

@@ -1,0 +1,7 @@
+<%= turbo_frame_tag "comment_form" do %>
+  <% if current_user %>
+    <div class="<%= card_class %>">
+      <%= render partial: "comments/form", locals: { comment: @comment, post: @post } %>
+    </div>
+  <% end %>
+<% end %>
