@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get 'users/header', to: 'users#header', as: :users_header
   get 'users/left_sidebar', to: 'users#left_sidebar', as: :users_left_sidebar
+  get 'users/right_sidebar', to: 'users#right_sidebar', as: :users_right_sidebar
   get 'users/sign_up', to: 'users#new', as: :sign_up
   post 'users/confirm', to: 'users#confirm', as: :confirm
   get 'users/register/:token', to: 'users#register', as: :register
