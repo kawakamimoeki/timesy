@@ -9,6 +9,9 @@ class UsersController < ApplicationController
   def left_sidebar
   end
 
+  def right_sidebar
+  end
+
   def new
     @user = User.new
   end
