@@ -78,7 +78,7 @@
             <%= image_tag "icons/dark.svg", width: "24px", height: "16px",class: "icon" %>
           </button>
         </div>
-        <div class="w-10 h-10 mr-3">
+        <div class="w-10 h-10 mr-3 z-[100]">
         <%= turbo_frame_tag "notifications_button", src: notifications_button_path, loading: :lazy %>
         </div>
         <% if !current_user %>

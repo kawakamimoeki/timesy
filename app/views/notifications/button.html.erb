@@ -1,6 +1,6 @@
 <%= turbo_frame_tag "notifications_button" do %>
 <% if current_user %>
-  <div class="overflow-visible relative transition-all animate-fade-in" data-controller="notification">
+  <div class="overflow-visible relative z-[100] transition-all animate-fade-in" data-controller="notification">
     <button
       data-action="click->notification#toggle click->notification#read"
       class="relative <%= icon_button_class %>"
