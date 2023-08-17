@@ -25,13 +25,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap" rel="stylesheet">
     <%= vite_client_tag %>
     <%= vite_javascript_tag 'application' %>
-    <% if current_user&.code_theme %>
-      <link rel="stylesheet" type="text/css" href="/code_themes/<%= current_user&.code_theme&.name %>.css">
-    <% else %>
-      <link rel="stylesheet"
-        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/default.min.css">
-      <link rel="stylesheet" type="text/css" href="/code_themes/none.css">
-    <% end %>
+    <%= turbo_frame_tag "code_theme", src: users_code_theme_path, loading: :lazy %>
     <script>window.twttr = (function(d, s, id) {
       var js, fjs = d.getElementsByTagName(s)[0],
         t = window.twttr || {};
