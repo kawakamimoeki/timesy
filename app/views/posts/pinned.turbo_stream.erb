@@ -3,11 +3,8 @@
     <%= render @posts %>
   <% else %>
     <div class="<%= card_class %>">
-      <div class="text-gray-400 text-center">
-        <%= I18n.t("pinned.empty") %>
-      </div>
-      <div class="text-gray-400 text-center">
-        <%= I18n.t("pinned.empty2") %>
+      <div class="text-gray-400 text-sm">
+        <%= I18n.t("pinned.empty") %><%= I18n.t("pinned.empty2") %>
       </div>
     </div>
   <% end %>
