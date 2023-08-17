@@ -1,7 +1,7 @@
 require "coderay"
 
 class MarkdownProcessor
-  VERSION = "202308160748"
+  VERSION = "202308172214"
 
   def self.processor
     Redcarpet::Markdown.new(
@@ -33,6 +33,6 @@ class MarkdownProcessor
       html
     end
   rescue
-    "すみません🙏パースエラーが起きました。"
+    "Parse Error"
   end
 end
