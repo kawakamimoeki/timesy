@@ -1,17 +1,12 @@
 class PagesController < ApplicationController
   def privacy
+    set_cache_control_headers
     @content = set_content("privacy")
   end
 
   def terms
+    set_cache_control_headers
     @content = set_content("terms")
-  end
-
-  def docs
-    @content = set_content("docs")
-  end
-
-  def about
   end
 
   private def set_content(type)
