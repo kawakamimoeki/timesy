@@ -20,7 +20,7 @@ class PostsController < ApplicationController
         .following(current_user)
       @next_page = @current_page + 1 if Post.following(current_user).count > page_limit*@current_page + page_limit
     else
-      @posts = Rails.cache.fetch("posts/latest/#{@current_page}", expires_in: 10.minutes) do
+      @posts = Rails.cache.fetch("posts/latest/pages/#{@current_page}", expires_in: 10.minutes) do
         Post.offset(page_limit*@current_page)
           .includes(:user, comments: :user, post_reactions: :user)
           .latest
@@ -35,7 +35,7 @@ class PostsController < ApplicationController
     @post_reaction = PostReaction.new
     @current_page = params[:page].to_i
 
-    @posts = Rails.cache.fetch("posts/latest/#{@current_page}", expires_in: 10.minutes) do
+    @posts = Rails.cache.fetch("posts/latest/pages/#{@current_page}", expires_in: 10.minutes) do
       Post.offset(page_limit*@current_page)
         .includes(:user, comments: :user, post_reactions: :user)
         .latest
