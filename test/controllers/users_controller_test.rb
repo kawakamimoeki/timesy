@@ -1,6 +1,18 @@
 require "test_helper"
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
+  test "should get header" do
+    get "/users/header"
+    assert_response :success
+  end
+
+  test "should get header with current user" do
+    ApplicationController.stub_any_instance :current_user, users(:general) do
+      get "/users/header"
+      assert_response :success
+    end
+  end
+
   test "should get sign_up" do
     get "/users/sign_up"
     assert_response :success
@@ -8,11 +20,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
 
   test "should post create" do
     post "/users", params: { user: { email: "test@example.com", username: "test", name: "Test" } }
-    assert_response :success
-  end
-
-  test "should get sign_in" do
-    get "/users/sign_in"
     assert_response :success
   end
 

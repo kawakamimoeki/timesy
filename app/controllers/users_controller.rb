@@ -3,6 +3,9 @@ require "bcrypt"
 class UsersController < ApplicationController
   include Passwordless::ControllerHelpers
 
+  def header
+  end
+
   def new
     @user = User.new
   end
