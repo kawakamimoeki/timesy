@@ -26,6 +26,9 @@ class UsersController < ApplicationController
   end
 
   def new
+    if request.format == "text/html"
+      set_cache_control_headers
+    end
     @user = User.new
   end
 
