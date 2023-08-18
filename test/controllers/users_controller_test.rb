@@ -13,30 +13,6 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
-  test "should get left_sidebar" do
-    get "/users/left_sidebar"
-    assert_response :success
-  end
-
-  test "should get left_sidebar with current user" do
-    ApplicationController.stub_any_instance :current_user, users(:general) do
-      get "/users/left_sidebar"
-      assert_response :success
-    end
-  end
-
-  test "should get right_sidebar" do
-    get "/users/right_sidebar"
-    assert_response :success
-  end
-
-  test "should get right_sidebar with current user" do
-    ApplicationController.stub_any_instance :current_user, users(:general) do
-      get "/users/right_sidebar"
-      assert_response :success
-    end
-  end
-
   test "should get timeline_nav" do
     get "/users/timeline_nav"
     assert_response :success

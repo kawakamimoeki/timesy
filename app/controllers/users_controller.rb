@@ -6,12 +6,6 @@ class UsersController < ApplicationController
   def header
   end
 
-  def left_sidebar
-  end
-
-  def right_sidebar
-  end
-
   def timeline_nav
   end
 

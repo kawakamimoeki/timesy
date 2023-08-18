@@ -5,7 +5,7 @@
   }
 ) %>
 
-<div class="max-w-2xl mx-auto px-4 w-full">
+<div class="max-w-3xl mx-auto px-4 w-full">
   <div id="profile-<%= @user.id %>" data-turbo-permanent>
     <%= turbo_frame_tag "profile", src: profile_path(@user.username), loading: :lazy %>
   </div>

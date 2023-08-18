@@ -35,7 +35,7 @@ module ApplicationHelper
   end
 
   def text_field_class
-    "block rounded w-full max-w-2xl px-3 py-2 border text-gray-700 transition-all dark:bg-dark-card dark:border dark:border-dark-border dark:text-gray-200"
+    "block rounded w-full max-w-3xl px-3 py-2 border text-gray-700 transition-all dark:bg-dark-card dark:border dark:border-dark-border dark:text-gray-200"
   end
 
   def loading_box_class
@@ -43,11 +43,11 @@ module ApplicationHelper
   end
 
   def nav_class
-    "w-full flex items-center shadow font-bold dark:border-dark-border sticky space-x-3 z-[50] bg-background dark:bg-dark-background dark:text-gray-200 text-gray-700"
+    "w-full flex items-center shadow font-bold dark:border-dark-border sticky space-x-3 z-[50] bg-background dark:bg-dark-background dark:text-gray-200 text-gray-700 bg-opacity-70 dark:bg-opacity-70 backdrop-filter backdrop-blur-lg dark:backdrop-blur-lg dark:backdrop-filter relative mt-4 rounded-lg mb-4 top-[1rem] max-w-4xl mx-auto"
   end
 
   def nav_list_class
-    "flex max-w-2xl px-4 mx-auto w-full items-center"
+    "flex max-w-4xl px-4 mx-auto w-full items-center"
   end
 
   def nav_item_class(path)
