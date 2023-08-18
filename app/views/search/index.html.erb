@@ -1,7 +1,7 @@
 <div class=" w-full grow relative mt-4">
   <div class="max-w-3xl mx-auto px-4 mb-4">
     <%= form_tag search_path, data: { turbo: false }, method: :get, class: "rounded-full bg-white shadow dark:bg-dark-card w-full flex items-center space-x-5 px-6" do |f| %>
-      <%= image_tag "icons/search.svg", class: "w-5 h-5" %>
+      <%= image_tag "icons/search.svg", class: "w-5 h-5 icon" %>
       <input type="search" name="q" id="q" value="<%= params[:q] %>" placeholder="<%= I18n.t("pages.search") %>" class="dark:bg-dark-card grow h-full py-5 outline-none"/>
     <% end %>
   </div>
