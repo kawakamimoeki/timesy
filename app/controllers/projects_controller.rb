@@ -12,7 +12,11 @@ class ProjectsController < ApplicationController
       .latest
       .where(user_id: @user.id)
     
-    @projects = all_projects.limit(params[:limit] || page_limit)
+    if params[:limit] || page_limit
+      @projects = all_projects.limit(params[:limit] || page_limit)
+    else
+      @projects = all_projects
+    end
     @next_page = @current_page + 1 if all_projects.count > page_limit*@current_page + page_limit
   end
 
