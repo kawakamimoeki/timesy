@@ -15,7 +15,7 @@
     >
         <%= I18n.t("pages.trending") %>
     </a>
-    <%= turbo_frame_tag "timeline_nav_for_current_user", src: users_timeline_nav_path, loading: :lazy %>
+    <%= turbo_frame_tag "timeline_nav_for_current_user", src: users_timeline_nav_path(current: request.path), loading: :lazy %>
   </div>
 </nav>
 </div>
