@@ -1,1 +1,3 @@
-<%= turbo_stream.replace 'reactions', partial: 'shared/post_reactions', locals: { current_user: current_user, post: @post, reaction: PostReaction.new } %>
+<%= turbo_frame_tag "post_reactions_list-#{@post.id}" do %>
+  <%= render partial: 'post_reactions/list', locals: { post: @post } %>
+<% end %>

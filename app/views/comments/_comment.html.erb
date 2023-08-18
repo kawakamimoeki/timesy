@@ -38,6 +38,6 @@
     <% end %>
   </div>
   <div class="mt-2">
-    <%= render partial: 'shared/comment_reactions', locals: { comment: comment, reaction: CommentReaction.new } %>
+    <%= turbo_frame_tag "comment_reactions_list-#{comment.id}", src: comment_reactions_path(comment.post, comment), loading: :lazy, class: "flex items-center flex-wrap" %>
   </div>
 </div>

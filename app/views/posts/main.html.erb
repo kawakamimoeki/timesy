@@ -67,7 +67,7 @@
       <% end %>
     </div>
     <div class="mt-2">
-      <%= render partial: 'shared/post_reactions', locals: { current_user: current_user, post: @post, reaction: @post_reaction } %>
+      <%= turbo_frame_tag "post_reactions_list-#{@post.id}", src: post_reactions_path(@post), loading: :lazy, class: "flex items-center flex-wrap" %>
     </div>
   </div>
 <% end %>
