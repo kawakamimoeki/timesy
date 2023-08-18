@@ -33,9 +33,9 @@ Rails.application.routes.draw do
   post '/posts/:post_id/pins', to: 'pins#create', as: :create_pin
   delete '/posts/:post_id/pins/:id', to: 'pins#destroy', as: :delete_pin
 
+  get '/posts/:post_id/reactions', to: 'post_reactions#index', as: :post_reactions
   post '/posts/:post_id/reactions', to: 'post_reactions#create', as: :create_post_reaction
   delete '/posts/:post_id/reactions/:id', to: 'post_reactions#destroy', as: :delete_post_reaction
-  get '/posts/:post_id/reactions/index', to: 'post_reactions#index', as: :post_reactions
 
   get '/posts/:post_id/comments', to: 'comments#index', as: :comments
   post '/posts/:post_id/comments', to: 'comments#create', as: :create_comment
@@ -44,9 +44,9 @@ Rails.application.routes.draw do
   get '/posts/:post_id/comments/:id/comment_editor', to: 'comments#comment_editor', as: :comment_editor
   get '/posts/:post_id/comments/form', to: 'comments#form', as: :comment_form
 
+  get '/posts/:post_id/comments/:comment_id/reactions', to: 'comment_reactions#index', as: :comment_reactions
   post '/posts/:post_id/comments/:comment_id/reactions', to: 'comment_reactions#create', as: :create_comment_reaction
   delete '/posts/:post_id/comments/:comment_id/reactions/:id', to: 'comment_reactions#destroy', as: :delete_comment_reaction
-  get '/posts/:post_id/comments/:comment_id/reactions/index', to: 'comment_reactions#index', as: :comment_reactions
   
   get 'settings', to: 'settings#edit', as: :settings
   get 'settings/export', to: 'settings#export', as: :export_settings
