@@ -46,11 +46,7 @@
 
   <body class="bg-background bg-cover bg-fixed dark:bg-dark-background" data-background-image="<%= !browser.device.mobile? && !browser.device.tablet? && current_user&.wallpaper_url %>">
     <script>
-      if (localStorage.wallpaper !== document.querySelector('body').style.backgroundImage) {
-        document.querySelector('body').style.backgroundImage = `url(${localStorage.wallpaper})`
-      } else {
-        localStorage.wallpaper = document.querySelector('body').dataset.backgroundImage
-      }
+      document.querySelector('body').style.backgroundImage = `url(${localStorage.wallpaper})`
       if (localStorage.theme === 'dark') {
         document.querySelector('body').classList.add('dark')
       } else {
