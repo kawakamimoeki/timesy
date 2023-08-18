@@ -10,4 +10,3 @@ import "tippy.js/animations/shift-away.css"
 import "toastify-js/src/toastify.css"
 
 import "./highlightjs-loader.js"
-import "./background-loader"
