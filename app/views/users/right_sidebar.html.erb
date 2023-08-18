@@ -16,7 +16,7 @@
 
       <% if current_user.projects.count > 3 %>
         <div class="flex justify-center mt-4">
-          <%= link_to I18n.t("pages.view_all"), projects_path(current_user.username), class: "text-sm text-gray-500 hover:underline" %>
+          <%= link_to I18n.t("pages.view_all"), projects_path(current_user.username), class: "text-sm text-gray-500 hover:underline", data: { turbo_frame: "_top" } %>
         </div>
       <% end %>
     </div>
@@ -32,7 +32,7 @@
 
       <% if current_user.pins.count > 3 %>
         <div class="flex justify-center mt-4">
-          <%= link_to I18n.t("pages.view_all"), pinned_path, class: "text-sm text-gray-500 hover:underline" %>
+          <%= link_to I18n.t("pages.view_all"), pinned_path, class: "text-sm text-gray-500 hover:underline", data: { turbo_frame: "_top" } %>
         </div>
       <% end %>
     </div>
@@ -48,7 +48,7 @@
 
       <% if current_user.posts.count > 3 %>
         <div class="flex justify-center mt-4">
-          <%= link_to I18n.t("pages.view_all"), user_path(current_user.username), class: "text-sm text-gray-500 hover:underline" %>
+          <%= link_to I18n.t("pages.view_all"), user_path(current_user.username), class: "text-sm text-gray-500 hover:underline", data: { turbo_frame: "_top" } %>
         </div>
       <% end %>
     </div>
