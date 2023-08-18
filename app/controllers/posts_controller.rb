@@ -119,6 +119,8 @@ class PostsController < ApplicationController
     @post.attach_projects!
     @post.broadcast_remove_to("posts")
     @post.broadcast_prepend_to("posts")
+
+    purge_page(@post)
   end
 
   def destroy
@@ -131,6 +133,20 @@ class PostsController < ApplicationController
 
     @post.destroy!
     redirect_to root_path, status: 303
+  end
+
+  private def purge_page(post)
+    api_instance = Fastly::PurgeApi.new
+    opts = {
+        service_id: ENV['FASTLY_SERVICE_ID'],
+        cached_url: "#{Site.origin}/posts/#{post.id}",
+        fastly_soft_purge: 1
+    }
+    begin
+      result = api_instance.purge_single_url(opts)
+    rescue Fastly::ApiError => e
+      Rails.logger.error("Exception when calling PurgeApi->purge_single_url: #{e}")
+    end
   end
 
   private def post_params

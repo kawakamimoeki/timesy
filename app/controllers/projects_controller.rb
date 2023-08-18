@@ -70,6 +70,7 @@ class ProjectsController < ApplicationController
 
     if @project.update(project_params)
       @project.icon.attach(params[:project][:icon]) if params[:project][:icon]
+      purge_page(@project)
       redirect_to project_path(@project.user.username, @project.codename)
     else
       render :edit
@@ -86,6 +87,20 @@ class ProjectsController < ApplicationController
     @project = Project.find_by(user_id: @user.id, codename: params[:codename])
     @project.destroy
     redirect_to projects_path
+  end
+
+  private def purge_page(project)
+    api_instance = Fastly::PurgeApi.new
+    opts = {
+        service_id: ENV['FASTLY_SERVICE_ID'],
+        cached_url: "#{Site.origin}/#{project.user.username}/projects/#{project.codename}",
+        fastly_soft_purge: 1
+    }
+    begin
+      result = api_instance.purge_single_url(opts)
+    rescue Fastly::ApiError => e
+      Rails.logger.error("Exception when calling PurgeApi->purge_single_url: #{e}")
+    end
   end
 
   private def project_params
