@@ -8,6 +8,7 @@ ja:
     comment_reaction: "<span class='font-bold'>%{user}</span><span class='opacity-50'>さんが</span> %{comment} <span class='opacity-50'>にリアクションしました</span>"
     pin: "<span class='font-bold'>%{user}</span><span class='opacity-50'>さんが</span> %{post} <span class='opacity-50'>をpinしました</span>"
   pages:
+    discord: Discord
     home: HOME
     timeline: Timeline
     trending: Trending
