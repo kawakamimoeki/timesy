@@ -68,11 +68,13 @@
           </span>
         <% end %>
         <div class="grow"></div>
+        <div class="hidden md:block">
         <%= form_tag search_path, data: { turbo: false }, method: :get do |f| %>
           <div class="flex mr-3">
             <input type="search" name="q" id="q" value="<%= params[:q] %>" placeholder="<%= I18n.t("pages.search") %>" class="<%= text_field_class %> border-none shadow px-4 py-1 rounded-full" />
           </div>
         <% end %>
+        </div>
         <div class="h-[40px] z-[100]">
           <%= turbo_frame_tag "header_menu", src: users_header_path, loading: :lazy %>
         </div>

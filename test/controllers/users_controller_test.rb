@@ -26,7 +26,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get sign_up" do
-    get "/users/sign_up"
+    get "/sign_up"
     assert_response :success
   end
 
@@ -36,7 +36,7 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should post confirm" do
-    post "/users/confirm", params: { user: { email: "notexist@example.com" } }
+    post "/confirm", params: { user: { email: "notexist@example.com" } }
     follow_redirect!
     assert_response :success
   end
