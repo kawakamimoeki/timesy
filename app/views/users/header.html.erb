@@ -1,5 +1,8 @@
 <%= turbo_frame_tag "header_menu" do %>
 <div class="flex items-center z-[100]">
+  <%= link_to search_path, class: "#{icon_button_class} mr-1", data: { turbo_frame: "_top" } do %>
+    <%= image_tag "icons/search.svg", alt: "search", width: "20px", height: "20px", class: "icon" %>
+  <% end %>
   <div data-controller="theme" class="mr-1 w-10 h-10">
     <button data-action="theme#toggle" data-theme-target="dark" class="hidden <%= icon_button_class %> ">
       <%= image_tag "icons/light.svg", width: "24px", height: "16px",class: "icon" %>
