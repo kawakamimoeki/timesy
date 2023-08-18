@@ -3,9 +3,10 @@
     id="wallpaper-url"
     data-background-image="<%= !browser.device.mobile? && !browser.device.tablet? && current_user&.wallpaper_url %>"></div>
   <script>
-    document.querySelector('body').style.backgroundImage = `url(${document.querySelector('#wallpaper-url').dataset.backgroundImage})`
-    if (localStorage.wallpaper !== document.querySelector('#wallpaper-url').dataset.backgroundImage) {
-      localStorage.wallpaper = document.querySelector('body').dataset.backgroundImage
+    const url = document.querySelector('#wallpaper-url').dataset.backgroundImage
+    document.querySelector('body').style.backgroundImage = `url(${url})`
+    if (localStorage.wallpaper !== url) {
+      localStorage.wallpaper = url
     }
   </script>
 <% end %>
