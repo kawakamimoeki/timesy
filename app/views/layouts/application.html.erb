@@ -45,7 +45,7 @@
     }(document, "script", "twitter-wjs"));</script> 
   </head>
 
-  <body class="bg-background bg-cover bg-fixed dark:bg-dark-background" data-background-image="<%= !browser.device.mobile? && !browser.device.tablet? && current_user&.wallpaper_url %>">
+  <body class="bg-background bg-cover bg-fixed dark:bg-dark-background">
     <script>
       document.querySelector('body').style.backgroundImage = `url(${localStorage.wallpaper})`
       if (localStorage.theme === 'dark') {
