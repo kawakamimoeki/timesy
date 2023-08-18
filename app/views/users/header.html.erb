@@ -29,8 +29,8 @@
     </div>
   <% end %>
   <% if !current_user %>
-    <%= link_to I18n.t("users.sign_in"), "/users/sign_in", class: "#{block_link_class} mr-2" %>
-    <%= link_to I18n.t("users.sign_up"), "/users/sign_up", class: primary_button_class %>
+    <%= link_to I18n.t("users.sign_in"), "/users/sign_in", class: "#{block_link_class} mr-2", data: { turbo_frame: "_top" } %>
+    <%= link_to I18n.t("users.sign_up"), "/users/sign_up", class: primary_button_class, data: { turbo_frame: "_top" } %>
   <% end %>
   <div data-controller="menu" class="-mb-[4px] overflow-visible relative">
   <% if current_user %>
