@@ -111,7 +111,49 @@ export default class extends Controller {
           url: "https://res.cloudinary.com/dw1xpb7if/image/upload/v1691588207/mvdlwyuzkllmokncl2y0.png",
           tags: [],
           data: { custom: true }
-        }
+        },
+        {
+          emoji: "naisu",
+          label: "ナイス",
+          url: "https://res.cloudinary.com/dw1xpb7if/image/upload/v1692372745/eieuz0aek6x7ct1ab3b0.png",
+          tags: [],
+          data: { custom: true }
+        },
+        {
+          emoji: "wakaran",
+          label: "わからん",
+          url: "https://res.cloudinary.com/dw1xpb7if/image/upload/v1692372745/uuh0rffqarzrjbge1mek.png",
+          tags: [],
+          data: { custom: true }
+        },
+        {
+          emoji: "benri",
+          label: "便利",
+          url: "https://res.cloudinary.com/dw1xpb7if/image/upload/v1692372745/isnlsbrteuykieru7ycg.png",
+          tags: [],
+          data: { custom: true }
+        },
+        {
+          emoji: "kakkoi",
+          label: "かっこいい",
+          url: "https://res.cloudinary.com/dw1xpb7if/image/upload/v1692372868/jz6smeg3hahmlrc8edvs.png",
+          tags: [],
+          data: { custom: true }
+        },
+        {
+          emoji: "kawaii",
+          label: "kawaii",
+          url: "https://res.cloudinary.com/dw1xpb7if/image/upload/v1692372910/ozlxuch7mnow48kowfen.png",
+          tags: [],
+          data: { custom: true }
+        },
+        {
+          emoji: "kuwashii",
+          label: "詳しい",
+          url: "https://res.cloudinary.com/dw1xpb7if/image/upload/v1692372910/kj6kxgvxo1fa52pmq2bn.png",
+          tags: [],
+          data: { custom: true }
+        },
       ]
     }, {
       triggerElement: this.buttonTarget,
