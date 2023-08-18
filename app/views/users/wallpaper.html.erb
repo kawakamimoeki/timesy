@@ -4,9 +4,9 @@
     data-background-image="<%= !browser.device.mobile? && !browser.device.tablet? && current_user&.wallpaper_url %>"></div>
   <script>
     const url = document.querySelector('#wallpaper-url').dataset.backgroundImage
-    document.querySelector('body').style.backgroundImage = `url(${url})`
     if (localStorage.wallpaper !== url) {
       localStorage.wallpaper = url
+      document.querySelector('body').style.backgroundImage = `url(${url})`
     }
   </script>
 <% end %>
