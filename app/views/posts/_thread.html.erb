@@ -7,9 +7,9 @@
       <span class="text-sm">To Bottom</span>
     </button>
   </div>
-  <div class=" <%= card_class %>" data-controller="post-show">
-    <%= turbo_frame_tag "post_main", src: post_main_path(@post), loading: :lazy %>
-  </div>
+  <%= turbo_frame_tag "post_main", src: post_main_path(@post), loading: :lazy do %>
+    <%= render partial: "posts/loading" %>
+  <% end %>
   <div>
     <%= turbo_stream_from "comments-of-#{@post.id}" %>
     <div data-controller="thread-scroll">
