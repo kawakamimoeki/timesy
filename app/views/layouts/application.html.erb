@@ -46,14 +46,21 @@
 
   <body class="bg-background bg-cover bg-fixed dark:bg-dark-background" data-background-image="<%= !browser.device.mobile? && !browser.device.tablet? && current_user&.wallpaper_url %>">
     <script>
-      document.querySelector('body').style.backgroundImage = `url(${document.querySelector('body').dataset.backgroundImage})`
+      if (localStorage.wallpaper !== document.querySelector('body').style.backgroundImage) {
+        document.querySelector('body').style.backgroundImage = `url(${localStorage.wallpaper})`
+      } else {
+        localStorage.wallpaper = document.querySelector('body').dataset.backgroundImage
+      }
       if (localStorage.theme === 'dark') {
         document.querySelector('body').classList.add('dark')
       } else {
         document.querySelector('body').classList.remove('dark')
       }
     </script>
-    <header class="w-full shadow-sm  bg-white dark:bg-dark-background dark:text-gray-200 border-b dark:border-dark-border" id="header" data-turbo-permanent>
+    <div id="wallpaper-container" data-turbo-permanent>
+      <%= turbo_frame_tag "wallpaper", src: users_wallpaper_path, loading: :lazy %>
+    </div>
+    <header class="w-full shadow-sm  bg-white dark:bg-dark-background dark:text-gray-200 border-b z-0 dark:border-dark-border" id="header" data-turbo-permanent>
       <div class="flex max-w-2xl mx-auto px-4 items-center py-3 text-sm">
         <%= link_to "/", class: "block mr-3", data: { turbo_frame: "_top" } do %>
           <span class="dark:hidden">
