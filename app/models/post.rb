@@ -32,6 +32,10 @@ class Post < ApplicationRecord
     attribute :username do
       user.username
     end
+
+    attribute :comments do
+      comments.map(&:body).join(' ')
+    end
   end
 
   def self.trigger_job(record, remove)
