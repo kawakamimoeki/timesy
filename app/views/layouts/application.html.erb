@@ -13,6 +13,7 @@
     <%= display_meta_tags(default_meta_tags)%>
     <meta name="description" content="<%= Site.description %>">
     <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= action_cable_meta_tag %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
