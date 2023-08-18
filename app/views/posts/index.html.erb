@@ -2,7 +2,7 @@
   <div class="grow w-full" id="main">
     <%= turbo_frame_tag "timeline" do %>
     <%= render partial: "shared/timeline_nav" %>
-    <div class="max-w-2xl mx-auto px-4 <%= current_user ? "" : "pt-4"%>">
+    <div class="max-w-3xl mx-auto px-4 <%= current_user ? "" : "pt-4"%>">
       <%= turbo_frame_tag "post_form", src: post_form_path, loading: :lazy %>
       <%= turbo_stream_from "posts" %>
       <%= turbo_frame_tag "posts", target: "_top" do %>

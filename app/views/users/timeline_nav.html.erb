@@ -1,18 +1,20 @@
 <%= turbo_frame_tag "timeline_nav_for_current_user" do %>
-  <% if current_user %>
-    <a
-      href="<%= latest_path %>"
-      class="<%= nav_item_class(latest_path) %> mr-5"
-      data-turbo-frame="timeline"
-    >
-        <%= I18n.t("pages.latest") %>
-    </a>
-    <a
-      href="<%= pinned_path %>"
-      class="<%= nav_item_class(pinned_path) %> mr-5"
-      data-turbo-frame="timeline"
-    >
-        <%= I18n.t("pages.pinned") %>
-    </a>
-  <% end %>
+  <div class="h-8 flex items-center">
+    <% if current_user %>
+      <a
+        href="<%= latest_path %>"
+        class="<%= nav_item_class(latest_path) %> mr-5 -pb-[3px]"
+        data-turbo-frame="timeline"
+      >
+          <%= I18n.t("pages.latest") %>
+      </a>
+      <a
+        href="<%= pinned_path %>"
+        class="<%= nav_item_class(pinned_path) %> mr-5"
+        data-turbo-frame="timeline"
+      >
+          <%= I18n.t("pages.pinned") %>
+      </a>
+    <% end %>
+  </div>
 <% end %>

@@ -12,7 +12,7 @@
     <%= form_with model: comment, url: update_comment_path(post_id: comment.post.id, id: comment.id), id: "post-form", medhot: :patch, data: { action: "turbo:submit-end->post-show#close", controller: "turbo-form markdown", post_editor_confirm_message: I18n.t("page.confirm_leave"),  markdown_min_height_value: "100px", markdown_placeholder_value: I18n.t("comments.placeholder") }, class: "grow transition-all" do |f| %>
       <div>
         <%= flash[:error] %>
-        <div class="max-w-2xl mx-auto">
+        <div class="max-w-3xl mx-auto">
           <div class="bg-none">
             <div data-markdown-target="editorContainer">
               <%= f.text_area :body, data: { markdown_target: "editor", post_editor_target: "body" }, class: "prose resize-none" %>
