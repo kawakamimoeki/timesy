@@ -2,7 +2,7 @@
   <div class="grow w-full" id="main">
     <%= turbo_frame_tag "timeline" do %>
     <%= render partial: "shared/timeline_nav" %>
-    <div class="max-w-4xl mx-auto px-4 <%= current_user ? "" : "pt-4"%>">
+    <div class="max-w-4xl mx-auto px-4">
       <% if current_user %>
       <div class="flex w-full <%= card_class %> space-x-3">
         <div class="transition-all">
