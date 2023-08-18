@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get 'users/right_sidebar', to: 'users#right_sidebar', as: :users_right_sidebar
   get 'users/timeline_nav', to: 'users#timeline_nav', as: :users_timeline_nav
   get 'users/code_theme', to: 'users#code_theme', as: :users_code_theme
+  get 'users/wallpaper', to: 'users#wallpaper', as: :users_wallpaper
   get 'users/sign_up', to: 'users#new', as: :sign_up
   post 'users/confirm', to: 'users#confirm', as: :confirm
   get 'users/register/:token', to: 'users#register', as: :register

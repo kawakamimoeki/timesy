@@ -1,0 +1,13 @@
+<%= turbo_frame_tag "wallpaper" do %>
+  <div
+    id="wallpaper-url"
+    data-background-image="<%= !browser.device.mobile? && !browser.device.tablet? && current_user&.wallpaper_url %>"></div>
+  <script>
+    document.querySelector('body').style.backgroundImage = `url(${document.querySelector('#wallpaper-url').dataset.backgroundImage})`
+    if (localStorage.theme === 'dark') {
+      document.querySelector('body').classList.add('dark')
+    } else {
+      document.querySelector('body').classList.remove('dark')
+    }
+  </script>
+<% end %>

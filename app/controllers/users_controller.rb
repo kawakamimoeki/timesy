@@ -18,6 +18,9 @@ class UsersController < ApplicationController
   def code_theme
   end
 
+  def wallpaper
+  end
+
   def profile
     @user = User.find_by(username: params[:username])
   end
