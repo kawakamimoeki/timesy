@@ -78,7 +78,7 @@
   <% end %>
   <h2 class="border-b mt-8 dark:border-gray-600 mb-4 font-bold pb-1"><%= I18n.t("settings.account") %></h2>
   <div class="text-left text-sm">
-    <%= button_to I18n.t("passwordless.sessions.sign_out"), "/users/sign_out", data: { turbo: false }, method: :delete %>
+    <%= button_to I18n.t("passwordless.sessions.sign_out"), "/sign_out", data: { turbo: false }, method: :delete %>
   </div>
   <h2 class="border-b mt-8 dark:border-gray-600 mb-4 font-bold pb-1">Danger Zone</h2>
   <div class="text-left text-sm">
