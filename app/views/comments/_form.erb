@@ -31,10 +31,10 @@
     <div class="flex items-center">
       <div class="grow"></div>
       <div class="px-1">
-        <button type="button" class="<%= icon_button_class %>" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton">
+        <button type="button" class="<%= icon_button_class %>" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton" aria-label="Preview">
           <%= image_tag "icons/preview.svg", alt: "preview", width: "24px", height: "14px", class: "icon" %>
         </button>
-        <button type="button" class="<%= icon_button_class %> hidden" title="<%=  I18n.t('posts.edit') %>" data-action="markdown#edit" data-markdown-target="editorButton">
+        <button type="button" class="<%= icon_button_class %> hidden" title="<%=  I18n.t('posts.edit') %>" data-action="markdown#edit" data-markdown-target="editorButton" aria-label="Edit">
           <%= image_tag "icons/edit.svg", alt: "edit", width: "24px", height: "14px", class: "icon" %>
         </button>
       </div>

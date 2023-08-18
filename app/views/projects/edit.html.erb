@@ -11,7 +11,7 @@
     <%= render partial: 'projects/form', locals: { project: @project, path: update_project_path(current_user.username, @project.codename), submit_label: I18n.t("form.submit.update"), method: :patch } %>
     <div class="flex">
       <div class="grow"></div>
-      <%= button_to I18n.t("form.submit.delete"), project_path(current_user.username, @project.codename), data: { turbo: false }, onClick: "return confirm('#{I18n.t("projects.confirm_delete")}')", method: :delete, class: "text-red-500 mt-10 text-sm" %>
+      <%= button_to I18n.t("form.submit.delete"), project_path(current_user.username, @project.codename), data: { turbo: false }, onClick: "return confirm('#{I18n.t("projects.confirm_delete")}')", method: :delete, class: "text-red-500 mt-10 text-sm", aria: { label: "Delete" } %>
     </div>
   </div>
 </div>

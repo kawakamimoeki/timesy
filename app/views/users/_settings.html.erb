@@ -5,7 +5,9 @@
   <%= form_with model: @user, multipart: true, url: update_profile_path, method: :patch, data: { turbo: false } do |f| %>
     <div data-controller="file-field" class="mb-4">
       <%= image_tag @user.avatar_icon, alt: @user.username, width: "100px", height: "100px", class: "w-20 h-20 object-cover rounded-full preview" %>
-      <button type="button" class="text-gray-600 inline text-sm hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700 rounded-full py-1 px-3 mt-3" data-action="file-field#click" ><%= I18n.t("form.button.change_file") %></button>
+      <button type="button" class="text-gray-600 inline text-sm hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700 rounded-full py-1 px-3 mt-3" data-action="file-field#click" aria-label="Change file">
+        <%= I18n.t("form.button.change_file") %>
+      </button>
       <%= f.file_field :avatar, data: { file_field_target: "field" }, accept: "image/png, image/jpeg", class: "hidden" %>
     </div>
     <%= f.label :username, class: label_class %>
@@ -34,8 +36,12 @@
     <%= f.label :wallpaper, class: label_class %>
     <div data-controller="file-field" data-file-field-fallback-value="<%= current_user.no_wallpaper %>" class="mb-4">
     <%= image_tag @user.wallpaper_or_none, alt: "wallpaper", class: "w-[400px] h-[220px] object-cover preview rounded-lg" %>
-    <button type="button" class="text-gray-600 inline text-sm hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700 rounded-full py-1 px-3 mt-3" data-action="file-field#click" ><%= I18n.t("form.button.change_file") %></button>
-    <button type="button" class="text-red-600 inline text-sm hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700 rounded-full py-1 px-3 mt-3" data-action="file-field#remove" ><%= I18n.t("form.submit.delete") %></button>
+    <button type="button" class="text-gray-600 inline text-sm hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700 rounded-full py-1 px-3 mt-3" data-action="file-field#click" aria-label="Change file">
+      <%= I18n.t("form.button.change_file") %>
+    </button>
+    <button type="button" class="text-red-600 inline text-sm hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700 rounded-full py-1 px-3 mt-3" data-action="file-field#remove" aria-label="Remove file">
+      <%= I18n.t("form.submit.delete") %>
+    </button>
     <%= f.file_field :wallpaper, data: { file_field_target: "field" }, accept: "image/png, image/jpeg", class: "hidden" %>
     <%= f.hidden_field :no_wallpaper, data: { file_field_target: "fallback" } %>
   </div>
@@ -62,7 +68,7 @@
     <%= f.label :access_token, class: label_class %>
     <%= f.text_field :access_token, class: text_field_class + " mb-5", readonly: true, value: current_user.access_tokens.first&.token %>
     <div class="flex items-center space-x-2">
-      <button type="button" data-controller="copy-url" data-copy-url-url-value="<%= current_user.access_tokens.first&.token %>" class="<%= block_link_class %> text-sm flex items-center space-x-1">
+      <button type="button" data-controller="copy-url" data-copy-url-url-value="<%= current_user.access_tokens.first&.token %>" class="<%= block_link_class %> text-sm flex items-center space-x-1" aria-label="Copy">
         <%= image_tag "icons/copy.svg", alt: I18n.t("settings.copy"), class: "icon w-4 h-4" %>
         <span><%= I18n.t("settings.copy") %></span>
       </button>
@@ -78,7 +84,7 @@
   <% end %>
   <h2 class="border-b mt-8 dark:border-gray-600 mb-4 font-bold pb-1"><%= I18n.t("settings.account") %></h2>
   <div class="text-left text-sm">
-    <%= button_to I18n.t("passwordless.sessions.sign_out"), "/sign_out", data: { turbo: false }, method: :delete %>
+    <%= button_to I18n.t("passwordless.sessions.sign_out"), "/sign_out", data: { turbo: false }, method: :delete, aria: { label: "Sign out" } %>
   </div>
   <h2 class="border-b mt-8 dark:border-gray-600 mb-4 font-bold pb-1">Danger Zone</h2>
   <div class="text-left text-sm">
@@ -88,7 +94,8 @@
       data: { turbo: false },
       onClick: "return confirm('#{I18n.t("users.confirm_delete")}');",
       method: :delete,
-      class: "text-red-500"
+      class: "text-red-500",
+      aria: { label: "Delete account" },
     ) %>
   </div>
 </div>
