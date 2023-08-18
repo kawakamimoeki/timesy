@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   def trending
+    set_cache_control_headers
     @posts = Rails.cache.fetch("posts/trending", expires_in: 3.hours) do
       Post.trending
         .includes(:user, comments: :user, post_reactions: :user)
@@ -21,6 +22,7 @@ class PostsController < ApplicationController
   end
 
   def index
+    set_cache_control_headers
     @post = Post.new
     @post_reaction = PostReaction.new
     @current_page = params[:page].to_i
@@ -44,6 +46,7 @@ class PostsController < ApplicationController
   end
 
   def latest
+    set_cache_control_headers
     @post = Post.new
     @post_reaction = PostReaction.new
     @current_page = params[:page].to_i
@@ -59,6 +62,7 @@ class PostsController < ApplicationController
   end
 
   def pinned
+    set_cache_control_headers
     @post = Post.new
     @post_reaction = PostReaction.new
     @current_page = params[:page].to_i
@@ -72,6 +76,7 @@ class PostsController < ApplicationController
   end
 
   def show
+    set_cache_control_headers
     @post = Post.includes(comments: :user).find_by(id: params[:id])
     @post_reaction = PostReaction.new
     @comment_reaction = CommentReaction.new
