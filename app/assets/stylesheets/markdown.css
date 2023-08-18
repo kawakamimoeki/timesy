@@ -109,6 +109,8 @@ body.dark .markdown-body table tr {
   padding: 8px !important;
   background: none !important;
   overflow: visible !important;
+  margin-top: -16px !important;
+  margin-bottom: -16px !important;
 }
 
 .markdown-body pre code {
