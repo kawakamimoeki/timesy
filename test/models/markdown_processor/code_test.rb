@@ -15,4 +15,9 @@ class MarkdownProcessor::CodeTest < ActiveSupport::TestCase
     result = MarkdownProcessor::Code.process("<code class=\"ruby\"></code><code class=\"typescript\"></code>")
     assert_equal "<code class=\"language-ruby\"></code><code class=\"language-typescript\"></code>", result
   end
+
+  test "pre" do
+    result = MarkdownProcessor::Code.process("<pre><code class=\"ruby\"></code></pre>")
+    assert result.include?("<pre class=\"relative group\" data-controller=\"code-block\">")
+  end
 end

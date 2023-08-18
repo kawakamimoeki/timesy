@@ -52,6 +52,6 @@ class PostTest < ActiveSupport::TestCase
     post9 = Post.create(body: "#test", user: user, created_at: 3.day.ago)
     
     assert_equal 1, Post.score_per_day(user)[1.day.ago.to_date]
-    assert_equal nil, Post.score_per_day(user)[5.day.ago.to_date]
+    assert_nil Post.score_per_day(user)[5.day.ago.to_date]
   end
 end
