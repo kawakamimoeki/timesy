@@ -1,4 +1,5 @@
-<div class="link-card cursor-pointer  max-w-[384px] overflow-hidden w-full rounded-lg shadow hover:shadow-lg transition-all" onclick="window.open('<%= ogp.url %>')">
+<div class="link-card cursor-pointer  max-w-[384px] overflow-hidden w-full rounded-lg shadow hover:shadow-lg transition-all">
+<a href="<%= ogp.url %>">
   <% if ogp.image.present? %>
     <img src="<%= ogp.image %>" class="object-cover" alt="">
   <% end %>
@@ -7,4 +8,5 @@
     <div class="text-sm"><%= ogp.truncated_title %></div>
     <div class="text-xs text-gray-500"><%= ogp.truncated_description %></div>
   </div>
+</a>
 </div>
