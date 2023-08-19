@@ -1,6 +1,6 @@
 <%= turbo_stream.append "trending" do %>
   <% if @posts.present? %>
-    <%= render @posts %>
+    <%= render @posts, locals: { link_presence: true } %>
   <% end %>
 <% end %>
 

@@ -33,6 +33,18 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
     end
   end
 
+  test "should get editor" do
+    get post_editor_url(posts(:general))
+    assert_response :success
+  end
+
+  test "should get editor with current user" do
+    ApplicationController.stub_any_instance :current_user, users(:general) do
+      get post_editor_url(posts(:general))
+      assert_response :success
+    end
+  end
+
   test "should create post" do
     ApplicationController.stub_any_instance :current_user, users(:general) do
       assert_difference('Post.count') do

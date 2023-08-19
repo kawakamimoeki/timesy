@@ -23,6 +23,10 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
+  def editor
+    @post = Post.find(params[:id])
+  end
+
   def index
     if request.format == "text/html"
       set_cache_control_headers
