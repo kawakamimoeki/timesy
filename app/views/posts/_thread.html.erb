@@ -1,11 +1,4 @@
 <div class="grow w-full">
-  <div class="mb-4 flex items-center space-x-4">
-    <div class="grow"></div>
-    <button class="<%= block_link_class %> bg-gray-50 border dark:border-dark-border dark:bg-gray-700 hover:bg-gray-100 hover:dark:bg-gray-600" data-controller="tobottom" aria-label="To Bottom">
-      <%= image_tag "icons/down.svg", alt: "down", width: "24px", height: "24px",class: "icon" %>
-      <span class="text-sm">To Bottom</span>
-    </button>
-  </div>
   <%= turbo_frame_tag "post_main", src: post_main_path(@post), loading: :lazy do %>
     <%= render partial: "posts/loading" %>
   <% end %>
@@ -22,3 +15,7 @@
   </div>
   <%= turbo_frame_tag "comment_form", src: comment_form_path(@post), loading: :lazy %>
 </div>
+
+<button class="<%= icon_button_class %> fixed bottom-6 right-6 bg-white dark:bg-dark-card transition-all animate-fade-in" data-controller="tobottom" aria-label="To Bottom">
+  <%= image_tag "icons/down.svg", alt: "down", width: "24px", height: "24px",class: "icon" %>
+</button>
