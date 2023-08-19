@@ -63,6 +63,14 @@
       <% end %>
     <% end %>
   </div>
+  <h2 class="border-b mt-8 dark:border-gray-600 mb-4 font-bold pb-1"><%= I18n.t("settings.analytics") %></h2>
+  <%= form_with model: @user, url: update_google_analytics_path, method: :patch, data: { turbo: false }, class: "mb-4" do |f| %>
+    <%= f.label :google_analytics_tracking_id, class: label_class %>
+    <%= f.text_field :google_analytics_tracking_id, class: text_field_class + " mb-5", placeholder: "G-" %>
+    <div class="flex">
+      <%= f.submit I18n.t("form.submit.update"), class: primary_button_class %>
+    </div>
+  <% end %>
   <h2 class="border-b mt-8 dark:border-gray-600 mb-4 font-bold pb-1"><%= I18n.t("settings.api") %></h2>
   <%= form_with model: @user, url: update_access_token_path, method: :patch, data: { turbo: false }, class: "mb-4" do |f| %>
     <%= f.label :access_token, class: label_class %>

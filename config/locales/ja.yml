@@ -139,6 +139,7 @@ ja:
     profile: プロフィール
     wallpaper: 壁紙設定
     export: エクスポート
+    analytics: Google Analytics
     api: API
     webhook: Webhook通知先
     access_token:

@@ -1,3 +1,5 @@
+<% content_for(:tracking_id, @post.user.google_analytics_tracking_id) %>
+
 <% set_meta_tags(
   title: @post.truncated,
   og: {

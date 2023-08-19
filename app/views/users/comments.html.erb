@@ -1,3 +1,5 @@
+<% content_for(:tracking_id, @user.google_analytics_tracking_id) %>
+
 <% set_meta_tags(
   title: I18n.t("pages.comments", user: @user.name),
   og: {

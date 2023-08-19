@@ -57,6 +57,7 @@ Rails.application.routes.draw do
   patch 'settings/theme', to: 'settings#update_theme', as: :update_theme
   patch 'settings/webhook', to: 'settings#update_webhook', as: :update_webhook
   patch 'settings/access_token', to: 'settings#update_access_token', as: :update_access_token
+  patch 'settings/google_analytics', to: 'settings#update_google_analytics', as: :update_google_analytics
 
   get 'privacy', to: 'pages#privacy', as: :privacy
   get 'terms', to: 'pages#terms', as: :terms

@@ -53,6 +53,14 @@ class SettingsController < ApplicationController
     redirect_to settings_path
   end
 
+  def update_google_analytics
+    @user = current_user
+    if @user.update(google_analytics_path)
+      flash[:notice] = I18n.t('settings.updated')
+    end
+    redirect_to settings_path
+  end
+
   def download_export
     export = current_user.exports.find(params[:id])
     if export.state == "completed"
@@ -105,6 +113,12 @@ class SettingsController < ApplicationController
       :wallpaper,
       :no_wallpaper,
       :code_theme_id
+    )
+  end
+
+  private def google_analytics_path
+    params.require(:user).permit(
+      :google_analytics_tracking_id
     )
   end
 end
