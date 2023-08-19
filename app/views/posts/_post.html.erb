@@ -41,8 +41,8 @@
       </div>
     <% end %>
   </div>
-  <div class="flex items-center flex-wrap">
-    <div class="flex items-end flex-wrap">
+  <div class="flex items-end">
+    <div class="flex items-center flex-wrap w-[calc(100%-40px)]">
       <div class="flex items-center flex-wrap overflow-hidden mr-2">
         <%= turbo_frame_tag "post_reactions_list-#{post.id}", src: post_reactions_path(post), loading: :lazy, class: "flex items-center flex-wrap" %>
       </div>
@@ -59,9 +59,8 @@
         <% end %>
       </div>
     </div>
-    <div class="grow"></div>
     <% if request.path.exclude? "posts" %>
-      <%= link_to post_path(post.id), class: icon_button_class + " flex items-center", aria: { label: "View post" } do %>
+      <%= link_to post_path(post.id), class: icon_button_class + " flex items-center w-[40px]", aria: { label: "View post" } do %>
         <%= image_tag "icons/forward.svg", alt: "forward", width: "24px", height: "14px", class: "icon" %>
       <% end %>
     <% end %>
