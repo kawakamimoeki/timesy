@@ -29,11 +29,11 @@
         <span class="ml-2 text-xs text-gray-500"><%= I18n.t("form.unchangeable") %></span>
       </div>
       <div class="mb-8 flex">
-        <%= f.email_field :email, class: text_field_class, placeholder: "you@example.com", aria: { label: "Email" } %>
+        <%= f.email_field :email, class: text_field_class, placeholder: "you@example.com", data: { testid: "email" } %>
       </div>
       <div class="flex">
         <div class="grow"></div>
-        <%= f.submit "確認メールを送信する", class: primary_button_class, aria: { label: "Send confirmation email" } %>
+        <%= f.submit "確認メールを送信する", class: primary_button_class, data: { testid: "submit" } %>
         <div class="grow"></div>
       </div>
     <% end %>
