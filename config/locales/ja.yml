@@ -62,6 +62,7 @@ ja:
     empty: 自分や他の人のスレッドをピンするとここに表示されます。
     empty2: 作業中のスレッドや気になるスレッドをピンしてみましょう！
   posts:
+    copy: Copy Link
     pin: Pin
     unpin: Pinned
     draft: 下書き

@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   get "posts/:id/main", to: "posts#main", as: :post_main
   get '/posts/:id/pin_button', to: 'posts#pin_button', as: :post_pin_button
   get 'posts/:id/editor', to: 'posts#editor', as: :post_editor
+  get 'posts/:id/copy_link', to: 'posts#copy_link', as: :post_copy_link
 
   post '/posts/:post_id/pins', to: 'pins#create', as: :create_pin
   delete '/posts/:post_id/pins/:id', to: 'pins#destroy', as: :delete_pin

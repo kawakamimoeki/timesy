@@ -1,11 +1,11 @@
 <% if post.pinned_by?(current_user) %>
   <%= button_to delete_pin_path(post.id, Pin.find_by(user: current_user, post: post)), class: "#{block_link_class} bg-slate-100 dark:bg-slate-700", method: :delete, aria: { label: "Unpin" } do %>
     <%= image_tag "icons/pin.svg", width: "24px", height: "24px", class: "icon" %>
-    <span class="text-sm"><%= I18n.t("posts.unpin") %></span>
+    <span class="text-sm hidden sm:block"><%= I18n.t("posts.unpin") %></span>
   <% end %>
 <% else %>
   <%= button_to create_pin_path(post_id: post.id), method: :post, class: "#{block_link_class}", aria: { label: "Pin" } do %>
     <%= image_tag "icons/pin.svg", width: "24px", height: "24px", class: "icon" %>
-    <span class="text-sm"><%= I18n.t("posts.pin") %></span>
+    <span class="text-sm hidden sm:block"><%= I18n.t("posts.pin") %></span>
   <% end %>
 <% end %>
