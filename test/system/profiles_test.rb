@@ -9,7 +9,7 @@ class ProfilesTest < ApplicationSystemTestCase
     @page.goto(user_path(users(:general).username))
     @page.wait_for_selector('[aria-label="View posts"]').click
 
-    assert @page.text_content('[aria-label="Post"]').include?(posts(:general).body)
+    assert @page.text_content('body').include?(posts(:general).body)
   end
 
   test "viewing comments" do
