@@ -1,45 +1,47 @@
 <div class=" <%= card_class %>" data-controller="post-show" aria-label="Post">
-  <div class="flex mb-3 items-center space-x-1">
-    <%= render partial: "shared/avatar", locals: { user: post.user } %>
-    <time class="text-gray-400 text-sm"><%= time_ago_in_words(post.created_at) %></time>
-    <div class="grow"></div>
-    <%= turbo_frame_tag "post_copy_link-#{post.id}", src: post_copy_link_path(post), loading: :lazy, data: { post_show_target: "menu" } %>
-    <%= turbo_frame_tag "pin_button_container", src: post_pin_button_path(post), loading: :lazy, data: { post_show_target: "menu" } %>
-    <%= turbo_frame_tag "post_editor-#{post.id}", src: post_editor_path(post), loading: :lazy %>
-  </div>
-  <%= turbo_frame_tag :post do %>
-    <div data-post-show-target="show" data-controller="image-modal twitter" class="markdown-body">
-      <%= post.html.html_safe %>
+  <div class="mb-4">
+    <div class="flex mb-3 items-center space-x-1">
+      <%= render partial: "shared/avatar", locals: { user: post.user } %>
+      <time class="text-gray-400 text-sm"><%= time_ago_in_words(post.created_at) %></time>
+      <div class="grow"></div>
+      <%= turbo_frame_tag "post_copy_link-#{post.id}", src: post_copy_link_path(post), loading: :lazy, data: { post_show_target: "menu" } %>
+      <%= turbo_frame_tag "pin_button_container", src: post_pin_button_path(post), loading: :lazy, data: { post_show_target: "menu" } %>
+      <%= turbo_frame_tag "post_editor-#{post.id}", src: post_editor_path(post), loading: :lazy %>
     </div>
-  <% end %>
-  <div class="hidden" data-post-show-target="editor">
-    <%= form_with model: post, url: update_post_path(id: post.id), id: "post-form", data: { action: "turbo:submit-end->post-show#close",turbo_frame: :post, controller: "turbo-form markdown", post_editor_confirm_message: I18n.t("page.confirm_leave"),  markdown_min_height_value: "100px", markdown_placeholder_value: I18n.t("posts.placeholder") }, class: "grow transition-all" do |f| %>
-      <div>
-        <%= flash[:error] %>
-        <div class="max-w-3xl mx-auto">
-          <div class="">
-            <div data-markdown-target="editorContainer">
-              <%= f.text_area :body, data: { markdown_target: "editor", post_editor_target: "body" }, class: "prose resize-none min-h-[114px]" %>
-            </div>
-            <div class="markdown-body hidden min-h-[120px]" data-markdown-target="preview"></div>
-          </div>
-        </div>
-      </div>
-      <div class="flex pt-3 w-full items-center bg-none">
-        <div class="grow"></div>
-        <div class="px-1">
-          <button type="button" class="<%= icon_button_class %>" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton" aria-label="Preview">
-            <%= image_tag "icons/preview.svg", alt: "preview", width: "24px", height: "16px",class: "icon" %>
-          </button>
-          <button type="button" class="<%= icon_button_class %> hidden" title="<%=  I18n.t('posts.edit') %>" data-action="markdown#edit" data-markdown-target="editorButton" aria-label="Edit">
-            <%= image_tag "icons/edit.svg", alt: "edit", width: "24px", height: "16px",class: "icon" %>
-          </button>
-        </div>
-        <div class="px-1">
-          <%= f.submit I18n.t('posts.update'), disabled: true, class: primary_button_class, data: { post_editor_target: "publish" } %>
-        </div>
+    <%= turbo_frame_tag :post do %>
+      <div data-post-show-target="show" data-controller="image-modal twitter" class="markdown-body">
+        <%= post.html.html_safe %>
       </div>
     <% end %>
+    <div class="hidden" data-post-show-target="editor">
+      <%= form_with model: post, url: update_post_path(id: post.id), id: "post-form", data: { action: "turbo:submit-end->post-show#close",turbo_frame: :post, controller: "turbo-form markdown", post_editor_confirm_message: I18n.t("page.confirm_leave"),  markdown_min_height_value: "100px", markdown_placeholder_value: I18n.t("posts.placeholder") }, class: "grow transition-all" do |f| %>
+        <div>
+          <%= flash[:error] %>
+          <div class="max-w-3xl mx-auto">
+            <div class="">
+              <div data-markdown-target="editorContainer">
+                <%= f.text_area :body, data: { markdown_target: "editor", post_editor_target: "body" }, class: "prose resize-none min-h-[114px]" %>
+              </div>
+              <div class="markdown-body hidden min-h-[120px]" data-markdown-target="preview"></div>
+            </div>
+          </div>
+        </div>
+        <div class="flex pt-3 w-full items-center bg-none">
+          <div class="grow"></div>
+          <div class="px-1">
+            <button type="button" class="<%= icon_button_class %>" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton" aria-label="Preview">
+              <%= image_tag "icons/preview.svg", alt: "preview", width: "24px", height: "16px",class: "icon" %>
+            </button>
+            <button type="button" class="<%= icon_button_class %> hidden" title="<%=  I18n.t('posts.edit') %>" data-action="markdown#edit" data-markdown-target="editorButton" aria-label="Edit">
+              <%= image_tag "icons/edit.svg", alt: "edit", width: "24px", height: "16px",class: "icon" %>
+            </button>
+          </div>
+          <div class="px-1">
+            <%= f.submit I18n.t('posts.update'), disabled: true, class: primary_button_class, data: { post_editor_target: "publish" } %>
+          </div>
+        </div>
+      <% end %>
+    </div>
   </div>
   <div class="flex items-end">
     <div class="flex grow items-center flex-wrap w-[calc(100%-40px)]">
