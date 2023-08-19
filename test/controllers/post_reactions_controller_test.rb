@@ -2,14 +2,14 @@ require "test_helper"
 
 class PostReactionsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    post = posts(:general)
+    post = posts(:my_post)
     get post_reactions_path(post_id: post.id)
     assert_response :success
   end
 
   test "should create" do
-    post = posts(:general)
-    ApplicationController.stub_any_instance :current_user, users(:general) do
+    post = posts(:my_post)
+    ApplicationController.stub_any_instance :current_user, users(:current) do
       assert_difference('PostReaction.count') do
         post create_post_reaction_path(post_id: post.id), params: { post_reaction: { body: 'test' } }
       end
@@ -17,10 +17,10 @@ class PostReactionsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy" do
-    post = posts(:general)
-    ApplicationController.stub_any_instance :current_user, users(:general) do
+    post_reaction = post_reactions(:to_other_post)
+    ApplicationController.stub_any_instance :current_user, users(:current) do
       assert_difference('PostReaction.count', -1) do
-        delete delete_post_reaction_path(post_id: post.id, id: post_reactions(:general).id)
+        delete delete_post_reaction_path(post_reaction.post, post_reaction)
       end
     end
   end

@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_one_attached :wallpaper
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :post_reactions, dependent: :destroy
+  has_many :comment_reactions, dependent: :destroy
   has_many :exports, dependent: :destroy
   has_many :projects, dependent: :destroy
   has_many :followees, class_name: 'Follow', foreign_key: 'follower_id', dependent: :destroy

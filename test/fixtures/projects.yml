@@ -1,15 +1,15 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-general:
+my_project:
   title: test
   body: test
   codename: test
   link: https://example.com
-  user: general
+  user: current
 
-general2:
+others_project:
   title: test2
   body: test2
   codename: test2
   link: https://example.com
-  user: general
+  user: other

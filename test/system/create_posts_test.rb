@@ -6,7 +6,7 @@ class CreatePostsTest < ApplicationSystemTestCase
   end
 
   test "visiting the index" do
-    ApplicationController.stub_any_instance :current_user,users(:general) do
+    ApplicationController.stub_any_instance :current_user,users(:current) do
       @page.goto(root_path)
 
       @page.wait_for_selector('.CodeMirror').click

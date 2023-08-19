@@ -1,5 +1,8 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-general:
-  user: general
-  post: general
+my_post:
+  user: current
+  post: my_post
+others_post:
+  user: current
+  post: others_post

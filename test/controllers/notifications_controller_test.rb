@@ -2,7 +2,7 @@ require "test_helper"
 
 class NotificationsControllerTest < ActionDispatch::IntegrationTest
   test "should get index" do
-    ApplicationController.stub_any_instance :current_user, users(:general) do
+    ApplicationController.stub_any_instance :current_user, users(:current) do
       get notifications_url
       assert_response :success
     end

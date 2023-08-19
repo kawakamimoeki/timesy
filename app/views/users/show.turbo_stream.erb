@@ -1,5 +1,7 @@
 <%= turbo_stream.append "users_posts" do %>
-  <%= render @posts, locals: { link_presence: true } %>
+  <div data-testid="post-list">
+    <%= render @posts, locals: { link_presence: true } %>
+  </div>
 <% end %>
 
 <% if @next_page.present? && !params[:limit].present? %>

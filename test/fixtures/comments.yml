@@ -1,6 +1,14 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-general:
+to_my_post:
   body: test
-  post: general
-  user: general
+  post: my_post
+  user: current
+to_others_post:
+  body: test
+  post: others_post
+  user: current
+from_other:
+  body: test
+  post: my_post
+  user: other

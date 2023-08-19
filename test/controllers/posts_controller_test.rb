@@ -3,13 +3,13 @@ require 'minitest/mock'
 
 class PostsControllerTest < ActionDispatch::IntegrationTest
   test "should get copy link" do
-    get post_copy_link_url(posts(:general))
+    get post_copy_link_url(posts(:my_post))
     assert_response :success
   end
 
   test "should get copy link with current user" do
-    ApplicationController.stub_any_instance :current_user, users(:general) do
-      get post_copy_link_url(posts(:general))
+    ApplicationController.stub_any_instance :current_user, users(:current) do
+      get post_copy_link_url(posts(:my_post))
       assert_response :success
     end
   end
@@ -20,7 +20,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get form with current user" do
-    ApplicationController.stub_any_instance :current_user, users(:general) do
+    ApplicationController.stub_any_instance :current_user, users(:current) do
       get post_form_url
       assert_response :success
     end
@@ -32,33 +32,33 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get latest" do
-    ApplicationController.stub_any_instance :current_user, users(:general) do
+    ApplicationController.stub_any_instance :current_user, users(:current) do
       get latest_url
       assert_response :success
     end
   end
 
   test "should get pinned" do
-    ApplicationController.stub_any_instance :current_user, users(:general) do
+    ApplicationController.stub_any_instance :current_user, users(:current) do
       get pinned_url
       assert_response :success
     end
   end
 
   test "should get editor" do
-    get post_editor_url(posts(:general))
+    get post_editor_url(posts(:my_post))
     assert_response :success
   end
 
   test "should get editor with current user" do
-    ApplicationController.stub_any_instance :current_user, users(:general) do
-      get post_editor_url(posts(:general))
+    ApplicationController.stub_any_instance :current_user, users(:current) do
+      get post_editor_url(posts(:my_post))
       assert_response :success
     end
   end
 
   test "should create post" do
-    ApplicationController.stub_any_instance :current_user, users(:general) do
+    ApplicationController.stub_any_instance :current_user, users(:current) do
       assert_difference('Post.count') do
         post "/posts.turbo_stream", params: { post: { title: "foo", body: "bar", general: true } }
       end
@@ -66,23 +66,23 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update post" do
-    ApplicationController.stub_any_instance :current_user, users(:general) do
-      post = posts(:general)
+    ApplicationController.stub_any_instance :current_user, users(:current) do
+      post = posts(:my_post)
       patch "/posts/#{post.id}.turbo_stream", params: { post: { title: "foo", body: "bar", general: true } }
     end
   end
 
   test "should not update post if not authorized" do
     ApplicationController.stub_any_instance :current_user, User.create(email: "current@example.com", username: "current", name: "Current") do
-      post = posts(:general)
+      post = posts(:my_post)
       patch "/posts/#{post.id}.turbo_stream", params: { post: { title: "foo", body: "bar", general: true } }
       assert_response :unauthorized
     end
   end
 
   test "should destroy post" do
-    ApplicationController.stub_any_instance :current_user, users(:general) do
-      post = posts(:general)
+    ApplicationController.stub_any_instance :current_user, users(:current) do
+      post = posts(:my_post)
       assert_difference('Post.count', -1) do
         delete "/posts/#{post.id}.turbo_stream"
       end
@@ -91,7 +91,7 @@ class PostsControllerTest < ActionDispatch::IntegrationTest
 
   test "should not destroy post if not authorized" do
     ApplicationController.stub_any_instance :current_user, User.create(email: "current@example.com", username: "current", name: "Current") do
-      post = posts(:general)
+      post = posts(:my_post)
       assert_difference('Post.count', 0) do
         delete "/posts/#{post.id}.turbo_stream"
       end
