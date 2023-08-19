@@ -1,5 +1,5 @@
 <div class="grow w-full">
-  <%= turbo_frame_tag "post_main", src: post_main_path(@post), loading: :lazy do %>
+  <%= turbo_frame_tag "post_main", src: post_main_path(@post) do %>
     <%= render partial: "posts/loading" %>
   <% end %>
   <div>
