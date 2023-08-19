@@ -97,4 +97,5 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
   gem "minitest-stub_any_instance"
+  gem "capybara-playwright-driver"
 end

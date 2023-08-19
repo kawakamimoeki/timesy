@@ -5,6 +5,7 @@ if ! gem list foreman -i --silent; then
   gem install foreman
 fi
 
+npm install
 bundle install
 rm -f tmp/pids/server.pid
 exec foreman start -f Procfile.dev "$@"
