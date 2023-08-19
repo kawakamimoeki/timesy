@@ -48,3 +48,12 @@ jobs:
         DATABASE_URL: postgres://postgres:postgres@localhost:5432/test_db
         MEILISEARCH_HOST: http://localhost:7700
       run: bundle exec rake
+
+    - name: 🧪 Setup Playwright
+      run: npx playwright install --with-deps
+  
+    - name: 👩‍💻 Run System Test
+      env:
+        DATABASE_URL: postgres://postgres:postgres@localhost:5432/test_db
+        MEILISEARCH_HOST: http://localhost:7700
+      run: bundle exec rails test:system
