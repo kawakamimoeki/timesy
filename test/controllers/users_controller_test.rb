@@ -97,4 +97,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     get "/#{user.username}/following"
     assert_response :success
   end
+
+  test "should get feed" do
+    user = users(:current)
+    get "/#{user.username}/feed"
+    assert_response :success
+  end
 end
