@@ -1,5 +1,5 @@
 <%= turbo_stream.append "users_posts" do %>
-  <%= render partial: 'posts/post', collection: @posts %>
+  <%= render @posts, locals: { link_presence: true } %>
 <% end %>
 
 <% if @next_page.present? && !params[:limit].present? %>

@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   delete "posts/:id", to: "posts#destroy", as: :delete_post
   get "posts/:id/main", to: "posts#main", as: :post_main
   get '/posts/:id/pin_button', to: 'posts#pin_button', as: :post_pin_button
+  get 'posts/:id/editor', to: 'posts#editor', as: :post_editor
 
   post '/posts/:post_id/pins', to: 'pins#create', as: :create_pin
   delete '/posts/:post_id/pins/:id', to: 'pins#destroy', as: :delete_pin

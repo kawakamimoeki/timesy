@@ -63,7 +63,7 @@ ja:
     empty2: 作業中のスレッドや気になるスレッドをピンしてみましょう！
   posts:
     pin: Pin
-    unpin: Unpin
+    unpin: Pinned
     draft: 下書き
     new: 記事を書く
     publish: Post

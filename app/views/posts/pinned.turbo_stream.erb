@@ -1,6 +1,6 @@
 <%= turbo_stream.append "pinned" do %>
   <% if @posts.present? %>
-    <%= render @posts %>
+    <%= render @posts, locals: { link_presence: true } %>
   <% else %>
     <div class="<%= card_class %>">
       <div class="text-gray-400 text-sm">

@@ -1,7 +1,6 @@
 <div class="grow w-full">
   <div class="mb-4 flex items-center space-x-4">
     <div class="grow"></div>
-    <%= turbo_frame_tag "pin_button_container", src: post_pin_button_path(@post), loading: :lazy %>
     <button class="<%= block_link_class %> bg-gray-50 border dark:border-dark-border dark:bg-gray-700 hover:bg-gray-100 hover:dark:bg-gray-600" data-controller="tobottom" aria-label="To Bottom">
       <%= image_tag "icons/down.svg", alt: "down", width: "24px", height: "24px",class: "icon" %>
       <span class="text-sm">To Bottom</span>
