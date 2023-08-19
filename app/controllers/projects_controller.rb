@@ -104,7 +104,7 @@ class ProjectsController < ApplicationController
   end
 
   private def project_params
-    params.require(:project).permit(:title, :codename, :link, :body, :icon)
+    params.require(:project).permit(:title, :codename, :link, :body, :icon, :rss)
   end
 
   private def page_limit

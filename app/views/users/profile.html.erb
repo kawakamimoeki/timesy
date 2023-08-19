@@ -36,8 +36,14 @@
           <p class="text-sm"><%= @user.bio %></p>
         <% end %>
       </div>
-      <div>
+      <div class="mb-2">
         <%= render partial: "shared/follows", locals: { user: @user } %>
+      </div>
+      <div>
+        <a href="<%= feed_url(@user.username) %>" class="inline-flex items-center text-sm space-x-1 rounded   px-3 shadow py-1 transition-all  bg-sky-500 text-white" target="_blank">
+          <%= image_tag "icons/rss.svg", alt: "", width: "16px", height: "16px", class: "invert" %>
+          <span>RSS Feed</span>
+        </a>
       </div>
     </div>
   </div>

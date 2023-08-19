@@ -22,7 +22,7 @@
             </div>
           <% end %>
         </div>
-        <a href="<%= user_path(@project.user.username) %>" class="mb-1  items-center text-sm flex space-x-2 hover:underline">
+        <a href="<%= user_path(@project.user.username) %>" class="mb-1  items-center text-sm flex space-x-2 hover:underline" data-turbo-frame="_top">
           <p><%= @project.user.name %></p>
           <p class="text-gray-500">@<%= @project.user.username %></p>
         </a>
@@ -31,6 +31,14 @@
             <%= image_tag "icons/link.svg", class: "icon w-4 h-4 mr-1 -mb-[2px] -rotate-45" %>
             <%= @project.link.sub("https://", "").sub("http://", "").truncate(32) %>
           <% end %>
+        <% end %>
+        <% if @project.rss %>
+          <div class="text-sm flex items-center">
+            <%= image_tag "icons/rss.svg", class: "icon w-4 h-4 mr-1" %>
+            <a href="<%= feed_path(@project.user.username) %>" class="hover:underline">
+              <%= I18n.t("projects.rss") %>
+            </a>
+          </div>
         <% end %>
       </div>
     </div>
