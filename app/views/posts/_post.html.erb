@@ -1,4 +1,4 @@
-<div class=" <%= card_class %>" data-controller="post-show" aria-label="Post">
+<div id="post_<%= post.id %>" class=" <%= card_class %>" data-controller="post-show" aria-label="Post">
   <div class="mb-4">
     <div class="flex mb-3 items-center space-x-1">
       <%= render partial: "shared/avatar", locals: { user: post.user } %>
