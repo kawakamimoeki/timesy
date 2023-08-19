@@ -35,7 +35,7 @@
         <% if @project.rss %>
           <div class="text-sm flex items-center">
             <%= image_tag "icons/rss.svg", class: "icon w-4 h-4 mr-1" %>
-            <a href="<%= feed_path(@project.user.username) %>" class="hover:underline">
+            <a href="<%= feed_path(@project.user.username) %>" class="hover:underline" target="_top">
               <%= I18n.t("projects.rss") %>
             </a>
           </div>
