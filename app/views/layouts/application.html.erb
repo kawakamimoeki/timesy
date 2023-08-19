@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap" rel="stylesheet">
     <%= vite_client_tag %>
     <%= vite_javascript_tag 'application' %>
-    <%= turbo_frame_tag "code_theme", src: users_code_theme_path, loading: :lazy %>
+    <%= turbo_frame_tag "code_theme", src: users_code_theme_path %>
   </head>
 
   <body class="bg-background bg-cover bg-fixed dark:bg-dark-background">
@@ -31,7 +31,7 @@
       }
     </script>
     <div id="wallpaper-container" data-turbo-permanent>
-      <%= turbo_frame_tag "wallpaper", src: users_wallpaper_path, loading: :lazy %>
+      <%= turbo_frame_tag "wallpaper", src: users_wallpaper_path %>
     </div>
     <header class="w-full shadow-sm  bg-white dark:bg-dark-background dark:text-gray-200 border-b z-0 dark:border-dark-border">
       <div class="flex max-w-3xl mx-auto px-4 items-center py-3 text-sm">
@@ -45,7 +45,7 @@
         <% end %>
         <div class="grow"></div>
         <div class="h-[40px] z-[100]">
-          <%= turbo_frame_tag "header_menu", src: users_header_path, loading: :lazy %>
+          <%= turbo_frame_tag "header_menu", src: users_header_path %>
         </div>
       <div>
     </header>

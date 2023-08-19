@@ -3,7 +3,7 @@
     <%= render partial: 'shared/avatar', locals: { user: comment.user } %>
     <time class="text-gray-400"><%= time_ago_in_words(comment.created_at) %></time>
     <div class="grow"></div>
-    <%= turbo_frame_tag :comment_editor, src: comment_editor_path(comment.post, comment), loading: :lazy, class: "flex items-center space-x-1" %>
+    <%= turbo_frame_tag :comment_editor, src: comment_editor_path(comment.post, comment), class: "flex items-center space-x-1" %>
   </div>
   <div data-post-show-target="show" data-controller="image-modal twitter" class="markdown-body">
     <%= comment.html.html_safe %>

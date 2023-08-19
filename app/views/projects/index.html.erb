@@ -8,7 +8,7 @@
 <%= turbo_frame_tag "timeline" do %>
 <div class="max-w-3xl mx-auto w-full mt-4 px-4">
   <div id="profile-<%= @user.id %>" data-turbo-permanent>
-    <%= turbo_frame_tag "profile", src: profile_path(@user.username), loading: :lazy %>
+    <%= turbo_frame_tag "profile", src: profile_path(@user.username) %>
   </div>
   <%= render partial: 'shared/user_nav', locals: { user: @user } %>
   <%= turbo_frame_tag "project_list", src: projects_list_path(@user.username), loading: :lazy %>

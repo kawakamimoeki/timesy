@@ -4,9 +4,9 @@
       <%= render partial: "shared/avatar", locals: { user: post.user } %>
       <time class="text-gray-400 text-sm"><%= time_ago_in_words(post.created_at) %></time>
       <div class="grow"></div>
-      <%= turbo_frame_tag "post_copy_link-#{post.id}", src: post_copy_link_path(post), loading: :lazy, data: { post_show_target: "menu" } %>
-      <%= turbo_frame_tag "pin_button_container", src: post_pin_button_path(post), loading: :lazy, data: { post_show_target: "menu" } %>
-      <%= turbo_frame_tag "post_editor-#{post.id}", src: post_editor_path(post), loading: :lazy %>
+      <%= turbo_frame_tag "post_copy_link-#{post.id}", src: post_copy_link_path(post), data: { post_show_target: "menu" } %>
+      <%= turbo_frame_tag "pin_button_container", src: post_pin_button_path(post), data: { post_show_target: "menu" } %>
+      <%= turbo_frame_tag "post_editor-#{post.id}", src: post_editor_path(post) %>
     </div>
     <%= turbo_frame_tag :post do %>
       <div data-post-show-target="show" data-controller="image-modal twitter" class="markdown-body">
