@@ -1,10 +1,12 @@
 <nav class="<%= nav_class %> mb-4 top-0">
-  <div class="<%= nav_list_class %> space-x-5">
+  <div class="<%= nav_list_class %> space-x-5" role="tablist">
     <a
       href="<%= user_path(user.username) %>"
       class="<%= nav_item_class(user_path(user.username)) %>"
       data-turbo-frame="_top"
-      aria-label="View posts"
+      data-testid="view-posts"
+      role="tab"
+      aria-controls="posts"
     >
       <%= I18n.t("pages.posts") %>
     </a>
@@ -12,7 +14,9 @@
       href="<%= user_comments_path(user.username) %>"
       class="<%=  nav_item_class(user_comments_path(user.username)) %>"
       data-turbo-frame="_top"
-      aria-label="View comments"
+      data-testid="view-comments"
+      role="tab"
+      aria-controls="comments"
     >
         <%= I18n.t("users.comments", user: user.name) %>
     </a>
@@ -20,7 +24,9 @@
       href="<%= projects_path(user.username) %>"
       class="<%= nav_item_class(projects_path(user.username)) %>"
       data-turbo-frame="_top"
-      aria-label="View projects"
+      role="tab"
+      aria-controls="projects"
+      data-testid="view-projects"
     >
       <%= I18n.t("users.projects", user: user.name) %>
     </a>

@@ -3,14 +3,14 @@ require 'minitest/mock'
 
 class SettingsControllerTest < ActionDispatch::IntegrationTest
   test "should get edit" do
-    ApplicationController.stub_any_instance :current_user, users(:general) do
+    ApplicationController.stub_any_instance :current_user, users(:current) do
       get "/settings"
       assert_response :success
     end
   end
 
   test "should get create" do
-    ApplicationController.stub_any_instance :current_user, users(:general) do
+    ApplicationController.stub_any_instance :current_user, users(:current) do
       patch "/settings/profile", params: { user: { email: "new@example.com", username: "new", name: "New" } }
       assert_response :redirect
     end

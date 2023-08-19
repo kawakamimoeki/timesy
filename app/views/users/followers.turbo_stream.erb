@@ -1,5 +1,7 @@
 <%= turbo_stream.append "users" do %>
-  <%= render partial: 'users/item', collection: @followers %>
+  <div data-testid="follower-list">
+    <%= render partial: 'users/item', collection: @followers %>
+  </div>
 <% end %>
 
 <% if @next_page.present? %>

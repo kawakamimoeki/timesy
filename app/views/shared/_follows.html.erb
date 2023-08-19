@@ -1,11 +1,11 @@
 <div class="flex items-center space-x-2">
-  <%= link_to following_path(user.username), class: "text-sm hover:underline", data: { turbo_frame: "_top" } do %>
+  <%= link_to following_path(user.username), class: "text-sm hover:underline", data: { turbo_frame: "_top", testid: "view-following" } do %>
     <span class="font-bold">
       <%= user.followee_users.count %>
     </span>
     <%= I18n.t("users.following") %>
   <% end %>
-  <%= link_to followers_path(user.username), class: "text-sm hover:underline", data: { turbo_frame: "_top" } do %>
+  <%= link_to followers_path(user.username), class: "text-sm hover:underline", data: { turbo_frame: "_top", testid: "view-followers" } do %>
     <span class="font-bold">
       <%= user.follower_users.count %>
     </span>

@@ -2,7 +2,9 @@
 <% end %>
 
 <%= turbo_stream.append "posts" do %>
-  <%= render @posts %>
+  <div data-testid="comment-list">
+    <%= render @posts %>
+  </div>
 <% end %>
 
 <% if @next_page.present? %>
