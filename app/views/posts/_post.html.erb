@@ -1,12 +1,16 @@
 <div id="post_<%= post.id %>" class=" <%= card_class %>" data-controller="post-show" data-testid="<%= post.body %>" >
   <div class="mb-4">
-    <div class="flex mb-3 items-center space-x-1">
-      <%= render partial: "shared/avatar", locals: { user: post.user } %>
-      <time class="text-gray-400 text-sm"><%= time_ago_in_words(post.created_at) %></time>
-      <div class="grow"></div>
-      <%= turbo_frame_tag "post_copy_link-#{post.id}", src: post_copy_link_path(post), data: { post_show_target: "menu" } %>
-      <%= turbo_frame_tag "pin_button_container", src: post_pin_button_path(post), data: { post_show_target: "menu" } %>
-      <%= turbo_frame_tag "post_editor-#{post.id}", src: post_editor_path(post) %>
+    <div class="flex flex-col-reverse sm:flex-row mb-3 items-start space-x-1">
+      <div class="flex items-center space-x-1 flex-wrap">
+        <%= render partial: "shared/avatar", locals: { user: post.user } %>
+        <time class="text-gray-400 text-sm"><%= time_ago_in_words(post.created_at) %></time>
+      </div>
+      <div class="grow flex items-center space-x-1 w-full sm:w-auto">
+        <div class="grow"></div>
+        <%= turbo_frame_tag "post_copy_link-#{post.id}", src: post_copy_link_path(post), data: { post_show_target: "menu" } %>
+        <%= turbo_frame_tag "pin_button_container", src: post_pin_button_path(post), data: { post_show_target: "menu" } %>
+        <%= turbo_frame_tag "post_editor-#{post.id}", src: post_editor_path(post) %>
+      </div>
     </div>
     <%= turbo_frame_tag :post do %>
       <div data-post-show-target="show" data-controller="image-modal twitter" class="markdown-body">
