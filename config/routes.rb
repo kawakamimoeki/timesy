@@ -67,6 +67,7 @@ Rails.application.routes.draw do
 
   get '/:username', to: 'users#actor', as: :actor, constraints: lambda { |request| request.format == :json }
   get '/:username', to: 'users#show', as: :user, constraints: lambda { |request| request.format != :json }
+  get '/:username/feed', to: 'users#feed', as: :feed
   get 'users/:username' => redirect('/%{username}')
   get '/:username/profile', to: 'users#profile', as: :profile
   get '/:username/projects', to: 'projects#index', as: :projects

@@ -11,6 +11,7 @@ class Project < ApplicationRecord
   validates :link, url: { allow_blank: true }
 
   scope :latest, -> { order(updated_at: :desc) }
+  scope :rss, -> { where(rss: true) }
 
   def icon_url
     if icon.attached?

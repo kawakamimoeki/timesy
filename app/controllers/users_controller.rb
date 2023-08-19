@@ -15,6 +15,16 @@ class UsersController < ApplicationController
   def wallpaper
   end
 
+  def feed
+    @user = User.find_by(username: params[:username])
+    if @user.nil?
+      render file: "#{Rails.root}/public/404.html", status: :not_found
+      return
+    end
+    @posts = @user.posts.joins(:projects).merge(Project.rss).latest
+    render layout: false
+  end
+
   def profile
     @user = User.find_by(username: params[:username])
   end

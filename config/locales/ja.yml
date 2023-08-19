@@ -152,12 +152,14 @@ ja:
     export_started: エクスポートを開始しました。完了した際にダウンロードリンクを掲載したメールをお送りいたしますのでしばらくお待ち下さい。
     exporting: エクスポートを実行中です。完了した際にダウンロードリンクを掲載したメールをお送りいたしますのでしばらくお待ち下さい。
   projects:
+    rss: RSSフィードで購読できます
     confirm_delete: 削除されるとプロジェクトは復元できません。よろしいですか？
     start: New Project
     placeholder:
       title: プロジェクト名を入力
       codename: URLと投稿からの参照 "#codename"に使われます
     notice:
+      rss: RSSフィードに掲載する
       codename: 半角英数字とアンダースコア（_）を使用できます。グローバルにユニークである必要があります。
   exports:
     started:

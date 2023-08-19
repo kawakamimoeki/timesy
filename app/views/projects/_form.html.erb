@@ -55,6 +55,13 @@
       </div>
     </div>
   </div>
+  <%= f.label :rss, class: label_class %>
+  <div class="flex items-center mb-5">
+    <label class="cursor-pointer">
+      <span class="mr-2"><%= I18n.t("projects.notice.rss") %></span>
+      <%= f.check_box :rss, class: "" %>
+    </label>
+  </div>
   <div class="flex">
     <%= f.submit submit_label, class: primary_button_class %>
   </div>
