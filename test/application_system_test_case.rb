@@ -1,6 +1,6 @@
 # test/application_system_test_case.rb
 
-require_relative "./test_helper"
+require "test_helper"
 require 'capybara'
 require 'playwright'
 
