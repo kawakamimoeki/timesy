@@ -42,7 +42,7 @@
     <% end %>
   </div>
   <div class="flex items-end">
-    <div class="flex items-center flex-wrap w-[calc(100%-40px)]">
+    <div class="flex grow items-center flex-wrap w-[calc(100%-40px)]">
       <div class="flex items-center flex-wrap overflow-hidden mr-2">
         <%= turbo_frame_tag "post_reactions_list-#{post.id}", src: post_reactions_path(post), loading: :lazy, class: "flex items-center flex-wrap" %>
       </div>
