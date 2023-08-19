@@ -2,7 +2,7 @@
 <div class="flex w-full space-x-2">
   <div class="transition-all w-[32px]">
     <%= link_to user_path(username: current_user.username), class: "w-8 flex items-center space-x-1 hover:underline" do %>
-      <%= image_tag current_user.avatar_icon, alt: current_user.username, class: "w-8 h-8 object-cover rounded-full" %>
+      <%= image_tag current_user.avatar_icon, alt: "", class: "w-8 h-8 object-cover rounded-full" %>
     <% end %>
   </div>
   <div class="w-[calc(100%-45px)]">
@@ -31,11 +31,11 @@
     <div class="flex items-center">
       <div class="grow"></div>
       <div class="px-1">
-        <button type="button" class="<%= icon_button_class %>" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton" aria-label="Preview">
-          <%= image_tag "icons/preview.svg", alt: "preview", width: "24px", height: "14px", class: "icon" %>
+        <button type="button" class="<%= icon_button_class %>" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton" >
+          <%= image_tag "icons/preview.svg", alt: "", width: "24px", height: "14px", class: "icon" %>
         </button>
-        <button type="button" class="<%= icon_button_class %> hidden" title="<%=  I18n.t('posts.edit') %>" data-action="markdown#edit" data-markdown-target="editorButton" aria-label="Edit">
-          <%= image_tag "icons/edit.svg", alt: "edit", width: "24px", height: "14px", class: "icon" %>
+        <button type="button" class="<%= icon_button_class %> hidden" title="<%=  I18n.t('posts.edit') %>" data-action="markdown#edit" data-markdown-target="editorButton" >
+          <%= image_tag "icons/edit.svg", alt: "", width: "24px", height: "14px", class: "icon" %>
         </button>
       </div>
       <div class="px-1">

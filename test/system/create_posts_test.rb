@@ -11,9 +11,9 @@ class CreatePostsTest < ApplicationSystemTestCase
 
       @page.wait_for_selector('.CodeMirror').click
       @page.keyboard.type('Hello, world!')
-      @page.wait_for_selector('[aria-label="Publish post"]').click
+      @page.wait_for_selector('[data-testid="publish-post"]').click
 
-      assert @page.text_content('body').include?('Hello, world!')
+      assert @page.wait_for_selector("[data-testid=\"Hello, world!\"]").text_content.include?("Hello, world!")
     end
   end
 end

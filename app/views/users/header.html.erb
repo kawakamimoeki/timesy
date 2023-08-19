@@ -1,13 +1,13 @@
 <%= turbo_frame_tag "header_menu" do %>
 <div class="flex items-center z-[100]">
   <%= link_to search_path, class: "#{icon_button_class} mr-1 hidden sm:block", data: { turbo_frame: "_top" } do %>
-    <%= image_tag "icons/search.svg", alt: "search", width: "20px", height: "20px", class: "icon" %>
+    <%= image_tag "icons/search.svg", alt: "", width: "20px", height: "20px", class: "icon" %>
   <% end %>
   <div data-controller="theme" class="mr-1 w-10 h-10">
-    <button data-action="theme#toggle" data-theme-target="dark" class="hidden <%= icon_button_class %> " aria-label="Darkmode">
+    <button data-action="theme#toggle" data-theme-target="dark" class="hidden <%= icon_button_class %>">
       <%= image_tag "icons/light.svg", width: "24px", height: "16px",class: "icon" %>
     </button>
-    <button data-action="theme#toggle" data-theme-target="light" class="hidden <%= icon_button_class %> " aria-label="Lightmode">
+    <button data-action="theme#toggle" data-theme-target="light" class="hidden <%= icon_button_class %> " >
       <%= image_tag "icons/dark.svg", width: "24px", height: "16px",class: "icon" %>
     </button>
   </div>
@@ -17,7 +17,7 @@
         data-action="click->notification#toggle click->notification#read"
         class="relative <%= icon_button_class %>"
         data-turbo-frame="notifications"
-        aria-label="Notifications"
+        
       >
         <%= image_tag "icons/notification.svg", width: "24px", height: "16px",class: "icon " %>
         <div data-notification-target="indicator" class="hidden absolute top-2 right-2 w-2 h-2 rounded-full bg-red-500 text-white text-xs items-center justify-center"></div>
@@ -33,16 +33,16 @@
     </div>
   <% end %>
   <% if !current_user %>
-    <%= link_to I18n.t("users.sign_in"), "/users/sign_in", class: "#{block_link_class} mr-2", data: { turbo_frame: "_top" }, aria: { label: "Sign in" } %>
-    <%= link_to I18n.t("users.sign_up"), "/users/sign_up", class: primary_button_class, data: { turbo_frame: "_top" }, aria: { label: "Sign up" } %>
+    <%= link_to I18n.t("users.sign_in"), "/users/sign_in", class: "#{block_link_class} mr-2", data: { turbo_frame: "_top" }  %>
+    <%= link_to I18n.t("users.sign_up"), "/users/sign_up", class: primary_button_class, data: { turbo_frame: "_top", testid: "signup-link" } %>
   <% end %>
   <div data-controller="menu" class="-mb-[4px] overflow-visible relative">
   <% if current_user %>
-    <button data-action="click->menu#toggle" aria-label="Menu">
-      <%= image_tag current_user.avatar_icon, alt: current_user.username, class: "w-8 h-8 object-cover rounded-full" %>
+    <button data-action="click->menu#toggle" >
+      <%= image_tag current_user.avatar_icon, alt: "", class: "w-8 h-8 object-cover rounded-full" %>
     </button>
   <% else %>
-    <button data-action="click->menu#toggle" class="<%= icon_button_class %> ml-1" aria-label="Menu">
+    <button data-action="click->menu#toggle" class="<%= icon_button_class %> ml-1" >
       <%= image_tag "icons/menu.svg", width: "24px", height: "16px",class: "icon" %>
     </button>
   <% end %>

@@ -43,9 +43,9 @@
         data-tooltip-text-value="<%=  I18n.t('posts.preview') %>(⌘+Shift+P)"
         data-action="markdown#preview"
         data-markdown-target="previewButton"
-        aria-label="Preview"
+        data-testid="preview-post"
       >
-        <%= image_tag "icons/preview.svg", alt: "preview", width: "24px", height: "14px",class: "icon" %>
+        <%= image_tag "icons/preview.svg", alt: "", width: "24px", height: "14px",class: "icon" %>
       </button>
       <button
         type="button"
@@ -53,13 +53,12 @@
         title="<%=  I18n.t('posts.edit') %>"
         data-action="markdown#edit"
         data-markdown-target="editorButton"
-        aria-label="Edit"
       >
-        <%= image_tag "icons/edit.svg", alt: "edit", width: "24px", height: "14px",class: "icon" %>
+        <%= image_tag "icons/edit.svg", alt: "", width: "24px", height: "14px",class: "icon" %>
       </button>
     </div>
     <div class="px-1">
-      <%= f.submit I18n.t('posts.publish'), disabled: true, class: primary_button_class, data: { post_editor_target: "publish" }, aria: { label: "Publish post" } %>
+      <%= f.submit I18n.t('posts.publish'), disabled: true, class: primary_button_class, data: { post_editor_target: "publish", testid: "publish-post" } %>
     </div>
   </div>
 <% end %>

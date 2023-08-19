@@ -37,10 +37,10 @@
       <div class="flex max-w-3xl mx-auto px-4 items-center py-3 text-sm">
         <%= link_to "/", class: "block mr-3", data: { turbo_frame: "_top" } do %>
           <span class="dark:hidden">
-            <%= image_tag "/logo.png", alt: "logo", width: "70px", height: "20px" %>
+            <%= image_tag "/logo.png", alt: Site.title, width: "70px", height: "20px" %>
           </span>
           <span class="hidden dark:block">
-            <%= image_tag "/logo-dark.png", alt: "logo", width: "70px", height: "20px" %>
+            <%= image_tag "/logo-dark.png", alt: Site.title, width: "70px", height: "20px" %>
           </span>
         <% end %>
         <div class="grow"></div>
