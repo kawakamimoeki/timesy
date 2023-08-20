@@ -1,0 +1,32 @@
+<% set_meta_tags(
+  title: I18n.t("pages.images", user: @user.name),
+  og: {
+    title: I18n.t("pages.images", user: @user.name),
+  }
+) %>
+<%= turbo_frame_tag "timeline" do %>
+<div class="mx-auto max-w-3xl px-4 w-full">
+  <div id="profile-<%= @user.id %>" data-turbo-permanent>
+    <%= turbo_frame_tag "profile", src: profile_path(@user.username) %>
+  </div>
+  <%= render partial: 'shared/user_nav', locals: { user: @user } %>
+  <% if @posts.empty? %>
+    <p class="w-full text-center py-20 font-bold"><%= I18n.t("images.not_found") %></p>
+  <% else %>
+    <div class="max-w-sm mx-auto">
+      <%= turbo_frame_tag "users_images", target: "_top" do %>
+      <% end %>
+    </div>
+
+    <div class="h-4">
+      <%= turbo_frame_tag "load_more", src: images_path(username: @user.username, format: :turbo_stream), loading: :lazy %>
+      <%= turbo_frame_tag "loading" do %>
+      <%= render partial: "posts/loading" %>
+      <div class="hidden sm:block">
+        <%= render partial: "posts/loading" %>
+      </div>
+    <% end %>
+    </div>
+  <% end %>
+</div>
+<% end %>

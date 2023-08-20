@@ -1,0 +1,29 @@
+<%= turbo_stream.append "users_images" do %>
+  <div data-controller="image-modal" data-ids="image-list">
+    <% @posts.each do |post| %>
+      <% post.images.each do |image| %>
+        <p class="shadow border dark:border-dark-border rounded-lg overflow-hidden mb-4">
+          <%= image_tag image, class: "w-full cursor-zoom-in" %>
+          <%= link_to I18n.t("posts.view"), post_path(post), class: "text-center bg-white dark:bg-dark-card p-4 w-full bg-white w-full block hover:bg-background hover:dark:bg-dark-background dark:bg-dark-card p-4 w-full" %>
+        </p>
+      <% end %>
+      <% post.comments.map(&:images).flatten.each do |comment_image| %>
+        <p class="shadow border dark:border-dark-border rounded-lg overflow-hidden mb-4">
+          <%= image_tag comment_image, class: "w-full cursor-zoom-in" %>
+          <%= link_to I18n.t("posts.view"), post_path(post), class: "text-center bg-white w-full dark:bg-dark-card p-4 w-full bg-white block hover:bg-background hover:dark:bg-dark-background w-full dark:bg-dark-card p-4 w-full" %>
+        </p>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>
+
+<% if @next_page.present? && !params[:limit].present? %>
+  <%= turbo_stream.replace "load_more" do %>
+    <%= turbo_frame_tag "load_more", src: images_path(username: @user.username, page: @next_page, format: :turbo_stream), loading: :lazy %>
+  <% end %>
+<% else %>
+  <%= turbo_stream.replace "loading" do %>
+  <% end %>
+  <%= turbo_stream.replace "load_more" do %>
+  <% end %>
+<% end %>

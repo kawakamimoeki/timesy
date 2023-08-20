@@ -103,4 +103,10 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     get "/#{user.username}/feed"
     assert_response :success
   end
+
+  test "should get images" do
+    user = users(:current)
+    get "/#{user.username}/images"
+    assert_response :success
+  end
 end

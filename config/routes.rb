@@ -84,6 +84,7 @@ Rails.application.routes.draw do
   delete '/:username/follows', to: 'follows#destroy', as: :unfollow_user
   get '/:username/followers', to: 'users#followers', as: :followers
   get '/:username/following', to: 'users#following', as: :following
+  get '/:username/images', to: 'users#images', as: :images
 
   namespace :api do
     namespace :v1 do
