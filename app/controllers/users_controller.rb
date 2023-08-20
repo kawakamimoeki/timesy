@@ -158,7 +158,7 @@ class UsersController < ApplicationController
   def images
     @current_page = params[:page].to_i
     @user = User.find_by(username: params[:username])
-    all = @user.posts
+    all = @user.posts.latest
     @posts = all.offset(20*@current_page).limit(20)
     @next_page = @current_page + 1 if all.count > 20*@current_page + 20
   end
