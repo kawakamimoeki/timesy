@@ -28,8 +28,3 @@ desc "Index search"
 task index_search: :environment do
   Post.reindex!
 end
-
-desc "Attach image to comment"
-task attach_image_to_comment: :environment do
-  AttachImageToCommentJob.perform_now
-end
