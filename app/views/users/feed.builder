@@ -1,7 +1,7 @@
 xml.instruct! :xml, :version => "1.0"
 xml.rss :version => "2.0", 'xmlns:dc': 'http://purl.org/dc/elements/1.1/' do
 xml.channel do
-  xml.title "<![CDATA[#{@user.name}さんのフィード]]>"
+  xml.title "<![CDATA[Timesyの#{@user.name}さんのフィード]]>"
   xml.description "<![CDATA[Timesyの#{@user.name}さんのフィード]]>"
   xml.link user_url(@user.username)
   xml.language "ja"
