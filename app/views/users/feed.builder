@@ -19,8 +19,8 @@ cache "/feed/202308201138/#{@user.username}", expires_in: 5.minutes do
 
       @posts.each do |p|
         xml.item do
-          xml.title REXML::Document.new.tap { |doc| doc.add(REXML::CData.new(p.truncated)) }.to_s
-          xml.description REXML::Document.new.tap { |doc| doc.add(REXML::CData.new(p.truncated(256))) }.to_s
+          xml.title REXML::CData.new(p.truncated)
+          xml.description REXML::CData.new(p.truncated(256))
           xml.pubDate p.updated_at.to_s(:rfc822)
           xml.link post_url(p)
           xml.guid post_url(p)
