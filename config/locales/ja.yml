@@ -174,6 +174,10 @@ ja:
     download: ダウンロードする
   search:
     placeholder: キーワードを入力
+  feed:
+    notice:
+      one: 有効にしたプロジェクトのみが購読されます。
+      two: プロジェクトの編集画面から有効にして下さい。
   form:
     changeable: いつでも変更できます
     unchangeable: 後から変更できません

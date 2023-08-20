@@ -44,6 +44,10 @@
           <%= image_tag "icons/rss.svg", alt: "", width: "16px", height: "16px", class: "invert" %>
           <span>RSS Feed</span>
         </a>
+        <% if current_user == @user %>
+          <div class="text-xs mt-2 opacity-60"><%= I18n.t("feed.notice.one") %></div>
+          <div class="text-xs opacity-60"><%= I18n.t("feed.notice.two") %></div>
+        <% end %>
       </div>
     </div>
   </div>
