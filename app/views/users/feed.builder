@@ -23,6 +23,9 @@ cache 'feed_cache_key', expires_in: 30.minutes do
           xml.link post_url(p)
           xml.guid post_url(p)
           xml.enclosure url: CGI.escape(ogp_image(p)), type: "image/jpeg"
+          p.projects.each do |proj|
+            xml.category proj.title, domain: project_url(@user.username, proj)
+          end
         end
       end
     end
