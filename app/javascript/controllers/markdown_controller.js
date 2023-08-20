@@ -15,7 +15,7 @@ export default class extends Controller {
     this.element.easyMDE = new EasyMDE({
       element: this.editorTarget,
       placeholder: this.placeholderValue,
-      toolbar: false,
+      toolbar: ["upload-image"],
       status: false,
       tabSize: 2,
       indentWithTabs: false,
@@ -55,6 +55,10 @@ export default class extends Controller {
     this.element.easyMDE.codemirror.on("change", () => {
       this.updateSubmitState();
     });
+  }
+
+  attachImage () {
+    this.element.easyMDE.openBrowseFileWindow()
   }
 
   updateSubmitState() {

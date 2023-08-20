@@ -35,6 +35,19 @@
   <div class="flex pt-3 w-full items-center bg-white dark:bg-dark-card text-gray-50">
     <div class="grow"></div>
     <div class="px-1">
+     <button
+        type="button"
+        class="<%= icon_button_class %>"
+        title="<%=  I18n.t('posts.preview') %>(⌘+Shift+P)"
+        data-controller="tooltip"
+        data-tooltip-text-value="<%= I18n.t('posts.image') %>"
+        data-action="markdown#attachImage"
+        data-testid="attach-image"
+      >
+        <%= image_tag "icons/image.svg", alt: "", width: "24px", height: "14px", class: "icon" %>
+      </button>
+    </div>
+    <div class="px-1">
       <button
         type="button"
         class="<%= icon_button_class %> opacity-30 transition-all"

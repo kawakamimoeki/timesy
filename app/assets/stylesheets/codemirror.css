@@ -44,3 +44,7 @@ body.dark .CodeMirror-cursor {
   from { opacity: 0; }
   to   { opacity: 0.5; }
 }
+
+.editor-toolbar {
+  display: none !important;
+}
