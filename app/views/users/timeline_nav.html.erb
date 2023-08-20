@@ -5,6 +5,7 @@
         href="<%= latest_path %>"
         class="<%= nav_item_class(latest_path) %> mr-5 -pb-[3px]"
         data-turbo-frame="timeline"
+        data-nav-target="item"
       >
           <%= I18n.t("pages.latest") %>
       </a>
@@ -12,6 +13,7 @@
         href="<%= pinned_path %>"
         class="<%= nav_item_class(pinned_path) %> mr-5"
         data-turbo-frame="timeline"
+        data-nav-target="item"
       >
           <%= I18n.t("pages.pinned") %>
       </a>
