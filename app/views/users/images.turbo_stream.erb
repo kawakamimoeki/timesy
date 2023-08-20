@@ -2,13 +2,13 @@
   <div data-controller="image-modal" data-ids="image-list">
     <% @posts.each do |post| %>
       <% post.images.each do |image| %>
-        <p class="shadow border dark:border-dark-border rounded-lg overflow-hidden mb-4">
+        <p class="shadow  rounded-lg overflow-hidden mb-4">
           <%= image_tag image, class: "w-full cursor-zoom-in" %>
           <%= link_to I18n.t("posts.view"), post_path(post), class: "text-center bg-white dark:bg-dark-card p-4 w-full bg-white w-full block hover:bg-background hover:dark:bg-dark-background dark:bg-dark-card p-4 w-full" %>
         </p>
       <% end %>
       <% post.comments.where(user: @user).map(&:images).flatten.each do |comment_image| %>
-        <p class="shadow border dark:border-dark-border rounded-lg overflow-hidden mb-4">
+        <p class="shadow  rounded-lg overflow-hidden mb-4">
           <%= image_tag comment_image, class: "w-full cursor-zoom-in" %>
           <%= link_to I18n.t("posts.view"), post_path(post), class: "text-center bg-white w-full dark:bg-dark-card p-4 w-full bg-white block hover:bg-background hover:dark:bg-dark-background w-full dark:bg-dark-card p-4 w-full" %>
         </p>
