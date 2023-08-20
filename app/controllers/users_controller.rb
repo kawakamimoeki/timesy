@@ -1,4 +1,5 @@
 require "bcrypt"
+require "rexml/document"
 
 class UsersController < ApplicationController
   include Passwordless::ControllerHelpers
