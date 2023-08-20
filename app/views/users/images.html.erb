@@ -13,10 +13,8 @@
   <% if @posts.empty? %>
     <p class="w-full text-center py-20 font-bold"><%= I18n.t("images.not_found") %></p>
   <% else %>
-    <div class="max-w-sm mx-auto">
-      <%= turbo_frame_tag "users_images", target: "_top" do %>
-      <% end %>
-    </div>
+    <%= turbo_frame_tag "users_images", target: "_top" do %>
+    <% end %>
 
     <div class="h-4">
       <%= turbo_frame_tag "load_more", src: images_path(username: @user.username, format: :turbo_stream), loading: :lazy %>
