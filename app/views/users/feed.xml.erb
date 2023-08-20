@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title><%= REXML::Document.new.tap { |doc| doc.add(REXML::CData.new("Timesy/#{@user.name}")) } %></title>
+    <description><%= REXML::Document.new.tap { |doc| doc.add(REXML::CData.new("Timesyの#{@user.name}さんのフィード")) } %></description>
+    <link><%= user_url(@user.username) %></link>
+    <language>ja</language>
+    <lastBuildDate><%= @posts.first ? @posts.first.updated_at.to_s(:rfc822) : @user.created_at.to_s(:rfc822) %></lastBuildDate>
+    <generator>Timesy</generator>
+    <image>
+      <url>https://timesy.dev/logo.png</url>
+      <title><%= REXML::Document.new.tap { |doc| doc.add(REXML::CData.new("Timesy/#{@user.name}")) }.to_s %></title>
+      <link><%= user_url(@user.username) %></link>
+    </image>
+    <atom:link rel="self" type="application/rss+xml" href="<%= feed_url(@user.username) %>"/>
+    <% @posts.each do |p| %>
+      <item>
+        <title><%= REXML::CData.new(p.truncated.gsub("&lt;", '').gsub("&gt;", '')) %></title>
+        <description><%= REXML::CData.new(p.truncated(256).gsub("&lt;", '').gsub("&gt;", '')) %></description>
+        <pubDate><%= p.updated_at.to_s(:rfc822) %></pubDate>
+        <link><%= post_url(p) %></link>
+        <guid><%= post_url(p) %></guid>
+        <enclosure url="<%= ApplicationController.helpers.ogp_image(p) %>" type="image/jpeg" length="0" />
+        <% p.projects.each do |proj| %>
+          <category domain="<%= project_url(@user.username, proj) %>">
+            <%= REXML::Document.new.tap { |doc| doc.add(REXML::CData.new(proj.title)) }.to_s %>
+          </category>
+        <% end %>
+        <dc:creator><%= @user.name %></dc:creator>
+      </item>
+    <% end %>
+  </channel>
+</rss>

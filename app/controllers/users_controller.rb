@@ -22,7 +22,8 @@ class UsersController < ApplicationController
       return
     end
     @posts = @user.posts.joins(:projects).merge(Project.rss).latest
-    render layout: false
+    erb = ERB.new(File.read("#{Rails.root}/app/views/users/feed.xml.erb"))
+    render xml: erb.result(binding).html_safe
   end
 
   def profile
