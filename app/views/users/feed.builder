@@ -13,7 +13,7 @@ cache "/feed/202308201138/#{@user.username}", expires_in: 5.minutes do
       xml.image do
         xml.url "https://timesy.dev/logo.png"
         xml.title REXML::Document.new.tap { |doc| doc.add(REXML::CData.new("Timesy/#{@user.name}")) }.to_s
-        xml.link user_url(@user.username)
+        xml.link URI.encode(user_url(@user.username))
       end
       xml.tag!('atom:link', rel: "self", type: "application/rss+xml", href: feed_url(@user.username))
 
