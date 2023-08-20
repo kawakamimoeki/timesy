@@ -5,7 +5,7 @@ import Toastify from 'toastify-js'
 import hljs from 'highlight.js';
 
 export default class extends Controller {
-  static values = { minHeight: String, placeholder: String, directUploadUrl: String }
+  static values = { minHeight: String, placeholder: String, directUploadUrl: String, model: String }
   static targets = ["editor", "preview", "editorContainer", "editorButton", "previewButton", "file"]
  
   connect() {
@@ -27,7 +27,7 @@ export default class extends Controller {
         togglePreview: null,
       },
       imageAccept: ["image/jpeg", "image/png", "image/gif", "image/webp"],
-      imageUploadFunction: this.uploadFile,
+      imageUploadFunction: this.uploadFile.bind(this),
     });
     document.addEventListener("keydown", (event) => {
       if (event.key === "p" && (event.ctrlKey || event.metaKey) && event.shiftKey) {
@@ -128,7 +128,7 @@ export default class extends Controller {
     const url = "/rails/active_storage/direct_uploads"
     const upload = new DirectUpload(file, url)
   
-    upload.create(async (error, blob) => {
+    upload.create(async function (error, blob) {
       if (error) {
         onError(error)
         Toastify({
@@ -143,10 +143,11 @@ export default class extends Controller {
           },
         }).showToast();
       } else {
+        console.log(this)
         const hiddenField = document.createElement('input')
         hiddenField.setAttribute("type", "hidden");
         hiddenField.setAttribute("value", blob.signed_id)
-        hiddenField.name = "post[images][]"
+        hiddenField.name = `${this.modelValue}[images][]`
         this.element.appendChild(hiddenField)
         const res = await fetch("/api/v1/blobs/" + blob.signed_id + "/url", {
           method: "GET",
@@ -160,6 +161,6 @@ export default class extends Controller {
         onSuccess(url)
         this.element.toast.hideToast();
       }
-    })
+    }.bind(this))
   }
 }
