@@ -24,7 +24,7 @@ cache "/feed/202308201138/#{@user.username}", expires_in: 5.minutes do
           xml.pubDate p.updated_at.to_s(:rfc822)
           xml.link post_url(p)
           xml.guid post_url(p)
-          xml.enclosure url: CGI.escape(ogp_image(p)), type: "image/jpeg", length: "0"
+          xml.enclosure url: ogp_image(p), type: "image/jpeg", length: "0"
           p.projects.each do |proj|
             xml.category REXML::Document.new.tap { |doc| doc.add(REXML::CData.new(proj.title)) }.to_s, domain: project_url(@user.username, proj)
           end
