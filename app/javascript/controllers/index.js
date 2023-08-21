@@ -14,6 +14,7 @@ import TobottomController from "./tobottom_controller"
 import TooltipController from "./tooltip_controller"
 import TurboFormController from "./turbo_form_controller"
 import TwitterController from "./twitter_controller"
+import CheersController from "./cheers_controller"
 
 const application = Application.start()
 
@@ -32,3 +33,4 @@ application.register("tobottom", TobottomController)
 application.register("tooltip", TooltipController)
 application.register("turbo-form", TurboFormController)
 application.register("twitter", TwitterController)
+application.register("cheers", CheersController)

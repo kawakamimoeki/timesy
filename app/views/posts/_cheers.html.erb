@@ -1,0 +1,22 @@
+<div class="hidden sm:block sticky top-4 w-[0px] h-[calc(100vh-70px)]" data-controller="cheers">
+  <button class="<%= icon_button_class %> bg-white dark:bg-dark-card transition-all animate-fade-in ml-4 mb-4 flex items-center py-1" data-cheers-target="open">
+    <div class="i-lucide-message-circle"></div>
+    <span class="ml-1 text-sm"><%= @post.cheers.count %></span>
+  </button>
+  <button class="<%= icon_button_class %> bg-white dark:bg-dark-card transition-all post animate-fade-in mb-4 items-center py-1 hidden" data-cheers-target="close">
+    <div class="i-lucide-x"></div>
+    <span class="ml-1 text-sm">Close</span>
+  </button>
+  <div class="grow w-full hidden rounded-lg overflow-scroll h-[calc(100%-64px)]" data-cheers-target="container">
+    <div>
+      <%= turbo_stream_from "cheers-of-#{@post.id}" %>
+      <div data-controller="thread-scroll">
+        <%= turbo_frame_tag "cheers", target: "_top" do %>
+      </div>
+      <% end %>
+
+      <%= turbo_frame_tag "load_more", src: cheers_path(@post, format: :turbo_stream), loading: :lazy  %>
+    </div>
+    <%= turbo_frame_tag "cheer_form", src: cheer_form_path(@post), loading: :lazy %>
+  </div>
+</div>

@@ -4,13 +4,13 @@ ja:
   notifications:
     follow: "<span class='font-bold'>%{user}</span><span class='opacity-50'>さんにフォローされました</span>"
     comment: "<span class='font-bold'>%{user}</span><span class='opacity-50'>さんが</span> %{post} <span class='opacity-50'>にコメントしました</span>"
-    post_reaction: "<span class='font-bold'>%{user}</span><span class='opacity-50'>さんが</span> %{post} <span class='opacity-50'>にリアクションしました</span>"
-    comment_reaction: "<span class='font-bold'>%{user}</span><span class='opacity-50'>さんが</span> %{comment} <span class='opacity-50'>にリアクションしました</span>"
+    reaction: "<span class='font-bold'>%{user}</span><span class='opacity-50'>さんが</span> %{target} <span class='opacity-50'>にリアクションしました</span>"
     pin: "<span class='font-bold'>%{user}</span><span class='opacity-50'>さんが</span> %{post} <span class='opacity-50'>をpinしました</span>"
   images:
     not_found: 画像がありません
   pages:
     discord: Discord
+    cheers: "%{post}のコメント"
     home: ホーム
     timeline: タイムライン
     trending: トレンド
@@ -62,6 +62,8 @@ ja:
     empty2: 作業中のスレッドや気になるスレッドをピンしてみましょう！
   posts:
     view: 投稿を見る
+    thread: スレッド
+    cheers: コメント
     image: 画像挿入
     copy: リンクをコピー
     pin: ピンする
@@ -83,9 +85,15 @@ ja:
   comments:
     submit: 投稿
     delete: 削除する
+    confirm_delete: 投稿を削除してよろしいですか？
+    placeholder: Markdownで書く
+    count: "%{num}件の投稿"
+  cheers:
+    submit: コメントする
+    delete: 削除する
     confirm_delete: コメントを削除してよろしいですか？
     placeholder: Markdownで書く
-    count: "他%{num}件"
+    count: "%{num}件のコメント"
   passwordless:
     sign_in: ログイン
     send: ログインリンクを送信

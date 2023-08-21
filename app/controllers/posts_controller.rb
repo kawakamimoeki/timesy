@@ -5,7 +5,7 @@ class PostsController < ApplicationController
     end
     @posts = Rails.cache.fetch("posts/trending", expires_in: 3.hours) do
       Post.trending
-        .includes(:user, comments: :user, post_reactions: :user)
+        .includes(:user, comments: :user, cheers: :user, post_reactions: :user)
         .limit(5)
     end
   end
@@ -37,7 +37,7 @@ class PostsController < ApplicationController
 
     if current_user
       @posts = Post.offset(page_limit*@current_page)
-        .includes(:user, comments: :user, post_reactions: :user)
+        .includes(:user, comments: :user, cheers: :user, post_reactions: :user)
         .latest
         .limit(page_limit)
         .following(current_user)
@@ -45,7 +45,7 @@ class PostsController < ApplicationController
     else
       @posts = Rails.cache.fetch("posts/latest/pages/#{@current_page}/per/#{page_limit}", expires_in: 10.minutes) do
         Post.offset(page_limit*@current_page)
-          .includes(:user, comments: :user, post_reactions: :user)
+          .includes(:user, comments: :user, cheers: :user, post_reactions: :user)
           .latest
           .limit(page_limit)
       end
@@ -63,7 +63,7 @@ class PostsController < ApplicationController
 
     @posts = Rails.cache.fetch("posts/latest/pages/#{@current_page}/per/#{page_limit}", expires_in: 10.minutes) do
       Post.offset(page_limit*@current_page)
-        .includes(:user, comments: :user, post_reactions: :user)
+        .includes(:user, comments: :user, cheers: :user, post_reactions: :user)
         .latest
         .limit(page_limit)
     end
@@ -80,7 +80,7 @@ class PostsController < ApplicationController
     @current_page = params[:page].to_i
 
     all = Post.offset(page_limit*@current_page)
-      .includes(:user, comments: :user, post_reactions: :user)
+      .includes(:user, comments: :user, cheers: :user, post_reactions: :user)
       .pinned_by(current_user)
       .latest
     @posts = all.limit(params[:limit] || page_limit)
@@ -91,7 +91,7 @@ class PostsController < ApplicationController
     if request.format == "text/html"
       set_cache_control_headers
     end
-    @post = Post.includes(comments: :user).find_by(id: params[:id])
+    @post = Post.includes(comments: :user, cheers: :user).find_by(id: params[:id])
     @post_reaction = PostReaction.new
     @comment_reaction = CommentReaction.new
     if @post.nil?

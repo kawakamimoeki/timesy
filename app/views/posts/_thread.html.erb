@@ -1,20 +1,24 @@
-<div class="grow w-full">
-  <%= turbo_frame_tag "post_main", src: post_main_path(@post) do %>
-    <%= render partial: "posts/loading" %>
-  <% end %>
-  <div>
-    <%= turbo_stream_from "comments-of-#{@post.id}" %>
-    <div data-controller="thread-scroll">
-      <%= turbo_frame_tag "comments", target: "_top" do %>
-    </div>
+<div class="flex items-start">
+  <div class="grow w-full">
+    <%= turbo_frame_tag "post_main", src: post_main_path(@post) do %>
+      <%= render partial: "posts/loading" %>
     <% end %>
+    <div>
+      <%= turbo_stream_from "comments-of-#{@post.id}" %>
+      <div data-controller="thread-scroll">
+        <%= turbo_frame_tag "comments", target: "_top" do %>
+      </div>
+      <% end %>
 
-    <div class="h-1">
-      <%= turbo_frame_tag "load_more", src: comments_path(@post, format: :turbo_stream), loading: :lazy  %>
+      <div class="h-1">
+        <%= turbo_frame_tag "load_more", src: comments_path(@post, format: :turbo_stream), loading: :lazy  %>
+      </div>
     </div>
+    <%= turbo_frame_tag "comment_form", src: comment_form_path(@post), loading: :lazy %>
   </div>
-  <%= turbo_frame_tag "comment_form", src: comment_form_path(@post), loading: :lazy %>
+  <%= render partial: "posts/cheers", locals: { post: @post } %>  
 </div>
+
 
 <button class="<%= icon_button_class %> fixed bottom-6 right-6 bg-white dark:bg-dark-card transition-all animate-fade-in" data-controller="tobottom" >
   <div class="i-lucide-chevron-down"></div>

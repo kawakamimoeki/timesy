@@ -18,10 +18,14 @@ class Notification < ApplicationRecord
       Rails.application.routes.url_helpers.user_path(subjectable.follower.username)
     elsif subjectable_type == 'Comment'
       Rails.application.routes.url_helpers.post_path(subjectable.post)
+    elsif subjectable_type == 'Cheer'
+      Rails.application.routes.url_helpers.post_path(subjectable.post)
     elsif subjectable_type == 'PostReaction'
       Rails.application.routes.url_helpers.post_path(subjectable.post)
     elsif subjectable_type == 'CommentReaction'
       Rails.application.routes.url_helpers.post_path(subjectable.comment.post)
+    elsif subjectable_type == 'CheerReaction'
+      Rails.application.routes.url_helpers.post_path(subjectable.cheer.post)
     elsif subjectable_type == 'Pin'
       Rails.application.routes.url_helpers.post_path(subjectable.post)
     end
@@ -30,12 +34,14 @@ class Notification < ApplicationRecord
   def message
     if subjectable_type == 'Follow'
       I18n.t('notifications.follow', user: subjectable.follower.name)
-    elsif subjectable_type == 'Comment'
+    elsif subjectable_type.in?(['Cheer', 'Comment'])
       I18n.t('notifications.comment', user: subjectable.user.name, post: subjectable.post.truncated(16))
-    elsif subjectable_type == 'PostReaction'
+    elsif subjectable_type.in?(['PostReaction'])
       I18n.t('notifications.post_reaction', user: subjectable.user.name, post: subjectable.post.truncated(16))
-    elsif subjectable_type == 'CommentReaction'
-      I18n.t('notifications.comment_reaction', user: subjectable.user.name, comment: subjectable.comment.truncated(16))
+    elsif subjectable_type.in?(['CommentReaction'])
+      I18n.t('notifications.comment_reaction', user: subjectable.user.name, post: subjectable.comment.post.truncated(16))
+    elsif subjectable_type.in?(['CheerReaction'])
+      I18n.t('notifications.cheer_reaction', user: subjectable.user.name, post: subjectable.cheer.post.truncated(16))
     elsif subjectable_type == 'Pin'
       I18n.t('notifications.pin', user: subjectable.user.name, post: subjectable.post.truncated(16))
     end
