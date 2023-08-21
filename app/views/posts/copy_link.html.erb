@@ -1,4 +1,4 @@
-<%= turbo_frame_tag "post_copy_link-#{@post.id}" do %>
+<%= turbo_frame_tag "post_copy_link-#{@post.id}", data: { controller: "tooltip", tooltip_text: "Copy link" } do %>
   <button class="<%= icon_button_class %>"  data-controller="copy-url", data-copy-url-url-value="<%= post_url(@post) %>">
     <div class="i-lucide-link"></div>
   </button>
