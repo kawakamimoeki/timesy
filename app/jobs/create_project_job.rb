@@ -9,7 +9,7 @@ class CreateProjectJob < ApplicationJob
         project = Project.create(
           codename: $1,
           title: $1,
-          description: $1,
+          body: $1,
           user: post.user
         )
         post.attach_projects!
