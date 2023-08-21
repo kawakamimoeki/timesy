@@ -128,6 +128,7 @@ class PostsController < ApplicationController
     @post = Post.create(post_params.merge(user: current_user))
     @post.attach_projects!
     @post.broadcast_prepend_to("posts")
+    CreateProjectJob.perform_later(@post)
   end
 
   def update
@@ -142,6 +143,8 @@ class PostsController < ApplicationController
     @post.attach_projects!
     @post.broadcast_remove_to("posts")
     @post.broadcast_prepend_to("posts")
+
+    CreateProjectJob.perform_later(@post)
 
     purge_page(@post)
   end

@@ -15,6 +15,7 @@ module Api
         @post.attach_projects!
         @post.save
         @post.broadcast_prepend_to("posts")
+        CreateProjectJob.perform_later(@post)
         render json: { post: PostSerializer.render_as_hash(@post) }
       end
 
@@ -27,6 +28,7 @@ module Api
         @post.update(post_params)
         @post.attach_projects!
         @post.broadcast_replace_to("posts")
+        CreateProjectJob.perform_later(@post)
         render json: { post: PostSerializer.render_as_hash(@post) }
       end
 
