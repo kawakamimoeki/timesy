@@ -7,6 +7,8 @@
       </div>
       <div class="grow flex items-center space-x-1 w-full sm:w-auto">
         <div class="grow"></div>
+        <%= turbo_frame_tag "post_copy_link-#{post.id}", src: post_copy_link_path(post), data: { post_show_target: "menu" } %>
+        <%= turbo_frame_tag "pin_button_container", src: post_pin_button_path(post), data: { post_show_target: "menu" } %>
         <%= turbo_frame_tag "post_editor-#{post.id}", src: post_editor_path(post) %>
       </div>
     </div>
