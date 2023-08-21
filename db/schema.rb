@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_19_221823) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_21_221714) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,6 +55,36 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_19_221823) do
     t.string "slug"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "cheer_reactions", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.text "body", null: false
+    t.uuid "user_id", null: false
+    t.uuid "cheer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["cheer_id"], name: "index_cheer_reactions_on_cheer_id"
+    t.index ["user_id"], name: "index_cheer_reactions_on_user_id"
+  end
+
+  create_table "cheerings", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.text "body"
+    t.uuid "user_id", null: false
+    t.uuid "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_cheerings_on_post_id"
+    t.index ["user_id"], name: "index_cheerings_on_user_id"
+  end
+
+  create_table "cheers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.text "body"
+    t.uuid "user_id", null: false
+    t.uuid "post_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_cheers_on_post_id"
+    t.index ["user_id"], name: "index_cheers_on_user_id"
   end
 
   create_table "code_themes", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -211,6 +241,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_08_19_221823) do
   add_foreign_key "access_tokens", "users"
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "cheer_reactions", "cheers"
+  add_foreign_key "cheer_reactions", "users"
+  add_foreign_key "cheerings", "posts"
+  add_foreign_key "cheerings", "users"
+  add_foreign_key "cheers", "posts"
+  add_foreign_key "cheers", "users"
   add_foreign_key "comment_reactions", "comments"
   add_foreign_key "comment_reactions", "users"
   add_foreign_key "comments", "posts"
