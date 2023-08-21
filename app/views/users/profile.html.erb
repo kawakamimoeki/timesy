@@ -14,21 +14,21 @@
         <%= render partial: "follows/button", locals: { user: @user } %>
       </div>
       <div class="mb-2">
-        <div class="flex items-center mb-2">
+        <div class="flex items-center mb-2 space-x-2">
           <p class="text-gray-500 text-sm">@<%= @user.username %></p>
           <% if @user.github.present? %>
-            <%= link_to "https://github.com/#{@user.github}", target: "_blank" do %>
-              <%= image_tag "icons/github.svg", alt: "", width: "20px", height: "20px", class: "icon ml-2" %>
+            <%= link_to "https://github.com/#{@user.github}", target: "_blank", class: "text-lg" do %>
+              <div class="i-ri-github-fill"></div>
             <% end %>
           <% end %>
           <% if @user.twitter.present? %>
-            <%= link_to "https://twitter.com/#{@user.twitter}", target: "_blank", class: "block", style: "margin-top: 2px;" do %>
-              <%= image_tag "icons/x.png", alt: "", width: "20px", height: "20px", class: "icon ml-2" %>
+            <%= link_to "https://twitter.com/#{@user.twitter}", target: "_blank", class: "text-lg" do %>
+              <div class="i-ri-twitter-x-line"></div>
             <% end %>
           <% end %>
           <% if @user.website.present? %>
-            <%= link_to @user.website, target: "_blank" do %>
-              <%= image_tag "icons/link.svg", alt: "", width: "24px", height: "24px", class: "icon ml-1 -rotate-45 -mb-[2px]" %>
+            <%= link_to @user.website, target: "_blank", class: "text-lg" do %>
+              <div class="i-lucide-link "></div>
             <% end %>
           <% end %>
         </div>
@@ -41,7 +41,7 @@
       </div>
       <div>
         <a href="<%= feed_url(@user.username) %>" class="inline-flex items-center text-sm space-x-1 rounded   px-3 shadow py-1 transition-all  bg-sky-500 text-white" target="_blank">
-          <%= image_tag "icons/rss.svg", alt: "", width: "16px", height: "16px", class: "invert" %>
+          <div class="i-ri-rss-fill"></div>
           <span>RSS Feed</span>
         </a>
         <% if current_user == @user %>

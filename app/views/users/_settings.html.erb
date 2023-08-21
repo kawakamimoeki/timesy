@@ -68,8 +68,8 @@
     <%= f.label :access_token, class: label_class %>
     <%= f.text_field :access_token, class: text_field_class + " mb-5", readonly: true, value: current_user.access_tokens.first&.token %>
     <div class="flex items-center space-x-2">
-      <button type="button" data-controller="copy-url" data-copy-url-url-value="<%= current_user.access_tokens.first&.token %>" class="<%= block_link_class %> text-sm flex items-center space-x-1" >
-        <%= image_tag "icons/copy.svg", alt: "", class: "icon w-4 h-4" %>
+      <button type="button" data-controller="copy-url" data-copy-url-url-value="<%= current_user.access_tokens.first&.token %>" class="<%= block_link_class %>  flex items-center space-x-1" >
+        <div class="i-lucide-clipboard-copy"></div>
         <span><%= I18n.t("settings.copy") %></span>
       </button>
       <%= f.submit current_user.access_tokens.first&.token ? I18n.t("settings.access_token.regenerate") : I18n.t("settings.access_token.generate"), class: primary_button_class, onclick: "#{ current_user.access_tokens.first&.token ? "return confirm('#{I18n.t("settings.access_token.confirm")}')" : ""}" %>

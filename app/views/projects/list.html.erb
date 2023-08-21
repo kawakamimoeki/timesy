@@ -1,8 +1,8 @@
 <%= turbo_frame_tag "project_list" do %>
   <div>
     <% if current_user == @user %>
-      <a class="flex space-x-2 <%= card_class %> dark:hover:border-gray-700" href="<%= new_project_path %>" data-turbo-frame="_top">
-        <%= image_tag "icons/add.svg", class: "icon w-6 h-6" %>
+      <a class="flex items-center space-x-2 <%= card_class %> dark:hover:border-gray-700" href="<%= new_project_path %>" data-turbo-frame="_top">
+        <div class="i-lucide-plus-circle text-xl"></div>
         <div class="font-bold"><%= I18n.t("projects.start") %></div>
       </a>
     <% end %>

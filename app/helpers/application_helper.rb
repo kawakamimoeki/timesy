@@ -27,7 +27,7 @@ module ApplicationHelper
   end
 
   def primary_button_class
-    "rounded-sm px-2 py-1 shadow text-white bg-sky-500 font-bold hover:bg-sky-600 transition-all disabled:opacity-30 cursor-pointer flex items-center space-x-1"
+    "rounded-sm px-2 py-1 shadow text-white bg-sky-500 font-bold hover:bg-sky-600 transition-all disabled:opacity-30 cursor-pointer flex items-center space-x-1 rounded-lg"
   end
 
   def label_class
@@ -63,7 +63,7 @@ module ApplicationHelper
   end
 
   def icon_button_class
-    "block rounded-full hover:shadow transition-all cursor-pointer p-relative p-2 hover:bg-gray-50 transition-all dark:hover:bg-gray-700"
+    "block rounded-full hover:shadow transition-all text-lg text-gray-600 dark:text-gray-300 cursor-pointer p-relative p-2 hover:bg-gray-50 transition-all dark:hover:bg-gray-700"
   end
 
   def dropdown_class

@@ -2,13 +2,20 @@
   "engines": {
     "node": "18"
   },
+  "scripts": {
+    "heroku-postbuild": "unocss \"app/**/*.{rb,erb}\" -o app/assets/stylesheets/uno.css"
+  },
   "devDependencies": {
     "@hotwired/stimulus": "^3.2.2",
     "@hotwired/turbo": "^7.3.0",
     "@hotwired/turbo-rails": "^7.3.0",
+    "@iconify-json/lucide": "^1.1.119",
+    "@iconify-json/ri": "^1.1.12",
     "@picmo/popup-picker": "^5.8.5",
     "@playwright/test": "^1.37.1",
     "@rails/activestorage": "^7.0.7",
+    "@unocss/cli": "^0.55.2",
+    "@unocss/preset-icons": "^0.55.2",
     "easymde": "^2.18.0",
     "github-markdown-css": "^5.2.0",
     "highlight.js": "^11.8.0",
@@ -16,6 +23,7 @@
     "picmo": "^5.8.5",
     "tippy.js": "^6.3.7",
     "toastify-js": "^1.12.0",
+    "unocss": "^0.55.2",
     "vite": "^4.4.9",
     "vite-plugin-ruby": "^3.2.2"
   }

@@ -1,6 +1,5 @@
 <%= turbo_frame_tag "post_copy_link-#{@post.id}" do %>
-  <button class="<%= block_link_class %>"  data-controller="copy-url", data-copy-url-url-value="<%= post_url(@post) %>">
-    <%= image_tag "icons/link.svg", width: "24px", height: "24px", class: "icon -rotate-45" %>
-    <span class="text-sm hidden sm:block"><%= I18n.t("posts.copy") %></span>
+  <button class="<%= icon_button_class %>"  data-controller="copy-url", data-copy-url-url-value="<%= post_url(@post) %>">
+    <div class="i-lucide-link"></div>
   </button>
 <% end %>

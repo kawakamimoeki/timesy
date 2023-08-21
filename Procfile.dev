@@ -1,3 +1,4 @@
 web: bin/rails s -p 3000 -b '0.0.0.0'
 css: bin/rails tailwindcss:watch
 vite: bin/vite dev
+icon: npx unocss "app/**/*.{rb,erb}" --watch -o app/assets/stylesheets/uno.css
