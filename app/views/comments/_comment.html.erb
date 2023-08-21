@@ -33,15 +33,15 @@
             data-action="markdown#attachImage"
             data-testid="attach-image"
           >
-            <%= image_tag "icons/image.svg", alt: "", width: "24px", height: "14px", class: "icon" %>
+           <div class="i-lucide-image"></div>
           </button>
         </div>
         <div class="px-1">
           <button type="button" class="<%= icon_button_class %> flex items-center space-x-2" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton" >
-            <%= image_tag "icons/preview.svg", alt: "", width: "24px", height: "14px", class: "icon" %>
+            <div class="i-lucide-eye"></div>
           </button>
           <button type="button" class="<%= icon_button_class %> hidden" title="<%=  I18n.t('posts.edit') %>" data-action="markdown#edit" data-markdown-target="editorButton" >
-            <%= image_tag "icons/edit.svg", alt: "", width: "24px", height: "14px", class: "icon" %>
+            <div class="i-lucide-pen"></div>
           </button>
         </div>
         <div class="ml-2">

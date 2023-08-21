@@ -5,8 +5,8 @@
         <div class="p-2 w-1/2 h-[20vw] mb-4">
           <p class="shadow rounded-lg overflow-hidden mb-4 relative">
             <%= image_tag image, class: "w-full cursor-zoom-in h-[20vw] object-cover" %>
-            <%= link_to  post_path(post), class: "absolute bottom-3 right-3 rounded-full bg-white dark:bg-dark-card p-3 shadow hover:bg-background hover:dark:bg-dark-background" do %>
-              <%= image_tag "icons/note.svg", class: "w-6 h-6 icon" %>
+            <%= link_to post_path(post), class: "absolute bottom-3 right-3 rounded-full bg-white dark:bg-dark-card p-3 shadow hover:bg-background hover:dark:bg-dark-background" do %>
+              <span class="i-lucide-file-text block"></span>
             <% end %>
           </p>
         </div>
@@ -16,7 +16,7 @@
           <p class="shadow rounded-lg overflow-hidden mb-4 relative">
             <%= image_tag comment_image, class: "w-full cursor-zoom-in h-[20vw] object-cover" %>
             <%= link_to  post_path(post), class: "absolute bottom-3 right-3 rounded-full bg-white dark:bg-dark-card p-3 shadow hover:bg-background hover:dark:bg-dark-background" do %>
-              <%= image_tag "icons/note.svg", class: "w-6 h-6 icon" %>
+              <span class="i-lucide-file-text block"></span>
             <% end %>
           </p>
         </div>

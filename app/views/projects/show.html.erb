@@ -16,7 +16,7 @@
           <% if @project.user == current_user %>
             <div class="ml-2 w-24">
               <%= link_to edit_project_path(current_user.username, @project.codename), class: "#{block_link_class} text-sm inline-flex", data: { turbo_frame: "_top" }  do %>
-                <%= image_tag "icons/edit.svg", class: "icon w-4 h-4 mr-1 mt-[2px]" %>
+                <div class="i-lucide-pen mr-1"></div>
                 <%= I18n.t("form.submit.edit") %>
               <% end %>
             </div>
@@ -28,13 +28,13 @@
         </a>
         <% if @project.link.present? %>
           <%= link_to @project.link, class: "text-blue-400 items-center text-sm inline-flex hover:underline", target: "_blank" do %>
-            <%= image_tag "icons/link.svg", class: "icon w-4 h-4 mr-1 -mb-[2px] -rotate-45" %>
+            <span class="i-lucide-link block mr-1"></span>
             <%= @project.link.sub("https://", "").sub("http://", "").truncate(32) %>
           <% end %>
         <% end %>
         <% if @project.rss %>
           <div class="text-sm flex items-center">
-            <%= image_tag "icons/rss.svg", class: "icon w-4 h-4 mr-1" %>
+            <div class="i-ri-rss-fill mr-1"></div>
             <a href="<%= feed_path(@project.user.username) %>" class="hover:underline" target="_top">
               <%= I18n.t("projects.rss") %>
             </a>
