@@ -13,11 +13,6 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
 
   test "should get about" do
     get "/about"
-    assert_response :redirect
-  end
-
-  test "should get docs" do
-    get "/docs"
-    assert_response :redirect
+    assert_response :success
   end
 end

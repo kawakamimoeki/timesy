@@ -64,13 +64,10 @@
         <li class="w-full dark:border-dark-border border-b pb-2"></li>
         <li class="w-full pb-2"></li>
         <li>
-          <%= link_to I18n.t("pages.docs"), "https://about.timesy.dev/docs/intro", class: "#{block_link_class}" %>
+          <%= link_to I18n.t("pages.docs"), docs_path, class: "#{block_link_class}", data: { turbo_frame: "_top" } %>
         </li>
         <li>
-          <%= link_to I18n.t("pages.about"), "https://about.timesy.dev", class: "#{block_link_class}" %>
-        </li>
-        <li>
-          <%= link_to I18n.t("pages.blog"), "https://about.timesy.dev/blog", class: "#{block_link_class}" %>
+          <%= link_to I18n.t("pages.about"), about_path, class: "#{block_link_class}", data: { turbo_frame: "_top" } %>
         </li>
         <li>
           <%= link_to I18n.t("pages.terms"), terms_path, class: "#{request.path === terms_path ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "_top" } %>

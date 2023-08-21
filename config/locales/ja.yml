@@ -21,7 +21,6 @@ ja:
     posts: Posts
     pinned: Pinned
     follow: Following
-    blog: Blog
     comments: "%{user}のコメント"
     projects: "%{user}のプロジェクト"
     images: "%{user}の画像"
