@@ -1,7 +1,7 @@
 require "coderay"
 
 class MarkdownProcessor
-  VERSION = "202308190046"
+  VERSION = "202308212218"
 
   def self.processor
     Redcarpet::Markdown.new(
