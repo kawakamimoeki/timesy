@@ -6,12 +6,13 @@ class CreateProjectJob < ApplicationJob
       if Project.exists?(codename: $1)
         return
       else
-        project = Project.create(
+        Project.create(
           codename: $1,
           title: $1,
           body: $1,
           user: post.user
         )
+        post.purge_cache
         post.attach_projects!
       end
     end

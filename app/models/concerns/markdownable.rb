@@ -10,4 +10,10 @@ module Markdownable
   def html(length = false)
     MarkdownProcessor.process(body, length)
   end
+
+  def purge_cache
+    Rails.cache.delete(
+      "/markdown/#{MarkdownProcessor::VERSION}/#{Digest::SHA256.hexdigest(body)}"
+    )
+  end
 end
