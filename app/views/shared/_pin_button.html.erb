@@ -1,9 +1,9 @@
 <% if post.pinned_by?(current_user) %>
-  <%= button_to delete_pin_path(post.id, Pin.find_by(user: current_user, post: post)), class: "#{icon_button_class} text-sky-500", method: :delete, data: { controller: "tooltip", tooltip_text_value: "Pinned" } do %>
+  <%= button_to delete_pin_path(post.id, Pin.find_by(user: current_user, post: post)), class: "#{icon_button_class} text-sky-500 dark:text-sky-500", method: :delete, data: { controller: "tooltip", tooltip_text_value: I18n.t("posts.pinned") } do %>
     <div class="i-lucide-pin"></div>
   <% end %>
 <% else %>
-  <%= button_to create_pin_path(post_id: post.id), method: :post, class: "#{icon_button_class}", data: { controller: "tooltip", tooltip_text_value: "Pin" } do %>
+  <%= button_to create_pin_path(post_id: post.id), method: :post, class: "#{icon_button_class}", data: { controller: "tooltip", tooltip_text_value: I18n.t("posts.pin") } do %>
     <div class="i-lucide-pin "></div>
   <% end %>
 <% end %>

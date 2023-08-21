@@ -11,32 +11,29 @@ ja:
     not_found: 画像がありません
   pages:
     discord: Discord
-    home: HOME
-    timeline: Timeline
-    trending: Trending
-    search: Search
-    view_all: More
+    home: ホーム
+    timeline: タイムライン
+    trending: トレンド
+    search: 検索
+    view_all: もっと見る
     following: "%{user}がフォローしている人"
     followers: "%{user}のフォロワー"
-    posts: Posts
-    pinned: Pinned
-    follow: Following
+    posts: 投稿
+    pinned: ピン済み
+    follow: フォロー中
     comments: "%{user}のコメント"
     projects: "%{user}のプロジェクト"
     images: "%{user}の画像"
-    latest: Latest
-    your_profile: Your Profile
-    your_posts: Your Posts
-    your_comments: Your Comments
-    your_projects: Your Projects
-    settings: Settings
-    docs: Docs
-    about: About
-    terms: Terms
-    privacy: Privacy
-    emoji_request: Emoji request
+    latest: 最新
+    your_profile: プロフィール
+    settings: 設定
+    docs: ドキュメント
+    about: Timesyについて
+    terms: 利用規約
+    privacy: プライバシーポリシー
+    emoji_request: 絵文字リクエスト
     github: GitHub
-    status: Status
+    status: ステータスページ
     tip: $ Buy Me a Coffee
   activerecord:
     attributes:
@@ -49,7 +46,7 @@ ja:
         github: GitHub
         twitter: X
         website: ウェブサイト
-        access_token: API Access Token
+        access_token: APIアクセストークン
         webhook: Webhook通知先
   errors:
     messages:
@@ -64,31 +61,31 @@ ja:
     empty: 自分や他の人のスレッドをピンするとここに表示されます。
     empty2: 作業中のスレッドや気になるスレッドをピンしてみましょう！
   posts:
-    view: View Post
+    view: 投稿を見る
     image: 画像挿入
-    copy: Copy Link
-    pin: Pin
-    unpin: Pinned
+    copy: リンクをコピー
+    pin: ピンする
+    pinned: ピン済み
     draft: 下書き
     new: 記事を書く
-    publish: Post
-    update: Update
+    publish: 投稿
+    update: 更新
     save_as_draft: 下書きに保存
     preview: プレビュー
     edit: 編集する
     delete: 削除する
     not_found: 投稿がありません
     confirm_delete: 投稿を削除してもよろしいですか？この操作は元に戻せません。
-    placeholder: Write in Markdown
+    placeholder: Markdownで書く
     to_dev: Devに投稿
     all: All
     dev: Dev
   comments:
-    submit: Post
+    submit: 投稿
     delete: 削除する
     confirm_delete: コメントを削除してよろしいですか？
-    placeholder: Write in Markdown
-    count: "%{num} more"
+    placeholder: Markdownで書く
+    count: "他%{num}件"
   passwordless:
     sign_in: ログイン
     send: ログインリンクを送信
@@ -125,9 +122,9 @@ ja:
     follow: フォロー
     following: フォロー中
     followers: フォロワー
-    comments: Comments
-    projects: Projects
-    images: Images
+    comments: コメント
+    projects: プロジェクト
+    images: 画像
     sign_in: ログイン
     sign_up: はじめる
     sign_out: ログアウト
