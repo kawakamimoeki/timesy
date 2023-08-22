@@ -200,6 +200,8 @@ ja:
       delete: 削除する
     button:
       change_file: 変更する
+  button:
+    close: 閉じる
   page:
     confirm_leave: ページを離れてもよろしいですか？
   webhooks:
