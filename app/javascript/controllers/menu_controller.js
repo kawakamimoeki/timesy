@@ -9,6 +9,8 @@ export default class extends Controller {
         this.toggle()
       })
     })
+    this.dropdownTarget.classList.add("hidden")
+    this.backdrop.classList.add("hidden")
   }
 
   toggle() {
