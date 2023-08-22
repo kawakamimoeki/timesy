@@ -5,7 +5,7 @@ import Toastify from 'toastify-js'
 import hljs from 'highlight.js';
 
 export default class extends Controller {
-  static values = { minHeight: String, placeholder: String, directUploadUrl: String, model: String }
+  static values = { minHeight: String, placeholder: String, directUploadUrl: String, model: String, imageUploadingText: String, imageUploadFailedText: String }
   static targets = ["editor", "preview", "editorContainer", "editorButton", "previewButton", "file"]
  
   connect() {
@@ -115,7 +115,7 @@ export default class extends Controller {
 
   async uploadFile(file, onSuccess, onError) {
     this.element.toast = Toastify({
-      text: "画像をアップロードしています...",
+      text: this.imageUploadingTextValue,
       gravity: "bottom",
       position: "right",
       backgroundColor: "#444",
@@ -132,7 +132,7 @@ export default class extends Controller {
       if (error) {
         onError(error)
         Toastify({
-          text: "画像のアップロードに失敗しました",
+          text: this.imageUploadFailedTextValue,
           gravity: "bottom",
           duration: 3000,
           position: "right",

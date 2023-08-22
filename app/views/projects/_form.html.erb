@@ -11,6 +11,8 @@
     post_editor_confirm_message: I18n.t("page.confirm_leave"),
     markdown_min_height_value: "100px",
     markdown_placeholder_value: I18n.t("posts.placeholder"),
+    markdown_image_uploading_text_value: I18n.t("images.uploading"),
+    markdown_image_upload_failed_text_value: I18n.t("images.upload_failed")
   },
 ) do |f| %>
   <%= render partial: "shared/error_messages", locals: { errors: project.errors.full_messages } %>

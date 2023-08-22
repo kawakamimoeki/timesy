@@ -6,6 +6,7 @@ class MarkdownProcessor
         if pre.children.first.name == "code"
           pre[:class] = "relative group"
           pre["data-controller"] = "code-block"
+          pre["data-code-block-copied-text-value"] = I18n.t("clipboard.copied")
           pre.inner_html = ApplicationController.renderer.render(partial: "shared/code_block", locals: { code: pre.inner_html })
         end
       end

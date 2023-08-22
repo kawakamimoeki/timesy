@@ -8,6 +8,8 @@ ja:
     pin: "<span class='font-bold'>%{user}</span><span class='opacity-50'>さんが</span> %{post} <span class='opacity-50'>をpinしました</span>"
   images:
     not_found: 画像がありません
+    uploading: 画像をアップロードしています
+    upload_failed: 画像のアップロードに失敗しました
   pages:
     discord: Discord
     cheers: "%{post}のコメント"
@@ -60,6 +62,8 @@ ja:
   pinned:
     empty: 自分や他の人のスレッドをピンするとここに表示されます。
     empty2: 作業中のスレッドや気になるスレッドをピンしてみましょう！
+  clipboard:
+    copied: クリップボードにコピーしました
   posts:
     view: 投稿を見る
     thread: スレッド
