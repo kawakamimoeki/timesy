@@ -7,11 +7,13 @@ en:
     reaction: "<span class='font-bold'>%{user}</span><span class='opacity-50'>さんが</span> %{target} <span class='opacity-50'>にリアクションしました</span>"
     pin: "<span class='font-bold'>%{user}</span><span class='opacity-50'>さんが</span> %{post} <span class='opacity-50'>をpinしました</span>"
   images:
-    not_found: 画像がありません
+    not_found: No Images
+    uploading: 画像をアップロードしています
+    upload_failed: 画像のアップロードに失敗しました
   pages:
     discord: Discord
     cheers: "%{post}のコメント"
-    home: ホーム
+    home: Home
     timeline: タイムライン
     trending: トレンド
     search: 検索
@@ -60,6 +62,8 @@ en:
   pinned:
     empty: 自分や他の人のスレッドをピンするとここに表示されます。
     empty2: 作業中のスレッドや気になるスレッドをピンしてみましょう！
+  clipboard:
+    copied: クリップボードにコピーしました
   posts:
     view: 投稿を見る
     thread: スレッド
@@ -200,6 +204,8 @@ en:
       delete: 削除する
     button:
       change_file: 変更する
+  button:
+    close: 閉じる
   page:
     confirm_leave: ページを離れてもよろしいですか？
   webhooks:
