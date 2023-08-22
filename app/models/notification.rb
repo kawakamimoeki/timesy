@@ -37,11 +37,11 @@ class Notification < ApplicationRecord
     elsif subjectable_type.in?(['Cheer', 'Comment'])
       I18n.t('notifications.comment', user: subjectable.user.name, post: subjectable.post.truncated(16))
     elsif subjectable_type.in?(['PostReaction'])
-      I18n.t('notifications.post_reaction', user: subjectable.user.name, post: subjectable.post.truncated(16))
+      I18n.t('notifications.reaction', user: subjectable.user.name, post: subjectable.post.truncated(16))
     elsif subjectable_type.in?(['CommentReaction'])
-      I18n.t('notifications.comment_reaction', user: subjectable.user.name, post: subjectable.comment.post.truncated(16))
+      I18n.t('notifications.reaction', user: subjectable.user.name, post: subjectable.comment.post.truncated(16))
     elsif subjectable_type.in?(['CheerReaction'])
-      I18n.t('notifications.cheer_reaction', user: subjectable.user.name, post: subjectable.cheer.post.truncated(16))
+      I18n.t('notifications.reaction', user: subjectable.user.name, post: subjectable.cheer.post.truncated(16))
     elsif subjectable_type == 'Pin'
       I18n.t('notifications.pin', user: subjectable.user.name, post: subjectable.post.truncated(16))
     end

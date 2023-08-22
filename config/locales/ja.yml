@@ -208,7 +208,6 @@ ja:
   webhooks:
     comment: "%{user}さんがコメントしました"
     post_reaction: "%{user}さんがリアクションしました"
-    comment_reaction: "%{user}さんがリアクションしました"
     follow: "%{user}さんがあなたをフォローしました"
   datetime:
     distance_in_words:
