@@ -106,6 +106,7 @@ ja:
     sign_up:
       required: <a href="/terms" class="underline" target="_blank">利用規約</a>、<a href="/privacy" class="underline" target="_blank">プライバシーポリシー</a>に同意したうえで登録してください。
       send: 確認メールを送信する
+      email_subject: Timesyへようこそ！メールアドレスを確認して下さい
     sessions:
       create:
         email_sent_if_record_found: ログインリンクを送信しました。メールに記載されたリンクをクリックしてください。

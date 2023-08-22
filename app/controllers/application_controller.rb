@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   private def set_locale
-    I18n.locale = current_user&.locale || request.headers["Accept-Language"] || I18n.default_locale
+    I18n.locale = current_user&.locale || request.headers["Accept-Language"].to_s.split("-").first || I18n.default_locale
   end
 
   private def require_user!

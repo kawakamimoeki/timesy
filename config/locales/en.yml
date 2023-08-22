@@ -106,6 +106,7 @@ en:
     sign_up:
       required: Please register after agreeing to the <a href="/terms" class="underline" target="_blank">Terms of Service</a> and <a href="/privacy" class="underline" target="_blank">Privacy Policy</a>.
       send: Send confirmation email
+      email_subject: Welcome to Timesy! Confirm your email address
     sessions:
       create:
         email_sent_if_record_found: Login link sent. Please click the link in the email.
@@ -129,6 +130,9 @@ en:
     not_found: No followers
   followees:
     not_found: Not following anyone
+  following:
+    not_found: No one is being followed
+    empty: Try following interesting users from the Latest timeline!
   users:
     not_found: User not found
     follow: Follow
