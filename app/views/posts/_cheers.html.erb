@@ -7,8 +7,8 @@
     <div class="i-lucide-x"></div>
     <span class="ml-1 text-sm">Close</span>
   </button>
-  <div class="grow w-full hidden rounded-lg overflow-scroll h-[calc(100%-64px)]" data-cheers-target="container">
-    <div>
+  <div class="grow w-full hidden overflow-scroll h-[calc(100%-64px)]" data-cheers-target="container">
+    <div class="rounded-lg overflow-hidden">
       <%= turbo_stream_from "cheers-of-#{@post.id}" %>
       <div data-controller="thread-scroll">
         <%= turbo_frame_tag "cheers", target: "_top" do %>
@@ -16,7 +16,8 @@
       <% end %>
 
       <%= turbo_frame_tag "load_more", src: cheers_path(@post, format: :turbo_stream), loading: :lazy  %>
+
+      <%= turbo_frame_tag "cheer_form", src: cheer_form_path(@post), loading: :lazy %>
     </div>
-    <%= turbo_frame_tag "cheer_form", src: cheer_form_path(@post), loading: :lazy %>
   </div>
 </div>
