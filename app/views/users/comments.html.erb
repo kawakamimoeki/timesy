@@ -10,7 +10,7 @@
   <div id="profile-<%= @user.id %>" data-turbo-permanent>
     <%= turbo_frame_tag "profile", src: profile_path(@user.username) %>
   </div>
-  <%= render partial: 'shared/user_nav', locals: { user: @user } %>
+  <div id="user_nav_container" data-turbo-permanent><%= turbo_frame_tag :user_nav, src: user_nav_path(@user.username) %></div>
   <% if @posts.empty? %>
     <p class="w-full text-center py-20 font-bold"><%= I18n.t("posts.not_found") %></p>
   <% else %>

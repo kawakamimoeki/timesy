@@ -2,7 +2,7 @@
   <div class="grow w-full" id="main">
     <%= turbo_frame_tag "timeline" do %>
     <% if current_user %>
-      <%= render partial: "shared/timeline_nav" %>
+      <div id="nav-container" data-turbo-permanent><%= turbo_frame_tag "timeline_nav_for_current_user", src: users_timeline_nav_path(current: request.path) %></div>
     <% end %>
     <div class="max-w-3xl mx-auto px-4">
       <% if current_user %>

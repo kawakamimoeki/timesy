@@ -16,6 +16,14 @@ class UsersController < ApplicationController
   def wallpaper
   end
 
+  def user_nav
+    @user = User.find_by(username: params[:username])
+  end
+  
+  def follow_nav
+    @user = User.find_by(username: params[:username])
+  end
+
   def feed
     @user = User.find_by(username: params[:username])
     if @user.nil?
