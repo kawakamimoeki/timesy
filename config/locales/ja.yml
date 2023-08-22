@@ -154,7 +154,7 @@ ja:
     locale:
       ja: 日本語
       en: English
-    theme: テーマ設定 (hightlight.js)
+    theme: テーマ設定
     theme_preview: highlight.jsのサイトでテーマプレビューを見る→
     profile: プロフィール
     wallpaper: 壁紙設定
