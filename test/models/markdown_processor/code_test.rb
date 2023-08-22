@@ -18,6 +18,6 @@ class MarkdownProcessor::CodeTest < ActiveSupport::TestCase
 
   test "pre" do
     result = MarkdownProcessor::Code.process("<pre><code class=\"ruby\"></code></pre>")
-    assert result.include?("<pre class=\"relative group\" data-controller=\"code-block\">")
+    assert result.include?("<pre class=\"relative group\" data-controller=\"code-block\" data-code-block-copied-text-value=\"クリップボードにコピーしました\">")
   end
 end
