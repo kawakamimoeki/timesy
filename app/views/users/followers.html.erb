@@ -9,7 +9,11 @@
   <div id="profile-<%= @user.id %>" data-turbo-permanent>
     <%= turbo_frame_tag "profile", src: profile_path(@user.username) %>
   </div>
-  <div id="follow-nav-container" data-turbo-permanent><%= turbo_frame_tag :follow_nav, src: follow_nav_path(@user.username) %></div>
+  <div id="follow-nav-container" class="top-[1rem] sticky z-[50]" data-turbo-permanent>
+    <div class="<%= nav_class %>">
+      <%= turbo_frame_tag :follow_nav, src: follow_nav_path(@user.username) %>
+    </div>
+  </div>
   <% if @followers.empty? %>
     <p class="w-full text-center py-20 font-bold"><%= I18n.t("followers.not_found") %></p>
   <% else %>

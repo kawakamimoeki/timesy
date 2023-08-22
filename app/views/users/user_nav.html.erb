@@ -1,9 +1,9 @@
 <%= turbo_frame_tag :user_nav do %>
-<nav class="<%= nav_class %> mb-4 top-0">
-  <div class="<%= nav_list_class %> space-x-5" role="tablist" data-controller="nav">
+<nav data-controller="nav">
+  <div class="<%= nav_list_class %>">
     <a
       href="<%= user_path(@user.username) %>"
-      class="<%= nav_item_class(user_path(@user.username)) %>"
+      class="<%= nav_item_class(user_path(@user.username)) %> mr-5"
       data-turbo-frame="_top"
       data-testid="view-posts"
       role="tab"
@@ -15,7 +15,7 @@
     </a>
     <a
       href="<%= user_comments_path(@user.username) %>"
-      class="<%=  nav_item_class(user_comments_path(@user.username)) %>"
+      class="<%=  nav_item_class(user_comments_path(@user.username)) %> mr-5"
       data-turbo-frame="_top"
       data-testid="view-comments"
       role="tab"
@@ -27,7 +27,7 @@
     </a>
     <a
       href="<%= projects_path(@user.username) %>"
-      class="<%= nav_item_class(projects_path(@user.username)) %>"
+      class="<%= nav_item_class(projects_path(@user.username)) %> mr-5"
       data-turbo-frame="_top"
       role="tab"
       data-nav-target="item"
@@ -39,7 +39,7 @@
     </a>
     <a
       href="<%= images_path(@user.username) %>"
-      class="<%= nav_item_class(images_path(@user.username)) %>"
+      class="<%= nav_item_class(images_path(@user.username)) %> mr-5"
       data-turbo-frame="_top"
       role="tab"
       data-nav-target="item"

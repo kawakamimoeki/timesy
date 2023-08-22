@@ -10,7 +10,11 @@
   <div id="profile-<%= @user.id %>" data-turbo-permanent>
     <%= turbo_frame_tag "profile", src: profile_path(@user.username) %>
   </div>
-  <div id="user_nav_container" data-turbo-permanent><%= turbo_frame_tag :user_nav, src: user_nav_path(@user.username) %></div>
+  <div id="user-nav-container" class="top-[1rem] sticky z-[50]" data-turbo-permanent>
+    <div class="<%= nav_class %>">
+      <%= turbo_frame_tag :user_nav, src: user_nav_path(@user.username) %>
+    </div>
+  </div>
   <%= turbo_frame_tag "project_list", src: projects_list_path(@user.username), loading: :lazy %>
 </div>
 <% end %>
