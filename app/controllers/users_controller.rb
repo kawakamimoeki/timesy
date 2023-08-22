@@ -119,7 +119,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params.merge(locale: request.headers["HTTP_ACCEPT_LANGUAGE"]))
 
     if @user.save
       sign_in @user
