@@ -119,12 +119,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    begin
-      locale = request.headers["Accept-Language"].to_s.split("-")
-    rescue
-      locale = I18n.default_locale
-    end
-    @user = User.new(user_params.merge(locale: locale))
+    @user = User.new(user_params.merge(locale: I18n.locale))
 
     if @user.save
       sign_in @user

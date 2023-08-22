@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   private def set_locale
     begin
-      I18n.locale = current_user&.locale || request.headers["Accept-Language"].to_s.split("-").first || I18n.default_locale
+      I18n.locale = current_user&.locale || locale = http_accept_language.preferred_language_from(["ja", "en"]) || I18n.default_locale
     rescue I18n::InvalidLocale
       I18n.locale = I18n.default_locale
     end
