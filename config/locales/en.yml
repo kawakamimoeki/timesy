@@ -45,6 +45,7 @@ en:
         username: Username
         name: Display Name
         bio: Bio
+        email: Email
         code_theme_id: Code Block Theme
         wallpaper: Wallpaper
         github: GitHub
@@ -52,6 +53,7 @@ en:
         website: Website
         access_token: API Access Token
         webhook: Webhook Notification Destination
+        locale: Language
   errors:
     messages:
       blank: "Please fill in the %{attribute}"
@@ -101,6 +103,9 @@ en:
     expired: This link has expired. Please request a new link.
     check_your_email: Confirmation email sent. Please click the link in the email.
     welcome_back: Welcome back!
+    sign_up:
+      required: Please register after agreeing to the <a href="/terms" class="underline" target="_blank">Terms of Service</a> and <a href="/privacy" class="underline" target="_blank">Privacy Policy</a>.
+      send: Send confirmation email
     sessions:
       create:
         email_sent_if_record_found: Login link sent. Please click the link in the email.
@@ -143,6 +148,9 @@ en:
     setting: Account settings
     confirm_delete: Once deleted, your account cannot be restored. Are you sure?
   settings:
+    locale:
+      ja: 日本語
+      en: English
     theme: Theme settings (hightlight.js)
     theme_preview: See theme preview on highlight.js site→
     profile: Profile
@@ -206,6 +214,17 @@ en:
     close: Close
   page:
     confirm_leave: Are you sure you want to leave the page?
+  about:
+    tweet:
+      title: Tweet with Timesy
+      body: You can use it for brainstorming ideas for technical blogs, as a log for personal development, and of course, you can tweet about everyday life. Because it's Markdown, you have a wider range of expressions than usual SNS.
+    reaction:
+      title: React with Timesy
+      body: Let's send reactions to things that were beneficial or interesting. It's good to casually react with emojis, and it's also good to comment in detail with Markdown.
+    contribution:
+      title: Contribute to Timesy
+      body: Timesy is OSS (Open Source Software). We want to reflect everyone's thoughts in the product, so please feel free to contribute.
+      button: View the GitHub repository
   webhooks:
     comment: "%{user} commented"
     post_reaction: "%{user} reacted"

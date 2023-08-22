@@ -64,21 +64,16 @@
         <li class="w-full dark:border-dark-border border-b pb-2"></li>
         <li class="w-full pb-2"></li>
         <li>
-          <%= link_to I18n.t("pages.docs"), docs_path, class: "#{block_link_class}", data: { turbo_frame: "_top" } %>
+          <%= link_to I18n.t("pages.docs"), docs_path(current_user&.locale), class: "#{block_link_class}", data: { turbo_frame: "_top" } %>
         </li>
         <li>
-          <%= link_to I18n.t("pages.about"), about_path, class: "#{block_link_class}", data: { turbo_frame: "_top" } %>
+          <%= link_to I18n.t("pages.about"), about_path(current_user&.locale), class: "#{block_link_class}", data: { turbo_frame: "_top" } %>
         </li>
         <li>
-          <%= link_to I18n.t("pages.terms"), terms_path, class: "#{request.path === terms_path ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "_top" } %>
+          <%= link_to I18n.t("pages.terms"), terms_path(current_user&.locale), class: "#{block_link_class}", data: { turbo_frame: "_top" } %>
         </li>
         <li>
-          <%= link_to I18n.t("pages.privacy"), privacy_path, class: "#{request.path === privacy_path ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "_top" } %>
-        </li>
-        <li>
-          <%= link_to "https://forms.gle/7FZz2iHzYLQYiom7A", class: " #{block_link_class}" do %>
-            <span><%= I18n.t("pages.emoji_request") %></span>
-          <% end %>
+          <%= link_to I18n.t("pages.privacy"), privacy_path(current_user&.locale), class: "#{block_link_class}", data: { turbo_frame: "_top" } %>
         </li>
         <li>
           <%= link_to "https://github.com/moekidev/timesy", class: " #{block_link_class}" do %>

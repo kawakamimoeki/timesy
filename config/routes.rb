@@ -70,10 +70,10 @@ Rails.application.routes.draw do
   patch 'settings/webhook', to: 'settings#update_webhook', as: :update_webhook
   patch 'settings/access_token', to: 'settings#update_access_token', as: :update_access_token
 
-  get 'privacy', to: 'pages#privacy', as: :privacy
-  get 'terms', to: 'pages#terms', as: :terms
-  get 'about', to: 'pages#about', as: :about
-  get 'docs', to: 'pages#docs', as: :docs
+  get 'privacy/(:locale)', to: 'pages#privacy', as: :privacy
+  get 'terms/(:locale)', to: 'pages#terms', as: :terms
+  get 'about/(:locale)', to: 'pages#about', as: :about
+  get 'docs/(:locale)', to: 'pages#docs', as: :docs
 
   get '/.well-known/webfinger', to: 'webfinger#index', as: :webfinger
 
