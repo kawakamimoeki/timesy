@@ -79,9 +79,6 @@ ja:
     not_found: 投稿がありません
     confirm_delete: 投稿を削除してもよろしいですか？この操作は元に戻せません。
     placeholder: Markdownで書く
-    to_dev: Devに投稿
-    all: All
-    dev: Dev
   comments:
     submit: 投稿
     delete: 削除する
@@ -164,7 +161,7 @@ ja:
   projects:
     rss: RSSフィードで購読できます
     confirm_delete: 削除されるとプロジェクトは復元できません。よろしいですか？
-    start: New Project
+    start: プロジェクトを作成
     placeholder:
       title: プロジェクト名を入力
       codename: URLと投稿からの参照 "#codename"に使われます
@@ -199,7 +196,7 @@ ja:
       start: はじめる
       create: 作成する
       edit: 編集する
-      update: Update
+      update: 保存する
       delete: 削除する
     button:
       change_file: 変更する
