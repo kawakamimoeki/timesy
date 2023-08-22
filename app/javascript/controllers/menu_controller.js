@@ -6,15 +6,20 @@ export default class extends Controller {
   connect() {
     this.element.querySelectorAll("a").forEach((link) => {
       link.addEventListener("click", () => {
-        this.toggle()
+        if (this.dropdownTarget.classList.contains("hidden")) {
+          this.dropdownTarget.classList.remove("hidden")
+        } else {
+          this.dropdownTarget.classList.add("hidden")
+        }
+
+        if (this.backdrop.classList.contains("hidden")) {
+          this.backdrop.classList.remove("hidden")
+        } else {
+          this.backdrop.classList.add("hidden")
+        }
       })
     })
     this.dropdownTarget.classList.add("hidden")
     this.backdrop.classList.add("hidden")
-  }
-
-  toggle() {
-    this.dropdownTarget.classList.toggle("hidden")
-    this.backdropTarget.classList.toggle("hidden")
   }
 }
