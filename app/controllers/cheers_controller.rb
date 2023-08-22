@@ -62,6 +62,11 @@ class CheersController < ApplicationController
     @cheer = Cheer.find(params[:id])
   end
 
+  def count
+    @post = Post.find(params[:post_id])
+    @count = @post.cheers.count
+  end
+
   private def cheer_params
     params.require(:cheer).permit(:body, images: [])
   end

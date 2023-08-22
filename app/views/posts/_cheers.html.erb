@@ -1,7 +1,7 @@
 <div class="hidden sm:block sticky top-4 w-[0px] h-[calc(100vh-70px)]" data-controller="cheers">
   <button class="<%= icon_button_class %> bg-white dark:bg-dark-card transition-all animate-fade-in ml-4 mb-4 flex items-center py-1" data-cheers-target="open">
     <div class="i-lucide-message-circle"></div>
-    <span class="ml-1 text-sm"><%= @post.cheers.count %></span>
+    <span class="ml-1 text-sm"><%= turbo_frame_tag :cheers_count, src: cheers_count_path(@post) %></span>
   </button>
   <button class="<%= icon_button_class %> bg-white dark:bg-dark-card transition-all post animate-fade-in mb-4 items-center py-1 hidden" data-cheers-target="close">
     <div class="i-lucide-x"></div>
