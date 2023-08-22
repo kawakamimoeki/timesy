@@ -42,6 +42,7 @@ ja:
       user:
         username: ユーザーネーム
         name: 表示名
+        email: メールアドレス
         bio: 自己紹介
         code_theme_id: コードブロックのテーマ
         wallpaper: 壁紙
@@ -50,6 +51,7 @@ ja:
         website: ウェブサイト
         access_token: APIアクセストークン
         webhook: Webhook通知先
+        locale: 言語
   errors:
     messages:
       blank: "を入力してください"
@@ -101,6 +103,9 @@ ja:
     expired: このリンクは期限切れです。もう一度リンク送信を行ってください。
     check_your_email: 確認メールを送信しました。メールに記載されたリンクをクリックしてください。
     welcome_back: おかえりなさい！
+    sign_up:
+      required: <a href="/terms" class="underline" target="_blank">利用規約</a>、<a href="/privacy" class="underline" target="_blank">プライバシーポリシー</a>に同意したうえで登録してください。
+      send: 確認メールを送信する
     sessions:
       create:
         email_sent_if_record_found: ログインリンクを送信しました。メールに記載されたリンクをクリックしてください。
@@ -145,6 +150,9 @@ ja:
     setting: アカウント設定
     confirm_delete: 削除されるとアカウントは復旧できません。よろしいですか？
   settings:
+    locale:
+      ja: 日本語
+      en: English
     theme: テーマ設定 (hightlight.js)
     theme_preview: highlight.jsのサイトでテーマプレビューを見る→
     profile: プロフィール
@@ -208,6 +216,17 @@ ja:
     close: 閉じる
   page:
     confirm_leave: ページを離れてもよろしいですか？
+  about:
+    tweet:
+      title: Timesyでつぶやく
+      body: 技術ブログのアイデア出しや、個人開発の分報として使ってもいいですし、日常のことだってもちろんつぶやけます。Markdownなので普段使っているSNSよりも表現の幅が広がります。
+    reaction:
+      title: Timesyでリアクションする
+      body: ためになったことや、面白かったことにはリアクションを送ってみましょう。絵文字で気軽にリアクションするのもよし、Markdownで詳しくコメントするのもよしです。
+    contribution:
+      title: Timesyに貢献する
+      body: TimesyはOSS（オープンソース・ソフトウェア）です。皆さんの考えをどんどんプロダクトに反映させていきたいと思っていますので、ぜひお気軽にコントリビュートしてみてください。
+      button: GitHubのリポジトリを見る
   webhooks:
     comment: "%{user}さんがコメントしました"
     post_reaction: "%{user}さんがリアクションしました"
