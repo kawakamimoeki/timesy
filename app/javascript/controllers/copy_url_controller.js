@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 import Toastify from 'toastify-js'
 
 export default class extends Controller {
-  static values = { url: String }
+  static values = { url: String, copiedText: String }
 
   connect() {
     this.element.addEventListener("click", this.copy.bind(this))
@@ -11,7 +11,7 @@ export default class extends Controller {
   copy() {
     navigator.clipboard.writeText(this.urlValue)
     Toastify({
-      text: "クリップボードにコピーしました",
+      text: this.copiedTextValue,
       gravity: "bottom",
       duration: 3000,
       position: "right",

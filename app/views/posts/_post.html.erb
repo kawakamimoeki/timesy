@@ -18,9 +18,23 @@
       </div>
     <% end %>
     <div class="hidden" data-post-show-target="editor">
-      <%= form_with model: post, url: update_post_path(id: post.id), id: "post-form", data: { action: "turbo:submit-end->post-show#close",turbo_frame: :post, controller: "turbo-form markdown", post_editor_confirm_message: I18n.t("page.confirm_leave"),  markdown_min_height_value: "100px", 
-      markdown_model_value: "post",
-      markdown_placeholder_value: I18n.t("posts.placeholder") }, class: "grow transition-all" do |f| %>
+      <%= form_with(
+        model: post,
+        url: update_post_path(id: post.id),
+        id: "post-form",
+        data: {
+          action: "turbo:submit-end->post-show#close",
+          turbo_frame: :post,
+          controller: "turbo-form markdown",
+          post_editor_confirm_message: I18n.t("page.confirm_leave"),
+          markdown_min_height_value: "100px",
+          markdown_model_value: "post",
+          markdown_placeholder_value: I18n.t("posts.placeholder"),
+          markdown_image_uploading_text_value: I18n.t("images.uploading"),
+          markdown_image_upload_failed_text_value: I18n.t("images.upload_failed")
+        },
+        class: "grow transition-all"
+      ) do |f| %>
         <div>
           <%= flash[:error] %>
           <div class="max-w-3xl mx-auto">
