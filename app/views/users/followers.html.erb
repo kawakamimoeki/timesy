@@ -9,7 +9,7 @@
   <div id="profile-<%= @user.id %>" data-turbo-permanent>
     <%= turbo_frame_tag "profile", src: profile_path(@user.username) %>
   </div>
-  <%= render partial: "shared/follow_nav", locals: { user: @user } %>
+  <div id="follow-nav-container" data-turbo-permanent><%= turbo_frame_tag :follow_nav, src: follow_nav_path(@user.username) %></div>
   <% if @followers.empty? %>
     <p class="w-full text-center py-20 font-bold"><%= I18n.t("followers.not_found") %></p>
   <% else %>

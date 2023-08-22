@@ -1,7 +1,7 @@
 <div class="flex grow relative ">
   <div class="grow w-full" id="main">
     <%= turbo_frame_tag "timeline" do %>
-    <%= render partial: "shared/timeline_nav" %>
+    <div id="nav-container" data-turbo-permanent><%= turbo_frame_tag "timeline_nav_for_current_user", src: users_timeline_nav_path(current: request.path) %></div>
     <div class="max-w-4xl mx-auto px-4">
       <%= turbo_frame_tag "post_form", src: post_form_path %>
       <%= turbo_stream_from "trending" %>
