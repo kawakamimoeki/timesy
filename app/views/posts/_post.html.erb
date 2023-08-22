@@ -73,10 +73,19 @@
             <%= comment.truncated(32) %>
           </div>
         <% end %>
-        <% if post.comments.count > 2 %>
+        <% if post.comments.count > 0 %>
         <div class="w-auto py-[4px] mr-2 px-3 my-1 flex items-center border bg-gray-50 dark:bg-slate-700 shadow dark:border-slate-700 border-gray-50 text-sm rounded-full">
-          <%= I18n.t("comments.count", num: post.comments.count - 2) %>
+          <span class="i-lucide-server mr-1"></span>
+          <%= post.comments.count %>
         </div>
+        <% end %>
+      </div>
+      <div>
+        <% if post.cheers.count > 0 %>
+          <div class="w-auto py-[4px] mr-2 px-3 my-1 flex items-center border bg-gray-50 dark:bg-slate-700 shadow dark:border-slate-700 border-gray-50 text-sm rounded-full">
+            <span class="i-lucide-message-circle mr-1"></span>
+            <%= post.cheers.count %>
+          </div>
         <% end %>
       </div>
     </div>

@@ -1,0 +1,7 @@
+<%= turbo_frame_tag "cheer_form" do %>
+  <% if current_user %>
+    <div class="bg-white dark:bg-dark-card p-2">
+      <%= render partial: "cheers/form", locals: { cheer: @cheer, post: @post } %>
+    </div>
+  <% end %>
+<% end %>

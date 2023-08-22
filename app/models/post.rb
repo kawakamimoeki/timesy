@@ -8,6 +8,7 @@ class Post < ApplicationRecord
   has_many :post_reactions, dependent: :destroy
   has_many_attached :images
   has_many :pins, dependent: :destroy
+  has_many :cheers, dependent: :destroy
 
   after_save -> { projects.each(&:touch) }
 
@@ -35,6 +36,10 @@ class Post < ApplicationRecord
 
     attribute :comments do
       comments.map(&:body).join(' ')
+    end
+
+    attribute :cheers do
+      cheers.map(&:body).join(' ')
     end
   end
 

@@ -1,0 +1,14 @@
+<% set_meta_tags(
+  title: I18n.t("pages.cheers", post: @post.truncated),
+  og: {
+    title: "#{Site.title}｜#{I18n.t("pages.cheers", post: @post.truncated)}",
+    image: ogp_image(@post)
+  },
+  twitter: {
+    image: ogp_image(@post)
+  }
+) %>
+
+<div class="grow overflow-visible w-full max-w-3xl mx-auto pt-4 px-4 mb-32">
+  <%= render partial: "posts/cheers", locals: { post: @post, comments: @comments } %>
+</div>

@@ -1,0 +1,56 @@
+<div id="cheer_<%= cheer.id %>" class="bg-white dark:bg-dark-card border-b dark:border-dark-border p-2 group thread" data-controller="post-show">
+  <div class="flex h-[20px] space-x-1 text-sm items-center mb-21>
+    <%= render partial: "shared/mini_avatar", locals: { user: cheer.user } %>
+    <time class="text-gray-400"><%= time_ago_in_words(cheer.created_at) %></time>
+    <div class="grow"></div>
+    <%= turbo_frame_tag :cheer_editor, src: cheer_editor_path(cheer.post, cheer), class: "flex items-center space-x-1" %>
+  </div>
+  <div data-post-show-target="show" data-controller="image-modal twitter" class="markdown-body text-sm">
+    <%= cheer.html.html_safe %>
+  </div>
+  <div class="hidden" data-post-show-target="editor">
+    <%= form_with model: cheer, url: update_cheer_path(post_id: cheer.post.id, id: cheer.id), id: "post-form", medhot: :patch, data: { action: "turbo:submit-end->post-show#close", controller: "turbo-form markdown", post_editor_confirm_message: I18n.t("page.confirm_leave"),  markdown_min_height_value: "100px", markdown_model_value: "cheer", markdown_placeholder_value: I18n.t("cheers.placeholder") }, class: "grow transition-all" do |f| %>
+      <div>
+        <%= flash[:error] %>
+        <div class="max-w-3xl mx-auto">
+          <div class="bg-none">
+            <div data-markdown-target="editorContainer">
+              <%= f.text_area :body, data: { markdown_target: "editor", post_editor_target: "body" }, class: "prose resize-none" %>
+            </div>
+            <div class="markdown-body hidden px-5 min-h-[100px]" data-markdown-target="preview"></div>
+          </div>
+        </div>
+      </div>
+      <div class="flex pt-3 w-full items-center bg-none">
+        <div class="grow"></div>
+        <div class="px-1">
+          <button
+            type="button"
+            class="<%= icon_button_class %>"
+            title="<%=  I18n.t('posts.preview') %>(⌘+Shift+P)"
+            data-controller="tooltip"
+            data-tooltip-text-value="<%= I18n.t('posts.image') %>"
+            data-action="markdown#attachImage"
+            data-testid="attach-image"
+          >
+           <div class="i-lucide-image"></div>
+          </button>
+        </div>
+        <div class="px-1">
+          <button type="button" class="<%= icon_button_class %> flex items-center space-x-2" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton" >
+            <div class="i-lucide-eye"></div>
+          </button>
+          <button type="button" class="<%= icon_button_class %> hidden" title="<%=  I18n.t('posts.edit') %>" data-action="markdown#edit" data-markdown-target="editorButton" >
+            <div class="i-lucide-pen"></div>
+          </button>
+        </div>
+        <div class="ml-2">
+          <%= f.submit I18n.t('posts.update'), class: primary_button_class, data: { post_editor_target: "publish" } %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="mt-2">
+    <%= turbo_frame_tag "cheer_reactions_list-#{cheer.id}", src: cheer_reactions_path(cheer.post, cheer), class: "flex items-center flex-wrap" %>
+  </div>
+</div>
