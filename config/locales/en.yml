@@ -1,0 +1,244 @@
+en:
+  site:
+    description: 開発者のためのソーシャル分報アプリ
+  notifications:
+    follow: "<span class='font-bold'>%{user}</span><span class='opacity-50'>さんにフォローされました</span>"
+    comment: "<span class='font-bold'>%{user}</span><span class='opacity-50'>さんが</span> %{post} <span class='opacity-50'>にコメントしました</span>"
+    reaction: "<span class='font-bold'>%{user}</span><span class='opacity-50'>さんが</span> %{target} <span class='opacity-50'>にリアクションしました</span>"
+    pin: "<span class='font-bold'>%{user}</span><span class='opacity-50'>さんが</span> %{post} <span class='opacity-50'>をpinしました</span>"
+  images:
+    not_found: 画像がありません
+  pages:
+    discord: Discord
+    cheers: "%{post}のコメント"
+    home: ホーム
+    timeline: タイムライン
+    trending: トレンド
+    search: 検索
+    view_all: もっと見る
+    following: "%{user}がフォローしている人"
+    followers: "%{user}のフォロワー"
+    posts: 投稿
+    pinned: ピン済み
+    follow: フォロー中
+    comments: "%{user}のコメント"
+    projects: "%{user}のプロジェクト"
+    images: "%{user}の画像"
+    latest: 最新
+    your_profile: プロフィール
+    settings: 設定
+    docs: ドキュメント
+    about: Timesyについて
+    terms: 利用規約
+    privacy: プライバシーポリシー
+    emoji_request: 絵文字リクエスト
+    github: GitHub
+    status: ステータスページ
+    tip: '$ Buy Me a Coffee'
+  activerecord:
+    attributes:
+      user:
+        username: ユーザーネーム
+        name: 表示名
+        bio: 自己紹介
+        code_theme_id: コードブロックのテーマ
+        wallpaper: 壁紙
+        github: GitHub
+        twitter: X
+        website: ウェブサイト
+        access_token: APIアクセストークン
+        webhook: Webhook通知先
+  errors:
+    messages:
+      blank: "を入力してください"
+      taken: "はすでに取得されています"
+    attributes:
+      username:
+        invalid: "は半角英数字とアンダースコア（_）のみ使用できます"
+  header:
+    about: Timesyについて
+  pinned:
+    empty: 自分や他の人のスレッドをピンするとここに表示されます。
+    empty2: 作業中のスレッドや気になるスレッドをピンしてみましょう！
+  posts:
+    view: 投稿を見る
+    thread: スレッド
+    cheers: コメント
+    image: 画像挿入
+    copy: リンクをコピー
+    pin: ピンする
+    pinned: ピン済み
+    draft: 下書き
+    new: 記事を書く
+    publish: 投稿
+    update: 更新
+    save_as_draft: 下書きに保存
+    preview: プレビュー
+    edit: 編集する
+    delete: 削除する
+    not_found: 投稿がありません
+    confirm_delete: 投稿を削除してもよろしいですか？この操作は元に戻せません。
+    placeholder: Markdownで書く
+  comments:
+    submit: 投稿
+    delete: 削除する
+    confirm_delete: 投稿を削除してよろしいですか？
+    placeholder: Markdownで書く
+    count: "%{num}件の投稿"
+  cheers:
+    submit: コメントする
+    delete: 削除する
+    confirm_delete: コメントを削除してよろしいですか？
+    placeholder: Markdownで書く
+    count: "%{num}件のコメント"
+  passwordless:
+    sign_in: ログイン
+    send: ログインリンクを送信
+    expired: このリンクは期限切れです。もう一度リンク送信を行ってください。
+    check_your_email: 確認メールを送信しました。メールに記載されたリンクをクリックしてください。
+    welcome_back: おかえりなさい！
+    sessions:
+      create:
+        email_sent_if_record_found: ログインリンクを送信しました。メールに記載されたリンクをクリックしてください。
+        session_expired: 'セッションが期限切れです。再度ログインしてください。'
+        token_claimed: "このリンクは既に使用されています。リンクを再度要求してください。"
+      new:
+        submit: 'マジックリンクを送信する'
+      sign_out: サインアウトする
+    mailer:
+      subject: "ログインリンクを確認してください"
+      magic_link: "こちらがあなたのリンクです：%{link}"
+      register:
+        title: はじめまして！
+        submit: メールアドレスを認証する
+        desc: 誰かがあなたのアカウントに新しい場所からログインしようとしています。これがあなたの場合は、下のリンクをクリックして承認してください。これがあなたでない場合は、このメールを無視してください。
+      login:
+        title: お帰りなさい！
+        submit: ログインを承認する
+        desc: アカウントに新しい場所からログインしようとしています。これがあなたの場合は、下のリンクをクリックして承認してください。
+  followers:
+    not_found: フォロワーがいません
+  followees:
+    not_found: フォローしている人がいません
+  following:
+    not_found: フォローしている人がいません
+    empty: Latestタイムラインから気になるユーザーをフォローしてみましょう！
+  users:
+    follow: フォロー
+    following: フォロー中
+    followers: フォロワー
+    comments: コメント
+    projects: プロジェクト
+    images: 画像
+    sign_in: ログイン
+    sign_up: はじめる
+    sign_out: ログアウト
+    delete: アカウントを削除する
+    username_format: 半角英数字とアンダースコア（_）を使用できます
+    already_registered: このメールアドレスはすでに登録されています
+    welcome: "%{site_title}へようこそ！"
+    not_signed_in: ログインしてください
+    setting: アカウント設定
+    confirm_delete: 削除されるとアカウントは復旧できません。よろしいですか？
+  settings:
+    theme: テーマ設定 (hightlight.js)
+    theme_preview: highlight.jsのサイトでテーマプレビューを見る→
+    profile: プロフィール
+    wallpaper: 壁紙設定
+    export: エクスポート
+    api: API
+    webhook: Webhook通知先
+    access_token:
+      generate: 生成する
+      regenerate: 再生成する
+      confirm: 再生成してよろしいですか？
+    copy: コピーする
+    account: アカウント
+    updated: アップデートしました
+    start_export: エクスポート
+    export_started: エクスポートを開始しました。完了した際にダウンロードリンクを掲載したメールをお送りいたしますのでしばらくお待ち下さい。
+    exporting: エクスポートを実行中です。完了した際にダウンロードリンクを掲載したメールをお送りいたしますのでしばらくお待ち下さい。
+  projects:
+    rss: RSSフィードで購読できます
+    confirm_delete: 削除されるとプロジェクトは復元できません。よろしいですか？
+    start: プロジェクトを作成
+    placeholder:
+      title: プロジェクト名を入力
+      codename: 'URLと投稿からの参照 "#codename"に使われます'
+    notice:
+      rss: RSSフィードに掲載する
+      codename: 半角英数字とアンダースコア（_）を使用できます。グローバルにユニークである必要があります。
+  exports:
+    started:
+      title: エクスポートを開始しました
+      description: Timesyのデータのエクスポートを開始しました。完了した際にダウンロードリンクを掲載したメールをお送りいたしますのでしばらくお待ち下さい。
+    failed:
+      title: エクスポートに失敗しました
+      description: Timesyのデータのエクスポートに失敗しました。もう一度やり直してください。何回も失敗する場合には hello@timesy.dev までご連絡区獺祭。
+    completed:
+      title: エクスポートが完了しました
+      description: Timesyのデータのエクスポートが完了しました。以下のボタンからZipファイルをダウンロードしてください。
+    download: ダウンロードする
+  search:
+    placeholder: キーワードを入力
+  feed:
+    notice:
+      one: 有効にしたプロジェクトのみが購読されます。
+      two: プロジェクトの編集画面から有効にして下さい。
+  form:
+    changeable: いつでも変更できます
+    unchangeable: 後から変更できません
+    placeholder:
+      normal: "%{field}を入力"
+      github: アカウント名のみ入力
+      twitter: "@なしで入力"
+    submit:
+      start: はじめる
+      create: 作成する
+      edit: 編集する
+      update: 保存する
+      delete: 削除する
+    button:
+      change_file: 変更する
+  page:
+    confirm_leave: ページを離れてもよろしいですか？
+  webhooks:
+    comment: "%{user}さんがコメントしました"
+    post_reaction: "%{user}さんがリアクションしました"
+    follow: "%{user}さんがあなたをフォローしました"
+  datetime:
+    distance_in_words:
+      half_a_minute: "30秒"
+      less_than_x_seconds:
+        one: "1秒"
+        other: "%{count}秒"
+      x_seconds:
+        one: "1秒"
+        other: "%{count}秒"
+      less_than_x_minutes:
+        one: "1分"
+        other: "%{count}分"
+      x_minutes:
+        one: "1分"
+        other: "%{count}分"
+      about_x_hours:
+        one: "1時間"
+        other: "%{count}時間"
+      x_days:
+        one: "1日"
+        other: "%{count}日"
+      about_x_months:
+        one: "1ヶ月"
+        other: "%{count}ヶ月"
+      x_months:
+        one: "1ヶ月"
+        other: "%{count}ヶ月"
+      almost_x_years:
+        one: "１年弱"
+        other: "%{count}年弱"
+      about_x_years:
+        one: "1年"
+        other: "%{count}年"
+      over_x_years:
+        one: "1年以上"
+        other: "%{count}年以上"
