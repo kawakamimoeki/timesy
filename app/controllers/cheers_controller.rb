@@ -10,7 +10,7 @@ class CheersController < ApplicationController
 
     @cheers = @post.cheers.offset(page_limit*@current_page)
       .includes(:user, cheer_reactions: :user)
-      .latest
+      .oldest
   end
 
   def create
