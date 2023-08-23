@@ -71,7 +71,8 @@ en:
     thread: Thread
     cheers: Comments
     image: Insert image
-    copy: Copy link
+    copy-link: Copy link
+    copy-markdown: Copy Markdown
     pin: Pin
     pinned: Pinned
     draft: Draft

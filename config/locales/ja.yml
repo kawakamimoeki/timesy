@@ -71,7 +71,8 @@ ja:
     thread: スレッド
     cheers: コメント
     image: 画像挿入
-    copy: リンクをコピー
+    copy-link: リンクをコピー
+    copy-markdown: Markdownをコピー
     pin: ピンする
     pinned: ピン済み
     draft: 下書き
