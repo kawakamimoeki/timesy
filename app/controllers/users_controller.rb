@@ -44,6 +44,7 @@ class UsersController < ApplicationController
       set_cache_control_headers
     end
     @user = User.new
+    render :new, layout: "layouts/landing"
   end
 
   def show

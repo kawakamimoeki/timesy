@@ -29,9 +29,7 @@ class PostsController < ApplicationController
 
   def index
     unless current_user
-      @user = User.new
-      render "pages/index", layout: "landing"
-      return
+      redirect_to sign_up_path
     end
 
     if request.format == "text/html"
