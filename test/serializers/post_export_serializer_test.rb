@@ -8,7 +8,7 @@ class PostExportSerializerTest < ActiveSupport::TestCase
       author: post.user.username,
       created_at: post.created_at.iso8601,
       updated_at: post.updated_at.iso8601,
-      comments: [
+      threads: [
         {
           body: comments(:to_my_post).body,
           author: comments(:to_my_post).user.username,
@@ -22,6 +22,14 @@ class PostExportSerializerTest < ActiveSupport::TestCase
           updated_at: comments(:from_other).updated_at.iso8601
         }
       ],
+      comments: [
+        {
+          body: cheers(:to_my_post).body,
+          author: cheers(:to_my_post).user.username,
+          created_at: cheers(:to_my_post).created_at.iso8601,
+          updated_at: cheers(:to_my_post).updated_at.iso8601
+        }
+      ]
     }.to_json
     assert_equal expected, PostExportSerializer.render(post)
   end

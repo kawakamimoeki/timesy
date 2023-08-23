@@ -23,6 +23,25 @@ class Export < ApplicationRecord
           JSON.pretty_generate(PostExportSerializer.render_as_hash(post))
         )
       end
+      Dir.mkdir('images')
+      user.posts.each do |post|
+        post.images.each do |image|
+          zip.put_next_entry("images/#{image.filename}")
+          zip.write(image.blob.download)
+        end
+      end
+      user.comments.find_each do |comment|
+        comment.images.each do |image|
+          zip.put_next_entry("images/#{image.filename}")
+          zip.write(image.blob.download)
+        end
+      end
+      user.cheers.find_each do |cheer|
+        cheer.images.each do |image|
+          zip.put_next_entry("images/#{image.filename}")
+          zip.write(image.blob.download)
+        end
+      end
     end
     update!(state: "completed")
     if ENV["STORAGE_PROJECT"].present?
