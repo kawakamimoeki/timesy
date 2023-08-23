@@ -28,7 +28,8 @@ In Timesy, there are six levels of headings, from h1 to h6. The heading level ca
 
 You can specify bold, italic, and strikethrough text.
 
-| Style | Notation | Examples | Output
+| Style | Notation | Examples | Output |
+| :--- | :--- | :--- | :---
 | Bold | Boldfaced | `** ** | Italicized | Strikeout
 | bold | `** **` | `** bold**` | ** bold** |
 | Italics | `* *` | `*Italics*` | **Italics* | Italicized text
@@ -314,10 +315,10 @@ curl -X DELETE \
 ```bash
 curl -X POST \
   H "Authorization: Bearer {access token}" \
-  -H "Content-Type: application/json" \ -d '{ "title": "test", "test", "test", "test", "test"
-  -d '{ "title": "test", codename: "test", "link": "https://example.com", body: "Hello!" }' \
+  -H "Content-Type: application/json" \ 
+  -d '{ "title": "test", "codename": "test", "link": "https://example.com", "bod"y: "Hello!" }' \
   https://www.timesy.dev/api/v1/posts
-```
+```"
 
 ### Update.
 #### Path Parameters
