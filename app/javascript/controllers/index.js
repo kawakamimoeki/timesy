@@ -1,6 +1,6 @@
 import { Application } from "@hotwired/stimulus"
 import CodeBlockController from "./code_block_controller"
-import CopyUrlController from "./copy_url_controller"
+import CopyController from "./copy_controller"
 import EmojiPickerController from "./emoji_picker_controller"
 import FileFieldController from "./file_field_controller"
 import ImageModalController from "./image_modal_controller"
@@ -20,7 +20,7 @@ import NavController from "./nav_controller"
 const application = Application.start()
 
 application.register("code-block", CodeBlockController)
-application.register("copy-url", CopyUrlController)
+application.register("copy", CopyController)
 application.register("emoji-picker", EmojiPickerController)
 application.register("file-field", FileFieldController)
 application.register("image-modal", ImageModalController)

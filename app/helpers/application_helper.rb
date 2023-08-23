@@ -27,7 +27,7 @@ module ApplicationHelper
   end
 
   def primary_button_class
-    "px-2 py-1 shadow text-white bg-sky-500 font-bold hover:bg-sky-600 transition-all disabled:opacity-30 cursor-pointer flex items-center space-x-1 rounded-lg"
+    "px-2 py-1 shadow-sm text-white bg-sky-500 font-bold hover:bg-sky-600 transition-all disabled:opacity-30 cursor-pointer flex items-center space-x-1 rounded-lg"
   end
 
   def label_class
@@ -43,11 +43,11 @@ module ApplicationHelper
   end
 
   def nav_class
-    "w-full flex items-center shadow font-bold dark:border-dark-border sticky space-x-3 z-[50] bg-background dark:bg-dark-background dark:text-gray-200 text-gray-700 bg-opacity-60 dark:bg-opacity-60 backdrop-filter backdrop-blur-lg dark:backdrop-blur-lg dark:backdrop-filter relative mt-4 rounded-lg mb-4 top-[1rem] max-w-4xl mx-auto"
+    "w-full flex items-center shadow-sm font-bold dark:border-dark-border sticky space-x-3 z-[50] bg-background dark:bg-dark-background dark:text-gray-200 text-gray-700 bg-opacity-60 dark:bg-opacity-60 backdrop-filter backdrop-blur-lg dark:backdrop-blur-lg dark:backdrop-filter relative mb-4"
   end
 
   def nav_list_class
-    "flex max-w-4xl px-4 mx-auto w-full items-center"
+    "flex max-w-3xl px-4 py-2 mx-auto w-full items-center"
   end
 
   def nav_item_class(path)
@@ -55,23 +55,27 @@ module ApplicationHelper
   end
 
   def card_class
-    "relative bg-white p-4 rounded-lg shadow mb-4 dark:text-gray-200 dark:bg-dark-card dark:border dark:border-dark-border dark:text-gray-200"
+    "relative bg-white p-4 dark:text-gray-200 dark:bg-dark-card dark:border dark:border-dark-border dark:text-gray-200"
   end
 
   def block_link_class
-    "py-1 px-2 block hover:bg-gray-50 rounded-lg dark:hover:bg-gray-700 transition-all dark:text-gray-200 flex items-center space-x-1 font-bold text-gray-700 hover:shadow transition-all"
+    "py-1 px-2 block hover:bg-gray-50 rounded-lg dark:hover:bg-gray-700 transition-all dark:text-gray-200 flex items-center space-x-1 font-bold text-gray-700 hover:shadow-sm transition-all"
   end
 
   def icon_button_class
-    "block rounded-full hover:shadow transition-all text-lg text-gray-600 dark:text-gray-300 cursor-pointer p-relative p-2 hover:bg-gray-50 transition-all dark:hover:bg-gray-700"
+    "block rounded-full hover:shadow-sm transition-all text-lg text-gray-600 dark:text-gray-300 cursor-pointer p-relative p-2 hover:bg-gray-50 transition-all dark:hover:bg-gray-700"
   end
 
   def dropdown_class
-    "overflow-scroll absolute top-10 right-0 z-[100] hidden w-72 bg-white dark:bg-dark-card shadow rounded-lg border dark:border-dark-border scrollbar-none transition-all animate-down"
+    "overflow-scroll absolute top-10 right-0 z-[100] hidden w-72 bg-white dark:bg-dark-card shadow-sm rounded-lg border dark:border-dark-border scrollbar-none transition-all animate-down"
   end
 
   def backdrop_class
     "hidden fixed top-0 bottom-0 right-0 left-0 inset-0 z-[90] bg-black opacity-0"
+  end
+
+  def indicator_class
+    "w-auto h-[32px] leading-[32px] mr-2 px-3 my-1 flex items-center border bg-gray-50 dark:bg-slate-700 dark:border-slate-700 border-gray-50 text-sm rounded-full"
   end
 
   def should_render_sidebar?

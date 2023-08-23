@@ -6,14 +6,14 @@ export default class extends Controller {
   connect() {
     this.openTarget.addEventListener("click", this.open.bind(this))
     this.closeTarget.addEventListener("click", this.close.bind(this))
-    this.main = document.querySelector("main")
+    this.threadContainer = document.querySelector("#thread-container")
   }
 
   open() {
     this.containerTarget.classList.remove("hidden")
     this.element.classList.remove("w-[0px]")
-    this.main.classList.add("max-w-5xl")
-    this.main.classList.remove("max-w-3xl")
+    this.threadContainer.classList.add("max-w-5xl")
+    this.threadContainer.classList.remove("max-w-3xl")
     this.element.classList.add("w-[400px]")
     this.element.classList.add("pl-4")
     this.openTarget.classList.add("hidden")
@@ -25,8 +25,8 @@ export default class extends Controller {
     this.containerTarget.classList.add("hidden")
     this.element.classList.remove("w-[400px]")
     this.element.classList.add("w-[0px]")
-    this.main.classList.remove("max-w-5xl")
-    this.main.classList.add("max-w-3xl")
+    this.threadContainer.classList.remove("max-w-5xl")
+    this.threadContainer.classList.add("max-w-3xl")
     this.element.classList.remove("pl-4")
     this.openTarget.classList.remove("hidden")
     this.closeTarget.classList.add("hidden")

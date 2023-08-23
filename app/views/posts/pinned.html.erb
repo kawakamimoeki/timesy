@@ -1,13 +1,11 @@
 <div class="flex w-full grow relative ">
   <div class="grow w-full" id="main">
     <%= turbo_frame_tag "timeline" do %>
-    <% if current_user %>
-      <div id="nav-container" class="top-[1rem] sticky z-[50] px-4" data-turbo-permanent>
-        <div class="<%= nav_class %>">
-          <%= turbo_frame_tag "timeline_nav_for_current_user", src: users_timeline_nav_path(current: request.path) %>
-        </div>
+    <div id="nav-container" class="top-0 sticky z-[50]" data-turbo-permanent>
+      <div class="<%= nav_class %>">
+        <%= turbo_frame_tag "timeline_nav_for_current_user", src: users_timeline_nav_path(current: request.path), class: nav_list_class %>
       </div>
-    <% end %>
+    </div>
     <div class="max-w-3xl mx-auto px-4">
       <%= turbo_frame_tag "pinned", target: "_top" do %>
       <% end %>

@@ -1,4 +1,4 @@
-<a class="flex space-x-4 hover:shadow <%= card_class %> dark:hover:border-gray-700" href="<%= project_path(project.user.username, project.codename) %>" data-turbo-frame="_top" >
+<a class="flex space-x-4 hover:shadow <%= card_class %> border-b dark:hover:border-gray-700" href="<%= project_path(project.user.username, project.codename) %>" data-turbo-frame="_top" >
   <%= image_tag project.icon_url, class: "w-12 h-12 rounded" %>
   <div>
       <h4 class="font-bold"><%= project.title %></h4>

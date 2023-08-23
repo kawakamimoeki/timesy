@@ -70,7 +70,7 @@
     <%= f.label :access_token, class: label_class %>
     <%= f.text_field :access_token, class: text_field_class + " mb-5", readonly: true, value: current_user.access_tokens.first&.token %>
     <div class="flex items-center space-x-2">
-      <button type="button" data-controller="copy-url" data-copy-url-copied-text-value="<%= I18n.t("clipboard.copied") %>" data-copy-url-url-value="<%= current_user.access_tokens.first&.token %>" class="<%= block_link_class %>  flex items-center space-x-1" >
+      <button type="button" data-controller="copy" data-copy-copied-text-value="<%= I18n.t("clipboard.copied") %>" data-copy-content-value="<%= current_user.access_tokens.first&.token %>" class="<%= block_link_class %>  flex items-center space-x-1" >
         <div class="i-lucide-clipboard-copy"></div>
         <span><%= I18n.t("settings.copy") %></span>
       </button>
