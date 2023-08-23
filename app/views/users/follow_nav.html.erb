@@ -1,24 +1,22 @@
 <%= turbo_frame_tag :follow_nav do %>
 <nav data-controller="nav">
-  <div class="<%= nav_list_class %>">
-    <a
-      href="<%= following_path(@user.username) %>"
-      class="<%= nav_item_class(following_path(@user.username)) %> mr-5"
-      data-turbo-frame="_top"
-      data-nav-target="item"
-      data-current="<%= following_path(@user.username) %>"
-    >
-      <%= I18n.t("users.following") %>
-    </a>
-    <a
-      href="<%= followers_path(@user.username) %>"
-      class="<%= nav_item_class(followers_path(@user.username)) %> mr-5"
-      data-turbo-frame="_top"
-      data-nav-target="item"
-      data-current="<%= followers_path(@user.username) %>"
-    >
-        <%= I18n.t("users.followers", user: @user.name) %>
-    </a>
-  </div>
+  <a
+    href="<%= following_path(@user.username) %>"
+    class="<%= nav_item_class(following_path(@user.username)) %> mr-5"
+    data-turbo-frame="_top"
+    data-nav-target="item"
+    data-current="<%= following_path(@user.username) %>"
+  >
+    <%= I18n.t("users.following") %>
+  </a>
+  <a
+    href="<%= followers_path(@user.username) %>"
+    class="<%= nav_item_class(followers_path(@user.username)) %> mr-5"
+    data-turbo-frame="_top"
+    data-nav-target="item"
+    data-current="<%= followers_path(@user.username) %>"
+  >
+      <%= I18n.t("users.followers", user: @user.name) %>
+  </a>
 </nav>
 <% end %>

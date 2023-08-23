@@ -120,10 +120,6 @@ class PostsController < ApplicationController
     @post = Post.new
   end
 
-  def copy_link
-    @post = Post.find(params[:id])
-  end
-
   def create
     @post = Post.create(post_params.merge(user: current_user))
     @post.attach_projects!

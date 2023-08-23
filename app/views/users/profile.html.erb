@@ -1,5 +1,5 @@
 <%= turbo_frame_tag "profile" do %>
-  <div class="flex p-4 space-x-3 bg-background dark:bg-dark-background mt-4">
+  <div class="flex p-4 space-x-3 bg-background mx-auto max-w-3xl dark:bg-dark-background mt-4">
     <div>
       <%= image_tag @user.avatar_icon, alt: "", width: "100px", height: "100px", class: "w-10 h-10 object-cover rounded-full" %>
     </div>
@@ -51,7 +51,7 @@
       </div>
     </div>
   </div>
-  <div class="p-4 bg-background dark:bg-dark-background">
+  <div class="p-4 mx-auto max-w-3xl bg-background dark:bg-dark-background">
     <h4 class="mb-2 font-bold">Activities (<%= params[:year] || Date.today.year %>)</h4>
     <%= render partial: "shared/activities", locals: { user: @user, year: params[:year] || Date.today.year } %>
   </div>

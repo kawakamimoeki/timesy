@@ -9,6 +9,6 @@
   }
 ) %>
 
-<div class="grow overflow-visible w-full mx-auto pt-4 px-4 mb-32">
+<div id="thread-container" class="grow overflow-visible max-w-3xl w-full mx-auto pt-4 px-4 mb-32">
   <%= render partial: "posts/thread", locals: { post: @post, comments: @comments } %>
 </div>

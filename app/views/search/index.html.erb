@@ -8,7 +8,7 @@
   <div class="grow w-full" id="main">
     <div class="max-w-3xl mx-auto px-4">
       <%= turbo_frame_tag "posts", target: "_top" do %>
-        <%= render @posts, locals: { link_presence: true } %>
+        <%= render partial: "posts/post", collection: @posts, locals: { additional_class: "mb-4" } %>
       <% end %>
     </div>
   </div>
