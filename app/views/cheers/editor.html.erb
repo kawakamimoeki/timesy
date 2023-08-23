@@ -1,12 +1,12 @@
 <%= turbo_frame_tag :cheer_editor do %>
 <% if @cheer.user == current_user %>
   <div data-controller="menu" data-post-show-target="menu" class="overflow-visible relative">
-    <button class="<%= icon_button_class %>" data-action="menu#toggle" >
+    <button class="<%= icon_button_class %>" data-action="menu#open" >
       <div class="i-lucide-more-horizontal"></div>
     </button>
-    <div data-action="click->menu#toggle" data-menu-target="backdrop" class="<%= backdrop_class %>"></div>
+    <div data-action="click->menu#close" data-menu-target="backdrop" class="<%= backdrop_class %>"></div>
     <div class="absolute top-10 transition-all animate-down right-0 z-[100] hidden w-full" data-menu-target="dropdown">
-      <button class="<%= icon_button_class %> shadow mb-2 border dark:border-dark-border w-full flex items-center space-x-2 bg-white dark:bg-dark-card" data-action="post-show#edit menu#toggle" data-post-show-target="editButton" >
+      <button class="<%= icon_button_class %> shadow mb-2 border dark:border-dark-border w-full flex items-center space-x-2 bg-white dark:bg-dark-card" data-action="post-show#edit menu#close" data-post-show-target="editButton" >
         <div class="i-lucide-pen"></div>
       </button>
       <div class="mt-[1px]">
@@ -14,7 +14,7 @@
           delete_cheer_url(post_id: @cheer.post.id, id: @cheer.id),
           method: :delete,
           class: "#{icon_button_class} shadow w-full flex items-center space-x-2 border dark:border-dark-border bg-white dark:bg-dark-card",
-          data: { turbo_frame: "cheers", turbo_confirm: I18n.t("cheers.confirm_delete"), post_show_target: "deleteButton", action: "menu#toggle" },
+          data: { turbo_frame: "cheers", turbo_confirm: I18n.t("cheers.confirm_delete"), post_show_target: "deleteButton", action: "menu#close" },
           
         ) do %>
           <div class="i-lucide-trash"></div>
