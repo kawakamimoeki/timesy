@@ -1,4 +1,4 @@
-<div class="p-4 sm:rounded-lg my-4 bg-background dark:bg-dark-background">
+<div class="p-4 sm:rounded my-4 bg-background dark:bg-dark-background">
   <%= render partial: "shared/error_messages", locals: { errors: @user.errors.full_messages } %>
   <%= render partial: "shared/notice_messages", locals: { notice: notice } %>
   <h2 class="border-b dark:border-gray-600 mb-4 font-bold pb-1"><%= I18n.t("settings.profile") %></h2>
@@ -37,7 +37,7 @@
     <%= f.select :code_theme_id, CodeTheme.order(:name).map { |theme| [theme.name, theme.id] }, {}, class: "#{text_field_class} mb-3" %>
     <%= f.label :wallpaper, class: label_class %>
     <div data-controller="file-field" data-file-field-fallback-value="<%= current_user.no_wallpaper %>" class="mb-4">
-    <%= image_tag @user.wallpaper_or_none, alt: "", class: "w-[400px] h-[220px] object-cover preview rounded-lg" %>
+    <%= image_tag @user.wallpaper_or_none, alt: "", class: "w-[400px] h-[220px] object-cover preview rounded" %>
     <button type="button" class="text-gray-600 inline text-sm hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-700 rounded-full py-1 px-3 mt-3" data-action="file-field#click" >
       <%= I18n.t("form.button.change_file") %>
     </button>
