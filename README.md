@@ -1,6 +1,6 @@
 ![Timesy](./public/ogp.png)
 
-**Timesy** is a social minutes reporting application for developers.
+**Timesy** is a social technical note application for developers⏳
 
 ## Requirement
 
