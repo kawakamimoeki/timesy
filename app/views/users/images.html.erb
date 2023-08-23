@@ -24,9 +24,7 @@
       <%= turbo_frame_tag "load_more", src: images_path(username: @user.username, format: :turbo_stream), loading: :lazy %>
       <%= turbo_frame_tag "loading" do %>
       <%= render partial: "posts/loading" %>
-      <div class="hidden sm:block">
-        <%= render partial: "posts/loading" %>
-      </div>
+      
     <% end %>
     </div>
   <% end %>

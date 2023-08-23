@@ -29,9 +29,7 @@
       <%= turbo_frame_tag "usres_load_more", src: user_path(username: @user.username, format: :turbo_stream), loading: :lazy %>
       <%= turbo_frame_tag "users_loading" do %>
       <%= render partial: "posts/loading" %>
-      <div class="hidden sm:block">
-        <%= render partial: "posts/loading" %>
-      </div>
+      
     <% end %>
     </div>
   <% end %>

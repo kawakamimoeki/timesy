@@ -16,9 +16,6 @@
         <%= turbo_frame_tag "load_more", src: request.path.include?("latest") ? latest_path(format: :turbo_stream) : root_path(format: :turbo_stream), loading: :lazy  %>
         <%= turbo_frame_tag "loading" do %>
           <%= render partial: "posts/loading" %>
-          <div class="hidden sm:block">
-            <%= render partial: "posts/loading" %>
-          </div>
         <% end %>
       </div>
     </div>
