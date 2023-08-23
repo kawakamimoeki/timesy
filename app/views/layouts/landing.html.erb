@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <%= render partial: "layouts/head" %>
+  <div class="block lg:flex items-center h-screen">
+    <div class="hidden lg:block lg:w-3/5 h-full relative">
+      <%= image_tag "landing.jpg", class: "object-cover absolute -z-20 top-0 left-0 right-0 bottom-0 w-full h-full brightness-90" %>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center">
+        <h1 class="md:text-5xl lg:text-7xl xl:text-8xl font-bold emoji text-white drop-shadow-lg">Hack Luck🤞</h1>
+        <h2 class="text-xl lg:text-3xl text-white font-bold drop-shadow-lg">A place to share your hacks.</h2>
+      </div>
+    </div>
+    <div class="relative lg:bg-white block w-full lg:w-2/5 h-full p-4">
+      <%= image_tag "landing.jpg", class: "object-cover absolute -z-20 top-0 left-0 right-0 bottom-0 w-full h-full brightness-90" %>
+      <div class="mx-auto max-w-md w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4">
+        <div class="bg-white lg:bg-none p-12 lg:p-4 rounded-lg">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</html>

@@ -15,37 +15,30 @@
     <div class="<%= card_class %> my-5 py-10">
       <h3 class="text-2xl mb-3 w-full flex items-center font-bold">
         <span class="emoji mr-[2px]">✍️</span>
-        <span>Timesyでつぶやく</span>
+        <span><%= I18n.t("about.tweet.title") %></span>
       </h3>
-      <p>
-        技術ブログのアイデア出しや、個人開発の分報として使ってもいいですし、日常のことだってもちろんつぶやけます。
-        Markdownなので普段使っているSNSよりも表現の幅が広がります。
-      </p>
+      <p><%= I18n.t("about.tweet.body") %></p>
     </div>
     <div class="<%= card_class %> my-5 py-10">
       <h3 class="text-2xl mb-3 w-full flex items-center font-bold">
         <span class="emoji mr-[2px]">👍</span>
-        <span>Timesyでリアクションする</span>
+        <span><%= I18n.t("about.reaction.title") %></span>
       </h3>
-      <p>
-        ためになったことや、面白かったことにはリアクションを送ってみましょう。絵文字で気軽にリアクションするのもよし、Markdownで詳しくコメントするのもよしです。
-      </p>
+      <p><%= I18n.t("about.reaction.body") %></p>
     </div>
     <div class="<%= card_class %> my-5 py-10">
       <h3 class="text-2xl mb-3 w-full flex items-center font-bold">
         <span class="emoji mr-[2px]">👨‍💻</span>
-        <span>Timesyに貢献する</span>
+        <span><%= I18n.t("about.contribution.title") %></span>
       </h3>
-      <p>
-        TimesyはOSS（オープンソース・ソフトウェア）です。皆さんの考えをどんどんプロダクトに反映させていきたいと思っていますので、ぜひお気軽にコントリビュートしてみてください。
-      </p>
+      <p><%= I18n.t("about.contribution.body") %></p>
       <div class="mt-10 text-center">
         <a
           href="https://github.com/moekidev/timesy"
           target="_blank"
           rel="noopener noreferrer"
           class="bg-sky-500 font-bold text-white py-3 px-5 shadow-sm hover:bg-sky-600 rounded-sm w-auto text-center mt-5">
-        GitHubのリポジトリを見る
+        <%= I18n.t("about.contribution.button") %>
         </a>
       </div>
     </div>

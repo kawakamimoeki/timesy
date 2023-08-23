@@ -32,7 +32,10 @@ class SettingsController < ApplicationController
     if theme_params[:wallpaper].present?
       @user.wallpaper.attach(theme_params[:wallpaper])
     end
-    @user.update(code_theme_id: theme_params[:code_theme_id])
+    @user.update(
+      locale: theme_params[:locale],
+      code_theme_id: theme_params[:code_theme_id]
+    )
     flash[:notice] = I18n.t('settings.updated')
     redirect_to settings_path
   end
@@ -102,6 +105,7 @@ class SettingsController < ApplicationController
 
   private def theme_params
     params.require(:user).permit(
+      :locale,
       :wallpaper,
       :no_wallpaper,
       :code_theme_id

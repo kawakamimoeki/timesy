@@ -28,6 +28,8 @@
   <% end %>
   <h2 class="border-b mt-8 dark:border-gray-600 mb-4 font-bold pb-1"><%= I18n.t("settings.theme") %></h2>
   <%= form_with model: @user, url: update_theme_path, method: :patch, data: { turbo: false }, multipart: true do |f| %>
+    <%= f.label :locale, class: label_class %>
+    <%= f.select :locale, [:en, :ja].map { |locale| [I18n.t("settings.locale.#{locale}"), locale] }, {}, class: "#{text_field_class} mb-3" %>
     <%= f.label :code_theme_id, class: label_class %>
     <a href="https://highlightjs.org/examples" target="_blank" rel="noopener noreferrer" class="text-sky-600 hover:underline mb-4 flex items-center space-x-2 text-sm">
       <span><%= I18n.t("settings.theme_preview") %></span>
@@ -68,7 +70,7 @@
     <%= f.label :access_token, class: label_class %>
     <%= f.text_field :access_token, class: text_field_class + " mb-5", readonly: true, value: current_user.access_tokens.first&.token %>
     <div class="flex items-center space-x-2">
-      <button type="button" data-controller="copy-url" data-copy-url-url-value="<%= current_user.access_tokens.first&.token %>" class="<%= block_link_class %>  flex items-center space-x-1" >
+      <button type="button" data-controller="copy-url" data-copy-url-copied-text-value="<%= I18n.t("clipboard.copied") %>" data-copy-url-url-value="<%= current_user.access_tokens.first&.token %>" class="<%= block_link_class %>  flex items-center space-x-1" >
         <div class="i-lucide-clipboard-copy"></div>
         <span><%= I18n.t("settings.copy") %></span>
       </button>

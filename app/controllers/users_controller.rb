@@ -16,6 +16,14 @@ class UsersController < ApplicationController
   def wallpaper
   end
 
+  def user_nav
+    @user = User.find_by(username: params[:username])
+  end
+  
+  def follow_nav
+    @user = User.find_by(username: params[:username])
+  end
+
   def feed
     @user = User.find_by(username: params[:username])
     if @user.nil?
@@ -103,7 +111,7 @@ class UsersController < ApplicationController
     BCrypt::Password.create(params[:token])
     confirm_session = EmailConfirmationSession.find_by(token: params[:token])
     @user = User.new(email: confirm_session.email)
-    render :register
+    render :register, layout: "layouts/landing"
   rescue Passwordless::Errors::TokenAlreadyClaimedError
     redirect_to sign_up_path, flash: { errors: [I18n.t("passwordless.expired")] }
   rescue Passwordless::Errors::SessionTimedOutError
@@ -111,7 +119,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params.merge(locale: I18n.locale))
 
     if @user.save
       sign_in @user

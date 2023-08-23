@@ -8,7 +8,7 @@ class EmailConfirmationMailer < ApplicationMailer
     @magic_link = register_url(@token)
     mail(
       to: email,
-      subject: "Welcome to #{Site.title}! Confirm your email address"
+      subject: I18n.t('passwordless.email_confirmation_mailer.magic_link.subject')
     )
   end
 end

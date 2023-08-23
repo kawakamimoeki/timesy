@@ -4,15 +4,17 @@ export default class extends Controller {
   static targets = ["dropdown", "backdrop"]
 
   connect() {
-    this.element.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", () => {
-        this.toggle()
-      })
-    })
+    this.dropdownTarget.classList.add("hidden")
+    this.backdropTarget.classList.add("hidden")
   }
 
-  toggle() {
-    this.dropdownTarget.classList.toggle("hidden")
-    this.backdropTarget.classList.toggle("hidden")
+  close() {
+    this.dropdownTarget.classList.add("hidden")
+    this.backdropTarget.classList.add("hidden")
+  }
+
+  open() {
+    this.dropdownTarget.classList.remove("hidden")
+    this.backdropTarget.classList.remove("hidden")
   }
 }

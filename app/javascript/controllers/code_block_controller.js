@@ -3,6 +3,7 @@ import Toastify from 'toastify-js'
 
 export default class extends Controller {
   static targets = ["button"]
+  static values = { copiedText: String }
 
   connect () {
     this.element.addEventListener("mouseenter", () => {
@@ -17,7 +18,7 @@ export default class extends Controller {
     const code = this.element.querySelector("code").innerText
     navigator.clipboard.writeText(code)
     Toastify({
-      text: "クリップボードにコピーしました",
+      text: this.copiedTextValue,
       gravity: "bottom",
       duration: 3000,
       position: "right",

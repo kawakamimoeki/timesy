@@ -1,26 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
-  <head>
-    <script defer data-domain="timesy.dev" src="https://plausible.io/js/script.js"></script>
-    <%= display_meta_tags(default_meta_tags)%>
-    <meta name="description" content="<%= Site.description %>">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= action_cable_meta_tag %>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= content_for?(:rss_meta_tags) ? yield(:rss_meta_tags) : nil %>
-
-    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap" rel="stylesheet">
-    <%= vite_client_tag %>
-    <%= vite_javascript_tag 'application' %>
-    <%= turbo_frame_tag "code_theme", src: users_code_theme_path %>
-  </head>
+  <%= render partial: "layouts/head" %>
 
   <body class="bg-background bg-cover bg-fixed dark:bg-dark-background">
     <script>
@@ -45,7 +25,7 @@
           </span>
         <% end %>
         <div class="grow"></div>
-        <div class="h-[40px] z-[100]">
+        <div class="h-[40px] z-[100]" id="header-nav-conteiner" data-turbo-permanent>
           <%= turbo_frame_tag "header_menu", src: users_header_path %>
         </div>
       <div>

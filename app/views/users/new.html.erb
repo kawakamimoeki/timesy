@@ -5,7 +5,6 @@
   }
 ) %>
 
-
 <div class="relative grow p-4">
   <div class="mx-auto max-w-sm w-full">
     <div class="mb-5 flex">
@@ -22,10 +21,10 @@
         <%= render partial: "shared/notice_messages", locals: { notice: notice } %>
       </div>
       <div class="mb-5 text-center">
-        <a href="/terms" class="underline" target="_blank">利用規約</a>、<a href="/privacy" class="underline" target="_blank">プライバシーポリシー</a>に同意したうえで登録してください。
+        <%= I18n.t("passwordless.sign_up.required").html_safe %>
       </div>
       <div class="flex items-center mb-2">
-        <label for="email" class="font-bold">メールアドレス</label>
+        <label for="email" class="font-bold"><%= User.human_attribute_name(:email) %></label>
         <span class="ml-2 text-xs text-gray-500"><%= I18n.t("form.unchangeable") %></span>
       </div>
       <div class="mb-8 flex">
@@ -33,7 +32,7 @@
       </div>
       <div class="flex">
         <div class="grow"></div>
-        <%= f.submit "確認メールを送信する", class: primary_button_class, data: { testid: "submit" } %>
+        <%= f.submit I18n.t("passwordless.sign_up.send"), class: primary_button_class, data: { testid: "submit" } %>
         <div class="grow"></div>
       </div>
     <% end %>

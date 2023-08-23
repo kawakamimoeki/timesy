@@ -1,0 +1,355 @@
+Welcome to the Timesy documentation. Here you will find information on how to use the Markdown editor, guidelines, etc. If you have any questions about using Timesy, please read on. Also, if you find any corrections, we would appreciate it if you could send us an Issue or PR on [GitHub](https://github.co/moekidev/timesy).
+
+## How to use the Markdown editor
+
+### Markdown Notation
+Timesy is implemented based on [Github Flavor Markdown](https://guides.github.com/features/mastering-markdown/) but differs in several ways.
+
+#### Headings
+In Timesy, there are six levels of headings, from h1 to h6. The heading level can be specified by placing a `#` at the beginning of the heading line. The more `#`s there are, the lower the level.
+
+```markdown
+## h1
+## h2
+### h3
+#### h4
+##### h5
+###### h6
+```
+
+## h1
+## h2
+### h3
+#### h4
+##### h5
+###### h6
+
+#### Text Styles
+
+You can specify bold, italic, and strikethrough text.
+
+| Style | Notation | Examples | Output
+| Bold | Boldfaced | `** ** | Italicized | Strikeout
+| bold | `** **` | `** bold**` | ** bold** |
+| Italics | `* *` | `*Italics*` | **Italics* | Italicized text
+| strikeout | `~~ ~~` | `~~ strikeout ~~` | ~~ strikeout ~~` |
+
+#### Quoting Text
+You can quote text using `>`.
+
+```markdown
+Write as follows.
+> Quote
+```
+
+Write as follows.
+> quote
+
+
+### Code text
+Timesy allows you to write code text. Code text can be described by enclosing it in backquotes.
+
+
+```markdown
+`code text`
+```
+
+`code text`
+
+### Code blocks
+Timesy allows you to write code blocks. Code blocks can be described by enclosing them with three backquotes. You can also specify the language before the code block for syntax highlighting.
+
+### Links
+Inline links can be described. You can describe a link by enclosing the link text and URL with `[]()`.
+
+```markdown
+[Timesy](https://www.timesy.dev)
+```
+
+[Timesy](https://www.timesy.dev)
+
+### Images
+
+Timesy allows you to describe images. You can describe an image by enclosing the image text and URL with `![]()`.
+
+```markdown
+![Timesy](https://www.timesy.dev/ogp.png)
+```
+
+![Timesy](https://www.timesy.dev/ogp.png)
+
+You can also insert images by dragging and dropping files into the Markdown editor.
+
+#### Supported image file formats
+
+- PNG
+- JPEG
+- SVG
+- GIF
+- SVG
+
+### Lists
+Lists can be described by indenting one or more lines. Also, list items can be described by `*`, `+`, or `-`.
+
+```markdown
+- List 1
+- list 2
+- List 3
+```
+
+- list 1
+- List 2
+- List 3
+
+You can also use numbers to write ordered lists.
+
+```markdown
+1. list 1
+2. List 2
+3. List 3
+````
+
+1. List 1
+2. List 2
+3. List 3
+
+Additionally, you can nest them.
+
+1. List 1
+  1. List 1-1
+  2. List 1-2
+2. List 
+  1. List 2-1
+  2. List 2-2
+
+### Tab
+Timesy treats a tab as two spaces; pressing the Tab key inserts two spaces.
+
+### [NEW] Project Tags
+Timesy allows you to write project tags. Project tags can be written with `#`.
+This will link the project to the post and automatically generate a link.
+
+```markdown
+#timesy
+```
+
+### Languages supported in code blocks
+Timesy supports the following languages in code blocks.
+
+- Bash
+- C
+- C#
+- C++
+- CSS
+- Diff
+- Go
+- GraphQL
+- HTML
+- XML
+- JSON
+- Java
+- JavaScript
+- Kotlin
+- Less
+- Lua
+- Makefile
+- Markdown
+- Objective-C
+- PHP Template
+- PHP Template
+- Perl
+- Plain text
+- Python
+- Python REPL
+- R
+- Ruby
+- Rust
+- SCSS
+- SQL
+- Shell
+- Session
+- Swift
+- TOML
+- TypeScript
+- Visual Basic
+- NET
+- WebAssembly
+- YAML
+
+### Keyboard Shortcuts
+| Windows | Mac | Description |
+:--- | :--- | :--- | :---
+Ctrl - Shift - P | Cmd - Shift - P | Preview
+Ctrl - B | Cmd - B | Bold
+Ctrl - H | Cmd - H | Make headings smaller
+Ctrl - I | Cmd - I | Italic
+Ctrl - K | Cmd - K | Link
+Ctrl - L | Cmd - L | List
+Ctrl - Alt - C | Cmd - Alt - C | Code block
+Ctrl - Alt - I | Cmd - Alt - I | Image
+Ctrl - Alt - L | Cmd - Alt - L | Ordered list
+Shift - Ctrl - H | Shift - Cmd - H | Make headings larger
+Ctrl - Alt - 1 | Cmd - Alt - 1 | Heading 1
+Ctrl - Alt - 2 | Cmd - Alt - 2 | Heading 2
+Ctrl - Alt - 3 | Cmd - Alt - 3 | Heading 3
+Ctrl - Alt - 4 | Cmd - Alt - 4 | Heading 4
+Ctrl - Alt - 2 
+
+## How to use projects
+### What is a project?
+Timesy allows you to create projects. This can be used to manage a service, product, or site you are working on. Projects can be referenced from posts and comments using "project tags".
+
+This allows you to clarify the background and context of your posts.
+
+### Creating a project
+
+You can create a project by following these steps
+
+1. Click on "Projects" in the profile menu
+2. Click on "New Project"
+3. Enter the project information to create it
+
+### Browse for a project
+
+Refer to it by `#codename` from the body of the post.
+
+ex) `#timesy`.
+
+````
+project #timesy
+```
+
+## REST API
+Timesy provides a REST API.
+
+### Authorization
+Generate an access token from the configuration page and add `Authorization: Bearer {Access Token}` to the request header.
+The access token can be regenerated.
+
+```bash
+curl -X POST \
+  -H "Authorization: Bearer {access token}" \
+  -H "Content-Type: application/json" \
+  -d '{ "body": "test" }' \
+  https://www.timesy.dev/api/v1/posts
+```
+
+### Posting
+#### Posting
+##### Body parameters.
+
+- `body` - body text
+
+##### Example.
+
+```bash
+curl -X POST \
+  -H "Authorization: Bearer {access token}" \
+  -H "Content-Type: application/json" \ -d '{ "body": "test" }
+  -d '{ "body": "test" }' \ -H "Content-Type: application/json
+  https://www.timesy.dev/api/v1/posts
+```
+
+### Updating a post
+#### Path Parameters
+
+- `id` - post ID
+
+#### Body parameters
+
+- `body` - body
+
+##### Example.
+
+```bash
+curl -X PATCH \
+  -H "Authorization: Bearer {access token}" \
+  -H "Content-Type: application/json" \ -d '{ "body": "test": "test
+  -d '{ "body": "test" }' \
+  https://www.timesy.dev/api/v1/posts/{id}
+```
+
+### Delete a post
+#### Path Parameters.
+
+- `id` - post ID
+
+##### Example.
+
+```bash
+curl -X DELETE \}
+  -H "Authorization: Bearer {access token}" \
+  https://www.timesy.dev/api/v1/posts/{id}
+```
+
+### Comment
+#### Comment
+##### Path Parameters.
+
+- `postId` - post ID
+
+##### Body parameters
+
+- `body` - body
+
+##### Examples
+
+```bash
+curl -X DELETE \
+  -H "Authorization: Bearer {access token}" \
+  https://www.timesy.dev/api/v1/posts/{postId}/comments/{id}
+```
+
+### Project
+#### Create
+##### Body parameters
+
+- `title` - project name
+- `codename` - Project tag
+- `link` - Project link
+- `body` - Body
+
+##### Example.
+
+```bash
+curl -X POST \
+  H "Authorization: Bearer {access token}" \
+  -H "Content-Type: application/json" \ -d '{ "title": "test", "test", "test", "test", "test"
+  -d '{ "title": "test", codename: "test", "link": "https://example.com", body: "Hello!" }' \
+  https://www.timesy.dev/api/v1/posts
+```
+
+### Update.
+#### Path Parameters
+
+- `id` - project ID
+
+#### Body parameters
+
+- `title` - Project name
+- `codename` - Project tag
+- `link` - Project link
+- `body` - Body
+
+##### Example.
+
+```bash
+curl -X PATCH \
+  H "Authorization: Bearer {access token}" \
+  -H "Content-Type: application/json" \
+  -d '{ "body": "test" }' \
+  https://www.timesy.dev/api/v1/projects/{id}
+```
+
+### Delete a project
+#### Path Parameters
+
+- `id` - project ID
+
+##### Example.
+
+```bash
+curl -X DELETE \}
+  -H "Authorization: Bearer {access token}" \
+  https://www.timesy.dev/api/v1/projects/{id}
+```

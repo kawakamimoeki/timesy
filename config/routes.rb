@@ -70,10 +70,10 @@ Rails.application.routes.draw do
   patch 'settings/webhook', to: 'settings#update_webhook', as: :update_webhook
   patch 'settings/access_token', to: 'settings#update_access_token', as: :update_access_token
 
-  get 'privacy', to: 'pages#privacy', as: :privacy
-  get 'terms', to: 'pages#terms', as: :terms
-  get 'about', to: 'pages#about', as: :about
-  get 'docs', to: 'pages#docs', as: :docs
+  get 'privacy/(:locale)', to: 'pages#privacy', as: :privacy
+  get 'terms/(:locale)', to: 'pages#terms', as: :terms
+  get 'about/(:locale)', to: 'pages#about', as: :about
+  get 'docs/(:locale)', to: 'pages#docs', as: :docs
 
   get '/.well-known/webfinger', to: 'webfinger#index', as: :webfinger
 
@@ -97,6 +97,8 @@ Rails.application.routes.draw do
   get '/:username/followers', to: 'users#followers', as: :followers
   get '/:username/following', to: 'users#following', as: :following
   get '/:username/images', to: 'users#images', as: :images
+  get '/:username/user_nav', to: "users#user_nav", as: :user_nav
+  get '/:username/follow_nav', to: "users#follow_nav", as: :follow_nav
 
   namespace :api do
     namespace :v1 do

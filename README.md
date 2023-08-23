@@ -1,6 +1,6 @@
 ![Timesy](./public/ogp.png)
 
-**Timesy**は開発者のためのソーシャル分報アプリです。
+**Timesy** is a social technical note application for developers⏳
 
 ## Requirement
 
@@ -27,16 +27,16 @@ docker compose up
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=moekidev/timesy&type=Date)](https://star-history.com/#moekidev/timesy&Date)
+[![Star History Chart](https://api.star-history.com/svg?repos=moekidev/timesy&type=Date)](https://star-history.com/#moekidev/timesy&) Date)
 
 ## Contribution
 
-バグ報告やプルリクエストは、GitHubの https://github.com/moekidev/timesy にお願いします。このプロジェクトは、コラボレーションのための安全で歓迎的な空間を目指しており、貢献者は[行動規範](https://github.com/moekidev/timesy/blob/main/CODE_OF_CONDUCT.md)を守ることが期待されています。
+Bug reports and pull requests should be sent to https://github.com/moekidev/timesy on GitHub. This project aims to be a safe and welcoming space for collaboration, and contributors are expected to abide by the [Code of Conduct](https://github.com/moekidev/timesy/blob/main/CODE_OF_CONDUCT.md).
 
 ## License
 
-このアプリは、[MITライセンス](https://opensource.org/licenses/MIT)の条件の下でオープンソースとして利用可能です。
+This application is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
 
 ## Code of Conduct
 
-Timesy プロジェクトのコードベース、問題追跡システム、チャットルーム、メーリングリストで交流する全ての人々は、[行動規範](https://github.com/moekidev/timesy/blob/main/CODE_OF_CONDUCT.md)に従うことが期待されています。
+All people interacting with the Timesy project codebase, issue tracker, chat rooms, and mailing lists are expected to follow the [Code of Conduct](https://github.com/moekidev/timesy/blob/main/CODE_OF_CONDUCT.md).
