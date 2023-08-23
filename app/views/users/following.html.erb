@@ -5,11 +5,11 @@
   }
 ) %>
 
-<div class="w-full">
+<div class="w-full max-w-3xl mx-auto">
   <div id="profile-<%= @user.id %>" data-turbo-permanent>
     <%= turbo_frame_tag "profile", src: profile_path(@user.username) %>
   </div>
-  <div id="user-nav-container" class="top-0 sticky z-[50]" data-turbo-permanent>
+  <div id="follow-nav-container" class="top-0 sticky z-[50]" data-turbo-permanent>
     <div class="<%= nav_class %>">
       <div class="<%= nav_list_class %>">
         <%= turbo_frame_tag :follow_nav, src: follow_nav_path(@user.username) %>
