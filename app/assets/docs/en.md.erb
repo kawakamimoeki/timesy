@@ -246,7 +246,7 @@ curl -X POST \
 ```bash
 curl -X POST \
   -H "Authorization: Bearer {access token}" \
-  -H "Content-Type: application/json" \ -d '{ "body": "test" }
+  -H "Content-Type: application/json" \
   -d '{ "body": "test" }' \ -H "Content-Type: application/json
   https://www.timesy.dev/api/v1/posts
 ```
@@ -265,7 +265,7 @@ curl -X POST \
 ```bash
 curl -X PATCH \
   -H "Authorization: Bearer {access token}" \
-  -H "Content-Type: application/json" \ -d '{ "body": "test": "test
+  -H "Content-Type: application/json" \
   -d '{ "body": "test" }' \
   https://www.timesy.dev/api/v1/posts/{id}
 ```
@@ -278,7 +278,7 @@ curl -X PATCH \
 ##### Example.
 
 ```bash
-curl -X DELETE \}
+curl -X DELETE \
   -H "Authorization: Bearer {access token}" \
   https://www.timesy.dev/api/v1/posts/{id}
 ```
@@ -350,7 +350,7 @@ curl -X PATCH \
 ##### Example.
 
 ```bash
-curl -X DELETE \}
+curl -X DELETE \
   -H "Authorization: Bearer {access token}" \
   https://www.timesy.dev/api/v1/projects/{id}
 ```
