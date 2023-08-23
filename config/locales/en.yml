@@ -146,7 +146,7 @@ en:
     projects: Projects
     images: Images
     sign_in: Login
-    sign_up: Create account
+    sign_up: Sign up
     sign_out: Logout
     delete: Delete account
     username_format: You can use alphanumeric characters and underscores (_).

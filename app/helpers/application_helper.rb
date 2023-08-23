@@ -27,7 +27,7 @@ module ApplicationHelper
   end
 
   def primary_button_class
-    "rounded-sm px-2 py-1 shadow text-white bg-sky-500 font-bold hover:bg-sky-600 transition-all disabled:opacity-30 cursor-pointer flex items-center space-x-1 rounded-lg"
+    "px-2 py-1 shadow text-white bg-sky-500 font-bold hover:bg-sky-600 transition-all disabled:opacity-30 cursor-pointer flex items-center space-x-1 rounded-lg"
   end
 
   def label_class
