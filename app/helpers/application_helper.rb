@@ -43,7 +43,7 @@ module ApplicationHelper
   end
 
   def nav_class
-    "w-full flex items-center shadow-sm font-bold dark:border-dark-border sticky space-x-3 z-[50] bg-background dark:bg-dark-background dark:text-gray-200 text-gray-700 bg-opacity-60 dark:bg-opacity-60 backdrop-filter backdrop-blur-lg dark:backdrop-blur-lg dark:backdrop-filter relative mb-4"
+    "w-full flex items-center shadow-sm font-bold dark:border-dark-border sticky space-x-3 z-[50] bg-background dark:bg-dark-background dark:text-gray-200 text-gray-700 bg-opacity-60 dark:bg-opacity-60 backdrop-filter backdrop-blur-lg dark:backdrop-blur-lg dark:backdrop-filter relative mb-4 h-[40px]"
   end
 
   def nav_list_class
