@@ -75,7 +75,7 @@ module ApplicationHelper
   end
 
   def indicator_class
-    "w-auto h-[32px] leading-[32px] mr-2 px-3 my-1 flex items-center border bg-gray-50 dark:bg-slate-700 dark:border-slate-700 border-gray-50 text-sm rounded-full"
+    "w-auto h-[32px] leading-[32px] mr-1 px-3 my-1 flex items-center border bg-gray-50 dark:bg-slate-700 dark:border-slate-700 border-gray-50 text-sm rounded-full"
   end
 
   def should_render_sidebar?
