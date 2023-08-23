@@ -35,11 +35,6 @@ body.dark .CodeMirror-cursor {
   font-size: 1rem !important;
 }
 
-.CodeMirror-placeholder {
-  transition: all;
-  animation: fadein 0.5s;
-}
-
 @keyframes fadein {
   from { opacity: 0; }
   to   { opacity: 0.5; }
