@@ -28,10 +28,6 @@ class PostsController < ApplicationController
   end
 
   def index
-    unless current_user
-      redirect_to sign_up_path
-    end
-
     if request.format == "text/html"
       set_cache_control_headers
     end
