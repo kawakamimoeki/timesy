@@ -7,9 +7,6 @@
       </div>
     </div>
     <div class="max-w-4xl mx-auto px-4">
-      <div id="post-form-container" data-turbo-permanent>
-        <%= turbo_frame_tag "post_form", src: post_form_path %>
-      </div>
       <%= turbo_stream_from "trending" %>
       <%= turbo_frame_tag "trending", target: "_top" do %>
       <% end %>
