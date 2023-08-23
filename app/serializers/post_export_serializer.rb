@@ -13,7 +13,11 @@ class PostExportSerializer < Blueprinter::Base
     post.updated_at.iso8601
   end
 
-  association :comments, blueprint: CommentExportSerializer do |post, options|
+  association :threads, blueprint: CommentExportSerializer do |post, options|
     post.comments
+  end
+
+  association :comments, blueprint: CheerExportSerializer do |post, options|
+    post.cheers
   end
 end
