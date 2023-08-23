@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="ja">
   <%= render partial: "layouts/head" %>
-  <div class="flex items-center h-screen">
-    <div class="w-1/2 h-full relative">
+  <div class="block md:flex items-center h-screen">
+    <div class="hidden md:block  md:w-1/2 h-full relative">
       <%= image_tag "landing", class: "object-cover absolute -z-20 top-0 left-0 right-0 bottom-0 w-full h-full brightness-75" %>
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full text-center">
-        <h1 class="text-8xl font-bold emoji text-white drop-shadow-lg">Hack Luck🤞</h1>
-        <h2 class="text-3xl text-white font-bold drop-shadow-lg">A place to share your hacks.</h2>
+        <h1 class="md:text-5xl lg:text-7xl xl:text-8xl font-bold emoji text-white drop-shadow-lg">Hack Luck🤞</h1>
+        <h2 class="text-xl lg:text-3xl text-white font-bold drop-shadow-lg">A place to share your hacks.</h2>
       </div>
     </div>
-    <div class="relative grow bg-white w-1/2 h-full p-4">
-      <div class="mx-auto max-w-sm w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-        <%= yield %>
+    <div class="relative md:bg-white block w-full md:w-1/2 h-full p-4">
+      <%= image_tag "landing", class: "object-cover absolute -z-20 top-0 left-0 right-0 bottom-0 w-full h-full brightness-75" %>
+      <div class="mx-auto max-w-sm w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 px-4">
+        <div class="bg-white md:bg-none py-12 px-4 md:p-4 rounded-lg">
+          <%= yield %>
+        </div>
       </div>
     </div>
   </div>
