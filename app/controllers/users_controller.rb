@@ -111,7 +111,7 @@ class UsersController < ApplicationController
     BCrypt::Password.create(params[:token])
     confirm_session = EmailConfirmationSession.find_by(token: params[:token])
     @user = User.new(email: confirm_session.email)
-    render :register
+    render :register, layout: "layouts/landing"
   rescue Passwordless::Errors::TokenAlreadyClaimedError
     redirect_to sign_up_path, flash: { errors: [I18n.t("passwordless.expired")] }
   rescue Passwordless::Errors::SessionTimedOutError

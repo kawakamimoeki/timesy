@@ -98,11 +98,15 @@ en:
     placeholder: Write in Markdown
     count: "%{num} comments"
   passwordless:
+    or_sign_in: Or login
     sign_in: Login
     send: Send login link
     expired: This link has expired. Please request a new link.
     check_your_email: Confirmation email sent. Please click the link in the email.
     welcome_back: Welcome back!
+    email_confirmation_mailer:
+      magic_link:
+        subject: Welcome to Timesy!
     sign_up:
       required: Please register after agreeing to the <a href="/terms" class="underline" target="_blank">Terms of Service</a> and <a href="/privacy" class="underline" target="_blank">Privacy Policy</a>.
       send: Send confirmation email

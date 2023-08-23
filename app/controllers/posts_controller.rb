@@ -28,6 +28,12 @@ class PostsController < ApplicationController
   end
 
   def index
+    unless current_user
+      @user = User.new
+      render "pages/index", layout: "landing"
+      return
+    end
+
     if request.format == "text/html"
       set_cache_control_headers
     end

@@ -1,0 +1,30 @@
+
+<div class="mb-5 flex">
+  <div class="grow"></div>
+  <%= render partial: "shared/logo" %>
+  <div class="grow"></div>
+</div>
+<%= form_with model: @user, url: confirm_path do |f| %>
+  <div class="mb-5">
+    <%= render partial: "shared/error_messages", locals: { errors: flash[:errors] } %>
+    <%= render partial: "shared/notice_messages", locals: { notice: notice } %>
+  </div>
+  <div class="mb-5 text-center">
+    <%= I18n.t("passwordless.sign_up.required").html_safe %>
+  </div>
+  <div class="flex items-center mb-2">
+    <label for="email" class="font-bold"><%= User.human_attribute_name(:email) %></label>
+    <span class="ml-2 text-xs text-gray-500"><%= I18n.t("form.unchangeable") %></span>
+  </div>
+  <div class="mb-8 flex">
+    <%= f.email_field :email, class: text_field_class, placeholder: "you@example.com", data: { testid: "email" } %>
+  </div>
+  <div class="flex">
+    <div class="grow"></div>
+    <%= f.submit I18n.t("passwordless.sign_up.send"), class: primary_button_class, data: { testid: "submit" } %>
+    <div class="grow"></div>
+  </div>
+  <div class="text-center mt-4">
+    <%= link_to I18n.t("passwordless.or_sign_in"), "/sign_in", class: "text-sm text-gray-500 underline hover:text-gray-700" %>
+  </div>
+<% end %>
