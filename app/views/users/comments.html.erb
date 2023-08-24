@@ -6,7 +6,7 @@
 ) %>
 
 <%= turbo_frame_tag "timeline" do %>
-<div class="w-full max-w-3xl mx-auto">
+<div class="w-full max-w-3xl mx-auto px-4">
   <div id="profile-<%= @user.id %>" data-turbo-permanent>
     <%= turbo_frame_tag "profile", src: profile_path(@user.username) %>
   </div>
@@ -17,7 +17,7 @@
       </div>
     </div>
   </div>
-  <div class="max-w-3xl mx-auto px-4">
+  <div>
     <%= turbo_frame_tag :posts, target: "_top" do %>
     <% end %>
 
