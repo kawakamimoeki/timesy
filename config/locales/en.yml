@@ -1,6 +1,6 @@
 en:
   site:
-    description: Social reporting app for developers
+    description: Social technical notes app for developers
   notifications:
     follow: "<span class='font-bold'>%{user}</span><span class='opacity-50'> has followed you</span>"
     comment: "<span class='font-bold'>%{user}</span><span class='opacity-50'> commented on </span> %{post}"
