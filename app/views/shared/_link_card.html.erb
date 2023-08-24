@@ -1,9 +1,9 @@
 <div class="link-card cursor-pointer  max-w-[384px] overflow-hidden w-full rounded-lg shadow-sm">
 <a href="<%= ogp.url %>" data-turbo-frame="_top">
   <% if ogp.image.present? %>
-    <img src="<%= ogp.image %>" class="object-cover" alt="">
+    <img src="<%= ogp.image %>" class="object-cover border-b dark:border-dark-border" alt="">
   <% end %>
-  <div class="grow p-4 border-t dark:border-dark-border">
+  <div class="grow p-4">
     <div class="opacity-50"><%= ogp.host %></div>
     <div class="text-sm"><%= ogp.truncated_title %></div>
     <div class="text-xs text-gray-500"><%= ogp.truncated_description %></div>
