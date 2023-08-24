@@ -14,7 +14,7 @@
       <div class="h-1">
         <%= turbo_frame_tag "trending_load_more", src: trending_path(format: :turbo_stream), loading: :lazy  %>
         <%= turbo_frame_tag "trending_loading" do %>
-          <%= render partial: "posts/loading" %>
+          <%= render partial: "shared/loading" %>
           
         <% end %>
       </div>

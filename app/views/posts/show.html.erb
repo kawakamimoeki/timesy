@@ -12,7 +12,7 @@
 <div id="thread-container" class="grow overflow-visible max-w-3xl flex w-full mx-auto pt-4 px-4 mb-32">
   <div class="grow w-full">
     <%= turbo_frame_tag "post_main", src: post_main_path(@post) do %>
-      <%= render partial: "posts/loading" %>
+      <%= render partial: "shared/loading" %>
     <% end %>
     
     <%= turbo_stream_from "comments-of-#{@post.id}" %>

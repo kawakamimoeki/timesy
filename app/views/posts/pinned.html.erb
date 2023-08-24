@@ -13,7 +13,7 @@
       <div class="h-1">
         <%= turbo_frame_tag "pinned_load_more", src: pinned_path(format: :turbo_stream), loading: :lazy  %>
         <%= turbo_frame_tag "pinned_loading" do %>
-          <%= render partial: "posts/loading" %>
+          <%= render partial: "shared/loading" %>
         <% end %>
       </div>
     </div>

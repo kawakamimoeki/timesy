@@ -28,7 +28,7 @@
     <div class="h-4">
       <%= turbo_frame_tag "usres_load_more", src: user_path(username: @user.username, format: :turbo_stream), loading: :lazy %>
       <%= turbo_frame_tag "users_loading" do %>
-        <%= render partial: "posts/loading" %>
+        <%= render partial: "shared/loading" %>
       <% end %>
     </div>
   </div>
