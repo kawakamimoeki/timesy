@@ -9,6 +9,25 @@
   }
 ) %>
 
-<div id="thread-container" class="grow overflow-visible max-w-3xl w-full mx-auto pt-4 px-4 mb-32">
-  <%= render partial: "posts/thread", locals: { post: @post, comments: @comments } %>
+<div id="thread-container" class="grow overflow-visible max-w-3xl flex w-full mx-auto pt-4 px-4 mb-32">
+  <div class="grow w-full">
+    <%= turbo_frame_tag "post_main", src: post_main_path(@post) do %>
+      <%= render partial: "posts/loading" %>
+    <% end %>
+    
+    <%= turbo_stream_from "comments-of-#{@post.id}" %>
+    <div data-controller="thread-scroll">
+      <%= turbo_frame_tag "comments", target: "_top" do %>
+      <% end %>
+
+      <%= turbo_frame_tag "load_more", src: comments_path(@post, format: :turbo_stream), loading: :lazy  %>
+    </div>
+
+    <%= turbo_frame_tag "comment_form", src: comment_form_path(@post), loading: :lazy %>
+  </div>
+  <%= render partial: "posts/cheers", locals: { post: @post } %>  
 </div>
+
+<button class="<%= icon_button_class %> fixed bottom-6 right-6 bg-white dark:bg-dark-card transition-all animate-fade-in" data-controller="tobottom" >
+  <div class="i-lucide-chevron-down"></div>
+</button>
