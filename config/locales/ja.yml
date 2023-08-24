@@ -1,6 +1,6 @@
 ja:
   site:
-    description: 開発者のためのソーシャル分報アプリ
+    description: 開発者のためのソーシャル技術メモアプリ
   notifications:
     follow: "<span class='font-bold'>%{user}</span><span class='opacity-50'>さんにフォローされました</span>"
     comment: "<span class='font-bold'>%{user}</span><span class='opacity-50'>さんが</span> %{post} <span class='opacity-50'>にコメントしました</span>"
