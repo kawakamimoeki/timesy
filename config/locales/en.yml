@@ -1,276 +1,275 @@
 en:
   site:
-    description: Social reporting app for developers
+    description: 開発者のためのソーシャル技術メモアプリ
   notifications:
-    follow: "<span class='font-bold'>%{user}</span><span class='opacity-50'> has followed you</span>"
-    comment: "<span class='font-bold'>%{user}</span><span class='opacity-50'> commented on </span> %{post}"
-    reaction: "<span class='font-bold'>%{user}</span><span class='opacity-50'> reacted to </span> %{target}"
-    pin: "<span class='font-bold'>%{user}</span><span class='opacity-50'> pinned </span> %{post}"
+    follow: "<span class='font-bold'>%{user}</span><span class='opacity-50'>さんにフォローされました</span>"
+    comment: "<span class='font-bold'>%{user}</span><span class='opacity-50'>さんが</span> %{post} <span class='opacity-50'>にコメントしました</span>"
+    reaction: "<span class='font-bold'>%{user}</span><span class='opacity-50'>さんが</span> %{target} <span class='opacity-50'>にリアクションしました</span>"
+    pin: "<span class='font-bold'>%{user}</span><span class='opacity-50'>さんが</span> %{post} <span class='opacity-50'>をpinしました</span>"
   images:
-    not_found: No images found
-    uploading: Uploading image
-    upload_failed: Image upload failed
-  clipboard:
-    copied: Copied to clipboard
+    not_found: No Images
+    uploading: 画像をアップロードしています
+    upload_failed: 画像のアップロードに失敗しました
   pages:
     discord: Discord
-    cheers: "Comments on %{post}"
+    cheers: "%{post}のコメント"
     home: Home
-    timeline: Timeline
-    trending: Trending
-    search: Search
-    view_all: View more
-    following: "People %{user} is following"
-    followers: "%{user}'s followers"
-    posts: Posts
-    pinned: Pinned
-    follow: Following
-    comments: "%{user}'s comments"
-    projects: "%{user}'s projects"
-    images: "%{user}'s images"
-    latest: Latest
-    your_profile: Profile
-    settings: Settings
-    docs: Documentation
-    about: About Timesy
-    terms: Terms of Service
-    privacy: Privacy Policy
-    emoji_request: Emoji Request
+    timeline: タイムライン
+    trending: トレンド
+    search: 検索
+    view_all: もっと見る
+    following: "%{user}がフォローしている人"
+    followers: "%{user}のフォロワー"
+    posts: 投稿
+    pinned: ピン済み
+    follow: フォロー中
+    comments: "%{user}のコメント"
+    projects: "%{user}のプロジェクト"
+    images: "%{user}の画像"
+    latest: 最新
+    your_profile: プロフィール
+    settings: 設定
+    docs: ドキュメント
+    about: Timesyについて
+    terms: 利用規約
+    privacy: プライバシーポリシー
+    emoji_request: 絵文字リクエスト
     github: GitHub
-    status: Status Page
+    status: ステータスページ
     tip: '$ Buy Me a Coffee'
   activerecord:
     attributes:
       user:
-        username: Username
-        name: Display Name
-        bio: Bio
-        email: Email
-        code_theme_id: Code Block Theme
-        wallpaper: Wallpaper
+        username: ユーザーネーム
+        name: 表示名
+        email: メールアドレス
+        bio: 自己紹介
+        code_theme_id: コードブロックのテーマ
+        wallpaper: 壁紙
         github: GitHub
         twitter: X
-        website: Website
-        access_token: API Access Token
-        webhook: Webhook Notification Destination
-        locale: Language
+        website: ウェブサイト
+        access_token: APIアクセストークン
+        webhook: Webhook通知先
+        locale: 言語
   errors:
     messages:
-      blank: "Please fill in the %{attribute}"
-      taken: "%{attribute} has already been taken"
+      blank: "を入力してください"
+      taken: "はすでに取得されています"
     attributes:
       username:
-        invalid: "Only alphanumeric characters and underscores are allowed"
+        invalid: "は半角英数字とアンダースコア（_）のみ使用できます"
   header:
-    about: About Timesy
+    about: Timesyについて
   pinned:
-    empty: Pins of your own or others' threads will be displayed here.
-    empty2: Try pinning threads you're working on or interested in!
+    empty: 自分や他の人のスレッドをピンするとここに表示されます。
+    empty2: 作業中のスレッドや気になるスレッドをピンしてみましょう！
+  clipboard:
+    copied: クリップボードにコピーしました
   posts:
-    view: View post
-    thread: Thread
-    cheers: Comments
-    image: Insert image
-    copy-link: Copy link
-    copy-markdown: Copy Markdown
-    pin: Pin
-    pinned: Pinned
-    draft: Draft
-    new: Write a post
-    publish: Post
-    update: Update
-    save_as_draft: Save as draft
-    preview: Preview
-    edit: Edit
-    delete: Delete
-    not_found: No posts found
-    confirm_delete: Are you sure you want to delete this post? This action cannot be undone.
-    placeholder: Write in Markdown
+    view: 投稿を見る
+    thread: スレッド
+    cheers: コメント
+    image: 画像挿入
+    copy-link: リンクをコピー
+    copy-markdown: Markdownをコピー
+    pin: ピンする
+    pinned: ピン済み
+    draft: 下書き
+    new: 記事を書く
+    publish: 投稿
+    update: 更新
+    save_as_draft: 下書きに保存
+    preview: プレビュー
+    edit: 編集する
+    delete: 削除する
+    not_found: 投稿がありません
+    confirm_delete: 投稿を削除してもよろしいですか？この操作は元に戻せません。
+    placeholder: Markdownで書く
   comments:
-    submit: Post
-    delete: Delete
-    confirm_delete: Are you sure you want to delete this post?
-    placeholder: Write in Markdown
-    count: "%{num} posts"
+    submit: 投稿
+    delete: 削除する
+    confirm_delete: 投稿を削除してよろしいですか？
+    placeholder: Markdownで書く
+    count: "%{num}件の投稿"
   cheers:
-    submit: Comment
-    delete: Delete
-    confirm_delete: Are you sure you want to delete this comment?
-    placeholder: Write in Markdown
-    count: "%{num} comments"
+    submit: コメントする
+    delete: 削除する
+    confirm_delete: コメントを削除してよろしいですか？
+    placeholder: Markdownで書く
+    count: "%{num}件のコメント"
   passwordless:
-    or_sign_in: Or login
-    sign_in: Login
-    send: Send login link
-    expired: This link has expired. Please request a new link.
-    check_your_email: Confirmation email sent. Please click the link in the email.
-    welcome_back: Welcome back!
+    or_sign_in: もしくはログイン
+    sign_in: ログイン
+    send: ログインリンクを送信
+    expired: このリンクは期限切れです。もう一度リンク送信を行ってください。
+    check_your_email: 確認メールを送信しました。メールに記載されたリンクをクリックしてください。
+    welcome_back: おかえりなさい！
+    sign_up:
+      required: <a href="/terms" class="underline" target="_blank">利用規約</a>、<a href="/privacy" class="underline" target="_blank">プライバシーポリシー</a>に同意したうえで登録してください。
+      send: 確認メールを送信する
+      email_subject: Timesyへようこそ！メールアドレスを確認して下さい
     email_confirmation_mailer:
       magic_link:
-        subject: Welcome to Timesy!
-    sign_up:
-      required: Please register after agreeing to the <a href="/terms" class="underline" target="_blank">Terms of Service</a> and <a href="/privacy" class="underline" target="_blank">Privacy Policy</a>.
-      send: Send confirmation email
-      email_subject: Welcome to Timesy! Confirm your email address
+        subject: Timesyへようこそ！メールアドレスを確認して下さい
     sessions:
       create:
-        email_sent_if_record_found: Login link sent. Please click the link in the email.
-        session_expired: 'Your session has expired. Please log in again.'
-        token_claimed: "This link has already been used. Please request a new link."
+        email_sent_if_record_found: ログインリンクを送信しました。メールに記載されたリンクをクリックしてください。
+        session_expired: 'セッションが期限切れです。再度ログインしてください。'
+        token_claimed: "このリンクは既に使用されています。リンクを再度要求してください。"
       new:
-        submit: 'Send magic link'
-      sign_out: Sign out
+        submit: 'マジックリンクを送信する'
+      sign_out: サインアウトする
     mailer:
-      subject: "Please confirm your login link"
-      magic_link: "Here is your link: %{link}"
+      subject: "ログインリンクを確認してください"
+      magic_link: "こちらがあなたのリンクです：%{link}"
       register:
-        title: Welcome!
-        submit: Confirm email address
-        desc: Someone is trying to log in to your account from a new location. If this is you, please click the link below to approve. If this is not you, please ignore this email.
+        title: はじめまして！
+        submit: メールアドレスを認証する
+        desc: 誰かがあなたのアカウントに新しい場所からログインしようとしています。これがあなたの場合は、下のリンクをクリックして承認してください。これがあなたでない場合は、このメールを無視してください。
       login:
-        title: Welcome back!
-        submit: Approve login
-        desc: Someone is trying to log in to your account from a new location. If this is you, please click the link below to approve.
+        title: お帰りなさい！
+        submit: ログインを承認する
+        desc: アカウントに新しい場所からログインしようとしています。これがあなたの場合は、下のリンクをクリックして承認してください。
   followers:
-    not_found: No followers
+    not_found: フォロワーがいません
   followees:
-    not_found: Not following anyone
+    not_found: フォローしている人がいません
   following:
-    not_found: No one is being followed
-    empty: Try following interesting users from the Latest timeline!
+    not_found: フォローしている人がいません
+    empty: Latestタイムラインから気になるユーザーをフォローしてみましょう！
   users:
-    not_found: User not found
-    follow: Follow
-    following: Following
-    followers: Followers
-    comments: Comments
-    projects: Projects
-    images: Images
-    sign_in: Login
-    sign_up: Sign up
-    sign_out: Logout
-    delete: Delete account
-    username_format: You can use alphanumeric characters and underscores (_).
-    already_registered: This email address is already registered
-    welcome: "Welcome to %{site_title}!"
-    not_signed_in: Please log in
-    setting: Account settings
-    confirm_delete: Once deleted, your account cannot be restored. Are you sure?
+    follow: フォロー
+    following: フォロー中
+    followers: フォロワー
+    comments: コメント
+    projects: プロジェクト
+    images: 画像
+    sign_in: ログイン
+    sign_up: はじめる
+    sign_out: ログアウト
+    delete: アカウントを削除する
+    username_format: 半角英数字とアンダースコア（_）を使用できます
+    already_registered: このメールアドレスはすでに登録されています
+    welcome: "%{site_title}へようこそ！"
+    not_signed_in: ログインしてください
+    setting: アカウント設定
+    confirm_delete: 削除されるとアカウントは復旧できません。よろしいですか？
   settings:
     locale:
       ja: 日本語
       en: English
-    theme: Theme settings
-    theme_preview: See theme preview on highlight.js site→
-    profile: Profile
-    wallpaper: Wallpaper settings
-    export: Export
+    theme: テーマ設定
+    theme_preview: highlight.jsのサイトでテーマプレビューを見る→
+    profile: プロフィール
+    wallpaper: 壁紙設定
+    export: エクスポート
     api: API
-    webhook: Webhook Notification Destination
+    webhook: Webhook通知先
     access_token:
-      generate: Generate
-      regenerate: Regenerate
-      confirm: Are you sure you want to regenerate?
-    copy: Copy
-    account: Account
-    updated: Updated
-    start_export: Start Export
-    export_started: Export has started. We will send you an email with a download link when it's ready. Please wait for a while.
-    exporting: Export is in progress. We will send you an email with a download link when it's ready. Please wait for a while.
+      generate: 生成する
+      regenerate: 再生成する
+      confirm: 再生成してよろしいですか？
+    copy: コピーする
+    account: アカウント
+    updated: アップデートしました
+    start_export: エクスポート
+    export_started: エクスポートを開始しました。完了した際にダウンロードリンクを掲載したメールをお送りいたしますのでしばらくお待ち下さい。
+    exporting: エクスポートを実行中です。完了した際にダウンロードリンクを掲載したメールをお送りいたしますのでしばらくお待ち下さい。
   projects:
-    rss: You can subscribe via RSS feed
-    confirm_delete: Once deleted, the project cannot be restored. Are you sure?
-    start: Start a project
+    rss: RSSフィードで購読できます
+    confirm_delete: 削除されるとプロジェクトは復元できません。よろしいですか？
+    start: プロジェクトを作成
     placeholder:
-      title: Enter project name
-      codename: 'Used for URL and reference from posts "#codename"'
+      title: プロジェクト名を入力
+      codename: 'URLと投稿からの参照 "#codename"に使われます'
     notice:
-      rss: Post to RSS feed
-      codename: You can use alphanumeric characters and underscores (_). It must be globally unique.
+      rss: RSSフィードに掲載する
+      codename: 半角英数字とアンダースコア（_）を使用できます。グローバルにユニークである必要があります。
   exports:
     started:
-      title: Export has started
-      description: The export of Timesy data has started. We will send you an email with a download link when it's ready. Please wait for a while.
+      title: エクスポートを開始しました
+      description: Timesyのデータのエクスポートを開始しました。完了した際にダウンロードリンクを掲載したメールをお送りいたしますのでしばらくお待ち下さい。
     failed:
-      title: Export failed
-      description: The export of Timesy data has failed. Please try again. If it fails repeatedly, please contact hello@timesy.dev.
+      title: エクスポートに失敗しました
+      description: Timesyのデータのエクスポートに失敗しました。もう一度やり直してください。何回も失敗する場合には hello@timesy.dev までご連絡区獺祭。
     completed:
-      title: Export completed
-      description: The export of Timesy data has completed. Please download the Zip file from the button below.
-    download: Download
+      title: エクスポートが完了しました
+      description: Timesyのデータのエクスポートが完了しました。以下のボタンからZipファイルをダウンロードしてください。
+    download: ダウンロードする
   search:
-    placeholder: Enter keyword
+    placeholder: キーワードを入力
   feed:
     notice:
-      one: Only enabled projects will be subscribed.
-      two: Please enable from the project edit screen.
+      one: 有効にしたプロジェクトのみが購読されます。
+      two: プロジェクトの編集画面から有効にして下さい。
   form:
-    changeable: You can change it at any time
-    unchangeable: You cannot change it later
+    changeable: いつでも変更できます
+    unchangeable: 後から変更できません
     placeholder:
-      normal: "Enter %{field}"
-      github: Enter only the account name
-      twitter: "Enter without @"
+      normal: "%{field}を入力"
+      github: アカウント名のみ入力
+      twitter: "@なしで入力"
     submit:
-      start: Start
-      create: Create
-      edit: Edit
-      update: Save
-      delete: Delete
+      start: はじめる
+      create: 作成する
+      edit: 編集する
+      update: 保存する
+      delete: 削除する
     button:
-      change_file: Change
+      change_file: 変更する
   button:
-    close: Close
+    close: 閉じる
   page:
-    confirm_leave: Are you sure you want to leave the page?
+    confirm_leave: ページを離れてもよろしいですか？
   about:
     tweet:
-      title: Tweet with Timesy
-      body: You can use it for brainstorming ideas for technical blogs, as a log for personal development, and of course, you can tweet about everyday life. Because it's Markdown, you have a wider range of expressions than usual SNS.
+      title: Timesyでつぶやく
+      body: 技術ブログのアイデア出しや、個人開発の分報として使ってもいいですし、日常のことだってもちろんつぶやけます。Markdownなので普段使っているSNSよりも表現の幅が広がります。
     reaction:
-      title: React with Timesy
-      body: Let's send reactions to things that were beneficial or interesting. It's good to casually react with emojis, and it's also good to comment in detail with Markdown.
+      title: Timesyでリアクションする
+      body: ためになったことや、面白かったことにはリアクションを送ってみましょう。絵文字で気軽にリアクションするのもよし、Markdownで詳しくコメントするのもよしです。
     contribution:
-      title: Contribute to Timesy
-      body: Timesy is OSS (Open Source Software). We want to reflect everyone's thoughts in the product, so please feel free to contribute.
-      button: View the GitHub repository
+      title: Timesyに貢献する
+      body: TimesyはOSS（オープンソース・ソフトウェア）です。皆さんの考えをどんどんプロダクトに反映させていきたいと思っていますので、ぜひお気軽にコントリビュートしてみてください。
+      button: GitHubのリポジトリを見る
   webhooks:
-    comment: "%{user} commented"
-    post_reaction: "%{user} reacted"
-    follow: "%{user} followed you"
+    comment: "%{user}さんがコメントしました"
+    post_reaction: "%{user}さんがリアクションしました"
+    follow: "%{user}さんがあなたをフォローしました"
   datetime:
     distance_in_words:
-      half_a_minute: "30 seconds"
+      half_a_minute: "30秒"
       less_than_x_seconds:
-        one: "1 second"
-        other: "%{count} seconds"
+        one: "1秒"
+        other: "%{count}秒"
       x_seconds:
-        one: "1 second"
-        other: "%{count} seconds"
+        one: "1秒"
+        other: "%{count}秒"
       less_than_x_minutes:
-        one: "1 minute"
-        other: "%{count} minutes"
+        one: "1分"
+        other: "%{count}分"
       x_minutes:
-        one: "1 minute"
-        other: "%{count} minutes"
+        one: "1分"
+        other: "%{count}分"
       about_x_hours:
-        one: "1 hour"
-        other: "%{count} hours"
+        one: "1時間"
+        other: "%{count}時間"
       x_days:
-        one: "1 day"
-        other: "%{count} days"
+        one: "1日"
+        other: "%{count}日"
       about_x_months:
-        one: "1 month"
-        other: "%{count} months"
+        one: "1ヶ月"
+        other: "%{count}ヶ月"
       x_months:
-        one: "1 month"
-        other: "%{count} months"
+        one: "1ヶ月"
+        other: "%{count}ヶ月"
       almost_x_years:
-        one: "Almost 1 year"
-        other: "Almost %{count} years"
+        one: "１年弱"
+        other: "%{count}年弱"
       about_x_years:
-        one: "1 year"
-        other: "%{count} years"
+        one: "1年"
+        other: "%{count}年"
       over_x_years:
-        one: "Over 1 year"
-        other: "Over %{count} years"
+        one: "1年以上"
+        other: "%{count}年以上"
