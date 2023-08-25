@@ -6,7 +6,7 @@
 ) %>
 
 <%= turbo_frame_tag "timeline" do %>
-<div class="w-full mx-auto max-w-3xl mt-4 px-4">
+<div class="w-full mx-auto max-w-3xl p-4">
   <div id="profile-<%= @user.id %>" data-turbo-permanent>
     <%= turbo_frame_tag "profile", src: profile_path(@user.username) %>
   </div>
