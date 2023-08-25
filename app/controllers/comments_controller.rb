@@ -8,12 +8,7 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @current_page = params[:page].to_i
 
-    all = @post.comments.offset(page_limit*@current_page)
-      .includes(:user, comment_reactions: :user)
-      .oldest
-    
-    @comments = all.limit(page_limit)
-    @next_page = @current_page + 1 if all.count > page_limit*@current_page + page_limit
+    @comments = @post.comments.oldest
   end
 
   def create
@@ -76,9 +71,5 @@ class CommentsController < ApplicationController
 
   private def comment_params
     params.require(:comment).permit(:body, images: [])
-  end
-
-  private def page_limit
-    2
   end
 end
