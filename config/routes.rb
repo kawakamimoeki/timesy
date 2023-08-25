@@ -30,6 +30,7 @@ Rails.application.routes.draw do
   get "posts/:id/main", to: "posts#main", as: :post_main
   get '/posts/:id/pin_button', to: 'posts#pin_button', as: :post_pin_button
   get 'posts/:id/editor', to: 'posts#editor', as: :post_editor
+  get 'posts/:id/menu', to: 'posts#menu', as: :post_menu
 
   get 'posts/:post_id/cheers', to: 'cheers#index', as: :cheers
   post 'posts/:post_id/cheers', to: 'cheers#create', as: :create_cheer

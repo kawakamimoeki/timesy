@@ -14,72 +14,13 @@
           <div class="i-lucide-link"></div>
         </button>
         <%= turbo_frame_tag "pin_button_container", src: post_pin_button_path(post), data: { post_show_target: "menu" } %>
-        <%= turbo_frame_tag "post_editor-#{post.id}", src: post_editor_path(post) %>
+        <%= turbo_frame_tag "post_menu-#{post.id}", src: post_menu_path(post) %>
       </div>
     </div>
-    <%= turbo_frame_tag :post do %>
-      <div data-post-show-target="show" data-controller="image-modal twitter" class="markdown-body">
-        <%= post.html.html_safe %>
-      </div>
-    <% end %>
-    <div class="hidden" data-post-show-target="editor">
-      <%= form_with(
-        model: post,
-        url: update_post_path(id: post.id),
-        id: "post-form",
-        data: {
-          action: "turbo:submit-end->post-show#close",
-          turbo_frame: :post,
-          controller: "turbo-form markdown",
-          post_editor_confirm_message: I18n.t("page.confirm_leave"),
-          markdown_min_height_value: "100px",
-          markdown_model_value: "post",
-          markdown_placeholder_value: I18n.t("posts.placeholder"),
-          markdown_image_uploading_text_value: I18n.t("images.uploading"),
-          markdown_image_upload_failed_text_value: I18n.t("images.upload_failed")
-        },
-        class: "grow transition-all"
-      ) do |f| %>
-        <div>
-          <%= flash[:error] %>
-          <div class="max-w-3xl mx-auto">
-            <div class="">
-              <div data-markdown-target="editorContainer">
-                <%= f.text_area :body, data: { markdown_target: "editor", post_editor_target: "body" }, class: "prose resize-none min-h-[114px]" %>
-              </div>
-              <div class="markdown-body hidden min-h-[120px]" data-markdown-target="preview"></div>
-            </div>
-          </div>
-        </div>
-        <div class="flex pt-3 w-full items-center bg-none">
-          <div class="grow"></div>
-          <div class="px-1">
-            <button
-              type="button"
-              class="<%= icon_button_class %>"
-              title="<%=  I18n.t('posts.preview') %>(⌘+Shift+P)"
-              data-controller="tooltip"
-              data-tooltip-text-value="<%= I18n.t('posts.image') %>"
-              data-action="markdown#attachImage"
-              data-testid="attach-image"
-            >
-              <div class="i-lucide-image"></div>
-            </button>
-          </div>
-          <div class="px-1">
-            <button type="button" class="<%= icon_button_class %>" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton" >
-              <div class="i-lucide-eye"></div>
-            </button>
-            <button type="button" class="<%= icon_button_class %> hidden" title="<%=  I18n.t('posts.edit') %>" data-action="markdown#edit" data-markdown-target="editorButton" >
-              <div class="i-lucide-pen"></div>
-            </button>
-          </div>
-          <div class="ml-2">
-            <%= f.submit I18n.t('posts.update'), disabled: true, class: primary_button_class, data: { post_editor_target: "publish" } %>
-          </div>
-        </div>
-      <% end %>
+    <div data-post-show-target="show" data-controller="image-modal twitter" class="markdown-body">
+      <%= post.html.html_safe %>
     </div>
+    <%= turbo_frame_tag "post_editor-#{post.id}", src: post_editor_path(post) %>
   </div>
   <% if post.comments.count > 0 %>
     <div class="text-xs flex items-center">

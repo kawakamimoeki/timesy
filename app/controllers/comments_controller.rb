@@ -76,6 +76,6 @@ class CommentsController < ApplicationController
   end
 
   private def page_limit
-    10
+    2
   end
 end
