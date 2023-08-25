@@ -1,3 +1,12 @@
 <%= turbo_stream.append "comments" do %>
   <%= render partial: "comments/comment", collection: @comments, locals: { additional_class: "border-b" } %>
 <% end %>
+
+<% if @current_page %>
+  <%= turbo_stream.replace "load_more" do %>
+    <%= turbo_frame_tag "load_more", src: comments_path(@post, format: :turbo_stream, page: @next_page), loading: :lazy  %>
+  <% end %>
+<% else %>
+  <%= turbo_stream.replace "loading" do %>
+  <% end %>
+<% end %>
