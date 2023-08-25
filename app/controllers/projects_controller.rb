@@ -25,6 +25,10 @@ class ProjectsController < ApplicationController
     @project = Project.find_by(user_id: @user.id, codename: params[:codename])
     @current_page = params[:page].to_i
 
+    if @project.nil?
+      redirect_to projects_path(@user.username)
+    end
+
     @posts = @project.posts.offset(page_limit*@current_page)
       .order(updated_at: :desc)
       .limit(page_limit)
