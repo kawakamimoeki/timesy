@@ -27,6 +27,7 @@ class ProjectsController < ApplicationController
 
     if @project.nil?
       redirect_to projects_path(@user.username)
+      return
     end
 
     @posts = @project.posts.offset(page_limit*@current_page)
