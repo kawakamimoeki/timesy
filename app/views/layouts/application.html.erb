@@ -14,8 +14,8 @@
     <div id="wallpaper-container" data-turbo-permanent>
       <%= turbo_frame_tag "wallpaper", src: users_wallpaper_path %>
     </div>
-    <header class="w-full shadow-sm  bg-white dark:bg-dark-background dark:text-gray-200 border-b z-0 dark:border-dark-border">
-      <div class="flex max-w-3xl mx-auto px-4 items-center py-3 text-sm">
+    <header class="w-full shadow-sm  bg-white dark:bg-dark-background dark:text-gray-200 z-0 ">
+      <div class="flex max-w-3xl mx-auto px-4 items-center py-2 text-sm">
         <%= link_to "/", class: "block mr-3", data: { turbo_frame: "_top" } do %>
           <span class="dark:hidden">
             <%= image_tag "/logo.png", alt: Site.title, width: "70px", height: "20px" %>
