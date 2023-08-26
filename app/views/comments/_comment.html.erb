@@ -1,12 +1,16 @@
 <div id="comment_<%= comment.id %>" class="<%= card_class %> border-b group thread transition-all animate-fade-in" data-controller="post-show">
-  <div class="flex h-[40px] space-x-1 text-sm items-center mb-2">
-    <%= render partial: 'shared/avatar', locals: { user: comment.user } %>
-    <time class="text-gray-400"><%= time_ago_in_words(comment.created_at) %></time>
-    <div class="grow"></div>
-    <button class="<%= icon_button_class %>"  data-controller="copy tooltip" data-copy-copied-text-value="<%= I18n.t("clipboard.copied") %>" data-tooltip-text-value="<%= I18n.t("posts.copy-markdown") %>" data-copy-content-value="<%= comment.body %>">
-      <div class="i-lucide-copy"></div>
-    </button>
-    <%= turbo_frame_tag :comment_editor, src: comment_editor_path(comment.post, comment), class: "flex items-center space-x-1" %>
+  <div class="flex flex-col-reverse sm:flex-row space-x-1 text-sm items-center mb-2">
+    <div class="flex items-center space-x-1 flex-wrap">
+      <%= render partial: 'shared/avatar', locals: { user: comment.user } %>
+      <time class="text-gray-400"><%= time_ago_in_words(comment.created_at) %></time>
+    </div>
+    <div class="grow flex items-center space-x-1 w-full sm:w-auto">
+      <div class="grow"></div>
+      <button class="<%= icon_button_class %>"  data-controller="copy tooltip" data-copy-copied-text-value="<%= I18n.t("clipboard.copied") %>" data-tooltip-text-value="<%= I18n.t("posts.copy-markdown") %>" data-copy-content-value="<%= comment.body %>">
+        <div class="i-lucide-copy"></div>
+      </button>
+      <%= turbo_frame_tag :comment_editor, src: comment_editor_path(comment.post, comment), class: "flex items-center space-x-1" %>
+    </div>
   </div>
   <div data-post-show-target="show" data-controller="image-modal twitter" class="markdown-body">
     <%= comment.html.html_safe %>
