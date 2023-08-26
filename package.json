@@ -15,7 +15,7 @@
     "@picmo/popup-picker": "^5.8.5",
     "@playwright/test": "^1.37.1",
     "@rails/activestorage": "^7.0.7",
-    "@unocss/cli": "^0.55.2",
+    "@unocss/cli": "^0.55.3",
     "@unocss/preset-icons": "^0.55.2",
     "easymde": "^2.18.0",
     "github-markdown-css": "^5.2.0",
