@@ -24,7 +24,7 @@
   </div>
   <% if post.comments.count > 0 %>
     <div class="text-xs flex items-center">
-      <%= image_tag post.user.avatar_icon, class: "w-4 h-4 rounded-full mr-1" %>
+      <%= image_tag post.comments.latest&.first&.user.avatar_icon, class: "w-4 h-4 rounded-full mr-1" %>
       <p class="opacity-70"><%= post.comments.latest&.first&.truncated(32) %></p>
     </div>
   <% end %>
