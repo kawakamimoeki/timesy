@@ -1,6 +1,16 @@
 <script lang="ts">
-  import Post from '$lib/Post.svelte';
-import type { PageData } from './$types';
+	import PostCard from '$lib/PostCard.svelte';
+  import type { PageData } from './$types';
+  import { onMount } from 'svelte';
+
+  let posts: Array<Post> = [];
+
+  onMount(async () => {
+    const res = await fetch(`${data.backend}/api/v1/posts`);
+	  const json = await res.json();
+    console.log(json)
+    posts = json.posts as Array<Post>
+  });
 
   export let data: PageData;
 </script>
@@ -54,8 +64,8 @@ import type { PageData } from './$types';
         <!-- form -->
       </div>
 
-      {#each data.posts as post}
-        <Post post={post} />
+      {#each posts as post}
+        <PostCard post={post} />
       {/each}
     </div>
   </div>

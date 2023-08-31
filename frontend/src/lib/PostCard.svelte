@@ -1,14 +1,4 @@
 <script lang="ts">
-  type User = {
-    username: string;
-    name: string;
-    avatar_icon: string;
-  }
-  type Post = {
-    user: User;
-    created_at: Date;
-    html: string;
-  }
   export let post: Post;
 </script>
 
