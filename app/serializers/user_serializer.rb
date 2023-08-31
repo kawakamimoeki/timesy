@@ -1,5 +1,5 @@
 class UserSerializer < Blueprinter::Base
   identifier :id
 
-  fields :username, :email, :created_at, :updated_at
+  fields :name, :username, :email, :avatar_icon, :created_at, :updated_at
 end
