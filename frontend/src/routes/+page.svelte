@@ -8,7 +8,6 @@
   onMount(async () => {
     const res = await fetch(`${data.backend}/api/v1/posts`);
 	  const json = await res.json();
-    console.log(json)
     posts = json.posts as Array<Post>
   });
 
@@ -65,7 +64,9 @@
       </div>
 
       {#each posts as post}
-        <PostCard post={post} />
+        <div class="mb-4">
+          <PostCard post={post} />
+        </div>
       {/each}
     </div>
   </div>
