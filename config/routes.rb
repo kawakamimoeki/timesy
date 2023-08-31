@@ -102,6 +102,12 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
+      get 'posts', to: 'posts#index', as: :posts
+      get 'posts/following', to: 'posts#following', as: :posts_following
+      get 'posts/trending', to: 'posts#trending', as: :posts_trending
+      get 'posts/pinned', to: 'posts#pinned', as: :posts_pinned
+      get 'posts/search', to: 'posts#search', as: :posts_search
+      get 'posts/:id', to: 'posts#show', as: :post
       post 'posts', to: 'posts#create', as: :create_post
       patch 'posts/:id', to: 'posts#update', as: :update_post
       delete 'posts/:id', to: 'posts#destroy', as: :delete_post

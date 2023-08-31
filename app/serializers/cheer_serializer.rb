@@ -1,4 +1,4 @@
-class CommentSerializer < Blueprinter::Base
+class CheerSerializer < Blueprinter::Base
   identifier :id
 
   fields :body, :created_at, :updated_at
@@ -9,11 +9,5 @@ class CommentSerializer < Blueprinter::Base
 
   field :html do |comment, options|
     comment.html
-  end
-
-  view :extend do
-    field :post do |comment, options|
-      PostSerializer.render_as_hash(comment.post)
-    end
   end
 end

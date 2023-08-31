@@ -14,4 +14,14 @@ class PostSerializer < Blueprinter::Base
   field :html do |post, options|
     post.html
   end
+
+  view :thread do
+    field :comments do |post, options|
+      CommentSerializer.render_as_hash(post.comments)
+    end
+
+    field :cheers do |post, options|
+      CheerSerializer.render_as_hash(post.cheers)
+    end
+  end
 end

@@ -84,4 +84,67 @@ class Api::V1::PostsControllerTest < ActionDispatch::IntegrationTest
       headers: { "Authorization" => "Bearer #{user.id}" }
     assert_response :unauthorized
   end
+
+  test "should get index" do
+    ApplicationController.stub_any_instance :current_user, users(:current) do
+      get api_v1_posts_url
+      assert_response :success
+    end
+  end
+
+  test "guests should get index" do
+    get api_v1_posts_url
+    assert_response :success
+  end
+
+  test "should get trending" do
+    ApplicationController.stub_any_instance :current_user, users(:current) do
+      get api_v1_posts_trending_url
+      assert_response :success
+    end
+  end
+
+  test "guests should get trending" do
+    get api_v1_posts_trending_url
+    assert_response :success
+  end
+
+  test "should get following tineline" do
+    ApplicationController.stub_any_instance :current_user, users(:current) do
+      get api_v1_posts_following_url
+      assert_response :success
+    end
+  end
+
+  test "guest should not get following timeline" do
+    get api_v1_posts_following_url
+    assert_response :unauthorized
+  end
+
+  test "should get pinned posts" do
+    ApplicationController.stub_any_instance :current_user, users(:current) do
+      get api_v1_posts_pinned_url
+      assert_response :success
+    end
+  end
+
+  test "guest should not get pinned timeline" do
+    get api_v1_posts_pinned_url
+    assert_response :unauthorized
+  end
+
+  test "guest should search" do
+    get api_v1_posts_search_url, params: { q: "test" }
+    assert_response :success
+  end
+
+  test "should get post" do
+    get api_v1_post_url(posts(:my_post))
+    assert_response :success
+  end
+
+  test "should not get not exist post" do
+    get api_v1_post_url(999)
+    assert_response :not_found
+  end
 end
