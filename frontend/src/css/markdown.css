@@ -1,0 +1,130 @@
+.markdown-body .project-tag {
+  color: #0366d6 !important;
+}
+
+.markdown-body * {
+  word-break: break-all !important;
+}
+
+.markdown-body a {
+  color: rgb(29, 155, 240);
+}
+
+.markdown-body .link-card a {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+.markdown-body img {
+  background: none !important;
+}
+
+.hljs {
+  width: 100% !important;
+}
+
+.markdown-body img:not(.not-inline) {
+  border-radius: 10px;
+  width: 100% !important;
+  max-width: 400px !important;
+  margin: 0 auto;
+  border: 1px solid #e1e4e8 !important;
+}
+
+.dark .markdown-body img:not(.not-inline) {
+  border: 1px solid #30363d !important;
+}
+
+.markdown-body .link-card {
+  border: 1px solid #e1e4e8 !important;
+  margin: 0 auto !important;
+  margin-bottom: 16px !important;
+}
+
+.dark .markdown-body .link-card {
+  border: 1px solid #30363d !important;
+}
+
+.markdown-body .link-card img {
+  border-radius: 0px;
+  border: none !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto  !important;
+  aspect-ratio: 1200/630 !important;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.markdown-body ul {
+  list-style: disc;
+  padding-left: 2rem;
+}
+
+.markdown-body ol {
+  list-style: decimal;
+  padding-left: 2rem;
+}
+
+.markdown-body {
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+  background-color: white !important;
+  color: #434343 !important;
+}
+
+body.dark .markdown-body .project-tag {
+  color: rgb(83, 175, 236) !important;
+}
+
+.CodeRay span {
+  background-color: hsla(0,0%,0%,0) !important
+}
+
+body.dark .markdown-body a {
+  color: rgb(83, 175, 236);
+}
+
+body.dark .markdown-body blockquote {
+  border-left: .25em solid #616161 !important;
+}
+
+body.dark .markdown-body {
+  background-color: rgb(30 39 50) !important;
+  color: #ddd !important;
+}
+
+body.dark .markdown-body table tr:nth-child(2n) {
+  background-color: rgb(53, 62, 72);
+}
+
+body.dark .markdown-body table th, body.dark .markdown-body table td {
+  border: 1px solid #545454;
+}
+
+body.dark .markdown-body table tr {
+  background-color: rgb(30 39 50);
+}
+
+.markdown-body p > img:not(.not-inline) {
+  cursor: zoom-in
+}
+
+.markdown-body pre {
+  padding: 0px !important;
+  background: none !important;
+  overflow: visible !important;
+  margin-top: -16px !important;
+  margin-bottom: -8px !important;
+}
+
+.markdown-body pre code {
+  display: block !important;
+  padding: 16px !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
+  overflow: scroll !important;
+  width: 100%;
+  max-width: 704px;
+}
+

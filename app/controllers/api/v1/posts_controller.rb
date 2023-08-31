@@ -5,8 +5,8 @@ module Api
       skip_forgery_protection
 
       def index
-        current_page = params[:page].to_i
-        per_page = params[:per_page].to_i
+        current_page = params[:page] ? params[:page].to_i : 0
+        per_page = params[:per_page] ? params[:per_page].to_i : 10
         posts = Post.offset(per_page*current_page)
           .latest
           .limit(per_page)

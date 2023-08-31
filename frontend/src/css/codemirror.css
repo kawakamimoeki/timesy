@@ -1,0 +1,45 @@
+body.dark .CodeMirror {
+  background-color: rgb(30, 39, 50) !important;
+  color: #eee !important;
+}
+
+body.dark .CodeMirror-cursor {
+  border-color:#fff !important;
+}
+
+.EasyMDEContainer {
+  border: none !important;
+}
+
+.EasyMDEContainer .CodeMirror {
+  border: none !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.dark .CodeMirror-selected  {
+  background: #666 !important;
+}
+
+.CodeMirror * {
+  word-break: break-all !important;
+}
+
+.CodeMirror {
+  padding: 0 !important;
+  border: none;
+  border-radius: 0;
+}
+
+.cm-formatting-header, .cm-header {
+  font-size: 1rem !important;
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 0.5; }
+}
+
+.editor-toolbar {
+  display: none !important;
+}

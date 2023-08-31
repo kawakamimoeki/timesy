@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
+		<meta name="viewport" content="width=device-width" />
+		<head>
+			<script defer data-domain="timesy.dev" src="https://plausible.io/js/script.js"></script>
+			<meta name="description" content="<%= Site.description %>" />
+			<meta name="viewport" content="width=device-width,initial-scale=1" />
+			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+			<link rel="preconnect" href="https://fonts.googleapis.com" />
+			<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+			<link
+				href="https://fonts.googleapis.com/css2?family=Noto+Color+Emoji&display=swap"
+				rel="stylesheet"
+			/>
+		</head>
+		%sveltekit.head%
+	</head>
+	<body
+		class="bg-background bg-cover bg-fixed dark:bg-dark-background"
+		data-sveltekit-preload-data="hover"
+	>
+	<header class="w-full shadow-sm  bg-white dark:bg-dark-background dark:text-gray-200 z-0 ">
+  <div class="flex max-w-3xl mx-auto px-4 items-center py-2 text-sm">
+      <span class="dark:hidden">
+      </span>
+      <span class="hidden dark:block">
+      </span>
+    <div class="grow"></div>
+    <div class="h-[40px] z-[100]" id="header-nav-conteiner" data-turbo-permanent>
+    </div>
+  <div>
+</header>
+
+<main class="w-full ">
+		<div style="display: contents">%sveltekit.body%</div>
+	</main>
+
+<div id="image-modal" class="modal micromodal-zoom" aria-hidden="true">
+  <div class="modal__overlay" tabindex="-1" data-micromodal-close>
+    <div role="dialog" aria-modal="true" class="modal__container" >
+      <img id="image-modal-image" class="max-w-[900px] w-screen h-screen object-contain" src="" alt="" data-micromodal-close>
+    </div>
+  </div>
+</div>
+	</body>
+</html>

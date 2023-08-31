@@ -1,0 +1,55 @@
+.cell {
+  outline: 1px solid #dcdcdc;
+}
+
+.dark .cell {
+  outline: 1px solid #333;
+}
+
+.cell-0 {
+  background-color: rgb(232, 232, 232);
+}
+
+.dark .cell-0 {
+  background-color: rgb(54, 61, 68);
+}
+
+.cell-1 {
+  background-color: #CAEBFB;
+}
+
+.dark .cell-1 {
+  background-color: #175777;
+}
+
+.cell-2 {
+  background-color: #86CDF1;
+}
+
+.dark .cell-2 {
+  background-color: #2184B6;
+}
+
+.cell-3 {
+  background-color: #59BBEC;
+}
+
+.dark .cell-3 {
+  background-color: #59BBEC;
+}
+
+.cell-4 {
+  background-color: #2184B6;
+}
+
+.cell .cell-4 {
+  background-color: #71c4ed;
+}
+
+.cell-5 {
+  background-color: #175777;
+}
+
+.dark .cell-5 {
+  background-color: #78d2ff;
+}

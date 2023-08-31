@@ -1,0 +1,42 @@
+
+body {
+  font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  color: "#333";
+  background-color: rgb(246, 248, 250);
+} 
+
+body .scrollbar-none {
+  -ms-overflow-style: none;    /* IE, Edge 対応 */
+  scrollbar-width: none;
+}
+
+body .scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+body.dark {
+  background-color: rgb(21, 32, 43);
+  color: #ddd;
+}
+
+body.dark img.icon {
+  filter: invert(1);
+}
+
+.emoji {
+  font-family: 'Noto Color Emoji' !important;
+}
+
+.dark textarea {
+  background: none;
+}
+
+.emoji img {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.twitter-tweet {
+  margin: 0 auto !important;
+  max-width: 400px !important;
+}
