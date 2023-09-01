@@ -24,7 +24,7 @@
 }
 
 .markdown-body img:not(.not-inline) {
-  border-radius: 10px;
+  border-radius: 3px;
   width: 100% !important;
   max-width: 400px !important;
   margin: 0 auto;
