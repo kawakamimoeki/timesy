@@ -20,7 +20,7 @@
       <%= turbo_frame_tag "comments", target: "_top" do %>
       <% end %>
 
-      <%= turbo_frame_tag "load_more", src: comments_path(@post, format: :turbo_stream), loading: :lazy  %>
+      <%= turbo_frame_tag "load_more", src: comments_path(@post, format: :turbo_stream)  %>
     </div>
 
     <%= turbo_frame_tag "comment_form", src: comment_form_path(@post), loading: :lazy %>
