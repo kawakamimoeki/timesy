@@ -1,110 +1,120 @@
 <%= turbo_frame_tag "comment_#{ comment.id }", data: { controller: "post-show" } do %>
-  <div class="<%= card_class %> border-b group thread transition-all animate-fade-in">
-  <div class="flex flex-col-reverse sm:flex-row space-x-1 text-sm items-center mb-2">
-    <div class="flex items-center space-x-1 flex-wrap">
-      <%= render partial: 'shared/avatar', locals: { user: comment.user } %>
-      <time class="text-gray-400"><%= time_ago_in_words(comment.created_at) %></time>
+  <div class="<%= card_class %> border-b group thread transition-all animate-fade-in flex w-full">
+    <div class="w-[48px]">
+      <%= link_to user_path(username: comment.user.username), class: "cursor-pointer text-sm block flex items-center hover:underline flex-wrap", data: { turbo_frame: "_top" } do %>
+        <%= image_tag comment.user.avatar_icon, alt: "", width: "20px", height: "20px", class: "w-8 h-8 rounded-full mr-2 block" %>
+      <% end %>
     </div>
-    <div class="grow flex items-center space-x-1 w-full sm:w-auto">
-      <div class="grow"></div>
-      <button class="<%= icon_button_class %>"  data-controller="copy tooltip" data-copy-copied-text-value="<%= I18n.t("clipboard.copied") %>" data-tooltip-text-value="<%= I18n.t("posts.copy-markdown") %>" data-copy-content-value="<%= comment.body %>">
-        <div class="i-lucide-copy"></div>
-      </button>
-      <div class="flex items-center space-x-1">
-        <% if comment.user == current_user %>
-          <div data-controller="menu" data-post-show-target="menu" class="overflow-visible relative">
-            <button class="<%= icon_button_class %>" data-action="menu#open" >
-              <div class="i-lucide-more-horizontal"></div>
-            </button>
-            <div data-action="click->menu#close" data-menu-target="backdrop" class="<%= backdrop_class %>"></div>
-            <div class="absolute top-10 transition-all animate-down right-0 z-[100] hidden w-full" data-menu-target="dropdown">
-              <button class="<%= icon_button_class %> shadow mb-2 border dark:border-dark-border w-full flex items-center space-x-2 bg-white dark:bg-dark-card" data-action="post-show#edit menu#close" data-post-show-target="editButton" >
-                <div class="i-lucide-pen"></div>
+    <div class="w-[calc(100%-48px)]">
+      <div class="flex flex-col-reverse sm:flex-row space-x-1 text-sm items-center mb-2">
+        <div class="flex items-center space-x-1 flex-wrap">
+          <%= link_to user_path(username: comment.user.username), class: "cursor-pointer text-sm block flex items-center hover:underline flex-wrap", data: { turbo_frame: "_top" } do %>
+            <span class="mr-1 font-bold"><%= comment.user.name %></span>
+            <span class="text-gray-400"><%= comment.user.username_with_at %></span>
+          <% end %>
+          <time class="text-gray-400"><%= time_ago_in_words(comment.created_at) %></time>
+        </div>
+        <div class="grow flex items-center space-x-1 w-full sm:w-auto">
+          <div class="grow"></div>
+          <button class="<%= icon_button_class %>"  data-controller="copy tooltip" data-copy-copied-text-value="<%= I18n.t("clipboard.copied") %>" data-tooltip-text-value="<%= I18n.t("posts.copy-markdown") %>" data-copy-content-value="<%= comment.body %>">
+            <div class="i-lucide-copy"></div>
+          </button>
+          <div class="flex items-center space-x-1">
+            <% if comment.user == current_user %>
+              <div data-controller="menu" data-post-show-target="menu" class="overflow-visible relative">
+                <button class="<%= icon_button_class %>" data-action="menu#open" >
+                  <div class="i-lucide-more-horizontal"></div>
+                </button>
+                <div data-action="click->menu#close" data-menu-target="backdrop" class="<%= backdrop_class %>"></div>
+                <div class="absolute top-10 transition-all animate-down right-0 z-[100] hidden w-full" data-menu-target="dropdown">
+                  <button class="<%= icon_button_class %> shadow mb-2 border dark:border-dark-border w-full flex items-center space-x-2 bg-white dark:bg-dark-card" data-action="post-show#edit menu#close" data-post-show-target="editButton" >
+                    <div class="i-lucide-pen"></div>
+                  </button>
+                  <div class="mt-[1px]">
+                    <%= button_to(
+                      delete_comment_url(post_id: comment.post.id, id: comment.id),
+                      method: :delete,
+                      class: "#{icon_button_class} shadow w-full flex items-center space-x-2 border dark:border-dark-border bg-white dark:bg-dark-card",
+                      data: { turbo_frame: "posts", post_show_target: "deleteButton", action: "menu#close" },
+                      
+                    ) do %>
+                      <div class="i-lucide-trash"></div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <button class="hidden <%= icon_button_class %>" data-action="post-show#close" data-post-show-target="closeButton" >
+                <div class="i-lucide-x"></div>
               </button>
-              <div class="mt-[1px]">
-                <%= button_to(
-                  delete_comment_url(post_id: comment.post.id, id: comment.id),
-                  method: :delete,
-                  class: "#{icon_button_class} shadow w-full flex items-center space-x-2 border dark:border-dark-border bg-white dark:bg-dark-card",
-                  data: { turbo_frame: "posts", post_show_target: "deleteButton", action: "menu#close" },
-                  
-                ) do %>
-                  <div class="i-lucide-trash"></div>
-                <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <div data-post-show-target="show" data-controller="image-modal twitter" class="markdown-body">
+        <%= comment.html.html_safe %>
+      </div>
+      <div class="hidden" data-post-show-target="editor">
+        <%= form_with(
+          model: comment,
+          url: update_comment_path(post_id: comment.post.id, id: comment.id),
+          id: "post-form",
+          medhot: :patch,
+          data: {
+            turbo_frame: "comment_#{ comment.id }",
+            action: "turbo:submit-end->post-show#close",
+            controller: "turbo-form markdown",
+            post_editor_confirm_message: I18n.t("page.confirm_leave"),
+            markdown_min_height_value: "100px",
+            markdown_model_value: "comment",
+            markdown_placeholder_value: I18n.t("comments.placeholder"),
+            markdown_image_uploading_text_value: I18n.t("images.uploading"),
+            markdown_image_upload_failed_text_value: I18n.t("images.upload_failed")
+          },
+          class: "grow transition-all"
+        ) do |f| %>
+          <div>
+            <%= flash[:error] %>
+            <div class="max-w-3xl mx-auto">
+              <div class="bg-none">
+                <div data-markdown-target="editorContainer">
+                  <%= f.text_area :body, data: { markdown_target: "editor", post_editor_target: "body" }, class: "prose resize-none" %>
+                </div>
+                <div class="markdown-body hidden px-5 min-h-[100px]" data-markdown-target="preview"></div>
               </div>
             </div>
           </div>
-          <button class="hidden <%= icon_button_class %>" data-action="post-show#close" data-post-show-target="closeButton" >
-            <div class="i-lucide-x"></div>
-          </button>
+          <div class="flex pt-3 w-full items-center bg-none">
+            <div class="grow"></div>
+            <div class="px-1">
+              <button
+                type="button"
+                class="<%= icon_button_class %>"
+                title="<%=  I18n.t('posts.preview') %>(⌘+Shift+P)"
+                data-controller="tooltip"
+                data-tooltip-text-value="<%= I18n.t('posts.image') %>"
+                data-action="markdown#attachImage"
+                data-testid="attach-image"
+              >
+              <div class="i-lucide-image"></div>
+              </button>
+            </div>
+            <div class="px-1">
+              <button type="button" class="<%= icon_button_class %> flex items-center space-x-2" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton" >
+                <div class="i-lucide-eye"></div>
+              </button>
+              <button type="button" class="<%= icon_button_class %> hidden" title="<%=  I18n.t('posts.edit') %>" data-action="markdown#edit" data-markdown-target="editorButton" >
+                <div class="i-lucide-pen"></div>
+              </button>
+            </div>
+            <div class="ml-2">
+              <%= f.submit I18n.t('posts.update'), class: primary_button_class, data: { post_editor_target: "publish" } %>
+            </div>
+          </div>
         <% end %>
       </div>
+      <div class="mt-2">
+        <%= render partial: 'comment_reactions/list', locals: { comment: comment } %>
+      </div>
     </div>
-  </div>
-  <div data-post-show-target="show" data-controller="image-modal twitter" class="markdown-body">
-    <%= comment.html.html_safe %>
-  </div>
-  <div class="hidden" data-post-show-target="editor">
-    <%= form_with(
-      model: comment,
-      url: update_comment_path(post_id: comment.post.id, id: comment.id),
-      id: "post-form",
-      medhot: :patch,
-      data: {
-        turbo_frame: "comment_#{ comment.id }",
-        action: "turbo:submit-end->post-show#close",
-        controller: "turbo-form markdown",
-        post_editor_confirm_message: I18n.t("page.confirm_leave"),
-        markdown_min_height_value: "100px",
-        markdown_model_value: "comment",
-        markdown_placeholder_value: I18n.t("comments.placeholder"),
-        markdown_image_uploading_text_value: I18n.t("images.uploading"),
-        markdown_image_upload_failed_text_value: I18n.t("images.upload_failed")
-      },
-      class: "grow transition-all"
-    ) do |f| %>
-      <div>
-        <%= flash[:error] %>
-        <div class="max-w-3xl mx-auto">
-          <div class="bg-none">
-            <div data-markdown-target="editorContainer">
-              <%= f.text_area :body, data: { markdown_target: "editor", post_editor_target: "body" }, class: "prose resize-none" %>
-            </div>
-            <div class="markdown-body hidden px-5 min-h-[100px]" data-markdown-target="preview"></div>
-          </div>
-        </div>
-      </div>
-      <div class="flex pt-3 w-full items-center bg-none">
-        <div class="grow"></div>
-        <div class="px-1">
-          <button
-            type="button"
-            class="<%= icon_button_class %>"
-            title="<%=  I18n.t('posts.preview') %>(⌘+Shift+P)"
-            data-controller="tooltip"
-            data-tooltip-text-value="<%= I18n.t('posts.image') %>"
-            data-action="markdown#attachImage"
-            data-testid="attach-image"
-          >
-           <div class="i-lucide-image"></div>
-          </button>
-        </div>
-        <div class="px-1">
-          <button type="button" class="<%= icon_button_class %> flex items-center space-x-2" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton" >
-            <div class="i-lucide-eye"></div>
-          </button>
-          <button type="button" class="<%= icon_button_class %> hidden" title="<%=  I18n.t('posts.edit') %>" data-action="markdown#edit" data-markdown-target="editorButton" >
-            <div class="i-lucide-pen"></div>
-          </button>
-        </div>
-        <div class="ml-2">
-          <%= f.submit I18n.t('posts.update'), class: primary_button_class, data: { post_editor_target: "publish" } %>
-        </div>
-      </div>
-    <% end %>
-  </div>
-  <div class="mt-2">
-    <%= render partial: 'comment_reactions/list', locals: { comment: comment } %>
-  </div>
   </div>
 <% end %>
