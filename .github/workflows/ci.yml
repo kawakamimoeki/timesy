@@ -6,7 +6,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     services:
@@ -21,39 +20,36 @@ jobs:
         options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
 
     steps:
-    - name: ⬇️ Checkout repo
-      uses: actions/checkout@v3
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v3
 
-    - name: ⎔ Setup Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 3.2.2
-        bundler-cache: true
-      
-    - name: 🪄 Compile assets
-      run: bin/rails assets:precompile
+      - name: ⎔ Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2.2
+          bundler-cache: true
 
-    - name: 🛠 Setup Database
-      env:
-        RAILS_ENV: test
-        DATABASE_URL: postgres://postgres:postgres@localhost:5432/test_db
-      run: |
-        bin/rails db:schema:load
-    
-    - name: 👀 Meilisearch
-      run: meilisearch/meilisearch
+      - name: 🪄 Compile assets
+        run: bin/rails assets:precompile
 
-    - name: 🔦 Run Test
-      env:
-        DATABASE_URL: postgres://postgres:postgres@localhost:5432/test_db
-        MEILISEARCH_HOST: http://localhost:7700
-      run: bundle exec rake
+      - name: 🛠 Setup Database
+        env:
+          RAILS_ENV: test
+          DATABASE_URL: postgres://postgres:postgres@localhost:5432/test_db
+        run: |
+          bin/rails db:schema:load
 
-    - name: 🧪 Setup Playwright
-      run: npx playwright install --with-deps
-  
-    - name: 👩‍💻 Run System Test
-      env:
-        DATABASE_URL: postgres://postgres:postgres@localhost:5432/test_db
-        MEILISEARCH_HOST: http://localhost:7700
-      run: bundle exec rails test:system
+      - name: 🔦 Run Test
+        env:
+          DATABASE_URL: postgres://postgres:postgres@localhost:5432/test_db
+          MEILISEARCH_HOST: http://localhost:7700
+        run: bundle exec rake
+
+      - name: 🧪 Setup Playwright
+        run: npx playwright install --with-deps
+
+      - name: 👩‍💻 Run System Test
+        env:
+          DATABASE_URL: postgres://postgres:postgres@localhost:5432/test_db
+          MEILISEARCH_HOST: http://localhost:7700
+        run: bundle exec rails test:system

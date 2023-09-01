@@ -23,26 +23,6 @@ class Post < ApplicationRecord
     .where('posts.created_at > ?', 1.week.ago)
   }
 
-  meilisearch enqueue: :trigger_job do
-    attribute :body
-
-    attribute :user do
-      user.name
-    end
-
-    attribute :username do
-      user.username
-    end
-
-    attribute :comments do
-      comments.map(&:body).join(' ')
-    end
-
-    attribute :cheers do
-      cheers.map(&:body).join(' ')
-    end
-  end
-
   def self.trigger_job(record, remove)
     MeilisearchIndexJob.perform_later(self, record.id, remove)
   end
