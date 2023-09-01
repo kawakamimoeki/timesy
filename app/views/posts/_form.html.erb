@@ -39,7 +39,6 @@
      <button
         type="button"
         class="<%= icon_button_class %>"
-        title="<%=  I18n.t('posts.preview') %>(⌘+Shift+P)"
         data-controller="tooltip"
         data-tooltip-text-value="<%= I18n.t('posts.image') %>"
         data-action="markdown#attachImage"
@@ -52,7 +51,6 @@
       <button
         type="button"
         class="<%= icon_button_class %> opacity-30 transition-all"
-        title="<%=  I18n.t('posts.preview') %>(⌘+Shift+P)"
         data-controller="tooltip"
         data-tooltip-text-value="<%=  I18n.t('posts.preview') %>(⌘+Shift+P)"
         data-action="markdown#preview"
@@ -64,7 +62,6 @@
       <button
         type="button"
         class="<%= icon_button_class %> transition-all hidden"
-        title="<%=  I18n.t('posts.edit') %>"
         data-action="markdown#edit"
         data-markdown-target="editorButton"
       >

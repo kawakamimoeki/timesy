@@ -48,10 +48,10 @@
     <div class="flex items-center">
       <div class="grow"></div>
       <div class="px-1">
-        <button type="button" class="<%= icon_button_class %> transition-all" title="<%=  I18n.t('posts.preview') %>" data-action="markdown#preview" data-markdown-target="previewButton" >
+        <button type="button" class="<%= icon_button_class %> transition-all" data-action="markdown#preview" data-markdown-target="previewButton" >
           <div class="i-lucide-eye"></div>
         </button>
-        <button type="button" class="<%= icon_button_class %> transition-all hidden" title="<%=  I18n.t('posts.edit') %>" data-action="markdown#edit" data-markdown-target="editorButton" >
+        <button type="button" class="<%= icon_button_class %> transition-all hidden" data-action="markdown#edit" data-markdown-target="editorButton" >
           <div class="i-lucide-pen"></div>
         </button>
       </div>
