@@ -132,6 +132,11 @@
       <div class="text-xs flex items-center">
         <%= image_tag post.comments.latest&.first&.user.avatar_icon, class: "w-4 h-4 rounded-full mr-1" %>
         <p class="opacity-70"><%= post.comments.latest&.first&.truncated(32) %></p>
+        <% if post.comments.count > 1 %>
+          <div class="text-xs opacity-70 ml-2">
+            <%= post.comments.count - 1  %> more
+          </div>
+        <% end %>
       </div>
     <% end %>
     <div class="flex items-end">
@@ -139,14 +144,6 @@
         <%= turbo_frame_tag :post_reactions do %>
           <%= render partial: 'post_reactions/list', locals: { post: post } %>
         <% end %>
-        <div class="flex items-center">
-          <% if post.comments.count > 0 %>
-          <div class="<%= indicator_class %>">
-            <span class="i-lucide-server mr-1"></span>
-            <%= post.comments.count %>
-          </div>
-          <% end %>
-        </div>
       </div>
       <% if on_timeline %>
         <%= link_to post_path(post.id), class: icon_button_class do %>
