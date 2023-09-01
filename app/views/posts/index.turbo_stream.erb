@@ -4,6 +4,18 @@
 <%= turbo_stream.append "posts" do %>
   <% if @posts.present? %>
     <%= render partial: "posts/post", collection: @posts, locals: { additional_class: "border-b", on_timeline: true } %>
+    <%= turbo_stream.replace "load_more" do %>
+      <div class="h-1">
+        <%= turbo_frame_tag "load_more", src: root_path(page: @next_page, format: :turbo_stream), loading: :lazy %>
+      </div>
+    <% end %>
+    <%= turbo_stream.replace "loading" do %>
+      <div class="flex w-full py-8 text-4xl text-gray-500">
+        <div class="grow"></div>
+        <div class="i-svg-spinners-bars-rotate-fade"></div>
+        <div class="grow"></div>
+      </div>
+    <% end %>
   <% else %>
     <div class="<%= card_class %> font-bold text-center">
       <div class="card-body">
@@ -11,19 +23,7 @@
           <%= I18n.t("following.empty") %>
       </div>
     </div>
+    <%= turbo_stream.replace "load_more" do %>
+    <% end %>
   <% end %>
-<% end %>
-
-<%= turbo_stream.replace "loading" do %>
-  <div class="flex w-full py-8 text-4xl text-gray-500">
-    <div class="grow"></div>
-    <div class="i-svg-spinners-bars-rotate-fade"></div>
-    <div class="grow"></div>
-  </div>
-<% end %>
-
-<%= turbo_stream.replace "load_more" do %>
-  <div class="h-1">
-    <%= turbo_frame_tag "load_more", src: root_path(page: @next_page, format: :turbo_stream), loading: :lazy %>
-  </div>
 <% end %>
