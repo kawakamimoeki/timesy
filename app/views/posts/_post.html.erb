@@ -1,10 +1,10 @@
 <div id="post_<%= post.id %>" class="<%= "#{card_class} flex border-b dark:border-dark-border transition-all animate-fade-in w-full" %> data-controller="post-show" data-testid="<%= post.body %>" >
-  <div class="w-[48px]">
+  <div class="w-[42px]">
     <%= link_to user_path(username: post.user.username), class: "cursor-pointer text-sm block flex items-center hover:underline flex-wrap", data: { turbo_frame: "_top" } do %>
       <%= image_tag post.user.avatar_icon, alt: "", width: "20px", height: "20px", class: "w-8 h-8 rounded-full mr-2 block" %>
     <% end %>
   </div>
-  <div class="w-[calc(100%-48px)]">
+  <div class="w-[calc(100%-42px)]">
     <div class="mb-4">
       <div class="flex flex-col-reverse sm:flex-row mb-3 items-center space-x-1">
         <div class="flex items-center space-x-1 flex-wrap">

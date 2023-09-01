@@ -1,11 +1,11 @@
 <%= turbo_frame_tag "comment_#{ comment.id }", data: { controller: "post-show" } do %>
   <div class="<%= card_class %> border-b group thread transition-all animate-fade-in flex w-full">
-    <div class="w-[48px]">
+    <div class="w-[42px]">
       <%= link_to user_path(username: comment.user.username), class: "cursor-pointer text-sm block flex items-center hover:underline flex-wrap", data: { turbo_frame: "_top" } do %>
         <%= image_tag comment.user.avatar_icon, alt: "", width: "20px", height: "20px", class: "w-8 h-8 rounded-full mr-2 block" %>
       <% end %>
     </div>
-    <div class="w-[calc(100%-48px)]">
+    <div class="w-[calc(100%-42px)]">
       <div class="flex flex-col-reverse sm:flex-row space-x-1 text-sm items-center mb-2">
         <div class="flex items-center space-x-1 flex-wrap">
           <%= link_to user_path(username: comment.user.username), class: "cursor-pointer text-sm block flex items-center hover:underline flex-wrap", data: { turbo_frame: "_top" } do %>
