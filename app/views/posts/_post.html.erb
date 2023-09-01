@@ -1,4 +1,5 @@
-<div id="post_<%= post.id %>" class="<%= "#{card_class} overflow-visible flex border-b dark:border-dark-border transition-all animate-fade-in w-full post-card" %>" data-controller="post-show" data-testid="<%= post.body %>" >
+<%= turbo_frame_tag "post_#{post.id}" do %>
+<div class="<%= "#{card_class} overflow-visible flex border-b dark:border-dark-border transition-all animate-fade-in w-full post-card" %>" data-controller="post-show" data-testid="<%= post.body %>" >
   <div class="w-[42px]">
     <%= link_to user_path(username: post.user.username), class: "cursor-pointer text-sm block flex items-center hover:underline flex-wrap", data: { turbo_frame: "_top" } do %>
       <%= image_tag post.user.avatar_icon, alt: "", width: "20px", height: "20px", class: "w-8 h-8 rounded-full mr-2 block" %>
@@ -46,7 +47,7 @@
                     method: :delete,
                     class: "#{block_link_class} w-full text-red-400 dark:text-red-400",
                     onClick: "return confirm('#{I18n.t('posts.confirm_delete')}')",
-                    data: { turbo: false, post_show_target: "deleteButton", action: "menu#close" },
+                    data: { post_show_target: "deleteButton", action: "menu#close" },
                   ) do %>
                     <div class="i-lucide-trash"></div>
                     <%= I18n.t("posts.delete") %>
@@ -146,10 +147,11 @@
         <% end %>
       </div>
       <% if on_timeline %>
-        <%= link_to post_path(post.id), class: icon_button_class do %>
+        <%= link_to post_path(post.id), class: icon_button_class, data: { turbo_frame: "_top" } do %>
           <div class="i-lucide-arrow-right"></div>
         <% end %>
       <% end %>
     </div>
   </div>
 </div>
+<% end %>

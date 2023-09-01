@@ -16,7 +16,6 @@
     <%= turbo_frame_tag "post_main", src: post_main_path(@post) do %>
     <% end %>
     
-    <%= turbo_stream_from "comments-of-#{@post.id}" %>
     <div data-controller="thread-scroll">
       <%= turbo_frame_tag "comments", target: "_top" do %>
       <% end %>

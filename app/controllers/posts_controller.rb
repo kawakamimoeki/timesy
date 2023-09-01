@@ -149,7 +149,6 @@ class PostsController < ApplicationController
     end
 
     @post.destroy!
-    redirect_to root_path, status: 303
   end
 
   private def purge_page(post)
