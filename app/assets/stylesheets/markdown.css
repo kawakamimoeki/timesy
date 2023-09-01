@@ -39,6 +39,7 @@
   border: 1px solid #e1e4e8 !important;
   margin: 0 auto !important;
   margin-bottom: 16px !important;
+  max-width: 384px;
 }
 
 .dark .markdown-body .link-card {
@@ -50,7 +51,7 @@
   border: none !important;
   width: 100% !important;
   max-width: 100% !important;
-  height: auto  !important;
+  height: auto !important;
   aspect-ratio: 1200/630 !important;
   object-fit: cover;
   margin: 0 auto;
@@ -78,7 +79,7 @@ body.dark .markdown-body .project-tag {
 }
 
 .CodeRay span {
-  background-color: hsla(0,0%,0%,0) !important
+  background-color: hsla(0, 0%, 0%, 0) !important;
 }
 
 body.dark .markdown-body a {
@@ -86,7 +87,7 @@ body.dark .markdown-body a {
 }
 
 body.dark .markdown-body blockquote {
-  border-left: .25em solid #616161 !important;
+  border-left: 0.25em solid #616161 !important;
 }
 
 body.dark .markdown-body {
@@ -98,7 +99,8 @@ body.dark .markdown-body table tr:nth-child(2n) {
   background-color: rgb(53, 62, 72);
 }
 
-body.dark .markdown-body table th, body.dark .markdown-body table td {
+body.dark .markdown-body table th,
+body.dark .markdown-body table td {
   border: 1px solid #545454;
 }
 
@@ -107,7 +109,7 @@ body.dark .markdown-body table tr {
 }
 
 .markdown-body p > img:not(.not-inline) {
-  cursor: zoom-in
+  cursor: zoom-in;
 }
 
 .markdown-body pre {
@@ -127,4 +129,3 @@ body.dark .markdown-body table tr {
   width: 100%;
   max-width: 704px;
 }
-
