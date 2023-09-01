@@ -5,7 +5,7 @@
   }
 ) %>
 
-<div class="w-full max-w-3xl mx-auto">
+<div class="w-full max-w-3xl mx-auto p-0 sm:p-4">
   <div id="profile-<%= @user.id %>" data-turbo-permanent>
     <%= turbo_frame_tag "profile", src: profile_path(@user.username) %>
   </div>
@@ -16,7 +16,7 @@
       </div>
     </div>
   </div>
-  <div class="max-w-3xl mx-auto p-0 sm:p-4">
+  <div class="max-w-3xl mx-auto">
     <%= turbo_frame_tag :users do %>
     <% end %>
 
