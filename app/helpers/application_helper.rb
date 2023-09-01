@@ -27,7 +27,7 @@ module ApplicationHelper
   end
 
   def primary_button_class
-    "px-4 py-1 shadow-sm text-white bg-sky-500 font-bold hover:bg-sky-600 transition-all disabled:opacity-30 cursor-pointer flex items-center space-x-1 rounded-lg"
+    "px-3 py-1 shadow-sm text-white text-sm bg-sky-500 font-bold hover:bg-sky-600 transition-all disabled:opacity-30 cursor-pointer rounded"
   end
 
   def label_class
@@ -59,7 +59,7 @@ module ApplicationHelper
   end
 
   def block_link_class
-    "py-1 w-full px-2 flex items-center text-sm gap-1 hover:bg-gray-50 rounded-lg dark:hover:bg-gray-700 transition-all dark:text-gray-200  text-gray-800 hover:shadow-sm transition-all"
+    "py-1 px-2 flex items-center text-sm gap-1 hover:bg-gray-50 rounded dark:hover:bg-gray-700 transition-all dark:text-gray-200  text-gray-800 hover:shadow-sm transition-all"
   end
 
   def icon_button_class
@@ -67,7 +67,7 @@ module ApplicationHelper
   end
 
   def dropdown_class
-    "overflow-scroll absolute top-10 right-0 z-[100] hidden w-72 bg-white dark:bg-dark-card shadow-sm rounded-lg border dark:border-dark-border scrollbar-none transition-all animate-down"
+    "overflow-scroll absolute top-10 right-0 z-[100] hidden w-72 bg-white dark:bg-dark-card shadow-sm rounded border dark:border-dark-border scrollbar-none transition-all animate-down"
   end
 
   def backdrop_class
