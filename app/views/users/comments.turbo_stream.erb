@@ -3,7 +3,7 @@
 
 <%= turbo_stream.append "posts" do %>
   <div data-testid="comment-list">
-    <%= render @posts %>
+    <%= render partial: "posts/post", locals: { on_timeline: true } %>
   </div>
 <% end %>
 
