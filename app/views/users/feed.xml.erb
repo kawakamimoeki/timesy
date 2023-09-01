@@ -20,7 +20,7 @@
         <pubDate><%= p.updated_at.to_s(:rfc822) %></pubDate>
         <link><%= post_url(p) %></link>
         <guid><%= post_url(p) %></guid>
-        <enclosure url="<%= ApplicationController.helpers.ogp_image(p) %>" type="image/jpeg" length="0" />
+        <enclosure url="https://www.timesy.dev/landing.jpg" type="image/jpeg" length="0" />
         <% p.projects.each do |proj| %>
           <category domain="<%= project_url(@user.username, proj) %>">
             <%= REXML::Document.new.tap { |doc| doc.add(REXML::CData.new(proj.title)) }.to_s %>
