@@ -8,8 +8,8 @@
     <div class="mb-4 z-[100]">
       <div class="flex flex-row mb-3 items-center space-x-1 z-[100]">
         <div class="flex w-[calc(100%-42px)] items-center space-x-1 whitespace-nowrap overflow-hidden overflow-ellipsis">
-          <%= link_to user_path(username: post.user.username), class: "cursor-pointer text-sm block flex items-center hover:underline", data: { turbo_frame: "_top" } do %>
-            <span class="mr-1 font-bold"><%= post.user.name %></span>
+          <%= link_to user_path(username: post.user.username), class: "cursor-pointer text-sm block flex gap-1 items-center hover:underline", data: { turbo_frame: "_top" } do %>
+            <span class="font-bold"><%= post.user.name %></span>
             <span class="text-gray-400"><%= post.user.username_with_at %></span>
           <% end %>
           <time class="text-gray-400 text-sm"><%= time_ago_in_words(post.created_at) %></time>
