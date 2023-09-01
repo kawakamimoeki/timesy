@@ -47,7 +47,7 @@
                     method: :delete,
                     class: "#{block_link_class} w-full text-red-400 dark:text-red-400",
                     onClick: "return confirm('#{I18n.t('posts.confirm_delete')}')",
-                    data: { post_show_target: "deleteButton", action: "menu#close" },
+                    data: { turbo: false, post_show_target: "deleteButton", action: "menu#close" },
                   ) do %>
                     <div class="i-lucide-trash"></div>
                     <%= I18n.t("posts.delete") %>
