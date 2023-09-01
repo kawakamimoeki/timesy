@@ -11,7 +11,7 @@
       </button>
       <div class="mt-[1px]">
         <%= button_to(
-          delete_comment_url(post_id: @comment.post.id, id: @comment.id),
+          delete_comment_url(post_id: @comment.post.id, id: @comment.id, format: :turbo_stream),
           method: :delete,
           class: "#{icon_button_class} shadow w-full flex items-center space-x-2 border dark:border-dark-border bg-white dark:bg-dark-card",
           data: { turbo_frame: "comments", turbo_confirm: I18n.t("comments.confirm_delete"), post_show_target: "deleteButton", action: "menu#close" },

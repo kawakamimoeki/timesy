@@ -1,6 +1,5 @@
 class Post < ApplicationRecord
   include Markdownable
-  include MeiliSearch::Rails
 
   belongs_to :user
   has_and_belongs_to_many :projects
@@ -22,10 +21,6 @@ class Post < ApplicationRecord
     .order('reaction_count desc')
     .where('posts.created_at > ?', 1.week.ago)
   }
-
-  def self.trigger_job(record, remove)
-    MeilisearchIndexJob.perform_later(self, record.id, remove)
-  end
 
   def self.score_per_day(user)
     posts = Post

@@ -1,3 +1,0 @@
-<%= turbo_frame_tag "comments" do %>
-  <%= render partial: @post.comments.order(created_at: :desc) %>
-<% end %>
