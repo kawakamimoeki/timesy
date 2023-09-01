@@ -20,7 +20,7 @@ module ApplicationHelper
         local: 'ja-JP',
       },
       twitter: {
-        card: 'summary_large_image',
+        card: 'summary',
         image: "#{Site.origin}/ogp.png",
       }
     }
