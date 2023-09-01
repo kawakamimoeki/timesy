@@ -89,7 +89,7 @@ class PostsController < ApplicationController
     if request.format == "text/html"
       set_cache_control_headers
     end
-    @post = Post.includes(comments: :user, cheers: :user).find_by(id: params[:id])
+    @post = Post.includes(comments: :user).find_by(id: params[:id])
     @post_reaction = PostReaction.new
     @comment_reaction = CommentReaction.new
     if @post.nil?

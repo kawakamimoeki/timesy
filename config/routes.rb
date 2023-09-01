@@ -30,14 +30,6 @@ Rails.application.routes.draw do
   get 'posts/:id/editor', to: 'posts#editor', as: :post_editor
   get 'posts/:id/menu', to: 'posts#menu', as: :post_menu
 
-  get 'posts/:post_id/cheers', to: 'cheers#index', as: :cheers
-  post 'posts/:post_id/cheers', to: 'cheers#create', as: :create_cheer
-  delete 'posts/:post_id/cheers/:id', to: 'cheers#destroy', as: :delete_cheer
-  patch 'posts/:post_id/cheers/:id', to: 'cheers#update', as: :update_cheer
-  get 'posts/:post_id/cheers/:id/editor', to: 'cheers#editor', as: :cheer_editor
-  get 'posts/:post_id/cheers/form', to: 'cheers#form', as: :cheer_form
-  get 'posts/:post_id/cheers/button', to: 'cheers#button', as: :cheers_button
-
   post '/posts/:post_id/pins', to: 'pins#create', as: :create_pin
   delete '/posts/:post_id/pins/:id', to: 'pins#destroy', as: :delete_pin
 
@@ -53,10 +45,6 @@ Rails.application.routes.draw do
 
   post '/posts/:post_id/comments/:comment_id/reactions', to: 'comment_reactions#create', as: :create_comment_reaction
   delete '/posts/:post_id/comments/:comment_id/reactions/:id', to: 'comment_reactions#destroy', as: :delete_comment_reaction
-
-  get '/posts/:post_id/cheers/:cheer_id/reactions', to: 'cheer_reactions#index', as: :cheer_reactions
-  post '/posts/:post_id/cheers/:cheer_id/reactions', to: 'cheer_reactions#create', as: :create_cheer_reaction
-  delete '/posts/:post_id/cheers/:cheer_id/reactions/:id', to: 'cheer_reactions#destroy', as: :delete_cheer_reaction
   
   get 'settings', to: 'settings#edit', as: :settings
   get 'settings/export', to: 'settings#export', as: :export_settings

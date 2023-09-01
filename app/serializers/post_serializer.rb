@@ -19,9 +19,5 @@ class PostSerializer < Blueprinter::Base
     field :comments do |post, options|
       CommentSerializer.render_as_hash(post.comments)
     end
-
-    field :cheers do |post, options|
-      CheerSerializer.render_as_hash(post.cheers)
-    end
   end
 end

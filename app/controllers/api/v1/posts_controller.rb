@@ -49,7 +49,7 @@ module Api
       end
 
       def show
-        post = Post.includes(comments: :user, cheers: :user).find_by(id: params[:id])
+        post = Post.includes(comments: :user).find_by(id: params[:id])
         if post.nil?
           render json: { error: "Not found" }, status: 404
           return

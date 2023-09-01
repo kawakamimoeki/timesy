@@ -32,7 +32,6 @@
 
     <%= turbo_frame_tag "comment_form", src: comment_form_path(@post), loading: :lazy %>
   </div>
-  <%= turbo_frame_tag :cheers_button, src: cheers_button_path(@post) %>
 </div>
 
 <button class="<%= icon_button_class %> shadow-lg dark:border dark:border-dark-border fixed bottom-6 right-6 bg-white dark:bg-dark-card transition-all animate-fade-in" data-controller="tobottom" >

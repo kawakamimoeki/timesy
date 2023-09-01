@@ -146,12 +146,6 @@
             <%= post.comments.count %>
           </div>
           <% end %>
-          <% if post.cheers.count > 0 %>
-            <div class="<%= indicator_class %>">
-              <span class="i-lucide-message-circle mr-1"></span>
-              <%= post.cheers.count %>
-            </div>
-          <% end %>
         </div>
       </div>
       <% if on_timeline %>

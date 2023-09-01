@@ -35,12 +35,6 @@ class Export < ApplicationRecord
           zip.write(image.blob.download)
         end
       end
-      user.cheers.find_each do |cheer|
-        cheer.images.each do |image|
-          zip.put_next_entry("images/#{image.filename}")
-          zip.write(image.blob.download)
-        end
-      end
     end
     update!(state: "completed")
     if ENV["STORAGE_PROJECT"].present?

@@ -12,7 +12,6 @@ ja:
     upload_failed: 画像のアップロードに失敗しました
   pages:
     discord: Discord
-    cheers: "%{post}のコメント"
     home: ホーム
     timeline: タイムライン
     trending: トレンド
@@ -68,7 +67,6 @@ ja:
   posts:
     view: 投稿を見る
     thread: スレッド
-    cheers: コメント
     image: 画像挿入
     copy-link: リンクをコピー
     copy-markdown: Markdownをコピー
@@ -91,12 +89,6 @@ ja:
     confirm_delete: 投稿を削除してよろしいですか？
     placeholder: Markdownで書く
     count: "%{num}件の投稿"
-  cheers:
-    submit: コメントする
-    delete: 削除する
-    confirm_delete: コメントを削除してよろしいですか？
-    placeholder: Markdownで書く
-    count: "%{num}件のコメント"
   passwordless:
     or_sign_in: もしくはログイン
     sign_in: ログイン

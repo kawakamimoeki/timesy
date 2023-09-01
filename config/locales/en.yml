@@ -14,7 +14,6 @@ en:
     copied: Copied to clipboard
   pages:
     discord: Discord
-    cheers: "Comments on %{post}"
     home: Home
     timeline: Timeline
     trending: Trending
@@ -68,7 +67,6 @@ en:
   posts:
     view: View post
     thread: Thread
-    cheers: Comments
     image: Insert image
     copy-link: Copy link
     copy-markdown: Copy Markdown
@@ -91,12 +89,6 @@ en:
     confirm_delete: Are you sure you want to delete this post?
     placeholder: Write in Markdown
     count: "%{num} posts"
-  cheers:
-    submit: Comment
-    delete: Delete
-    confirm_delete: Are you sure you want to delete this comment?
-    placeholder: Write in Markdown
-    count: "%{num} comments"
   passwordless:
     or_sign_in: Or login
     sign_in: Login
