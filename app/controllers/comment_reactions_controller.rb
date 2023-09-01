@@ -9,15 +9,6 @@ class CommentReactionsController < ApplicationController
     if @comment.user != current_user
       @notification = Notification.create(user: @comment.user, subjectable: reaction)
       @notification.broadcast_prepend_to("notifications-for-#{@comment.user.id}")
-      if @comment.user.webhook_url.present?
-        WebhookJob.perform_later(
-          distination: @comment.user.webhook_url,
-          type: "comment_reaction",
-          subject: Webhooks::CommentReactionSerializer.render_as_hash(reaction),
-          message: I18n.t("webhooks.comment_reaction", user: reaction.user.name),
-          url: post_url(@comment.post),
-        )
-      end
     end
   end
 

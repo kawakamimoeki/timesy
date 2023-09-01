@@ -38,7 +38,7 @@ en:
     emoji_request: Emoji Request
     github: GitHub
     status: Status Page
-    tip: '$ Buy Me a Coffee'
+    tip: "$ Buy Me a Coffee"
   activerecord:
     attributes:
       user:
@@ -52,7 +52,6 @@ en:
         twitter: X
         website: Website
         access_token: API Access Token
-        webhook: Webhook Notification Destination
         locale: Language
   errors:
     messages:
@@ -115,10 +114,10 @@ en:
     sessions:
       create:
         email_sent_if_record_found: Login link sent. Please click the link in the email.
-        session_expired: 'Your session has expired. Please log in again.'
+        session_expired: "Your session has expired. Please log in again."
         token_claimed: "This link has already been used. Please request a new link."
       new:
-        submit: 'Send magic link'
+        submit: "Send magic link"
       sign_out: Sign out
     mailer:
       subject: "Please confirm your login link"
@@ -166,7 +165,6 @@ en:
     wallpaper: Wallpaper settings
     export: Export
     api: API
-    webhook: Webhook Notification Destination
     access_token:
       generate: Generate
       regenerate: Regenerate
@@ -234,10 +232,6 @@ en:
       title: Contribute to Timesy
       body: Timesy is OSS (Open Source Software). We want to reflect everyone's thoughts in the product, so please feel free to contribute.
       button: View the GitHub repository
-  webhooks:
-    comment: "%{user} commented"
-    post_reaction: "%{user} reacted"
-    follow: "%{user} followed you"
   datetime:
     distance_in_words:
       half_a_minute: "30 seconds"

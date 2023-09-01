@@ -48,14 +48,6 @@ class SettingsController < ApplicationController
     redirect_to settings_path
   end
 
-  def update_webhook
-    @user = current_user
-    if @user.update(webhook_params)
-      flash[:notice] = I18n.t('settings.updated')
-    end
-    redirect_to settings_path
-  end
-
   def download_export
     export = current_user.exports.find(params[:id])
     if export.state == "completed"
@@ -94,12 +86,6 @@ class SettingsController < ApplicationController
       :twitter,
       :website,
       :avatar
-    )
-  end
-
-  private def webhook_params
-    params.require(:user).permit(
-      :webhook_url
     )
   end
 

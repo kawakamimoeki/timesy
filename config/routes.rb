@@ -65,7 +65,6 @@ Rails.application.routes.draw do
   get 'settings/exports/:id/download', to: 'settings#download_export', as: :download_export
   patch 'settings/profile', to: 'settings#update_profile', as: :update_profile
   patch 'settings/theme', to: 'settings#update_theme', as: :update_theme
-  patch 'settings/webhook', to: 'settings#update_webhook', as: :update_webhook
   patch 'settings/access_token', to: 'settings#update_access_token', as: :update_access_token
 
   get 'privacy/(:locale)', to: 'pages#privacy', as: :privacy

@@ -50,7 +50,6 @@ ja:
         twitter: X
         website: ウェブサイト
         access_token: APIアクセストークン
-        webhook: Webhook通知先
         locale: 言語
   errors:
     messages:
@@ -115,10 +114,10 @@ ja:
     sessions:
       create:
         email_sent_if_record_found: ログインリンクを送信しました。メールに記載されたリンクをクリックしてください。
-        session_expired: 'セッションが期限切れです。再度ログインしてください。'
+        session_expired: "セッションが期限切れです。再度ログインしてください。"
         token_claimed: "このリンクは既に使用されています。リンクを再度要求してください。"
       new:
-        submit: 'マジックリンクを送信する'
+        submit: "マジックリンクを送信する"
       sign_out: サインアウトする
     mailer:
       subject: "ログインリンクを確認してください"
@@ -165,7 +164,6 @@ ja:
     wallpaper: 壁紙設定
     export: エクスポート
     api: API
-    webhook: Webhook通知先
     access_token:
       generate: 生成する
       regenerate: 再生成する
@@ -233,43 +231,39 @@ ja:
       title: Timesyに貢献する
       body: TimesyはOSS（オープンソース・ソフトウェア）です。皆さんの考えをどんどんプロダクトに反映させていきたいと思っていますので、ぜひお気軽にコントリビュートしてみてください。
       button: GitHubのリポジトリを見る
-  webhooks:
-    comment: "%{user}さんがコメントしました"
-    post_reaction: "%{user}さんがリアクションしました"
-    follow: "%{user}さんがあなたをフォローしました"
   datetime:
     distance_in_words:
       half_a_minute: "30秒"
       less_than_x_seconds:
-        one:   "1秒"
+        one: "1秒"
         other: "%{count}秒"
       x_seconds:
-        one:   "1秒"
+        one: "1秒"
         other: "%{count}秒"
       less_than_x_minutes:
-        one:   "1分"
+        one: "1分"
         other: "%{count}分"
       x_minutes:
-        one:   "1分"
+        one: "1分"
         other: "%{count}分"
       about_x_hours:
-        one:   "1時間"
+        one: "1時間"
         other: "%{count}時間"
       x_days:
-        one:   "1日"
+        one: "1日"
         other: "%{count}日"
       about_x_months:
-        one:   "1ヶ月"
+        one: "1ヶ月"
         other: "%{count}ヶ月"
       x_months:
-        one:   "1ヶ月"
+        one: "1ヶ月"
         other: "%{count}ヶ月"
       almost_x_years:
-        one:   "１年弱"
+        one: "１年弱"
         other: "%{count}年弱"
       about_x_years:
-        one:   "1年"
+        one: "1年"
         other: "%{count}年"
       over_x_years:
-        one:   "1年以上"
+        one: "1年以上"
         other: "%{count}年以上"
