@@ -8,12 +8,12 @@
 <%= turbo_frame_tag "timeline" do %>
 <div class="w-full mx-auto max-w-3xl p-4">
   <div id="profile-<%= @user.id %>" data-turbo-permanent>
-    <%= turbo_frame_tag "profile", src: profile_path(@user.username) %>
+    <%= render partial: "users/profile", locals: { user: @user } %>
   </div>
-  <div id="user-nav-container" class="top-0 sticky z-[50]" data-turbo-permanent>
+  <div id="user-nav-container" class="z-[50]" data-turbo-permanent>
     <div class="<%= nav_class %>">
       <div class="<%= nav_list_class %>">
-        <%= turbo_frame_tag :user_nav, src: user_nav_path(@user.username) %>
+        <%= render partial: "users/user_nav", locals: { user: @user } %>
       </div>
     </div>
   </div>

@@ -1,0 +1,56 @@
+<div class="flex p-4 space-x-3 bg-white mx-auto max-w-3xl dark:bg-dark-card">
+    <div>
+      <%= image_tag user.avatar_icon, alt: "", width: "100px", height: "100px", class: "w-10 h-10 object-cover rounded-full" %>
+    </div>
+    <div class="grow">
+      <div class="flex items-center">
+        <h1 class="font-bold text-xl">
+          <%= link_to user_path(user.username), class: "hover:underline", data: { turbo_frame: "_top" } do %>
+            <%= user.name %>
+          <% end %>
+        </h1>
+        <div class="grow"></div>
+        <%= render partial: "follows/button", locals: { user: user } %>
+      </div>
+      <div class="mb-2">
+        <div class="flex items-center mb-2 space-x-2">
+          <p class="text-gray-500 text-sm">@<%= user.username %></p>
+          <% if user.github.present? %>
+            <%= link_to "https://github.com/#{user.github}", target: "_blank", class: "text-lg" do %>
+              <div class="i-ri-github-fill"></div>
+            <% end %>
+          <% end %>
+          <% if user.twitter.present? %>
+            <%= link_to "https://twitter.com/#{user.twitter}", target: "_blank", class: "text-lg" do %>
+              <div class="i-ri-twitter-x-line"></div>
+            <% end %>
+          <% end %>
+          <% if user.website.present? %>
+            <%= link_to user.website, target: "_blank", class: "text-lg" do %>
+              <div class="i-lucide-link "></div>
+            <% end %>
+          <% end %>
+        </div>
+        <% if user.bio.present? %>
+          <p class="text-sm"><%= user.bio %></p>
+        <% end %>
+      </div>
+      <div class="mb-2">
+        <%= render partial: "shared/follows", locals: { user: user } %>
+      </div>
+      <div>
+        <a href="<%= feed_url(user.username) %>" class="inline-flex items-center text-sm space-x-1 rounded   px-3 shadow py-1 transition-all  bg-sky-500 text-white" target="_blank">
+          <div class="i-ri-rss-fill"></div>
+          <span>RSS Feed</span>
+        </a>
+        <% if current_user == user %>
+          <div class="text-xs mt-2 opacity-60"><%= I18n.t("feed.notice.one") %></div>
+          <div class="text-xs opacity-60"><%= I18n.t("feed.notice.two") %></div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="p-4 mx-auto max-w-3xl bg-white dark:bg-dark-card">
+    <h4 class="mb-2 font-bold">Activities (<%= params[:year] || Date.today.year %>)</h4>
+    <%= render partial: "shared/activities", locals: { user: user, year: params[:year] || Date.today.year } %>
+  </div>

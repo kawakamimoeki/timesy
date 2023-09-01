@@ -19,10 +19,6 @@ class UsersController < ApplicationController
   def user_nav
     @user = User.find_by(username: params[:username])
   end
-  
-  def follow_nav
-    @user = User.find_by(username: params[:username])
-  end
 
   def feed
     @user = User.find_by(username: params[:username])
@@ -140,14 +136,6 @@ class UsersController < ApplicationController
     @user = User.find_by(username: params[:username])
     all = @user.followee_users
     @followees = all.offset(20*@current_page).limit(20)
-    @next_page = @current_page + 1 if all.count > 20*@current_page + 20
-  end
-
-  def images
-    @current_page = params[:page].to_i
-    @user = User.find_by(username: params[:username])
-    all = @user.posts.latest
-    @posts = all.offset(20*@current_page).limit(20)
     @next_page = @current_page + 1 if all.count > 20*@current_page + 20
   end
 

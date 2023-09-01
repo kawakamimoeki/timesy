@@ -1,0 +1,26 @@
+<nav data-controller="nav">
+  <a
+    href="<%= user_path(user.username) %>"
+    class="<%= nav_item_class(user_path(user.username)) %> mr-5"
+    data-turbo-frame="_top"
+    data-testid="view-posts"
+    role="tab"
+    data-nav-target="item"
+    data-current="<%= user_path(user.username) %>"
+    aria-controls="posts"
+  >
+    <%= I18n.t("pages.posts") %>
+  </a>
+  <a
+    href="<%= projects_path(user.username) %>"
+    class="<%= nav_item_class(projects_path(user.username)) %> mr-5"
+    data-turbo-frame="_top"
+    role="tab"
+    data-nav-target="item"
+    data-current="<%= projects_path(user.username) %>"
+    aria-controls="projects"
+    data-testid="view-projects"
+  >
+    <%= I18n.t("users.projects", user: user.name) %>
+  </a>
+</nav>
