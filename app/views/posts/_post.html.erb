@@ -1,60 +1,63 @@
-<div id="post_<%= post.id %>" class="<%= "#{card_class} flex border-b dark:border-dark-border transition-all animate-fade-in w-full" %> data-controller="post-show" data-testid="<%= post.body %>" >
+<div id="post_<%= post.id %>" class="<%= "#{card_class} overflow-visible flex border-b dark:border-dark-border transition-all animate-fade-in w-full post-card" %>" data-controller="post-show" data-testid="<%= post.body %>" >
   <div class="w-[42px]">
     <%= link_to user_path(username: post.user.username), class: "cursor-pointer text-sm block flex items-center hover:underline flex-wrap", data: { turbo_frame: "_top" } do %>
       <%= image_tag post.user.avatar_icon, alt: "", width: "20px", height: "20px", class: "w-8 h-8 rounded-full mr-2 block" %>
     <% end %>
   </div>
-  <div class="w-[calc(100%-42px)]">
-    <div class="mb-4">
-      <div class="flex flex-col-reverse sm:flex-row mb-3 items-center space-x-1">
-        <div class="flex items-center space-x-1 flex-wrap">
-          <%= link_to user_path(username: post.user.username), class: "cursor-pointer text-sm block flex items-center hover:underline flex-wrap", data: { turbo_frame: "_top" } do %>
+  <div class="w-[calc(100%-42px)] overflow-visible z-[100]">
+    <div class="mb-4 z-[100]">
+      <div class="flex flex-row mb-3 items-center space-x-1 z-[100]">
+        <div class="flex w-[calc(100%-42px)] items-center space-x-1 whitespace-nowrap overflow-hidden overflow-ellipsis">
+          <%= link_to user_path(username: post.user.username), class: "cursor-pointer text-sm block flex items-center hover:underline", data: { turbo_frame: "_top" } do %>
             <span class="mr-1 font-bold"><%= post.user.name %></span>
             <span class="text-gray-400"><%= post.user.username_with_at %></span>
           <% end %>
           <time class="text-gray-400 text-sm"><%= time_ago_in_words(post.created_at) %></time>
         </div>
-        <div class="grow flex items-center space-x-1 w-full sm:w-auto">
+        <div class="flex items-center w-[42px] space-x-1 overflow-visible z-[100]">
           <div class="grow"></div>
-          <button class="<%= icon_button_class %>"  data-controller="copy tooltip" data-copy-copied-text-value="<%= I18n.t("clipboard.copied") %>" data-tooltip-text-value="<%= I18n.t("posts.copy-markdown") %>" data-copy-content-value="<%= post.body %>">
-            <div class="i-lucide-copy"></div>
-          </button>
-          <button class="<%= icon_button_class %>"  data-controller="copy tooltip" data-copy-copied-text-value="<%= I18n.t("clipboard.copied") %>" data-tooltip-text-value="<%= I18n.t("posts.copy-link") %>" data-copy-content-value="<%= post_url(post) %>">
-            <div class="i-lucide-link"></div>
-          </button>
-          <% if current_user %>
-            <%= turbo_frame_tag :pin_button do %>
-              <%= render partial: "shared/pin_button", locals: { post: post } %>
-            <% end %>
-          <% end %>
-          <% if current_user == post.user %>
-            <div data-controller="menu" data-post-show-target="menu" class="overflow-visible relative">
-              <button class="<%= icon_button_class %>" data-action="menu#open" >
-                <div class="i-lucide-more-horizontal"></div>
+          <div data-controller="menu" data-post-show-target="menu" class=" overflow-visible relative">
+            <button class="<%= icon_button_class %>" data-action="menu#open" >
+              <div class="i-lucide-more-horizontal"></div>
+            </button>
+            <div data-action="click->menu#close" data-menu-target="backdrop" class="<%= backdrop_class %>"></div>
+            <div class="overflow-scroll absolute top-0 right-[48px] z-[100] hidden w-48 bg-white dark:bg-dark-card shadow-sm rounded-lg border dark:border-dark-border scrollbar-none transition-all animate-down p-2" data-menu-target="dropdown">
+              <button class="<%= block_link_class %>"  data-controller="copy" data-copy-copied-text-value="<%= I18n.t("clipboard.copied") %>" data-copy-content-value="<%= post.body %>" data-action="menu#close">
+                <div class="i-lucide-copy"></div>
+                <%= I18n.t("posts.copy-markdown") %>
               </button>
-              <div data-action="click->menu#close" data-menu-target="backdrop" class="<%= backdrop_class %>"></div>
-              <div class="absolute top-10 transition-all animate-down right-0 z-[100] hidden w-full" data-menu-target="dropdown">
-                <button class="<%= icon_button_class %> shadow mb-2 border dark:border-dark-border w-full flex items-center space-x-2 bg-white dark:bg-dark-card" data-action="post-show#edit menu#close" data-post-show-target="editButton" >
+              <button class="<%= block_link_class %>"  data-controller="copy" data-copy-copied-text-value="<%= I18n.t("clipboard.copied") %>" data-copy-content-value="<%= post_url(post) %>" data-action="menu#close">
+                <div class="i-lucide-link"></div>
+                <%= I18n.t("posts.copy-link") %>
+              </button>
+              <% if current_user %>
+                <%= turbo_frame_tag :pin_button do %>
+                  <%= render partial: "shared/pin_button", locals: { post: post } %>
+                <% end %>
+              <% end %>
+              <% if current_user == post.user %>
+                <button class="<%= block_link_class %>" data-action="menu#close" data-post-show-target="editButton" >
                   <div class="i-lucide-pen"></div>
+                  <%= I18n.t("posts.edit") %>
                 </button>
                 <div class="mt-[1px]">
                   <%= button_to(
                     delete_post_url(id: post.id),
                     method: :delete,
-                    class: "#{icon_button_class} shadow w-full flex items-center space-x-2 border dark:border-dark-border bg-white dark:bg-dark-card",
+                    class: "#{block_link_class}",
                     onClick: "return confirm('#{I18n.t('posts.confirm_delete')}')",
                     data: { turbo: false, post_show_target: "deleteButton", action: "menu#close" },
-                    
                   ) do %>
                     <div class="i-lucide-trash"></div>
+                    <%= I18n.t("posts.delete") %>
                   <% end %>
                 </div>
-              </div>
+              <% end %>
             </div>
-            <button class="hidden <%= icon_button_class %>" data-action="post-show#close" data-post-show-target="closeButton">
-              <div class="i-lucide-x"></div>
-            </button>
-          <% end %>
+          </div>
+          <button class="hidden <%= icon_button_class %>" data-action="post-show#close" data-post-show-target="closeButton">
+            <div class="i-lucide-x"></div>
+          </button>
         </div>
       </div>
       <div data-post-show-target="show" data-controller="image-modal twitter" class="markdown-body">

@@ -16,9 +16,6 @@
         </div>
         <div class="grow flex items-center space-x-1 w-full sm:w-auto">
           <div class="grow"></div>
-          <button class="<%= icon_button_class %>"  data-controller="copy tooltip" data-copy-copied-text-value="<%= I18n.t("clipboard.copied") %>" data-tooltip-text-value="<%= I18n.t("posts.copy-markdown") %>" data-copy-content-value="<%= comment.body %>">
-            <div class="i-lucide-copy"></div>
-          </button>
           <div class="flex items-center space-x-1">
             <% if comment.user == current_user %>
               <div data-controller="menu" data-post-show-target="menu" class="overflow-visible relative">
@@ -26,19 +23,25 @@
                   <div class="i-lucide-more-horizontal"></div>
                 </button>
                 <div data-action="click->menu#close" data-menu-target="backdrop" class="<%= backdrop_class %>"></div>
-                <div class="absolute top-10 transition-all animate-down right-0 z-[100] hidden w-full" data-menu-target="dropdown">
-                  <button class="<%= icon_button_class %> shadow mb-2 border dark:border-dark-border w-full flex items-center space-x-2 bg-white dark:bg-dark-card" data-action="post-show#edit menu#close" data-post-show-target="editButton" >
+                <div class="overflow-scroll absolute top-0 right-[48px] z-[100] hidden w-48 bg-white dark:bg-dark-card shadow-sm rounded-lg border dark:border-dark-border scrollbar-none transition-all animate-down p-2" data-menu-target="dropdown">
+                  <button class="<%= block_link_class %>"  data-controller="copy" data-copy-copied-text-value="<%= I18n.t("clipboard.copied") %>" data-copy-content-value="<%= comment.body %>" data-action="menu#close">
+                    <div class="i-lucide-copy"></div>
+                    <%= I18n.t("posts.copy-markdown") %>
+                  </button>
+                  <button class="<%= block_link_class %>" data-action="post-show#edit menu#close" data-post-show-target="editButton" >
                     <div class="i-lucide-pen"></div>
+                    <%= I18n.t("posts.edit") %>
                   </button>
                   <div class="mt-[1px]">
                     <%= button_to(
                       delete_comment_url(post_id: comment.post.id, id: comment.id),
                       method: :delete,
-                      class: "#{icon_button_class} shadow w-full flex items-center space-x-2 border dark:border-dark-border bg-white dark:bg-dark-card",
+                      class: "#{block_link_class}",
                       data: { turbo_frame: "posts", post_show_target: "deleteButton", action: "menu#close" },
                       
                     ) do %>
                       <div class="i-lucide-trash"></div>
+                       <%= I18n.t("posts.delete") %>
                     <% end %>
                   </div>
                 </div>

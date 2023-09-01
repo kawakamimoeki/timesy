@@ -59,7 +59,7 @@ module ApplicationHelper
   end
 
   def block_link_class
-    "py-1 px-2 block hover:bg-gray-50 rounded-lg dark:hover:bg-gray-700 transition-all dark:text-gray-200 flex items-center space-x-1 font-bold text-gray-700 hover:shadow-sm transition-all"
+    "py-1 w-full px-2 flex items-center text-sm gap-1 hover:bg-gray-50 rounded-lg dark:hover:bg-gray-700 transition-all dark:text-gray-200 font-bold text-gray-700 hover:shadow-sm transition-all"
   end
 
   def icon_button_class
