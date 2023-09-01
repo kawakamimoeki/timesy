@@ -54,7 +54,7 @@ class CheersController < ApplicationController
     @cheer = Cheer.find(params[:id])
   end
 
-  def count
+  def button
     @post = Post.find(params[:post_id])
     @count = @post.cheers.count
   end

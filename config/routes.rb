@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   patch 'posts/:post_id/cheers/:id', to: 'cheers#update', as: :update_cheer
   get 'posts/:post_id/cheers/:id/editor', to: 'cheers#editor', as: :cheer_editor
   get 'posts/:post_id/cheers/form', to: 'cheers#form', as: :cheer_form
-  get 'posts/:post_id/cheers/count', to: 'cheers#count', as: :cheers_count
+  get 'posts/:post_id/cheers/button', to: 'cheers#button', as: :cheers_button
 
   post '/posts/:post_id/pins', to: 'pins#create', as: :create_pin
   delete '/posts/:post_id/pins/:id', to: 'pins#destroy', as: :delete_pin
