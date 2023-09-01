@@ -123,7 +123,7 @@ body.dark .markdown-body table tr {
 .markdown-body pre code {
   display: block !important;
   padding: 16px !important;
-  border-radius: 0.5rem !important;
+  border-radius: 4px !important;
   box-shadow: 0px 1px 2px 1px rgba(0, 0, 0, 0.1);
   overflow: scroll !important;
   width: 100%;
