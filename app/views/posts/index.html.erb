@@ -10,7 +10,6 @@
       <div id="post-form-container" data-turbo-permanent>
         <%= turbo_frame_tag "post_form", src: post_form_path %>
       </div>
-      <%= turbo_stream_from "posts" %>
       <%= turbo_frame_tag "posts", target: "_top" do %>
       <% end %>
 

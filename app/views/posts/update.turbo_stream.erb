@@ -1,7 +1,3 @@
 <%= turbo_stream.replace :post do %>
-  <%= turbo_frame_tag :post do %>
-    <div data-post-show-target="show" data-controller="image-modal" class="markdown-body">
-      <%= @post.html.html_safe %>
-    </div>
-  <% end %>
+  <%= @post.html.html_safe %>
 <% end %>
