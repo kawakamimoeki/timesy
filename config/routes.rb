@@ -51,10 +51,8 @@ Rails.application.routes.draw do
   post '/posts/:post_id/comments', to: 'comments#create', as: :create_comment
   delete '/posts/:post_id/comments/:id', to: 'comments#destroy', as: :delete_comment
   patch '/posts/:post_id/comments/:id', to: 'comments#update', as: :update_comment
-  get '/posts/:post_id/comments/:id/comment_editor', to: 'comments#comment_editor', as: :comment_editor
   get '/posts/:post_id/comments/form', to: 'comments#form', as: :comment_form
 
-  get '/posts/:post_id/comments/:comment_id/reactions', to: 'comment_reactions#index', as: :comment_reactions
   post '/posts/:post_id/comments/:comment_id/reactions', to: 'comment_reactions#create', as: :create_comment_reaction
   delete '/posts/:post_id/comments/:comment_id/reactions/:id', to: 'comment_reactions#destroy', as: :delete_comment_reaction
 

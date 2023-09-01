@@ -1,3 +1,7 @@
 <%= turbo_stream.replace "form" do %>
   <%= render partial: "comments/form", locals: { comment: @comment, post: @post } %>
 <% end %>
+
+<%= turbo_stream.append "comments" do %>
+ <%= render @comment %>
+<% end %>
