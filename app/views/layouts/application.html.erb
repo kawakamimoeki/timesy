@@ -2,7 +2,7 @@
 <html lang="ja">
   <%= render partial: "layouts/head" %>
 
-  <body class="bg-background bg-cover bg-fixed dark:bg-dark-background">
+  <body class="bg-white bg-cover bg-fixed dark:bg-dark-card">
     <script>
       document.querySelector('body').style.backgroundImage = `url(${localStorage.wallpaper})`
       if (localStorage.theme === 'dark') {
@@ -14,7 +14,7 @@
     <div id="wallpaper-container" data-turbo-permanent>
       <%= turbo_frame_tag "wallpaper", src: users_wallpaper_path %>
     </div>
-    <header class="w-full shadow-sm  bg-white dark:bg-dark-background dark:text-gray-200 z-0 ">
+    <header id="header" data-turbo-permanent class="w-full top-0 bg-opacity-60 backdrop-blur dark:bg-opacity-60 fixed bg-white dark:bg-dark-background dark:text-gray-200 z-10">
       <div class="flex max-w-3xl mx-auto px-4 items-center py-2 text-sm">
         <%= link_to "/", class: "block mr-3", data: { turbo_frame: "_top" } do %>
           <span class="dark:hidden">
@@ -31,7 +31,7 @@
       <div>
     </header>
 
-    <main class="w-full ">
+    <main class="w-full mt-[56px]">
       <%= yield %>
     </main>
 

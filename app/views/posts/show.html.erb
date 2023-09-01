@@ -12,12 +12,17 @@
 <div id="thread-container" class="grow overflow-visible max-w-3xl flex w-full mx-auto pt-4 px-4 mb-32">
   <div class="grow w-full">
     <%= turbo_frame_tag "post_main", src: post_main_path(@post) do %>
-      <%= render partial: "shared/loading" %>
     <% end %>
     
     <%= turbo_stream_from "comments-of-#{@post.id}" %>
     <div data-controller="thread-scroll">
       <%= turbo_frame_tag "comments", target: "_top" do %>
+      <% end %>
+
+      <%= turbo_frame_tag "first_loading" do %>
+        <div class="fixed top-1/2 left-1/2 -translate-x-1/2 text-4xl text-gray-500 -translate-y-1/2">
+          <div class="i-svg-spinners-bars-rotate-fade"></div>
+        </div>
       <% end %>
 
       <%= turbo_frame_tag "load_more", src: comments_path(@post, format: :turbo_stream)  %>

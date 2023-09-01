@@ -24,6 +24,6 @@
 
 <%= turbo_stream.replace "load_more" do %>
   <div class="h-1">
-    <%= turbo_frame_tag "load_more", src: root_path(page: @next_page, format: :turbo_stream), loading: :lazy %>
+    <%= turbo_frame_tag "load_more", src: latest_path(page: @next_page, format: :turbo_stream), loading: :lazy %>
   </div>
 <% end %>

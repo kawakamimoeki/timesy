@@ -48,9 +48,15 @@
     <div class="text-sm h-full w-full p-4 dark:border-dark-border">
       <ul class="flex flex-col space-y-1">
         <li>
-        <%= link_to I18n.t("pages.timeline"), root_path, class: "#{request.path === root_path ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "_top" } %>
+        <%= link_to I18n.t("pages.timeline"), root_path, class: block_link_class, data: { turbo_frame: "_top" } %>
         </li>
         <% if current_user %>
+        <li>
+          <%= link_to I18n.t("pages.latest"), latest_path, class: block_link_class, data: { turbo_frame: "_top" } %>
+        </li>
+        <li>
+          <%= link_to I18n.t("pages.pinned"), pinned_path, class: block_link_class, data: { turbo_frame: "_top" } %>
+        </li>
         <li>
           <%= link_to I18n.t("pages.your_profile"), user_path(current_user.username), class: "#{request.path === user_path(current_user.username) ? "font-bold" : ""} #{block_link_class}", data: { turbo_frame: "_top" } %>
         </li>

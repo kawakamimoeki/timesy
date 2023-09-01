@@ -26,7 +26,7 @@ ja:
     comments: "%{user}のコメント"
     projects: "%{user}のプロジェクト"
     images: "%{user}の画像"
-    latest: 最新
+    latest: 全体タイムライン
     your_profile: プロフィール
     settings: 設定
     docs: ドキュメント

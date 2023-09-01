@@ -91,7 +91,7 @@ body.dark .markdown-body blockquote {
 }
 
 body.dark .markdown-body {
-  background-color: rgb(30 39 50) !important;
+  background-color: rgb(21, 32, 43) !important;
   color: #ddd !important;
 }
 
@@ -105,7 +105,7 @@ body.dark .markdown-body table td {
 }
 
 body.dark .markdown-body table tr {
-  background-color: rgb(30 39 50);
+  background-color: rgb(21, 32, 43);
 }
 
 .markdown-body p > img:not(.not-inline) {

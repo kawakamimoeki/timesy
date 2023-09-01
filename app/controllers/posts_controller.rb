@@ -68,7 +68,6 @@ class PostsController < ApplicationController
         .limit(page_limit)
     end
     @next_page = @current_page + 1 if Post.all.count > page_limit*@current_page + page_limit
-    render :index
   end
 
   def pinned

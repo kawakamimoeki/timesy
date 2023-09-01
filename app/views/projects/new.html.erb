@@ -7,7 +7,7 @@
 
 <%= turbo_frame_tag :timeline do %>
 <div class="max-w-3xl mx-auto w-full mt-4 px-4">
-  <div class="bg-background dark:bg-dark-background p-4">
+  <div class="bg-white dark:bg-dark-card p-4">
     <%= render partial: 'projects/form', locals: { project: @project, path: create_project_path, submit_label: I18n.t("form.submit.create"), method: :post } %>
   </div>
 </div>

@@ -1,10 +1,10 @@
 body.dark .CodeMirror {
-  background-color: rgb(30, 39, 50) !important;
+  background-color: rgb(21, 32, 43) !important;
   color: #eee !important;
 }
 
 body.dark .CodeMirror-cursor {
-  border-color:#fff !important;
+  border-color: #fff !important;
 }
 
 .EasyMDEContainer {
@@ -17,7 +17,7 @@ body.dark .CodeMirror-cursor {
   border-bottom-right-radius: 0 !important;
 }
 
-.dark .CodeMirror-selected  {
+.dark .CodeMirror-selected {
   background: #666 !important;
 }
 
@@ -31,13 +31,18 @@ body.dark .CodeMirror-cursor {
   border-radius: 0;
 }
 
-.cm-formatting-header, .cm-header {
+.cm-formatting-header,
+.cm-header {
   font-size: 1rem !important;
 }
 
 @keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 0.5; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.5;
+  }
 }
 
 .editor-toolbar {

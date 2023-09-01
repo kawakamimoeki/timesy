@@ -1,3 +1,6 @@
 <%= turbo_stream.append "comments" do %>
   <%= render partial: "comments/comment", collection: @comments, locals: { additional_class: "border-b" } %>
 <% end %>
+
+<%= turbo_stream.replace "first_loading" do %>
+<% end %>

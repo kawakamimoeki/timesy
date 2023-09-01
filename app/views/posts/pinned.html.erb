@@ -1,21 +1,16 @@
-<div class="flex w-full grow relative ">
-  <div class="grow w-full" id="main">
+<div class="flex grow relative ">
+  <div class="grow w-full pt-4" id="main">
     <%= turbo_frame_tag "timeline" do %>
-    <div id="nav-container" class="top-0 sticky z-[50]" data-turbo-permanent>
-      <div class="<%= nav_class %>">
-        <%= turbo_frame_tag "timeline_nav_for_current_user", src: users_timeline_nav_path(current: request.path), class: nav_list_class %>
-      </div>
-    </div>
     <div class="max-w-3xl mx-auto px-4">
       <%= turbo_frame_tag "pinned", target: "_top" do %>
       <% end %>
 
-      <div class="h-1">
-        <%= turbo_frame_tag "pinned_load_more", src: pinned_path(format: :turbo_stream), loading: :lazy  %>
-        <%= turbo_frame_tag "pinned_loading" do %>
-          <%= render partial: "shared/loading" %>
-        <% end %>
-      </div>
+      <%= turbo_frame_tag "first_loading" do %>
+        <div class="fixed top-1/2 left-1/2 -translate-x-1/2 text-4xl text-gray-500 -translate-y-1/2">
+          <div class="i-svg-spinners-bars-rotate-fade"></div>
+        </div>
+      <% end %>
+      <%= turbo_frame_tag "load_more", src: pinned_path(format: :turbo_stream)  %>
     </div>
     <% end %>
   </div>

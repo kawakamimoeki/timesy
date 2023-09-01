@@ -20,7 +20,6 @@ Rails.application.routes.draw do
   root 'posts#index'
   get "/latest", to: "posts#latest", as: :latest
   get "/pinned", to: "posts#pinned", as: :pinned
-  get "/trending", to: "posts#trending", as: :trending
   get "posts/form", to: "posts#form", as: :post_form
   get "posts/:id", to: "posts#show", as: :post
   post "posts", to: "posts#create", as: :create_post
@@ -81,7 +80,6 @@ Rails.application.routes.draw do
   get '/:username/projects', to: 'projects#index', as: :projects
   get '/:username/projects/list', to: 'projects#list', as: :projects_list
   get '/:username/projects/:codename', to: 'projects#show', as: :project
-  get '/:username/comments', to: 'users#comments', as: :user_comments
   get 'projects/new', to: 'projects#new', as: :new_project
   post 'projects', to: 'projects#create', as: :create_project
   get '/:username/projects/:codename/edit', to: 'projects#edit', as: :edit_project

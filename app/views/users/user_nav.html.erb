@@ -13,18 +13,6 @@
     <%= I18n.t("pages.posts") %>
   </a>
   <a
-    href="<%= user_comments_path(@user.username) %>"
-    class="<%=  nav_item_class(user_comments_path(@user.username)) %> mr-5"
-    data-turbo-frame="_top"
-    data-testid="view-comments"
-    role="tab"
-    data-nav-target="item"
-    data-current="<%= user_comments_path(@user.username) %>"
-    aria-controls="comments"
-  >
-      <%= I18n.t("users.comments", user: @user.name) %>
-  </a>
-  <a
     href="<%= projects_path(@user.username) %>"
     class="<%= nav_item_class(projects_path(@user.username)) %> mr-5"
     data-turbo-frame="_top"

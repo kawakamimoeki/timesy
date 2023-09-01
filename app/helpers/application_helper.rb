@@ -55,7 +55,7 @@ module ApplicationHelper
   end
 
   def card_class
-    "relative bg-white p-4 dark:text-gray-200 dark:bg-dark-card dark:border dark:border-dark-border dark:text-gray-200"
+    "relative bg-white p-4 dark:text-gray-200 dark:bg-dark-card dark:border-dark-border dark:text-gray-200"
   end
 
   def block_link_class

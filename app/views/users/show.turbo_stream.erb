@@ -1,7 +1,12 @@
 <%= turbo_stream.append "users_posts" do %>
-  <div data-testid="post-list">
-    <%= render partial: "posts/post", collection: @posts, locals: { additional_class: "mb-4", on_timeline: true } %>
-  </div>
+  <% if @posts.present? %>
+    <div data-testid="post-list">
+      <%= render partial: "posts/post", collection: @posts, locals: { additional_class: "mb-4", on_timeline: true } %>
+    </div>
+  <% else %>
+    <%= turbo_stream.replace "users_loading" do %>
+    <% end %>
+  <% end %>
 <% end %>
 
 <% if @next_page.present? && !params[:limit].present? %>

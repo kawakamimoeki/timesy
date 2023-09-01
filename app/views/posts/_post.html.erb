@@ -1,4 +1,4 @@
-<div id="post_<%= post.id %>" class="<%= "#{card_class} #{request.path.match?("posts") ? "border-b" : 'mb-4'}" %> transition-all animate-fade-in" data-controller="post-show" data-testid="<%= post.body %>" >
+<div id="post_<%= post.id %>" class="<%= "#{card_class} border-b dark:border-dark-border transition-all animate-fade-in" %> data-controller="post-show" data-testid="<%= post.body %>" >
   <div class="mb-4">
     <div class="flex flex-col-reverse sm:flex-row mb-3 items-start space-x-1">
       <div class="flex items-center space-x-1 flex-wrap">
