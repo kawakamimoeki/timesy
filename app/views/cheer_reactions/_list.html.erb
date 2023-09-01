@@ -1,3 +1,5 @@
+<%= turbo_frame_tag "cheer_reactions" do %>
+<div class="flex items-center flex-wrap">
 <% cheer.cheer_reactions.pluck(:body).uniq.each do |body| %>
   <% reactions = cheer.cheer_reactions.where(body: body) %>
   <% if current_user %>
@@ -44,4 +46,6 @@
       <div class="i-lucide-smile-plus"></div>
     </button>
   <% end %>
+<% end %>
+</div>
 <% end %>
