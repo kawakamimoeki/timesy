@@ -44,7 +44,6 @@ class CommentsController < ApplicationController
     end
 
     @comment.destroy!
-    @comment.broadcast_remove_to("comment")
     @post.broadcast_remove_to("posts")
     @post.broadcast_prepend_to("posts")
     @comment.broadcast_remove_to("comments-of-#{params[:post_id]}")
