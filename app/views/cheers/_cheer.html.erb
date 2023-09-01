@@ -1,5 +1,5 @@
 <div id="cheer_<%= cheer.id %>" class="bg-white dark:bg-dark-card border-b dark:border-dark-border p-2 group thread" data-controller="post-show">
-  <div class="flex h-[20px] space-x-1 text-sm items-center mb-21>
+  <div class="flex h-[20px] space-x-1 text-sm items-center mb-2">
     <%= render partial: "shared/mini_avatar", locals: { user: cheer.user } %>
     <time class="text-gray-400"><%= time_ago_in_words(cheer.created_at) %></time>
     <div class="grow"></div>
@@ -25,7 +25,6 @@
             <% end %>
           </div>
         </div>
-      </div>
         <button class="hidden <%= icon_button_class %>" data-action="post-show#close" data-post-show-target="closeButton" >
           <div class="i-lucide-x"></div>
         </button>
