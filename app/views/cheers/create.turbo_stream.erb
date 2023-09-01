@@ -1,0 +1,7 @@
+<%= turbo_stream.replace "form" do %>
+  <%= render partial: "cheers/form", locals: { post: @post, cheer: @cheer } %>
+<% end %>
+
+<%= turbo_stream.append "cheers" do %>
+ <%= render @cheer %>
+<% end %>

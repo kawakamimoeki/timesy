@@ -16,7 +16,6 @@ class PostReactionsController < ApplicationController
     reaction = @post.post_reactions.find(params[:id])
     reaction.destroy
     @post_reaction = PostReaction.new
-    @post.broadcast_replace_to("posts")
   end
 
   def index

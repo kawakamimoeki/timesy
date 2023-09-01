@@ -1,4 +1,3 @@
-<div>
-  <h1 class="font-bold text-4xl">Cheers#update</h1>
-  <p>Find me in app/views/cheers/update.html.erb</p>
-</div>
+<%= turbo_stream.replace :cheer do %>
+  <%= @cheer.html.html_safe %>
+<% end %>

@@ -17,9 +17,6 @@ class CheersController < ApplicationController
     @post = Post.find(params[:post_id])
     @cheer = Cheer.create!(cheer_params.merge(user: current_user, post: @post))
     @cheer.images.attach(cheer_params[:images]) if cheer_params[:images].present?
-    @post.broadcast_remove_to("posts")
-    @post.broadcast_prepend_to("posts")
-    @cheer.broadcast_append_to("cheers-of-#{params[:post_id]}")
 
     if @post.user != current_user
       @notification = Notification.create(user: @post.user, subjectable: @cheer)
@@ -37,8 +34,6 @@ class CheersController < ApplicationController
     end
 
     @cheer.destroy!
-    @post.broadcast_remove_to("posts")
-    @post.broadcast_prepend_to("posts")
     @cheer.broadcast_remove_to("cheers-of-#{params[:post_id]}")
   end
 
@@ -53,9 +48,6 @@ class CheersController < ApplicationController
 
     @cheer.update!(cheer_params)
     @cheer.images.attach(cheer_params[:images]) if cheer_params[:images].present?
-    @post.broadcast_remove_to("posts")
-    @post.broadcast_prepend_to("posts")
-    @cheer.broadcast_replace_to("cheers-of-#{params[:post_id]}")
   end
 
   def editor

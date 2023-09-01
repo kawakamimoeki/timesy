@@ -9,10 +9,7 @@
   </button>
   <div class="grow w-full hidden overflow-scroll h-[calc(100%-64px)]" data-cheers-target="container">
     <div class="overflow-hidden">
-      <%= turbo_stream_from "cheers-of-#{@post.id}" %>
-      <div data-controller="thread-scroll">
-        <%= turbo_frame_tag "cheers", target: "_top" do %>
-      </div>
+      <%= turbo_frame_tag "cheers", target: "_top" do %>
       <% end %>
 
       <%= turbo_frame_tag "load_more", src: cheers_path(@post, format: :turbo_stream), loading: :lazy  %>
