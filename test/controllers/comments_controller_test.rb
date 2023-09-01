@@ -49,7 +49,7 @@ class CommentsControllerTest < ActionDispatch::IntegrationTest
 
   test "should destroy" do
     ApplicationController.stub_any_instance :current_user, users(:current) do
-      delete "/posts/#{posts(:my_post).id}/comments/#{comments(:to_my_post).id}"
+      delete "/posts/#{posts(:my_post).id}/comments/#{comments(:to_my_post).id}.turbo_straem"
       assert_response :success
     end
   end

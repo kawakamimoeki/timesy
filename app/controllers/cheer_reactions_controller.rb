@@ -17,7 +17,6 @@ class CheerReactionsController < ApplicationController
     reaction = @cheer.cheer_reactions.find(params[:id])
     reaction.destroy
     @cheer_reaction = CheerReaction.new
-    @cheer.broadcast_replace_to("cheers-of-#{params[:post_id]}")
   end
 
   def index

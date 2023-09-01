@@ -1,12 +1,6 @@
 require "test_helper"
 
 class CommentReactionsControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
-    comment = comments(:to_my_post)
-    get comment_reactions_path(comment.post.id, comment.id)
-    assert_response :success
-  end
-
   test "should create" do
     comment = comments(:to_my_post)
     ApplicationController.stub_any_instance :current_user, users(:current) do

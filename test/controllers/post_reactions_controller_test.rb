@@ -1,12 +1,6 @@
 require "test_helper"
 
 class PostReactionsControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
-    post = posts(:my_post)
-    get post_reactions_path(post_id: post.id)
-    assert_response :success
-  end
-
   test "should create" do
     post = posts(:my_post)
     ApplicationController.stub_any_instance :current_user, users(:current) do

@@ -48,16 +48,6 @@ module Api
         render json: { posts: "hoge" }
       end
 
-      def search
-        if params[:q].nil?
-          posts = []
-        else
-          posts = Post.search(params[:q])
-        end
-
-        render json: { posts: PostSerializer.render_as_hash(posts) }
-      end
-
       def show
         post = Post.includes(comments: :user, cheers: :user).find_by(id: params[:id])
         if post.nil?
@@ -82,7 +72,6 @@ module Api
         post.user = current_user
         post.attach_projects!
         post.save
-        post.broadcast_prepend_to("posts")
         CreateProjectJob.perform_later(post)
         render json: { post: PostSerializer.render_as_hash(post) }
       end
@@ -95,7 +84,6 @@ module Api
         end
         post.update(post_params)
         post.attach_projects!
-        post.broadcast_replace_to("posts")
         CreateProjectJob.perform_later(post)
         render json: { post: PostSerializer.render_as_hash(post) }
       end
@@ -107,7 +95,6 @@ module Api
           return
         end
         post.destroy
-        post.broadcast_remove_to("posts")
         render json: {}, status: 204
       end
 

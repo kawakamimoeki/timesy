@@ -15,9 +15,6 @@ module Api
         @comment.post = @post
         @comment.user = current_user
         @comment.save
-        @post.broadcast_remove_to("posts")
-        @post.broadcast_prepend_to("posts")
-        @comment.broadcast_append_to("comments")
         render json: { comment: CommentSerializer.render_as_hash(@comment) }
       end
 
@@ -29,9 +26,6 @@ module Api
           return
         end
         @comment.update(comment_params)
-        @post.broadcast_remove_to("posts")
-        @post.broadcast_prepend_to("posts")
-        @comment.broadcast_replace_to("comments")
         render json: { comment: CommentSerializer.render_as_hash(@comment) }
       end
 
@@ -43,9 +37,6 @@ module Api
           return
         end
         @comment.destroy
-        @post.broadcast_remove_to("posts")
-        @post.broadcast_prepend_to("posts")
-        @comment.broadcast_remove_to("comments")
         render json: {}, status: 204
       end
 

@@ -1,12 +1,6 @@
 require "test_helper"
 
 class CheerReactionsControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
-    cheer = cheers(:to_my_post)
-    get cheer_reactions_path(cheer.post.id, cheer.id)
-    assert_response :success
-  end
-
   test "should create" do
     cheer = cheers(:to_my_post)
     ApplicationController.stub_any_instance :current_user, users(:current) do

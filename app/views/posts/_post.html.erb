@@ -143,7 +143,7 @@
         <% end %>
       </div>
     </div>
-    <% if request.path.exclude? "posts" %>
+    <% if on_timeline %>
       <%= link_to post_path(post.id), class: icon_button_class do %>
         <div class="i-lucide-arrow-right"></div>
       <% end %>

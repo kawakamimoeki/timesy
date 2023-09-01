@@ -133,11 +133,6 @@ class Api::V1::PostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :unauthorized
   end
 
-  test "guest should search" do
-    get api_v1_posts_search_url, params: { q: "test" }
-    assert_response :success
-  end
-
   test "should get post" do
     get api_v1_post_url(posts(:my_post))
     assert_response :success

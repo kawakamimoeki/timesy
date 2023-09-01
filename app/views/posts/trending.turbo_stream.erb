@@ -1,6 +1,6 @@
 <%= turbo_stream.append "trending" do %>
   <% if @posts.present? %>
-   <%= render partial: "posts/post", collection: @posts, locals: { additional_class: "mb-4" } %>
+   <%= render partial: "posts/post", collection: @posts, locals: { additional_class: "mb-4", on_timeline: true } %>
   <% end %>
 <% end %>
 

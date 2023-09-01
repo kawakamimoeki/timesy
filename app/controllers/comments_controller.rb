@@ -32,7 +32,6 @@ class CommentsController < ApplicationController
     end
 
     @comment.destroy!
-    @comment.broadcast_remove_to("comments-of-#{params[:post_id]}")
   end
 
   def update

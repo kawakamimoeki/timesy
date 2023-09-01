@@ -3,5 +3,5 @@
 <% end %>
 
 <%= turbo_stream.prepend "posts" do %>
- <%= render @post %>
+ <%= render partial: "posts/post", locals: { post: @post, on_timeline: true } %>
 <% end %>

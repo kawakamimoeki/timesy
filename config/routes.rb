@@ -21,7 +21,6 @@ Rails.application.routes.draw do
   get "/latest", to: "posts#latest", as: :latest
   get "/pinned", to: "posts#pinned", as: :pinned
   get "/trending", to: "posts#trending", as: :trending
-  get "/search", to: "search#index", as: :search
   get "posts/form", to: "posts#form", as: :post_form
   get "posts/:id", to: "posts#show", as: :post
   post "posts", to: "posts#create", as: :create_post

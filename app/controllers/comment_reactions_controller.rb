@@ -17,7 +17,6 @@ class CommentReactionsController < ApplicationController
     reaction = @comment.comment_reactions.find(params[:id])
     reaction.destroy
     @comment_reaction = CommentReaction.new
-    @comment.broadcast_replace_to("comments-of-#{params[:post_id]}")
   end
 
   def index

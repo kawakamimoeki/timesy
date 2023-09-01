@@ -1,6 +1,6 @@
 <%= turbo_stream.append "users_posts" do %>
   <div data-testid="post-list">
-    <%= render partial: "posts/post", collection: @posts, locals: { additional_class: "mb-4" } %>
+    <%= render partial: "posts/post", collection: @posts, locals: { additional_class: "mb-4", on_timeline: true } %>
   </div>
 <% end %>
 
