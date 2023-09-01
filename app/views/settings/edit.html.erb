@@ -6,7 +6,7 @@
 ) %>
 
 <%= turbo_frame_tag "timeline" do %>
-<div class="max-w-3xl w-full mx-auto px-4">
+<div class="max-w-3xl w-full mx-auto px-4 py-4">
   <%= render partial: "users/settings", locals: { user: @user } %>
 </div>
 <% end %>
