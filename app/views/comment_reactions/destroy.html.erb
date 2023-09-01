@@ -1,3 +1,3 @@
-<%= turbo_frame_tag "comment_reactions_list-#{@comment.id}" do %>
+<%= turbo_frame_tag "comment_reactions" do %>
   <%= render partial: 'comment_reactions/list', locals: { comment: @comment } %>
 <% end %>

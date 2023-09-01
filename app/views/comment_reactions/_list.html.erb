@@ -1,3 +1,5 @@
+<%= turbo_frame_tag :comment_reactions do %>
+<div class="flex items-center flex-wrap">
 <% comment.comment_reactions.pluck(:body).uniq.each do |body| %>
   <% reactions = comment.comment_reactions.where(body: body) %>
   <% if current_user %>
@@ -44,4 +46,6 @@
       <div class="i-lucide-smile-plus"></div>
     </button>
   <% end %>
+<% end %>
+</div>
 <% end %>
