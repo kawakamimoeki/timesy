@@ -1,7 +1,7 @@
 <div class="flex grow relative ">
   <div class="grow w-full pt-4" id="main">
     <%= turbo_frame_tag "timeline" do %>
-    <div class="max-w-3xl mx-auto px-4">
+    <div class="max-w-3xl mx-auto">
       <div id="post-form-container" data-turbo-permanent>
         <%= turbo_frame_tag "post_form", src: post_form_path %>
       </div>

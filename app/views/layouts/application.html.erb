@@ -16,13 +16,8 @@
     </div>
     <header id="header" data-turbo-permanent class="w-full top-0 bg-opacity-60 backdrop-blur dark:bg-opacity-60 fixed bg-white dark:bg-dark-background dark:text-gray-200 z-10">
       <div class="flex max-w-3xl mx-auto px-4 items-center py-2 text-sm">
-        <%= link_to "/", class: "block mr-3", data: { turbo_frame: "_top" } do %>
-          <span class="dark:hidden">
-            <%= image_tag "/logo.png", alt: Site.title, width: "70px", height: "20px" %>
-          </span>
-          <span class="hidden dark:block">
-            <%= image_tag "/logo-dark.png", alt: Site.title, width: "70px", height: "20px" %>
-          </span>
+        <%= link_to "/", class: "block mr-3 font-bold", data: { turbo_frame: "_top" } do %>
+          timesy.dev
         <% end %>
         <div class="grow"></div>
         <div class="h-[40px] z-[100]" id="header-nav-conteiner" data-turbo-permanent>

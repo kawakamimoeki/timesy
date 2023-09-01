@@ -8,7 +8,7 @@ class Site
   end
 
   def self.title
-    "Timesy"
+    "timesy.dev"
   end
 
   def self.description
@@ -20,6 +20,6 @@ class Site
   end
 
   def self.sender_email
-    ENV.fetch("SITE_SENDER_EMAIL", "Timesy <noreply@timesy.dev>")
+    ENV.fetch("SITE_SENDER_EMAIL", "timesy.dev <noreply@timesy.dev>")
   end
 end
