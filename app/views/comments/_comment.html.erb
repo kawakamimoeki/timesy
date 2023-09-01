@@ -36,7 +36,7 @@
                     <%= button_to(
                       delete_comment_url(post_id: comment.post.id, id: comment.id),
                       method: :delete,
-                      class: "#{block_link_class}",
+                      class: "#{block_link_class} text-red-400 dark:text-red-400",
                       data: { turbo_frame: "posts", post_show_target: "deleteButton", action: "menu#close" },
                       
                     ) do %>

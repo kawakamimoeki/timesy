@@ -17,7 +17,7 @@
             <%= button_to(
               delete_cheer_url(post_id: cheer.post.id, id: cheer.id),
               method: :delete,
-              class: "#{icon_button_class} shadow w-full flex items-center space-x-2 border dark:border-dark-border bg-white dark:bg-dark-card",
+              class: "#{icon_button_class} text-red-400 dark:text-red-400 shadow w-full flex items-center space-x-2 border dark:border-dark-border bg-white dark:bg-dark-card",
               data: { turbo_frame: "cheers", turbo_confirm: I18n.t("cheers.confirm_delete"), post_show_target: "deleteButton", action: "menu#close" },
               
             ) do %>
