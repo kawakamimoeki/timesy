@@ -17,11 +17,12 @@
       </div>
     <% end %>
   <% else %>
-    <div class="<%= card_class %> font-bold text-center">
-      <div class="card-body">
+    <div class="<%= card_class %> text-center">
+      <div class="card-body mb-4">
         <p class="card-text">
           <%= I18n.t("following.empty") %>
       </div>
+      <a class="text-blue-500 underline" href="/latest"><%= I18n.t("pages.latest") %></a>
     </div>
     <%= turbo_stream.replace "load_more" do %>
     <% end %>
