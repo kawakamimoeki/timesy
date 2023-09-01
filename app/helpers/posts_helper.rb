@@ -1,5 +1,5 @@
 module PostsHelper
   def ogp_image(post)
-    "https://www.timesy.dev/icon.png"
+    "https://www.timesy.dev/landing.png"
   end
 end
