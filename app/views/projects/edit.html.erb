@@ -6,7 +6,7 @@
 ) %>
 
 <%= turbo_frame_tag "timeline" do %>
-<div class="mx-auto max-w-3xl w-full py-4 px-4">
+<div class="mx-auto max-w-3xl w-full p-0 sm:p-4">
   <div class="bg-white dark:bg-dark-card p-4">
     <%= render partial: 'projects/form', locals: { project: @project, path: update_project_path(current_user.username, @project.codename), submit_label: I18n.t("form.submit.update"), method: :patch } %>
     <div class="flex">
