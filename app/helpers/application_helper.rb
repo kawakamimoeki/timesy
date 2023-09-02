@@ -63,7 +63,7 @@ module ApplicationHelper
   end
 
   def icon_button_class
-    "block rounded-full hover:shadow-sm transition-all text-lg text-gray-600 dark:text-gray-300 cursor-pointer p-relative p-2 hover:bg-gray-50 transition-all dark:hover:bg-gray-700"
+    "block rounded-full hover:shadow-sm transition-all text-2xl text-gray-400 dark:text-gray-400 cursor-pointer p-relative p-2 hover:bg-gray-50 transition-all dark:hover:bg-gray-700"
   end
 
   def dropdown_class
