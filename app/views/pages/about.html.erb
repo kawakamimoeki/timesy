@@ -6,41 +6,29 @@
 ) %>
 
 <div class="max-w-3xl mx-auto p-0 sm:p-4">
-  <div class="py-10 border-b dark:border-dark-border ">
-    <h1 class="text-center font-bold text-6xl sm:text-9xl">
+  <div class="py-10 dark:border-dark-border ">
+    <h1 class="text-center font-bold text-6xl">
       Hack Luck.
     </h1>
   </div>
   <main class="text-gray-800 leading-7">
-    <div class="<%= card_class %> border-b dark:border-dark-border py-10">
-      <h3 class="text-2xl mb-3 w-full flex items-center font-bold">
-        <span class="emoji mr-[2px]">✍️</span>
+    <div class="<%= card_class %> dark:border-dark-border">
+      <h3 class="mb-3 w-full flex items-center font-bold">
         <span><%= I18n.t("about.tweet.title") %></span>
       </h3>
       <p><%= I18n.t("about.tweet.body") %></p>
     </div>
-    <div class="<%= card_class %> border-b dark:border-dark-border py-10">
-      <h3 class="text-2xl mb-3 w-full flex items-center font-bold">
-        <span class="emoji mr-[2px]">👍</span>
+    <div class="<%= card_class %> dark:border-dark-border">
+      <h3 class="mb-3 w-full flex items-center font-bold">
         <span><%= I18n.t("about.reaction.title") %></span>
       </h3>
       <p><%= I18n.t("about.reaction.body") %></p>
     </div>
-    <div class="<%= card_class %> border-b dark:border-dark-border py-10">
-      <h3 class="text-2xl mb-3 w-full flex items-center font-bold">
-        <span class="emoji mr-[2px]">👨‍💻</span>
+    <div class="<%= card_class %> dark:border-dark-border">
+      <h3 class="mb-3 w-full flex items-center font-bold">
         <span><%= I18n.t("about.contribution.title") %></span>
       </h3>
       <p><%= I18n.t("about.contribution.body") %></p>
-      <div class="mt-10 text-center">
-        <a
-          href="https://github.com/moekidev/timesy"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="bg-sky-500 font-bold text-white py-3 px-5 shadow-sm hover:bg-sky-600 rounded w-auto text-center mt-5">
-        <%= I18n.t("about.contribution.button") %>
-        </a>
-      </div>
     </div>
   </main>
 </div>
