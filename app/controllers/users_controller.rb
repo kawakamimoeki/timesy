@@ -7,17 +7,10 @@ class UsersController < ApplicationController
   def header
   end
 
-  def timeline_nav
-  end
-
   def code_theme
   end
 
   def wallpaper
-  end
-
-  def user_nav
-    @user = User.find_by(username: params[:username])
   end
 
   def feed
@@ -29,10 +22,6 @@ class UsersController < ApplicationController
     @posts = @user.posts.joins(:projects).merge(Project.rss).latest
     erb = ERB.new(File.read("#{Rails.root}/app/views/users/feed.xml.erb"))
     render xml: erb.result(binding).html_safe
-  end
-
-  def profile
-    @user = User.find_by(username: params[:username])
   end
 
   def new
@@ -115,12 +104,6 @@ class UsersController < ApplicationController
 
     @user.destroy
     redirect_to "/"
-  end
-
-  def actor
-    @user = User.find_by(username: params[:username])
-    @actor = @user.actor_json
-    render json: @actor, content_type: "application/activity+json"
   end
 
   def followers

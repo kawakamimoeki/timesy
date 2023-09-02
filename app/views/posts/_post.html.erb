@@ -44,7 +44,7 @@
                   <%= button_to(
                     delete_post_url(id: post.id),
                     method: :delete,
-                    class: "#{block_link_class} w-full text-red-400 dark:text-red-400",
+                    class: "#{block_link_class}  w-full text-red-400 dark:text-red-400",
                     onClick: "return confirm('#{I18n.t('posts.confirm_delete')}')",
                     data: { turbo: false, post_show_target: "deleteButton", action: "menu#close" },
                   ) do %>

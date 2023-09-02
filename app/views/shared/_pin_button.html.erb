@@ -1,11 +1,11 @@
 <div data-post-show-target="menu">
 <% if post.pinned_by?(current_user) %>
-  <%= button_to delete_pin_path(post.id, Pin.find_by(user: current_user, post: post)), class: "#{block_link_class} text-sky-500 dark:text-sky-500", method: :delete do %>
+  <%= button_to delete_pin_path(post.id, Pin.find_by(user: current_user, post: post)), class: "#{block_link_class} text-sky-500 dark:text-sky-500 w-full", method: :delete do %>
     <div class="i-lucide-pin"></div>
     <%= I18n.t("posts.pinned") %>
   <% end %>
 <% else %>
-  <%= button_to create_pin_path(post_id: post.id), method: :post, class: "#{block_link_class}" do %>
+  <%= button_to create_pin_path(post_id: post.id), method: :post, class: "#{block_link_class} w-full" do %>
     <div class="i-lucide-pin "></div>
     <%= I18n.t("posts.pin") %>
   <% end %>

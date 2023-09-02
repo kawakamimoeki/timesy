@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   get "t/sitemap", to: "sitemap#index", as: :sitemap, defaults: { format: "xml" }
 
   get 'users/header', to: 'users#header', as: :users_header
-  get 'users/timeline_nav', to: 'users#timeline_nav', as: :users_timeline_nav
   get '/users/code_theme', to: 'users#code_theme', as: :users_code_theme
   get 'users/wallpaper', to: 'users#wallpaper', as: :users_wallpaper
   get 'sign_up', to: 'users#new', as: :sign_up
@@ -27,8 +26,6 @@ Rails.application.routes.draw do
   delete "posts/:id", to: "posts#destroy", as: :delete_post
   get "posts/:id/main", to: "posts#main", as: :post_main
   get '/posts/:id/pin_button', to: 'posts#pin_button', as: :post_pin_button
-  get 'posts/:id/editor', to: 'posts#editor', as: :post_editor
-  get 'posts/:id/menu', to: 'posts#menu', as: :post_menu
 
   post '/posts/:post_id/pins', to: 'pins#create', as: :create_pin
   delete '/posts/:post_id/pins/:id', to: 'pins#destroy', as: :delete_pin
@@ -58,20 +55,16 @@ Rails.application.routes.draw do
   get 'about/(:locale)', to: 'pages#about', as: :about
   get 'docs/(:locale)', to: 'pages#docs', as: :docs
 
-  get '/.well-known/webfinger', to: 'webfinger#index', as: :webfinger
-
   get '/:username', to: 'users#actor', as: :actor, constraints: lambda { |request| request.format == :json }
   get '/:username', to: 'users#show', as: :user, constraints: lambda { |request| request.format != :json }
   get '/:username/feed', to: 'users#feed', as: :feed
   get 'users/:username' => redirect('/%{username}')
-  get '/:username/profile', to: 'users#profile', as: :profile
   get '/:username/projects', to: 'projects#index', as: :projects
   get '/:username/projects/list', to: 'projects#list', as: :projects_list
   get '/:username/projects/:codename', to: 'projects#show', as: :project
   get 'projects/new', to: 'projects#new', as: :new_project
   post 'projects', to: 'projects#create', as: :create_project
   get '/:username/projects/:codename/edit', to: 'projects#edit', as: :edit_project
-  get '/:username/projects/:codename/details', to: 'projects#details', as: :project_details
   patch '/:username/projects/:id', to: 'projects#update', as: :update_project
   delete '/:username/projects/:codename', to: 'projects#destroy', as: :delete_project
   post '/:username/follows', to: 'follows#create', as: :follow_user

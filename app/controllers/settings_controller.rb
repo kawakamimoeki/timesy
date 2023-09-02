@@ -62,20 +62,6 @@ class SettingsController < ApplicationController
     @user = current_user
   end
 
-  private def purge_page(user)
-    api_instance = Fastly::PurgeApi.new
-    opts = {
-        service_id: ENV['FASTLY_SERVICE_ID'],
-        cached_url: "#{Site.origin}/#{user.username}",
-        fastly_soft_purge: 1
-    }
-    begin
-      result = api_instance.purge_single_url(opts)
-    rescue Fastly::ApiError => e
-      Rails.logger.error("Exception when calling PurgeApi->purge_single_url: #{e}")
-    end
-  end
-
   private def profile_params
     params.require(:user).permit(
       :email,
