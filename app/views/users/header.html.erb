@@ -33,16 +33,10 @@
     <%= link_to I18n.t("users.sign_in"), "/users/sign_in", class: "#{block_link_class} mr-1", data: { turbo_frame: "_top" }  %>
     <%= link_to I18n.t("users.sign_up"), "/users/sign_up", class: "#{primary_button_class} mr-1", data: { turbo_frame: "_top", testid: "signup-link" } %>
   <% end %>
-  <div data-controller="menu" class="-mb-[4px] overflow-visible relative">
-  <% if current_user %>
-    <button data-action="click->menu#open" >
-      <%= image_tag current_user.avatar_icon, alt: "", class: "w-8 h-8 object-cover rounded-full" %>
-    </button>
-  <% else %>
-    <button data-action="click->menu#open" class="<%= icon_button_class %> ml-1" >
-      <div class="i-lucide-menu"></div>
-    </button>
-  <% end %>
+  <div data-controller="menu" class="overflow-visible relative">
+  <button data-action="click->menu#open" class="<%= icon_button_class %>" >
+    <div class="i-lucide-menu"></div>
+  </button>
   <div data-action="click->menu#close" data-menu-target="backdrop" class="<%= backdrop_class %>"></div>
   <div class="<%= dropdown_class %>"  data-menu-target="dropdown">
     <div class="text-sm h-full w-full p-4 dark:border-dark-border">
