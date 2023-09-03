@@ -8,7 +8,7 @@ body.dark .CodeMirror-cursor {
 
 .EasyMDEContainer .CodeMirror {
   padding: 4px;
-  border: 1px solid #e5e7eb;
+  border: 1px solid #e5e7eb !important;
   border-radius: 4px;
   background-color: white;
 }
