@@ -1,4 +1,4 @@
-<div class="<%= "#{card_class} overflow-visible flex border-b dark:border-dark-border transition-all animate-fade-in w-full post-card" %>" data-controller="post-show" data-testid="<%= post.body %>" >
+<div class="<%= "#{card_class} overflow-visible flex border dark:border-dark-border rounded mb-4 shadow-sm transition-all animate-fade-in w-full post-card" %>" data-controller="post-show" data-testid="<%= post.body %>" >
   <div class="w-[42px]">
     <%= link_to user_path(username: post.user.username), class: "cursor-pointer text-sm block flex items-center hover:underline flex-wrap", data: { turbo_frame: "_top" } do %>
       <%= image_tag post.user.avatar_icon, alt: "", width: "20px", height: "20px", class: "w-8 h-8 rounded-full mr-2 block" %>

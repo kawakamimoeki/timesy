@@ -1,8 +1,3 @@
-body.dark .CodeMirror {
-  background-color: rgb(21, 32, 43) !important;
-  color: #eee !important;
-}
-
 body.dark .CodeMirror-cursor {
   border-color: #fff !important;
 }
@@ -12,9 +7,16 @@ body.dark .CodeMirror-cursor {
 }
 
 .EasyMDEContainer .CodeMirror {
-  border: none !important;
-  border-bottom-left-radius: 0 !important;
-  border-bottom-right-radius: 0 !important;
+  padding: 4px;
+  border: 1px solid #e5e7eb;
+  border-radius: 4px;
+  background-color: white;
+}
+
+.dark .EasyMDEContainer .CodeMirror {
+  border: 1px solid #414141;
+  background-color: rgb(21, 32, 43);
+  color: #eee !important;
 }
 
 .dark .CodeMirror-selected {
@@ -23,12 +25,6 @@ body.dark .CodeMirror-cursor {
 
 .CodeMirror * {
   word-break: break-all !important;
-}
-
-.CodeMirror {
-  padding: 0 !important;
-  border: none;
-  border-radius: 0;
 }
 
 .cm-formatting-header,

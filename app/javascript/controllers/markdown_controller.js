@@ -1,16 +1,30 @@
-import { Controller } from "@hotwired/stimulus"
-import EasyMDE from "easymde"
-import { DirectUpload } from "@rails/activestorage"
-import Toastify from 'toastify-js'
-import hljs from 'highlight.js';
+import { Controller } from "@hotwired/stimulus";
+import EasyMDE from "easymde";
+import { DirectUpload } from "@rails/activestorage";
+import Toastify from "toastify-js";
+import hljs from "highlight.js";
 
 export default class extends Controller {
-  static values = { minHeight: String, placeholder: String, directUploadUrl: String, model: String, imageUploadingText: String, imageUploadFailedText: String }
-  static targets = ["editor", "preview", "editorContainer", "editorButton", "previewButton", "file"]
- 
+  static values = {
+    minHeight: String,
+    placeholder: String,
+    directUploadUrl: String,
+    model: String,
+    imageUploadingText: String,
+    imageUploadFailedText: String,
+  };
+  static targets = [
+    "editor",
+    "preview",
+    "editorContainer",
+    "editorButton",
+    "previewButton",
+    "file",
+  ];
+
   connect() {
     if (this.element.querySelector(".EasyMDEContainer")) {
-      return
+      return;
     }
     this.element.easyMDE = new EasyMDE({
       element: this.editorTarget,
@@ -30,7 +44,11 @@ export default class extends Controller {
       imageUploadFunction: this.uploadFile.bind(this),
     });
     document.addEventListener("keydown", (event) => {
-      if (event.key === "p" && (event.ctrlKey || event.metaKey) && event.shiftKey) {
+      if (
+        event.key === "p" &&
+        (event.ctrlKey || event.metaKey) &&
+        event.shiftKey
+      ) {
         event.preventDefault();
         event.stopPropagation();
         if (this.previewTarget.classList.contains("hidden")) {
@@ -44,21 +62,21 @@ export default class extends Controller {
       this.element.easyMDE.codemirror.refresh();
       this.element.easyMDE.codemirror.focus();
     });
-    this.submit = this.element.querySelector("input[type='submit']")
+    this.submit = this.element.querySelector("input[type='submit']");
     this.element.addEventListener("keydown", (event) => {
       if (event.key === "Enter" && (event.ctrlKey || event.metaKey)) {
         event.preventDefault();
         this.submit.click();
       }
-    })
+    });
     this.updateSubmitState();
     this.element.easyMDE.codemirror.on("change", () => {
       this.updateSubmitState();
     });
   }
 
-  attachImage () {
-    this.element.easyMDE.openBrowseFileWindow()
+  attachImage() {
+    this.element.easyMDE.openBrowseFileWindow();
   }
 
   updateSubmitState() {
@@ -82,12 +100,14 @@ export default class extends Controller {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-CSRF-Token": document.querySelector("meta[name='csrf-token']").getAttribute("content"),
+        "X-CSRF-Token": document
+          .querySelector("meta[name='csrf-token']")
+          .getAttribute("content"),
       },
       body: JSON.stringify({
         post: {
-          body: this.element.easyMDE.value()
-        }
+          body: this.element.easyMDE.value(),
+        },
       }),
     });
     const data = await res.json();
@@ -96,8 +116,8 @@ export default class extends Controller {
     hljs.configure({
       ignoreUnescapedHTML: true,
       throwUnescapedHTML: false,
-    })
-    twttr.widgets.load()
+    });
+    twttr.widgets.load();
   }
 
   async edit() {
@@ -109,8 +129,8 @@ export default class extends Controller {
   }
 
   clear() {
-    this.element.easyMDE.value('');
-    this.previewTarget.innerHTML = '';
+    this.element.easyMDE.value("");
+    this.previewTarget.innerHTML = "";
   }
 
   async uploadFile(file, onSuccess, onError) {
@@ -123,44 +143,48 @@ export default class extends Controller {
         "font-weight": "bold",
         "font-size": "14px",
       },
-    })
+    });
     this.element.toast.showToast();
-    const url = "/rails/active_storage/direct_uploads"
-    const upload = new DirectUpload(file, url)
-  
-    upload.create(async function (error, blob) {
-      if (error) {
-        onError(error)
-        Toastify({
-          text: this.imageUploadFailedTextValue,
-          gravity: "bottom",
-          duration: 3000,
-          position: "right",
-          backgroundColor: "#ba5649",
-          style: {
-            "font-weight": "bold",
-            "font-size": "14px",
-          },
-        }).showToast();
-      } else {
-        console.log(this)
-        const hiddenField = document.createElement('input')
-        hiddenField.setAttribute("type", "hidden");
-        hiddenField.setAttribute("value", blob.signed_id)
-        hiddenField.name = `${this.modelValue}[images][]`
-        this.element.appendChild(hiddenField)
-        const res = await fetch("/api/v1/blobs/" + blob.signed_id + "/url", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            "X-CSRF-Token": document.querySelector("meta[name='csrf-token']").getAttribute("content"),
-          },
-        });
-        const data = await res.json();
-        const url = data.url;
-        onSuccess(url)
-        this.element.toast.hideToast();
-      }
-    }.bind(this))
+    const url = "/rails/active_storage/direct_uploads";
+    const upload = new DirectUpload(file, url);
+
+    upload.create(
+      async function (error, blob) {
+        if (error) {
+          onError(error);
+          Toastify({
+            text: this.imageUploadFailedTextValue,
+            gravity: "bottom",
+            duration: 3000,
+            position: "right",
+            backgroundColor: "#ba5649",
+            style: {
+              "font-weight": "bold",
+              "font-size": "14px",
+            },
+          }).showToast();
+        } else {
+          console.log(this);
+          const hiddenField = document.createElement("input");
+          hiddenField.setAttribute("type", "hidden");
+          hiddenField.setAttribute("value", blob.signed_id);
+          hiddenField.name = `${this.modelValue}[images][]`;
+          this.element.appendChild(hiddenField);
+          const res = await fetch("/api/v1/blobs/" + blob.signed_id + "/url", {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              "X-CSRF-Token": document
+                .querySelector("meta[name='csrf-token']")
+                .getAttribute("content"),
+            },
+          });
+          const data = await res.json();
+          const url = data.url;
+          onSuccess(url);
+          this.element.toast.hideToast();
+        }
+      }.bind(this)
+    );
   }
 }

@@ -14,19 +14,19 @@
     <div id="wallpaper-container" data-turbo-permanent>
       <%= turbo_frame_tag "wallpaper", src: users_wallpaper_path %>
     </div>
-    <header id="header" data-turbo-permanent class="w-full top-0 bg-opacity-60 backdrop-blur dark:bg-opacity-60 fixed bg-white dark:bg-dark-background dark:text-gray-200 z-10">
+    <header id="header" data-turbo-permanent class="w-full top-0 bg-gray-50 fixed  dark:bg-gray-800 border-b dark:border-dark-border dark:text-gray-200 z-10">
       <div class="flex max-w-3xl mx-auto px-4 items-center py-2 text-sm">
         <%= link_to "/", class: "block mr-3 text-2xl font-bold", data: { turbo_frame: "_top" } do %>
           T
         <% end %>
         <div class="grow"></div>
-        <div class="h-[34px] z-[100]" id="header-nav-conteiner" data-turbo-permanent>
+        <div class="h-[42px] z-[100]" id="header-nav-conteiner" data-turbo-permanent>
           <%= turbo_frame_tag "header_menu", src: users_header_path %>
         </div>
       <div>
     </header>
 
-    <main class="w-full mt-[50px]">
+    <main class="w-full mt-[60px]">
       <%= yield %>
     </main>
 

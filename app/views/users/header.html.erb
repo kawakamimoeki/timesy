@@ -33,7 +33,7 @@
     <%= link_to I18n.t("users.sign_in"), "/users/sign_in", class: "#{block_link_class} mr-1", data: { turbo_frame: "_top" }  %>
     <%= link_to I18n.t("users.sign_up"), "/users/sign_up", class: "#{primary_button_class} mr-1", data: { turbo_frame: "_top", testid: "signup-link" } %>
   <% end %>
-  <div data-controller="menu" class="overflow-visible relative">
+  <div data-controller="menu" class="-ml-1 overflow-visible relative">
   <button data-action="click->menu#open" class="<%= icon_button_class %>" >
     <div class="i-lucide-menu"></div>
   </button>
