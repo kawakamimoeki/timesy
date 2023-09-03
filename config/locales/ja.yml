@@ -182,7 +182,7 @@ ja:
       description: Timesyのデータのエクスポートを開始しました。完了した際にダウンロードリンクを掲載したメールをお送りいたしますのでしばらくお待ち下さい。
     failed:
       title: エクスポートに失敗しました
-      description: Timesyのデータのエクスポートに失敗しました。もう一度やり直してください。何回も失敗する場合には hello@Timesy までご連絡区獺祭。
+      description: Timesyのデータのエクスポートに失敗しました。もう一度やり直してください。何回も失敗する場合には hello@timesy.dev までご連絡ください。
     completed:
       title: エクスポートが完了しました
       description: Timesyのデータのエクスポートが完了しました。以下のボタンからZipファイルをダウンロードしてください。

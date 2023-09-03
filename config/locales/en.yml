@@ -183,7 +183,7 @@ en:
       description: The export of Timesy data has started. We will send you an email with a download link when it's ready. Please wait for a while.
     failed:
       title: Export failed
-      description: The export of Timesy data has failed. Please try again. If it fails repeatedly, please contact hello@Timesy.
+      description: The export of Timesy data has failed. Please try again. If it fails repeatedly, please contact hello@timesy.dev.
     completed:
       title: Export completed
       description: The export of Timesy data has completed. Please download the Zip file from the button below.
