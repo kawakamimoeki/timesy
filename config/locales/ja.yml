@@ -29,7 +29,7 @@ ja:
     your_profile: プロフィール
     settings: 設定
     docs: ドキュメント
-    about: timesy.devについて
+    about: Timesyについて
     terms: 利用規約
     privacy: プライバシーポリシー
     emoji_request: 絵文字リクエスト
@@ -58,7 +58,7 @@ ja:
       username:
         invalid: "は半角英数字とアンダースコア（_）のみ使用できます"
   header:
-    about: timesy.devについて
+    about: Timesyについて
   pinned:
     empty: 自分や他の人のスレッドをピンするとここに表示されます。
     empty2: 作業中のスレッドや気になるスレッドをピンしてみましょう！
@@ -99,10 +99,10 @@ ja:
     sign_up:
       required: <a href="/terms" class="underline" target="_blank">利用規約</a>、<a href="/privacy" class="underline" target="_blank">プライバシーポリシー</a>に同意したうえで登録してください。
       send: 確認メールを送信する
-      email_subject: timesy.devへようこそ！メールアドレスを確認して下さい
+      email_subject: Timesyへようこそ！メールアドレスを確認して下さい
     email_confirmation_mailer:
       magic_link:
-        subject: timesy.devへようこそ！メールアドレスを確認して下さい
+        subject: Timesyへようこそ！メールアドレスを確認して下さい
     sessions:
       create:
         email_sent_if_record_found: ログインリンクを送信しました。メールに記載されたリンクをクリックしてください。
@@ -179,13 +179,13 @@ ja:
   exports:
     started:
       title: エクスポートを開始しました
-      description: timesy.devのデータのエクスポートを開始しました。完了した際にダウンロードリンクを掲載したメールをお送りいたしますのでしばらくお待ち下さい。
+      description: Timesyのデータのエクスポートを開始しました。完了した際にダウンロードリンクを掲載したメールをお送りいたしますのでしばらくお待ち下さい。
     failed:
       title: エクスポートに失敗しました
-      description: timesy.devのデータのエクスポートに失敗しました。もう一度やり直してください。何回も失敗する場合には hello@timesy.dev までご連絡区獺祭。
+      description: Timesyのデータのエクスポートに失敗しました。もう一度やり直してください。何回も失敗する場合には hello@Timesy までご連絡区獺祭。
     completed:
       title: エクスポートが完了しました
-      description: timesy.devのデータのエクスポートが完了しました。以下のボタンからZipファイルをダウンロードしてください。
+      description: Timesyのデータのエクスポートが完了しました。以下のボタンからZipファイルをダウンロードしてください。
     download: ダウンロードする
   search:
     placeholder: キーワードを入力
@@ -214,14 +214,14 @@ ja:
     confirm_leave: ページを離れてもよろしいですか？
   about:
     tweet:
-      title: timesy.devでつぶやく
+      title: Timesyでつぶやく
       body: 技術ブログのアイデア出しや、個人開発の分報として使ってもいいですし、日常のことだってもちろんつぶやけます。Markdownなので普段使っているSNSよりも表現の幅が広がります。
     reaction:
-      title: timesy.devでリアクションする
+      title: Timesyでリアクションする
       body: ためになったことや、面白かったことにはリアクションを送ってみましょう。絵文字で気軽にリアクションするのもよし、Markdownで詳しくコメントするのもよしです。
     contribution:
-      title: timesy.devに貢献する
-      body: timesy.devはOSS（オープンソース・ソフトウェア）です。皆さんの考えをどんどんプロダクトに反映させていきたいと思っていますので、ぜひお気軽にコントリビュートしてみてください。
+      title: Timesyに貢献する
+      body: TimesyはOSS（オープンソース・ソフトウェア）です。皆さんの考えをどんどんプロダクトに反映させていきたいと思っていますので、ぜひお気軽にコントリビュートしてみてください。
       button: GitHubのリポジトリを見る
   datetime:
     distance_in_words:

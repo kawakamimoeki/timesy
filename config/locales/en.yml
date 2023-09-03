@@ -31,7 +31,7 @@ en:
     your_profile: Profile
     settings: Settings
     docs: Documentation
-    about: About timesy.dev
+    about: About Timesy
     terms: Terms of Service
     privacy: Privacy Policy
     emoji_request: Emoji Request
@@ -60,7 +60,7 @@ en:
       username:
         invalid: "Only alphanumeric characters and underscores are allowed"
   header:
-    about: About timesy.dev
+    about: About Timesy
   pinned:
     empty: Pins of your own or others' threads will be displayed here.
     empty2: Try pinning threads you're working on or interested in!
@@ -98,11 +98,11 @@ en:
     welcome_back: Welcome back!
     email_confirmation_mailer:
       magic_link:
-        subject: Welcome to timesy.dev!
+        subject: Welcome to Timesy!
     sign_up:
       required: Please register after agreeing to the <a href="/terms" class="underline" target="_blank">Terms of Service</a> and <a href="/privacy" class="underline" target="_blank">Privacy Policy</a>.
       send: Send confirmation email
-      email_subject: Welcome to timesy.dev! Confirm your email address
+      email_subject: Welcome to Timesy! Confirm your email address
     sessions:
       create:
         email_sent_if_record_found: Login link sent. Please click the link in the email.
@@ -180,13 +180,13 @@ en:
   exports:
     started:
       title: Export has started
-      description: The export of timesy.dev data has started. We will send you an email with a download link when it's ready. Please wait for a while.
+      description: The export of Timesy data has started. We will send you an email with a download link when it's ready. Please wait for a while.
     failed:
       title: Export failed
-      description: The export of timesy.dev data has failed. Please try again. If it fails repeatedly, please contact hello@timesy.dev.
+      description: The export of Timesy data has failed. Please try again. If it fails repeatedly, please contact hello@Timesy.
     completed:
       title: Export completed
-      description: The export of timesy.dev data has completed. Please download the Zip file from the button below.
+      description: The export of Timesy data has completed. Please download the Zip file from the button below.
     download: Download
   search:
     placeholder: Enter keyword
@@ -215,14 +215,14 @@ en:
     confirm_leave: Are you sure you want to leave the page?
   about:
     tweet:
-      title: Tweet with timesy.dev
+      title: Tweet with Timesy
       body: You can use it for brainstorming ideas for technical blogs, as a log for personal development, and of course, you can tweet about everyday life. Because it's Markdown, you have a wider range of expressions than usual SNS.
     reaction:
-      title: React with timesy.dev
+      title: React with Timesy
       body: Let's send reactions to things that were beneficial or interesting. It's good to casually react with emojis, and it's also good to comment in detail with Markdown.
     contribution:
-      title: Contribute to timesy.dev
-      body: timesy.dev is OSS (Open Source Software). We want to reflect everyone's thoughts in the product, so please feel free to contribute.
+      title: Contribute to Timesy
+      body: Timesy is OSS (Open Source Software). We want to reflect everyone's thoughts in the product, so please feel free to contribute.
       button: View the GitHub repository
   datetime:
     distance_in_words:

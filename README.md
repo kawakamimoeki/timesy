@@ -1,6 +1,6 @@
-![timesy.dev](./public/ogp.png)
+![Timesy](./public/ogp.png)
 
-**timesy.dev** is a social technical note application for developers⏳
+**Timesy** is a social technical note application for developers⏳
 
 ## Requirement
 
@@ -39,4 +39,4 @@ This application is available as open source under the terms of the [MIT License
 
 ## Code of Conduct
 
-All people interacting with the timesy.dev project codebase, issue tracker, chat rooms, and mailing lists are expected to follow the [Code of Conduct](https://github.com/moekidev/timesy/blob/main/CODE_OF_CONDUCT.md).
+All people interacting with the Timesy project codebase, issue tracker, chat rooms, and mailing lists are expected to follow the [Code of Conduct](https://github.com/moekidev/timesy/blob/main/CODE_OF_CONDUCT.md).

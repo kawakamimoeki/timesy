@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title><%= REXML::Document.new.tap { |doc| doc.add(REXML::CData.new("timesy.dev/#{@user.name}")) } %></title>
-    <description><%= REXML::Document.new.tap { |doc| doc.add(REXML::CData.new("timesy.devの#{@user.name}さんのフィード")) } %></description>
+    <title><%= REXML::Document.new.tap { |doc| doc.add(REXML::CData.new("Timesy/#{@user.name}")) } %></title>
+    <description><%= REXML::Document.new.tap { |doc| doc.add(REXML::CData.new("Timesyの#{@user.name}さんのフィード")) } %></description>
     <link><%= user_url(@user.username) %></link>
     <language>ja</language>
     <lastBuildDate><%= @posts.first ? @posts.first.updated_at.to_s(:rfc822) : @user.created_at.to_s(:rfc822) %></lastBuildDate>
-    <generator>timesy.dev</generator>
+    <generator>Timesy</generator>
     <image>
       <url>https://timesy.dev/logo.png</url>
-      <title><%= REXML::Document.new.tap { |doc| doc.add(REXML::CData.new("timesy.dev/#{@user.name}")) }.to_s %></title>
+      <title><%= REXML::Document.new.tap { |doc| doc.add(REXML::CData.new("Timesy/#{@user.name}")) }.to_s %></title>
       <link><%= user_url(@user.username) %></link>
     </image>
     <atom:link rel="self" type="application/rss+xml" href="<%= feed_url(@user.username) %>"/>

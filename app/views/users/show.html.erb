@@ -1,5 +1,5 @@
 <% content_for(:rss_meta_tags) do %>
-  <link href="<%= feed_url(@user.username) %>" rel="alternate" title="timesy.dev/<%= @user.name %>" type="application/rss+xml">
+  <link href="<%= feed_url(@user.username) %>" rel="alternate" title="Timesy/<%= @user.name %>" type="application/rss+xml">
 <% end %>
 
 <% set_meta_tags(
