@@ -13,7 +13,6 @@ class SettingsController < ApplicationController
       end
       flash[:notice] = I18n.t('settings.updated')
     end
-    purge_page(@user)
     redirect_to settings_path
   end
 

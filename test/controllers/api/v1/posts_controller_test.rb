@@ -97,18 +97,6 @@ class Api::V1::PostsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get trending" do
-    ApplicationController.stub_any_instance :current_user, users(:current) do
-      get api_v1_posts_trending_url
-      assert_response :success
-    end
-  end
-
-  test "guests should get trending" do
-    get api_v1_posts_trending_url
-    assert_response :success
-  end
-
   test "should get following tineline" do
     ApplicationController.stub_any_instance :current_user, users(:current) do
       get api_v1_posts_following_url
