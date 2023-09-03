@@ -8,7 +8,7 @@ class Site
   end
 
   def self.title
-    "timesy.dev"
+    "Timesy"
   end
 
   def self.description
