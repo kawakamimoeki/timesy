@@ -31,7 +31,7 @@
   <% end %>
   <% if !current_user %>
     <%= link_to I18n.t("users.sign_in"), "/users/sign_in", class: "#{block_link_class} mr-2", data: { turbo_frame: "_top" }  %>
-    <%= link_to I18n.t("users.sign_up"), "/users/sign_up", class: "#{primary_button_class} mr-2", data: { turbo_frame: "_top", testid: "signup-link" } %>
+    <%= link_to I18n.t("users.sign_up"), "/users/sign_up", class: "#{primary_button_class} mr-1", data: { turbo_frame: "_top", testid: "signup-link" } %>
   <% end %>
   <div data-controller="menu" class="-ml-1 overflow-visible relative">
   <button data-action="click->menu#open" class="<%= icon_button_class %>" >
