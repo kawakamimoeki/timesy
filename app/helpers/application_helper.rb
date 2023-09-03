@@ -20,8 +20,8 @@ module ApplicationHelper
         local: 'ja-JP',
       },
       twitter: {
-        card: 'summary',
-        image: "#{Site.origin}/landing.png",
+        card: 'summary_large_image',
+        image: "#{Site.origin}/ogp.png",
       }
     }
   end

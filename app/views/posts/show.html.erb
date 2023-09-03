@@ -3,7 +3,7 @@
   description: @post.truncated,
   og: {
     title: "#{Site.title}｜#{@post.truncated}",
-    image: "https://www.timesy.dev/landing.jpg",
+    image: ogp_image(@post),
     description: @post.truncated
   },
   twitter: {
