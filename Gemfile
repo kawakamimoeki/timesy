@@ -70,7 +70,6 @@ gem 'browser'
 gem 'vite_rails'
 gem 'rack-cors'
 gem 'ogp'
-gem 'fastly'
 gem 'kaminari'
 gem 'http_accept_language'
 

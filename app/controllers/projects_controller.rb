@@ -75,7 +75,6 @@ class ProjectsController < ApplicationController
 
     if @project.update(project_params)
       @project.icon.attach(params[:project][:icon]) if params[:project][:icon]
-      purge_page(@project)
       redirect_to project_path(@project.user.username, @project.codename)
     else
       render :edit
