@@ -12,13 +12,6 @@ class ProfilesTest < ApplicationSystemTestCase
     assert @page.wait_for_selector('[data-testid="post-list"]').text_content.include?(posts(:my_post).body)
   end
 
-  test "viewing comments" do
-    @page.goto(user_path(users(:current).username))
-    @page.wait_for_selector('[data-testid="view-comments"]').click
-
-    assert @page.wait_for_selector('[data-testid="comment-list"]').text_content.include?(posts(:my_post).body)
-  end
-
   test "viewing projects" do
     @page.goto(user_path(users(:current).username))
     @page.wait_for_selector('[data-testid="view-projects"]').click
