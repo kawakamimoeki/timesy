@@ -1,18 +1,6 @@
 require "test_helper"
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
-  test "should get header" do
-    get "/users/header"
-    assert_response :success
-  end
-
-  test "should get header with current user" do
-    ApplicationController.stub_any_instance :current_user, users(:current) do
-      get "/users/header"
-      assert_response :success
-    end
-  end
-
   test "should get sign_up" do
     get "/sign_up"
     assert_response :success

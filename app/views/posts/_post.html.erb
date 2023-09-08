@@ -146,7 +146,7 @@
         <% end %>
       </div>
       <% if on_timeline %>
-        <%= link_to post_path(post.id), class: icon_button_class, data: { turbo_frame: "_top" } do %>
+        <%= link_to post_path(post.id), class: icon_button_class, data: { turbo: false } do %>
           <div class="i-lucide-arrow-right"></div>
         <% end %>
       <% end %>

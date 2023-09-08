@@ -5,9 +5,6 @@ Rails.application.routes.draw do
 
   get "t/sitemap", to: "sitemap#index", as: :sitemap, defaults: { format: "xml" }
 
-  get 'users/header', to: 'users#header', as: :users_header
-  get '/users/code_theme', to: 'users#code_theme', as: :users_code_theme
-  get 'users/wallpaper', to: 'users#wallpaper', as: :users_wallpaper
   get 'sign_up', to: 'users#new', as: :sign_up
   post 'users/confirm', to: 'users#confirm', as: :confirm
   get 'users/register/:token', to: 'users#register', as: :register
@@ -19,12 +16,10 @@ Rails.application.routes.draw do
   root 'posts#index'
   get "/latest", to: "posts#latest", as: :latest
   get "/pinned", to: "posts#pinned", as: :pinned
-  get "posts/form", to: "posts#form", as: :post_form
   get "posts/:id", to: "posts#show", as: :post
   post "posts", to: "posts#create", as: :create_post
   patch "posts/:id", to: "posts#update", as: :update_post
   delete "posts/:id", to: "posts#destroy", as: :delete_post
-  get "posts/:id/main", to: "posts#main", as: :post_main
   get '/posts/:id/pin_button', to: 'posts#pin_button', as: :post_pin_button
 
   post '/posts/:post_id/pins', to: 'pins#create', as: :create_pin
@@ -38,7 +33,6 @@ Rails.application.routes.draw do
   post '/posts/:post_id/comments', to: 'comments#create', as: :create_comment
   delete '/posts/:post_id/comments/:id', to: 'comments#destroy', as: :delete_comment
   patch '/posts/:post_id/comments/:id', to: 'comments#update', as: :update_comment
-  get '/posts/:post_id/comments/form', to: 'comments#form', as: :comment_form
 
   post '/posts/:post_id/comments/:comment_id/reactions', to: 'comment_reactions#create', as: :create_comment_reaction
   delete '/posts/:post_id/comments/:comment_id/reactions/:id', to: 'comment_reactions#destroy', as: :delete_comment_reaction
