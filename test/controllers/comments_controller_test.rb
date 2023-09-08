@@ -2,18 +2,6 @@ require "test_helper"
 require 'minitest/mock'
 
 class CommentsControllerTest < ActionDispatch::IntegrationTest
-  test "should get form" do
-    get comment_form_url(post_id: posts(:my_post).id)
-    assert_response :success
-  end
-
-  test "should get form with current user" do
-    ApplicationController.stub_any_instance :current_user, users(:current) do
-      get comment_form_url(post_id: posts(:my_post).id)
-      assert_response :success
-    end
-  end
-
   test "should get index" do
     get "/posts/#{posts(:my_post).id}/comments.turbo_stream"
     assert_response :success

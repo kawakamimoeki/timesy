@@ -13,8 +13,7 @@
 
 <div id="thread-container" class="grow overflow-visible max-w-3xl flex w-full mx-auto p-4 mb-32">
   <div class="grow w-full">
-    <%= turbo_frame_tag "post_main", src: post_main_path(@post) do %>
-    <% end %>
+    <%= render partial: "posts/post", locals: { post: @post, link: false, additional_class: "border-b", on_timeline: false } %>
     
     <div data-controller="thread-scroll">
       <%= turbo_frame_tag "comments", target: "_top" do %>
@@ -29,7 +28,11 @@
       <%= turbo_frame_tag "load_more", src: comments_path(@post, format: :turbo_stream)  %>
     </div>
 
-    <%= turbo_frame_tag "comment_form", src: comment_form_path(@post), loading: :lazy %>
+    <% if current_user %>
+      <div class="<%= card_class %> border rounded mb-4 shadow-sm dark:border-dark-border">
+        <%= render partial: "comments/form", locals: { comment: @comment, post: @post } %>
+      </div>
+    <% end %>
   </div>
 </div>
 
