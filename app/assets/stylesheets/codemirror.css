@@ -14,7 +14,7 @@ body.dark .CodeMirror-cursor {
 }
 
 .dark .EasyMDEContainer .CodeMirror {
-  border: 1px solid #414141;
+  border: 1px solid #414141 !important;
   background-color: rgb(21, 32, 43);
   color: #eee !important;
 }
