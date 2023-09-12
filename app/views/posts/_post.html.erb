@@ -1,6 +1,6 @@
 <div class="<%= "#{card_class} overflow-visible flex border dark:border-dark-border rounded mb-4 shadow-sm transition-all animate-fade-in w-full post-card" %>" data-controller="post-show" data-testid="<%= post.body %>" >
   <div class="w-[42px]">
-    <%= link_to user_path(username: post.user.username), class: "cursor-pointer text-sm block flex items-center hover:underline flex-wrap", data: { turbo_frame: "_top" } do %>
+    <%= link_to user_path(username: post.user.username), class: " text-sm block flex items-center hover:underline flex-wrap", data: { turbo_frame: "_top" } do %>
       <%= image_tag post.user.avatar_icon, alt: "", width: "20px", height: "20px", class: "w-8 h-8 rounded-full mr-2 block" %>
     <% end %>
   </div>
@@ -8,7 +8,7 @@
     <div class="mb-4 z-[100]">
       <div class="flex flex-row mb-3 items-center space-x-1 z-[100]">
         <div class="flex w-[calc(100%-42px)] items-center space-x-1 whitespace-nowrap overflow-hidden overflow-ellipsis">
-          <%= link_to user_path(username: post.user.username), class: "cursor-pointer text-sm block flex gap-1 items-center hover:underline", data: { turbo_frame: "_top" } do %>
+          <%= link_to user_path(username: post.user.username), class: " text-sm block flex gap-1 items-center hover:underline", data: { turbo_frame: "_top" } do %>
             <span class="font-bold"><%= post.user.name %></span>
             <span class="text-gray-400"><%= post.user.username_with_at %></span>
           <% end %>

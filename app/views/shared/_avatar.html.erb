@@ -1,4 +1,4 @@
-<%= link_to user_path(username: user.username), class: "cursor-pointer text-sm block flex items-center hover:underline flex-wrap", data: { turbo_frame: "_top" } do %>
+<%= link_to user_path(username: user.username), class: " text-sm block flex items-center hover:underline flex-wrap", data: { turbo_frame: "_top" } do %>
   <%= image_tag user.avatar_icon, alt: "", width: "20px", height: "20px", class: "w-8 h-8 rounded-full mr-2 block" %>
   <span class="mr-1 font-bold"><%= user.name %></span>
   <span class="text-gray-400"><%= user.username_with_at %></span>
