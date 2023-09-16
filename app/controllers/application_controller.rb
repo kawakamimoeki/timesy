@@ -2,18 +2,19 @@ class ApplicationController < ActionController::Base
   include Passwordless::ControllerHelpers
 
   helper_method :current_user
-  before_action :set_locale
+  around_action :switch_locale
 
   private def current_user
     @current_user ||= authenticate_by_session(User)
   end
 
-  private def set_locale
-    begin
-      I18n.locale = current_user&.locale || locale = http_accept_language.preferred_language_from(["ja", "en"]) || I18n.default_locale
+  private def switch_locale(&action)
+    locale = begin
+      params[:locale] || current_user&.locale || http_accept_language.preferred_language_from(["ja", "en"]) || I18n.default_locale
     rescue I18n::InvalidLocale
-      I18n.locale = I18n.default_locale
+      I18n.default_locale
     end
+    I18n.with_locale(locale, &action)
   end
 
   private def require_user!
