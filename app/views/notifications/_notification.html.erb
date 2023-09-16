@@ -10,7 +10,7 @@
         ) %>
         <div>
           <div><%= notification.message.html_safe %></div>
-          <div class="text-xs opacity-50"><%= time_ago_in_words(notification.created_at) %></div>
+          <div class="text-xs opacity-50" title="<%= notification.created_at %>"><%= time_ago_in_words(notification.created_at) %></div>
         </div>
       </div>
     <% end %>
