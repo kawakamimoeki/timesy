@@ -1,11 +1,4 @@
 class PagesController < ApplicationController
-
-  before_action :set_locale
-
-  private def set_locale
-    I18n.locale = params[:locale] || "en"
-  end
-
   def privacy
     set_cache_control_headers
     @content = set_content("privacy")
