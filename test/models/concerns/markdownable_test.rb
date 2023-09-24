@@ -18,6 +18,6 @@ class MarkdownableTest < ActiveSupport::TestCase
 
   test "#html returns html with emoji" do
     post = TestPost.new(body: "# Hello :smile:")
-    assert_equal "<h1>Hello <span class=\"emoji\" title=\"smile\">😄</span></h1>\n", post.html
+    assert_equal "<h1>Hello <span class=\"emoji\" title=\"smile\">😄</span>\n</h1>\n", post.html
   end
 end
