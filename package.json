@@ -14,7 +14,7 @@
     "@iconify-json/svg-spinners": "^1.1.2",
     "@picmo/popup-picker": "^5.8.5",
     "@playwright/test": "^1.37.1",
-    "@rails/activestorage": "^7.0.7",
+    "@rails/activestorage": "^7.1.1",
     "@sveltejs/adapter-vercel": "^3.0.3",
     "@unocss/cli": "^0.55.3",
     "@unocss/preset-icons": "^0.55.4",
