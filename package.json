@@ -16,7 +16,7 @@
     "@playwright/test": "^1.37.1",
     "@rails/activestorage": "^7.0.7",
     "@sveltejs/adapter-vercel": "^3.0.3",
-    "@unocss/cli": "^0.55.3",
+    "@unocss/cli": "^0.57.6",
     "@unocss/preset-icons": "^0.55.4",
     "easymde": "^2.18.0",
     "github-markdown-css": "^5.2.0",
